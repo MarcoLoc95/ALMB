@@ -9,6 +9,8 @@ However, since any function can be expressed as a combination of sinusoids, the 
 height: 400px
 name: hills_FFT
 align: center
+---
+Adapted from 
 ```
 
 IMG

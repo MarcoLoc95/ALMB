@@ -9,9 +9,9 @@ parts:
       - file: some_content/text_and_code.ipynb
     - file: some_content/chap2.md
       sections:
-      - file: some_content/chap2_1.ipynb
-      - file: some_content/chap2_2.ipynb
-      - file: some_content/chap2_3.ipynb
+      - file: some_content/chap2_1.md
+      - file: some_content/chap2_2.md
+      - file: some_content/chap2_3.md
     - file: some_content/chap3.md
     - file: some_content/chap4.md
     - file: some_content/chap5.md

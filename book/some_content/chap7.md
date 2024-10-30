@@ -1,3 +1,3 @@
-# Imaging system design
+# 7 - Imaging system design
 
 a

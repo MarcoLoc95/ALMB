@@ -7,7 +7,7 @@ However, since any function can be expressed as a combination of sinusoids, the 
 {figure} ../figures/hills_FFT.png
 ---
 height: 400
-name: HillsFFT
+name: hills_FFT
 align: center
 ---
 Adapted from "Rolling green hills in the East Bay Area, California" by Jon 'ShakataGaNai' Davis, CC-BY-SA-3.0

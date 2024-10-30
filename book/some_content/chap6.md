@@ -10,11 +10,18 @@ height: 400px
 name: hills_FFT
 align: center
 ---
-Adapted from 
+Adapted from "Rolling green hills in the East Bay Area, California" by ShakataGaNai, CC-BY-SA-3.0
 ```
 
-IMG
+```{figure}../figures/waves_FFT.png
+---
+height: 400px
+name: waves_FFT
+align: center
+---
 Adapted from iStockphoto
+```
+
 
 In the same way professional musicians and sound technicians have a deep understanding of spectra and filtering, we can get trained to 
 

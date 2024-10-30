@@ -6,7 +6,7 @@ However, since any function can be expressed as a combination of sinusoids, the 
 
 ```{figure} ../figures/hills_FFT.png
 ---
-height: 400
+height: 400px
 name: hills_FFT
 align: center
 ---

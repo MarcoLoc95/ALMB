@@ -4,9 +4,9 @@ When in physics we talk about frequencies, most people immediately think about _
 
 However, since any function can be expressed as a combination of sinusoids, the same decomposition in _spatial_ frequencies is possible (and extremely useful) with images. When we look at rolling hills covered in grass we can say that the hill silhouette corresponds to low spatial frequencies, because they change slowly throughout the landscape, while the profile of grass blades corresponds to high spatial frequencies, because they change very "rapidly". You can see a computed example here below. Note that, because the view is two-dimensional, its transform in spatial frequencies will also be two-dimensional.
 
-```{figure}../figures/hills_FFT.png
+```{figure} ../figures/hills_FFT.png
 ---
-height: 400px
+height: 50%
 name: hills_FFT
 align: center
 ---
@@ -14,9 +14,9 @@ Adapted from "Rolling green hills in the East Bay Area, California" by ShakataGa
 ```
 qqq
 
-```{figure}../figures/waves_FFT.png
+```{figure} ../figures/waves_FFT.png
 ---
-height: 400px
+height: 50%
 name: waves_FFT
 align: center
 ---

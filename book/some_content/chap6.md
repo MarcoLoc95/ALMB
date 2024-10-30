@@ -1,6 +1,7 @@
 # 6 - A gentle introduction to Fourier optics
 
 When in physics we talk about frequencies, most people immediately think about _temporal_ frequencies, or in other words repetitive changes in time with a fixed rate. For example, a melody is composed of several musical notes, but at the very core each note corresponds to a simple sinusoid with a specific frequency: the note A4 (La) corresponds to 440 Hz, C5 (Do) to 523 Hz and so on. Most of us are somehow naturally able to tell the difference between a low and a high note, even in a complex song where multiple instruments play at the same time.
+
 However, since any function can be expressed as a combination of sinusoids, the same decomposition in _spatial_ frequencies is possible (and extremely useful) with images. When we look at rolling hills covered in grass we can say that the hill silhouette corresponds to low spatial frequencies, because they change slowly throughout the landscape, while the profile of grass to high spatial frequencies, because they change very "quickly". You can see a computed example here below. Note that, because the view is two-dimensional, its transform in spatial frequencies will also be two-dimensional.
 
 IMG

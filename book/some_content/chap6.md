@@ -15,7 +15,7 @@ align: center
 Adapted from "Rolling green hills in the East Bay Area, California" by ShakataGaNai, CC-BY-SA-3.0
 ```
 
-Why are spatial frequencies so important in microscopy? First and foremost, spatial filtering is the reason why the resolution of any microscope will always and forever be limited. Understanding how this physical principle works can lead to deep insights in image formation, and even suggest some tricks to improve the image quality. Second, Fourier transforms can reveal hidden patterns within an image, such as symmetries, repeating structures or textural features, that directly relate to sample structures and might be hard to recognize by naked eye. 
+Why are spatial frequencies so important in microscopy? First and foremost, spatial filtering is the reason why the resolution of any microscope is inherently limited. Understanding this physical principle can lead to deep insights into image formation and suggest techniques to enhance image quality. Second, Fourier transforms have the power to reveal hidden patterns within an image, such as symmetries, repeating structures or textural features that directly relate to the sample’s structure and may be difficult to notice with the naked eye.
 
 
 

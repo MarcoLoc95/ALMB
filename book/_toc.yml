@@ -16,6 +16,10 @@ parts:
     - file: some_content/chap4.md
     - file: some_content/chap5.md
     - file: some_content/chap6.md
+      sections:
+        - file: some_content/chap6_1.md
+        - file: some_content/chap6_2.md
+        - file: some_content/chap6_3.md
     - file: some_content/chap7.md
     - file: some_content/chap8.md
     - file: some_content/chap9.md

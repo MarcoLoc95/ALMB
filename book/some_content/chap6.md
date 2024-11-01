@@ -22,6 +22,6 @@ At the end of this chapter you should be able to:
 - Explain why we measure the Fourier transform of an object in the far field
 - Explain why a converging lens acts as a Fourier transformer
 - Illustrate the relationship between the Fourier transform and the resolution limit
+- Discuss the implications of deconvolution and pixel reassignment in image reconstruction
 - Calculate the Fourier transform of simple 1D functions
 - Visualize the Fourier transform of 2D functions and images using Python
-- Discuss the implications of deconvolution and pixel reassignment in image reconstruction

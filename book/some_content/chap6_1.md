@@ -1,4 +1,4 @@
-# Huygens-Fresnel principle and Fraunhofer regime
+# What has Fourier to do with optics?
 
 Plane waves and spherical waves
 ---

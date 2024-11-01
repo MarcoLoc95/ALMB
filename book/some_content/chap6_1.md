@@ -1,4 +1,4 @@
-# What has Fourier to do with optics
+# What has Fourier got to do with optics?
 
 Plane waves and spherical waves
 ---

@@ -40,6 +40,8 @@ where $k=\frac{2\pi}{\lambda}$ is the wave number and $\lambda$ is the wavelengt
 More in general, given the wave vector $\vec k$ pointing at the direction of propagation of the wave, the electric field in position $\vec r$ more in general becomes:
 $$E \propto e^{i \vec k \cdot \vec r} \propto e^{i (k_x x + k_y y + k_z z)}$$
 
+
+
 Huygens-Fresnel principle
 ---
 aa

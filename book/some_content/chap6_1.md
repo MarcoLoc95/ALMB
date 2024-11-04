@@ -102,7 +102,7 @@ $$
 When the screen is placed far enough, we are in the so called **Fraunhofer regime**. There, $y,Y\ll D$ and therefore $R$ can be expanded to the first Taylor order in $\frac{Y-y}{D}$:
 
 $$
-R\approx D\bigg(1+\frac{1}{2}\bigg(\frac{Y-y}{D}\bigg)^2\bigg)
+R\approx D\bigg(1+\frac{1}{2}\bigg(\frac{Y-y}{D}\bigg)^2\bigg) =D\bigg(1+\frac{1}{2}\bigg(\frac{Y^2}{D^2}-\frac{2Yy}{D^2}+\frac{y^2}{D^2}\bigg)\bigg)
 $$
 
 

@@ -5,7 +5,7 @@ As we have mentioned in Chapter 3, every object can be considered as a collectio
 
 ```{figure} ../figures/fraunhofer.png
 ---
-height: 40%
+width: 80%
 name: fraunhofer
 align: center
 ---

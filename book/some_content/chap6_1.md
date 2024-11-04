@@ -59,7 +59,18 @@ We can immediately see that the farther we are from the source, the dimmer the e
 
 Huygens-Fresnel principle
 ---
-aa
+The genious idea behind the principle proposed by Christiaans Huygens and Augustin-Jean Fresnel is that every point on a wavefront can itself be the source of spherical wavelets, and the secondary wavelets emanating from different points mutually interfere. You can think of it as a sort of "Taylor's expansion" for waves.
+
+The sum of these spherical wavelets forms a new wavefront. So, when a beam of coherent light (a plane wave) hits an aperture, diffraction can be easily explained as the interference of the point sources that were not blocked and passed through the aperture (_{numref}`Fig. {number} <huygens>`_).
+
+```{figure} ../figures/huygens.png
+---
+height: 50%
+name: huygens
+align: center
+---
+The Huygens-Fresnel principle.
+```
 
 Fraunhofer regime and Fourier transforms
 ---

@@ -4,7 +4,7 @@ When in physics we talk about frequencies, most people immediately think about _
 
 However, since any function can be expressed as a combination of sinusoids, the decomposition of images in _spatial_ frequencies should also be possible. Why does this concept feel not obvious and unintuitive? The reason lies in the way our eyes work: we see shapes, colors and contrasts. In other words, we see the "real" image, not its frequencies. Here's good news for the reader: in the same way professional musicians and sound technicians can get a deep understanding of spectra and filtering, you can be trained to think of images in terms of spatial frequencies and evaluate the consequences for microscopy. Luckily, we have access to a multitude of computational tools that make visualizing the frequency space very easy, so you do not have to excessively appeal to your imagination.
 
-To get a first intuition, we can look at the below picture of rolling hills covered in grass. We see that the hill silhouette changes "slowly" throughout the landscape, while the profile of grass blades changes very "rapidly". They correspond, respectively, to low and high spatial frequencies. One can even notice that the sky forms a single horizontal band that is fairly uniform from left to right: this feature corresponds to the lowest spatial frequencies in the image. We will learn how to interpret the spatial Fourier transforms later on, but you can try to see if you can already recognize what features might be linked to each other, knowing that the closer you are to the center of the Fourier transform, the lower the frequencies.
+To get a first intuition, we can look at the below picture of rolling hills covered in grass. We see that the hill silhouette changes "slowly" throughout the landscape, while the profile of grass blades changes very "rapidly". They correspond, respectively, to low and high spatial frequencies. One can even notice that the sky forms a single horizontal band that is fairly uniform from left to right: this feature corresponds to the lowest spatial frequencies in the image.
 
 ```{figure} ../figures/hills_FFT.png
 ---
@@ -13,6 +13,10 @@ name: hills_FFT
 align: center
 ---
 Adapted from "Rolling green hills in the East Bay Area, California" by ShakataGaNai, CC-BY-SA-3.0
+```
+
+```{tip}
+We will learn how to interpret the spatial Fourier transforms later on, but you can try to see if you can already recognize what features might be linked to each other, knowing that the closer you are to the center of the Fourier transform, the lower the frequencies.
 ```
 
 Why are spatial frequencies so important in microscopy? First and foremost, spatial filtering is the reason why the resolution of any microscope is inherently limited. Understanding this physical principle can lead to deep insights into image formation and suggest techniques to enhance image quality. Second, Fourier transforms have the power to reveal hidden patterns within an image, such as symmetries, repeating structures or textural features that directly relate to the sample’s structure and may be difficult to notice with the naked eye.

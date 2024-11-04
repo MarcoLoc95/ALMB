@@ -161,4 +161,6 @@ Although rich of information, 2D Fourier transforms are not the easiest mathemat
 
 Converging lenses as Fourier transformers
 ---
-a
+When referring to physics-oriented resources, you might come across the statement that "a positive lens performs a Fourier transform of the object in its focus". Without further explanation, this statement might sound nonsensical, especially after having studied ray optics.
+
+The statement is indeed true, but it deserves a better clarification. Like we have said regarding the Fraunhofer regime, 

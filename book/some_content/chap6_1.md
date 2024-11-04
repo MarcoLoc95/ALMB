@@ -18,13 +18,13 @@ Plane waves can be described as a complex exponential $e^{iky}$, where $k$ is th
 ```{figure} ../figures/fraunhoferfourier.png
 ---
 height: 50%
-name: fraunhofer
+name: fraunhoferfourier
 align: center
 ---
 In the observation plane the Fourier transform of the object appears.
 ```
 
-In the observation plane we do not see the image directly, but its Fourier transform  (_{numref}`Fig. {number} <fraunhofer>`_). By placing a lens (our eye or a phone camera) in the observation plane, the diverging wavefronts will be bent to focus a real image on the screen (our retina or the image sensor). But you can very well imagine that the lens, due to its finite size, will collect only a portion of the waves close to the center. The higher spatial frequencies, far from the center, will not be collected, leading to a loss of information in the reconstruction of the object. This is the real reason behind the limit to resolution in microscopy.
+In the observation plane we do not see the image directly, but its Fourier transform  (_{numref}`Fig. {number} <fraunhoferfourier>`_). By placing a lens (our eye or a phone camera) in the observation plane, the diverging wavefronts will be bent to focus a real image on the screen (our retina or the image sensor). But you can very well imagine that the lens, due to its finite size, will collect only a portion of the waves close to the center. The higher spatial frequencies, far from the center, will not be collected, leading to a loss of information in the reconstruction of the object. This is the real reason behind the limit to resolution in microscopy.
 
 Now that we have a more intuitive understanding of the phenomenon, let us treat it more quantitatively.
 

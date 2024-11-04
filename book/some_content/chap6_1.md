@@ -134,9 +134,30 @@ $$
 
 Formally, this integral is equivalent to the Fourier transform of $f(y)$, where $k_y$ are the spatial frequencies. In other words, in the far field the diffracted field corresponds to the Fourier transform of the diffracting object. The astonishing aspect is that nature performs such complicated mathematical operation just by propagating the waves, and what is even more mind-blowing is that this happens _at the speed of light_. 
 
-Two- and three-dimensional Fourier transforms
+Two-dimensional Fourier transforms
 ---
-aa
+
+In the previous treatment we calculated the 1-dimensional Fourier transform, but in reality apertures and diffracting objects lay on a plane ({numref}`Fig. {number} <fourier2D>`). 
+
+```{figure} ../figures/fourier2D.png
+---
+height: 50%
+name: fourier2D
+align: center
+---
+Diffraction leads to a 2-dimensional Fourier transform in the Fraunhofer regime.
+```
+
+Following the same derivation, we can obtain a very similar formula, which takes into account all the contributions in two dimensions:
+
+$$
+E(k_x,k_y) \propto \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} f(x,y) \cdot e^{-i(k_x x+ k_y y)} dxdy
+$$
+
+The Fourier transform in this case will be 2-dimensional, containing information not only on the spatial frequencies, but also the _direction_ of the features in the image.
+
+Although rich of information, 2D Fourier transforms are not the easiest mathematical objects to manipulate. For this reason, in the rest of this chapter we will calculate 1D transforms where needed, and extend to 2D only by means of computation in Python.
+
 
 Converging lenses as Fourier transformers
 ---

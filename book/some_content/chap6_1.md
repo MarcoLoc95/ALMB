@@ -34,11 +34,15 @@ Plane waves and spherical waves
 In this section we will disregard the temporal evolution of the electric field, as intensities are averaged over a period of time when measured, and the phase, assumed to be a constant for coherent light.
 
 By definition, a plane wave is a wave where the wavefronts are flat and parallel to each other. The spatial component of the electric field of a plane wave travelling in the x-direction can be written as:
-$$E \propto e^{i kx}$$
+$$
+E \propto e^{i kx}
+$$
 where $k=\frac{2\pi}{\lambda}$ is the wave number and $\lambda$ is the wavelength. 
 
 More in general, given the wave vector $\vec k$ pointing at the direction of propagation of the wave, the electric field in position $\vec r$ more in general becomes:
-$$E \propto e^{i \vec k \cdot \vec r} \propto e^{i (k_x x + k_y y + k_z z)}$$
+$$
+E \propto e^{i \vec k \cdot \vec r} \propto e^{i (k_x x + k_y y + k_z z)}
+$$
 
 
 

@@ -81,6 +81,7 @@ Let us look at the plane $x=0$ like in _{numref}`Fig. {number} <huygensfraunhofe
 $$
 dE \propto \frac{e^{ikR}}{R}
 $$
+
 where $R=\sqrt{D^2+(Y-y)^2}$ depends on the position of the source $y$, the distance $D$ and the observation point $Y$. 
 
 Therefore, the total electric field observed on the screen at position $Y$ is the result of the interference of all the spherical waves in the aperture:
@@ -88,6 +89,7 @@ Therefore, the total electric field observed on the screen at position $Y$ is th
 $$
 E(Y) \propto \int_{-inf}^{+\inf} f(y) \frac{e^{ikR}}{R} dy, \qquad \text{where } f(y)=\begin{cases}1 \text{in the aperture}\\0 \text{elsewhere} \end{cases}
 $$
+
 The function $f(y)$ is called the _aperture fuction_. It can also represent a diffracting object.
 
 

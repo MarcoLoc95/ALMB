@@ -93,6 +93,19 @@ $$
 
 The function $f(y)$ is called the _aperture fuction_. It can also represent a diffracting object.
 
+We can rewrite $R$  as:
+
+$$
+R=D\sqrt{1+(\frac{Y-y}{D})^2}
+$$
+
+When the screen is placed far enough, we are in the so called **Fraunhofer regime**. There, $y,Y\ll D$ and therefore $R$ can be expanded to the first Taylor order in $\frac{Y-y}{D}$:
+
+$$
+R\approx D(1+\frac{1}{2}(\frac{Y-y}{D})^2)
+$$
+
+
 
 
 ```{figure} ../figures/huygensfraunhofer.png

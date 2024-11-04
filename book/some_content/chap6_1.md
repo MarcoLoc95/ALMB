@@ -129,9 +129,10 @@ $$
 The constant term can be brought out of the integral, not depending on the integration variable $y$. Since $k\frac{Y}{D}$ is the projection of $k$ onto the $Y$-axis, we can write it as:
 
 $$
-E(Y) \propto \int_{-\infty}^{+\infty} f(y) \cdot e^{-ik_y y} dy
+E \propto \int_{-\infty}^{+\infty} f(y) \cdot e^{-ik_y y} dy
 $$
 
+Formally, this integral is equivalent to the Fourier transform of $f(y)$, where $k_y$ are the spatial frequencies. In other words, in the far field the diffracted field corresponds to the Fourier transform of the diffracting object. The astonishing aspect is that nature performs such complicated mathematical operation just by propagating the waves, and what is even more mind-blowing is that this happens _at the speed of light_. 
 
 Two- and three-dimensional Fourier transforms
 ---

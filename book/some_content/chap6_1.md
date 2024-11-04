@@ -126,6 +126,13 @@ $$
 E(Y) \propto \int_{-\infty}^{+\infty} f(y) \cdot \underbrace{\frac{e^{ik\bigg(D+\frac{Y^2}{2D}\bigg)}}{D+\frac{Y^2}{2D}}}_{\text{constant}} \cdot e^{-ik\frac{Y}{D}y} dy
 $$
 
+The constant term can be brought out of the integral, not depending on the integration variable $y$. Since $k\frac{Y}{D}$ is the projection of $k$ onto the $Y$-axis, we can write it as:
+
+$$
+E(Y) \propto \int_{-\infty}^{+\infty} f(y) \cdot e^{-ik_y y} dy
+$$
+
+
 Two- and three-dimensional Fourier transforms
 ---
 aa

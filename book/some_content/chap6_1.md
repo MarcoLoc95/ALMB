@@ -41,13 +41,21 @@ $$
 
 where $k=\frac{2\pi}{\lambda}$ is the wave number and $\lambda$ is the wavelength. 
 
-More in general, given the wave vector $\vec k$ pointing at the direction of propagation of the wave, the electric field in position $\vec r$ more in general becomes:
+More in general, given the wave vector $\vec k$ pointing at the direction of propagation of the wave, the electric field in position $\vec r=(x,y,z)$ more in general becomes:
 
 $$
 E \propto e^{i \vec k \cdot \vec r} \propto e^{i (k_x x + k_y y + k_z z)}
 $$
 
+Similarly, a **spherical wave** is a wave where the wavefronts are spherical and centered in the same origin. The spatial component of the electric field assumes the form:
 
+$$
+E \propto \frac{e^{i kR}}{R}
+$$
+
+where $R$ is the distance from the source.
+
+We can immediately see that the farther we are from the source, the dimmer the electric field is. This is because the energy spreads in space, in contrast with the plane wave where the energy is simply travelling.
 
 Huygens-Fresnel principle
 ---

@@ -76,6 +76,15 @@ This principle lets us treat diffraction by simpler terms interfering with each 
 
 Fraunhofer regime and Fourier transforms
 ---
+```{figure} ../figures/huygensfraunhofer.png
+---
+height: 50%
+name: huygensfraunhofer
+align: center
+---
+The Fraunhofer regime.
+```
+
 Let us look at the plane $x=0$ like in _{numref}`Fig. {number} <huygensfraunhofer>`_ and let us place a screen at distance $D$ from the aperture. Each point along the $y$-axis in the aperture will generate a spherical wave with (infinitesimally small) electric field $dE$:
 
 $$
@@ -111,15 +120,11 @@ $$
 R\approx D+\frac{Y^2}{2D}-\frac{Yy}{D}
 $$
 
+The total electric field then approximates to:
 
-```{figure} ../figures/huygensfraunhofer.png
----
-height: 50%
-name: huygensfraunhofer
-align: center
----
-The Fraunhofer regime.
-```
+$$
+E(Y) \propto \int_{-\infty}^{+\infty} f(y) \frac{e^{ik\bigg(D+\frac{Y^2}{2D}\bigg)}}{D+\frac{Y^2}{2D}} \cdot e^{-ik\frac{Y}{D}y} dy
+$$
 
 Two- and three-dimensional Fourier transforms
 ---

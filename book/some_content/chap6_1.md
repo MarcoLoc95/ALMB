@@ -76,6 +76,15 @@ Fraunhofer regime and Fourier transforms
 ---
 aa
 
+```{figure} ../figures/fraunhoferfourier.png
+---
+height: 50%
+name: fraunhoferfourier
+align: center
+---
+The Fraunhofer regime.
+```
+
 Two- and three-dimensional Fourier transforms
 ---
 aa

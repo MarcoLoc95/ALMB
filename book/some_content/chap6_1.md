@@ -123,7 +123,7 @@ $$
 The total electric field then approximates to:
 
 $$
-E(Y) \propto \int_{-\infty}^{+\infty} f(y) \cdot \underbrace{\frac{e^{ik\bigg(D+\frac{Y^2}{2D}\bigg)}}{D+\frac{Y^2}{2D}}}_{\text{aaa}} \cdot e^{-ik\frac{Y}{D}y} dy
+E(Y) \propto \int_{-\infty}^{+\infty} f(y) \cdot \underbrace{\frac{e^{ik\bigg(D+\frac{Y^2}{2D}\bigg)}}{D+\frac{Y^2}{2D}}}_{\text{constant}} \cdot e^{-ik\frac{Y}{D}y} dy
 $$
 
 Two- and three-dimensional Fourier transforms

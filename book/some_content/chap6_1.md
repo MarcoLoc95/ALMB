@@ -161,6 +161,17 @@ Although rich of information, 2D Fourier transforms are not the easiest mathemat
 
 Converging lenses as Fourier transformers
 ---
-When referring to physics-oriented resources, you might come across the statement that "a positive lens performs a Fourier transform of the object in its focal plane". Without further explanation, this statement might sound nonsensical, especially after having studied ray optics. The statement is indeed true, but it deserves a better clarification.
+When referring to physics-oriented resources, you might come across the statement that "a converging (positive) lens performs a Fourier transform of the object in its focal plane". Without further explanation, this statement might sound nonsensical, especially after having studied ray optics. The statement is indeed true, but it deserves a better clarification.
 
-As we have just said regarding the Fraunhofer regime, the Fourier transform forms in the far field. In practice, this can mean meters and meters away from the diffracting object, with the drawback of a decreasing intensity of the image the farther you get from the source. 
+As we have just said regarding the Fraunhofer regime, the Fourier transform forms in the far field when the waves are basically plane. In practice, this can mean meters and meters away from the diffracting object, with the drawback of a decreasing intensity of the image the farther you get from the source. 
+
+
+```{figure} ../figures/lensfourier.png
+---
+height: 50%
+name: lensfourier
+align: center
+---
+One can measure the Fourier transform of an object in the focal plane of a converving lens (Cell illustration modified from [Freepik](www.freepik.com)).
+```
+

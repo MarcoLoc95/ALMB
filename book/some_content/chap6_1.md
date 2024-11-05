@@ -178,6 +178,15 @@ When an object is placed in the front focal plane of a converging lens and illum
 
 On the principal axis of the lens the undiffracted rays all converge into the focal point. That bright spot at the center of the diffraction pattern corresponds to zero spatial frequency (using terminology from electronics, the **DC component**). As this component would be present even without a diffracting object in front of the lens, it does not contain any useful information about the sample. For semi-transparent objects, this is always the brightest component in the spectrum. In imaging terms, the zero-frequency part of the image is responsible for the average brightness (the background level). Without the DC component, the image would appear darker overall, and only the details with higher spatial frequencies (edges, textures and fine structures) would remain visible.
 
+```{figure} ../figures/lensfourier1mag.png
+---
+width: 80%
+name: lensfourier1mag
+align: center
+---
+Estimation of the magnification of the diffraction pattern for an object placed in the front focal plane of a converging lens.
+```
+
 By tracing the rays generated at the extremities of the object and passing through the optical center of the lens, we can estimate the magnification of such a system ({numref}`Fig. {number} <lensfourier1mag>`). Please note that, in this context, magnification refers to the characteristic size of the diffraction pattern as compared to the object size, not the magnification of the image compared to the object. Consider an object of size $h$ centered on the principal axis of the lens. The ray passing through the center will be unchanged, so the angle formed with the principal axis $\alpha$ will be the same. But then we can write the tangent of the angle in two ways:
 
 $$
@@ -185,15 +194,15 @@ $$
 \tan(\alpha) = \frac{h'/2}{f} \end{cases}  \qquad \Rightarrow \frac{h/2}{f} = \frac{h'/2}{f} \qquad \Rightarrow h'=h
 $$
 
+The magnification will then result:
 
-```{figure} ../figures/lensfourier1mag.png
----
-width: 80%
-name: lensfourier1mag
-align: center
----
-MAAAAAAG
-```
+$$
+M=\frac{h'}{h}=1
+$$
+
+This result tells us that the size of the diffraction pattern is roughly going to be of the same order of the size of the object.
+
+One might wonder what would happen if we were to place the object closer to the lens ({numref}`Fig. {number} <lensfourier2>`). While it is true that in this configuration the wavefronts won't be exactly plane after the lens, you have to imagine as if the rays were coming from a virtual object placed at $s_i=\frac{1}{\frac{1}{f}-\frac{1}{s_o}}<-s_o$
 
 ```{figure} ../figures/lensfourier2.png
 ---

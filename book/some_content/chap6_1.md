@@ -202,7 +202,7 @@ $$
 
 This result tells us that the size of the diffraction pattern is roughly going to be of the same order of the size of the object.
 
-One might wonder what would happen if we were to place the object closer to the lens ({numref}`Fig. {number} <lensfourier2>`). While it is true that in this configuration the wavefronts won't be exactly plane after the lens, you have to imagine as if the rays were coming from a virtual object placed at $s_i=\frac{1}{\frac{1}{f}-\frac{1}{s_o}}<-s_o$
+One might wonder what would happen if we were to place the object closer to the lens ({numref}`Fig. {number} <lensfourier2>`). While it is true that in this configuration the wavefronts won't be exactly plane after the lens, you have to imagine as if the rays were coming from a virtual object placed at $s_i=\frac{1}{\frac{1}{f}-\frac{1}{s_o}}$. Since in every configuration $s_i < -s_o$, it would be the same as placing the object _farther_ from the observation plane, and we know that this means that the Fraunhofer approximation would hold better than without the lens. By tracing the rays we can easily see that they still cross in the back focal plane, in a way similar to {numref}`Fig. {number} <lensfourier1>`.
 
 ```{figure} ../figures/lensfourier2.png
 ---
@@ -210,8 +210,18 @@ width: 100%
 name: lensfourier2
 align: center
 ---
-One can measure the Fourier transform of an object in the focal plane of a converving lens (cell illustration modified from [Freepik](www.freepik.com)).
-```
+When an object is placed close to a converging lens and illuminated with coherent light, its Fourier transform also forms in the back focal place (cell illustration modified from [Freepik](www.freepik.com)).```
+
+The difference from the first case is that the rays cross now farther apart in the back focal plane ({numref}`Fig. {number} <lensfourier2mag>`). By calculating the magnification in the same way as before we get:
+
+$$
+\begin{cases} \tan(\alpha) = \frac{h/2}{s_o}\\
+\tan(\alpha) = \frac{h'/2}{f} \end{cases}  \qquad \Rightarrow \frac{h/2}{s_o} = \frac{h'/2}{f} \qquad \Rightarrow h'=h \frac{f}{s_o}
+$$
+
+$$
+M=\frac{h'}{h}=\frac{f}{s_o} > 1
+$$
 
 ```{figure} ../figures/lensfourier2mag.png
 ---
@@ -219,5 +229,8 @@ width: 100%
 name: lensfourier2mag
 align: center
 ---
-MAAAAAAG
+Estimation of the magnification of the diffraction pattern for an object placed after the front focal plane of a converging lens.
 ```
+
+A greater magnification means that, the closer the object to the lens, the better distinguishable the components in the Fourier transform will get. There are of course some practical limitations to it (what does infinite magnification mean here?), but this reasoning provides a solid argument for trying this configuration in the laboratory, when the first one does not provide a clear spectrum.
+

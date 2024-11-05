@@ -169,7 +169,7 @@ However, if we place a diffracting object in the front focal plane of the lens, 
 
 ```{figure} ../figures/lensfourier.png
 ---
-height: 50%
+width: 80%
 name: lensfourier
 align: center
 ---

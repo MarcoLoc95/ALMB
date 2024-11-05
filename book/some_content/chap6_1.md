@@ -165,6 +165,7 @@ When referring to physics-oriented resources, you might come across the statemen
 
 As we have just said regarding the Fraunhofer regime, the Fourier transform forms in the far field when the waves are basically plane. In practice, this can mean meters and meters away from the diffracting object, with the drawback of a decreasing intensity of the image the farther you get from the source. 
 
+However, if we place a diffracting object in the front focal plane of the lens, we know from the ray tracing rules that the rays will come out parallel. 
 
 ```{figure} ../figures/lensfourier.png
 ---

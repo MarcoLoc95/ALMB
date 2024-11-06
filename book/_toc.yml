@@ -18,7 +18,7 @@ parts:
     - file: some_content/chap6.md
       sections:
         - file: some_content/chap6_1.md
-        - file: some_content/chap6_2.md
+        - file: some_content/chap6_2.ipynb
         - file: some_content/chap6_3.md
         - file: some_content/chap6_4.md
     - file: some_content/chap7.md

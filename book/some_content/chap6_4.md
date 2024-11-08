@@ -9,7 +9,15 @@ aa
 ---
 aa
 
+Immersion objectives
+---
+A perfect air lens, meaning the gap between the front element of the objective and the sample is filled with air, can have a maximum NA of around 1.0 due to the refractive index of air. To achieve higher NA, it is necessary to fill the space between the objective and the sample with immersion media with n greater than 1.0, such as water (n=1.33), glycerol (n=1.46) or immersion oil (n=1.51).
 
+When light travels between mediums with different refractive indexes at an angle, the light slows and is bent, this is refraction. Typically this occurs when light emitted from the sample hits a glass-air interface. As illustrated in Fig.3, when air fills the interface gap between sample and objective, the higher angles are bent at the interface and fail to be collected by the objective. In contrast, when oil (much higher refractive index) fills the gap, light is bent less and is all collected by the objective.
+Resolution and Numerical Aperture_image-3.png
+Figure 3: Refractive index matching fluid allows better angular collection efficiency for samples mounted in mediums other than air. In the left image, the collection angles of the objective are diminished because of refraction at the glass-air interface. In contrast, matching the refractive index of the glass with immersion oil, as illustrated in the right panel, allows a larger range of angles of light from the sample to enter the lens.
+
+For thin samples mounted with index-matching medium, the glass and sample can be considered to have the same refractive index. When sample thickness increases, or where no index-matching medium can be used (live cell imaging), choosing immersion objectives that use water or glycerol as index matching fluids, being similar to the sample, can be more effective
 
 Sampling Diffraction-Limited Objects
 ---

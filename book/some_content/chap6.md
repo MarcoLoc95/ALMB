@@ -12,7 +12,7 @@ height: 50%
 name: hills_FFT
 align: center
 ---
-Adapted from "Rolling green hills in the East Bay Area, California" by ShakataGaNai, CC-BY-SA-3.0
+A complex image can be decomposed in its spatial frequencies, in the same way a song can be decomposed in notes and individual sounds (adapted from "Rolling green hills in the East Bay Area, California" by ShakataGaNai, CC-BY-SA-3.0)
 ```
 
 ```{tip}

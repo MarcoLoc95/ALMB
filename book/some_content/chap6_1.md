@@ -134,6 +134,18 @@ $$
 
 Formally, this integral is equivalent to the Fourier transform of $f(y)$, where $k_y$ are the spatial frequencies. In other words, in the far field the diffracted field corresponds to the Fourier transform of the diffracting object. The astonishing aspect is that nature performs such complicated mathematical operation just by propagating the waves, and what is even more mind-blowing is that this happens _at the speed of light_. 
 
+Let us not forget that detectors do not directly sense the electric field, which can assume complex values, but its intensity $I$:
+
+$$
+I \propto |E|^2
+$$
+
+Therefore the measured signal is:
+
+$$
+I \propto \bigg| \int_{-\infty}^{+\infty} f(y) \cdot e^{-ik_y y} dy \bigg|
+$$
+
 Two-dimensional Fourier transforms
 ---
 

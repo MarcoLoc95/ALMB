@@ -1,15 +1,51 @@
 # Quantitative approaches
 
+General properties of Fourier transforms
+---
+
+### Linearity ###
+
+### Shift ###
+
+### Convolution ###
+
+### Multiplication ###
+
+### Duality ###
+
+
 1D Fourier transforms
 ---
-aa
 
-### AA ###
-a
+### Dirac delta function ###
+
+### Constant ###
+
+### Sine ###
+
+### Cosine ###
+
+### Square wave ###
+
+### Gaussian ###
+
+
 
 2D Fourier transforms
 ---
-aa
+### Dirac delta function ###
+
+### Constant ###
+
+### Sine ###
+
+### Cosine ###
+
+### Square wave ###
+
+### Gaussian ###
+
+### Ring ###
 
 Immersion objectives
 ---

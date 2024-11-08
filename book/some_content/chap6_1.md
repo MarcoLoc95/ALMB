@@ -143,7 +143,7 @@ $$
 Therefore the measured signal is:
 
 $$
-I \propto \bigg | \int_{-\infty}^{+\infty} f(y) \cdot e^{-ik_y y} dy \bigg |^2
+I \propto \bigg| \int_{-\infty}^{+\infty} f(y) \cdot e^{-ik_y y} dy \bigg |^2
 $$
 
 Two-dimensional Fourier transforms

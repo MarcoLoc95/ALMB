@@ -9,6 +9,8 @@ aa
 ---
 aa
 
+
+
 Sampling Diffraction-Limited Objects
 ---
 (https://www.teledynevisionsolutions.com/learn/learning-center/scientific-imaging/resolution-and-numerical-aperture/)
@@ -24,3 +26,10 @@ Resolution and Numerical Aperture_image-4.png
 Figure 4: Illustration of the effect of pixel size and magnification on sampling spatial information in the final image. Large pixels under-sample the possible spatial information leading to a 'pixelated' appearance (left) but using smaller pixel sensor (middle) or magnifying more (right) allows optimal sampling.
 
 For the example given earlier of a diffraction-limited resolution of 320 nm, one would need pixels sampling every 140 nm in the image to truly achieve this resolution. With a 6.5 µm pixel, 45-50x magnification would provide pixels of an appropriate size. Magnification has no influence on the optical blur of the microscope but does allow appropriate sampling to recover all the information transmitted by the microscope.
+
+Smallest feature measurable: an inverse problem
+---
+
+The maximum resolving power of an optical system is defined by the following: how close together can two small features be such that the blurring of their images doesn't lead to them appearing as one feature? This is a loose definition that depends on the wavelength of light used.
+
+In general, the larger the back aperture the wider the angles we can collect, the larger the NA, and the higher the resolution. The theoretical maximum angle that light can be collected by a lens is 180 (it would have to be a huge lens), making the maximum half-angle 90. Realistically, half-angles above 72 cannot currently be achieved. For an air lens with half-angle 72, the NA would then be 0.95 and the maximum resolution (the smallest object that could be observed) of the image would be 320 nm. Two objects closer than 320 nm would not be resolved and would appear as one object, and anything smaller than 320 nm would appear as a blurry blob 320 nm in size. This is the diffraction limit to imaging.

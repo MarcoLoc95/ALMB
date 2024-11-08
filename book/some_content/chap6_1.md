@@ -140,7 +140,7 @@ $$
 I \propto |E|^2
 $$
 
-Therefore the measured signal is:
+Therefore the measured signal will be:
 
 $$
 I \propto \bigg| \int_{-\infty}^{+\infty} f(y) \cdot e^{-ik_y y} dy \bigg |^2

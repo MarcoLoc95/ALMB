@@ -8,10 +8,6 @@ Convolution and deconvolution
 ---
 aa
 
-Pixel reassignment
----
-aa
-
 Spatial filtering
 ---
 aa

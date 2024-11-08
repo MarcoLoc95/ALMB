@@ -41,3 +41,8 @@ Smallest feature measurable: an inverse problem
 The maximum resolving power of an optical system is defined by the following: how close together can two small features be such that the blurring of their images doesn't lead to them appearing as one feature? This is a loose definition that depends on the wavelength of light used.
 
 In general, the larger the back aperture the wider the angles we can collect, the larger the NA, and the higher the resolution. The theoretical maximum angle that light can be collected by a lens is 180 (it would have to be a huge lens), making the maximum half-angle 90. Realistically, half-angles above 72 cannot currently be achieved. For an air lens with half-angle 72, the NA would then be 0.95 and the maximum resolution (the smallest object that could be observed) of the image would be 320 nm. Two objects closer than 320 nm would not be resolved and would appear as one object, and anything smaller than 320 nm would appear as a blurry blob 320 nm in size. This is the diffraction limit to imaging.
+
+
+Interactive resolution calculator
+---
+https://www.microscope.healthcare.nikon.com/microtools/resolution-calculator/

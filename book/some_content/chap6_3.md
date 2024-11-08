@@ -11,3 +11,7 @@ aa
 Spatial filtering
 ---
 aa
+
+Pixel reassignment
+---
+aa

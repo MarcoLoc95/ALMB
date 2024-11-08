@@ -244,5 +244,5 @@ align: center
 Estimation of the magnification of the diffraction pattern for an object placed after the front focal plane of a converging lens.
 ```
 
-A greater magnification means that, the closer the object to the lens, the better distinguishable the components in the Fourier transform will get. There are of course some practical limitations to it (what does infinite magnification mean here?), but this reasoning provides a solid argument for trying this configuration in the laboratory, when the first one does not provide a clear spectrum.
+A greater magnification means that, the closer the object to the lens, the better distinguishable the components in the Fourier transform will get. There are of course some practical limitations to it (if $s_0\rightarrow 0$, what does infinite magnification mean?), but this reasoning provides a solid argument for trying this configuration in the laboratory, when the first one does not provide a clear spectrum.
 

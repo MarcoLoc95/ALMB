@@ -4,26 +4,26 @@ root: intro.md
 parts:
   - caption: Contents
     chapters:
-    - file: some_content/chap1.md
-      sections:
-      - file: some_content/testwidget.ipynb
-    - file: some_content/chap2.md
-      sections:
-      - file: some_content/chap2_1.md
-      - file: some_content/chap2_2.md
-      - file: some_content/chap2_3.md
-    - file: some_content/chap3.md
-    - file: some_content/chap4.md
-    - file: some_content/chap5.md
+   # - file: some_content/chap1.md
+    #  sections:
+     # - file: some_content/testwidget.ipynb
+    #- file: some_content/chap2.md
+     # sections:
+      #- file: some_content/chap2_1.md
+      #- file: some_content/chap2_2.md
+      #- file: some_content/chap2_3.md
+    #- file: some_content/chap3.md
+    #- file: some_content/chap4.md
+    #- file: some_content/chap5.md
     - file: some_content/chap6.md
       sections:
         - file: some_content/chap6_1.md
         - file: some_content/chap6_2.ipynb
-        - file: some_content/chap6_3.md
-        - file: some_content/chap6_4.md
-    - file: some_content/chap7.md
-    - file: some_content/chap8.md
-    - file: some_content/chap9.md
-    - file: some_content/chap10.md
+       # - file: some_content/chap6_3.md
+       # - file: some_content/chap6_4.md
+   # - file: some_content/chap7.md
+   # - file: some_content/chap8.md
+   # - file: some_content/chap9.md
+   # - file: some_content/chap10.md
 
-    - file: references.md
+   # - file: references.md

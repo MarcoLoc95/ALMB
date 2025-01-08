@@ -15,3 +15,8 @@ aa
 Pixel reassignment
 ---
 aa
+
+Fourier Ring Correlation (FRC)
+---
+aa
+

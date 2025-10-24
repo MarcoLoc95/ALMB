@@ -6,7 +6,11 @@ parts:
     chapters:
     - file: content/chap1.md
       sections:
-      - file: content/testwidget.ipynb
+      - file: content/chap1_1.md
+      - file: content/chap1_2.md
+      - file: content/chap1_3.md
+      - file: content/chap1_4.md
+      - file: content/chap1_5.md
     - file: content/chap2.md
       sections:
       - file: content/chap2_1.md

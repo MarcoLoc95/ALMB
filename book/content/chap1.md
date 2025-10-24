@@ -1,8 +1,15 @@
 # 1 - What is light?
 
-Baby don't hurt me
-
-
+<div style="overflow-x: auto; width: 100%;">
+```{figure} ../figures/fraunhofer.png
+---
+width: 80%
+name: fraunhofer
+align: center
+---
+Spherical waves can be approximated as plane waves in the far field regime.
+```
+</div>
 
 Diffraction
 ---

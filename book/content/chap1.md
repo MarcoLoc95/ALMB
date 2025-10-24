@@ -1,12 +1,6 @@
 # 1 - What is light?
 
-:::{raw} html
-<div style="overflow-x:auto; width:100%; text-align:center;">
-  <img src="../figures/history.png"
-       style="max-width:none; max-height:40vh; height:auto; display:block; margin:0 auto;">
-</div>
-:::
-
+aa
 
 Diffraction
 ---

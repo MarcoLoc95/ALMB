@@ -1,9 +1,9 @@
 # 1 - What is light?
 
 :::{raw} html
-<div style="overflow:auto; width:100%; max-height:400px; text-align:center;">
+<div style="overflow-x:auto; width:100%; text-align:center;">
   <img src="../figures/history.png"
-       style="width:auto; height:auto; max-width:80%; display:block; margin:0 auto;">
+       style="max-width:none; height:auto; display:block; margin:0 auto;">
 </div>
 :::
 

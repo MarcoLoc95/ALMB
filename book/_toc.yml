@@ -28,8 +28,8 @@ parts:
       sections:
         - file: content/chap6_1.md
         - file: content/chap6_2.ipynb
-        - file: content/chap6_3.md
-        - file: content/chap6_4.md
+      #  - file: content/chap6_3.md
+      #  - file: content/chap6_4.md
     #- file: content/chap7.md
     #- file: content/chap8.md
     #- file: content/chap9.md

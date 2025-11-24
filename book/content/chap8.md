@@ -1,3 +1,3 @@
-# 8 - Advanced microscopy techniques
+# 8 - Advanced techniques
 
 aa

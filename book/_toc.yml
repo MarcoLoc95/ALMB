@@ -4,30 +4,35 @@ root: intro.md
 parts:
   - caption: Contents
     chapters:
-    - file: content/chap1.md
-      sections:
-      - file: content/chap1_1.md
-      - file: content/chap1_2.md
-      - file: content/chap1_3.md
-      - file: content/chap1_4.md
-      - file: content/chap1_5.md
-    - file: content/chap2.md
-      sections:
-      - file: content/chap2_1.md
-      - file: content/chap2_2.md
-      - file: content/chap2_3.md
-    - file: content/chap3.md
-    - file: content/chap4.md
-    - file: content/chap5.md
+    #- file: content/chap1.md
+    #  sections:
+    #  - file: content/chap1_1.md
+    #  - file: content/chap1_2.md
+    #  - file: content/chap1_3.md
+    #  - file: content/chap1_4.md
+    #  - file: content/chap1_5.md
+    #- file: content/chap2.md
+    #  sections:
+    #  - file: content/chap2_1.md
+    #  - file: content/chap2_2.md
+    #  - file: content/chap2_3.md
+    #- file: content/chap3.md
+    #- file: content/chap4.md
+    #- file: content/chap5.md
+    #  sections:
+    #  - file: content/chap5_1.md
+    #  - file: content/chap5_2.md
+    #  - file: content/chap5_3.md
+    #  - file: content/chap5_4.md
     - file: content/chap6.md
       sections:
         - file: content/chap6_1.md
         - file: content/chap6_2.ipynb
         - file: content/chap6_3.md
         - file: content/chap6_4.md
-    - file: content/chap7.md
-    - file: content/chap8.md
-    - file: content/chap9.md
-    - file: content/chap10.md
+    #- file: content/chap7.md
+    #- file: content/chap8.md
+    #- file: content/chap9.md
+    #- file: content/chap10.md
 
    # - file: references.md

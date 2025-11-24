@@ -1,3 +1,3 @@
-# 5 - Confocal microscopy
+# 5 - Optical sectioning
 
 aa

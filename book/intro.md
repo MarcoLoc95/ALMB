@@ -1,4 +1,4 @@
-(intro)=
+#(intro)=
 # Advanced Light Microscopy and Bioimaging
 
 _Written by Marco Locarno for the course MBLS-305 at Utrecht University_

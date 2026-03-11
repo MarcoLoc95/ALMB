@@ -20,7 +20,6 @@ align: center
 At the end of this chapter you should be able to:
 - Recognize how key historical milestones led to the development of modern optical microscopy, from early lens-making to super-resolution techniques
 - Describe light as an electromagnetic wave and define its wavelength, frequency, amplitude and speed
-- Explain constructive and destructive interference and describe how diffraction at a finite aperture produces an Airy pattern
 - Define the refractive index of a medium and calculate how wavelength changes when light enters a material
 - Apply Snell's law to predict the direction of a refracted ray at an interface
 - Use the thin lens equation and ray tracing rules to locate the image formed by a converging lens

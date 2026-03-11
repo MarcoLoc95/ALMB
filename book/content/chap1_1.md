@@ -13,6 +13,16 @@ The story of how we learned to see beyond the limits of the naked eye is one of 
 
 Our relationship with optics is older than you might think. Around 700 BCE, Assyrian craftsmen polished a piece of rock crystal into what we now call the **Nimrud lens**, discovered in the ruins of an ancient palace near modern-day Mosul, Iraq. It is a small, unassuming object, roughly the size of a coin, but it represents something significant: evidence that ancient people already understood, at least empirically, that curved transparent materials could bend light. Whether it was used as a magnifying glass, a burning lens to start fires, or simply a decorative curiosity is still debated. What is certain is that it is humanity's earliest known attempt at manipulating light for a purpose.
 
+```{figure} ../figures/nimrud_lens.jpg
+---
+width: 50%
+name: nimrud
+align: center
+---
+Photo of the nimrud lens in the British Museum. Copyright: Geni, CC BY-SA 4.0, via Wikimedia Commons
+```
+
+
 The ancient Greeks turned optics into philosophy. Around 450 BCE, Empedocles of Acragas proposed his "simulacra theory" of vision: all objects, he argued, continuously emit tiny copies of themselves that travel through the air and enter the eye, where they interact with an "inner fire" emanating from the observer. The theory was wrong, of course, but it contained a genuinely important idea: the recognition that vision requires _something_ to travel between object and observer.
 
 Meanwhile, around 400 BCE and halfway across the world, the Chinese philosopher Mo Zi and his followers were taking a more experimental approach. In the *Mohist Canon*, they documented observations on the camera obscura, on how shadows form, and on the principle that light travels in straight lines. They noted, for example, that light from the top of an object passing through a pinhole appears at the bottom of the projected image, and vice versa. This geometric analysis of light propagation anticipated European developments by nearly two thousand years.
@@ -20,6 +30,15 @@ Meanwhile, around 400 BCE and halfway across the world, the Chinese philosopher 
 ### The Islamic Golden Age and medieval optics
 
 The next major leap came from the Arab polymath **Ibn al-Haytham** (known in the West as Alhazen), who completed his monumental seven-volume *Book of Optics* (*Kitab al-Manazir*) around 1021 CE. This work was revolutionary on multiple levels. Ibn al-Haytham demonstrated experimentally that light travels _from_ objects _to_ the eye, overturning centuries of emission theories. He analyzed reflection and refraction with mathematical rigor, studied the anatomy of the eye, investigated phenomena like rainbows and twilight, and explained the workings of the camera obscura. Perhaps most importantly, his insistence on combining experimental evidence with mathematical description established a methodology that we would now call scientific. The Latin translation of his book, circulated from the 13th century onward, profoundly influenced European scholars for generations.
+
+```{figure} ../figures/Ibn_al-Haytham.jpg
+---
+width: 50%
+name: ibnalhaytham
+align: center
+---
+Ibn al-Haytham. Copyright: Sopianwar, CC BY-SA 4.0, via Wikimedia Commons
+```
 
 On the more practical side, around 1284, the Italian craftsman Salvino degli Armati (though the exact attribution is historically debated) is credited with creating some of the first wearable spectacles: convex lenses mounted in a frame that rested on the nose, correcting presbyopia. This seemingly modest invention had a far-reaching consequence that nobody could have anticipated: the proliferation of spectacle makers across Europe created a community of skilled lens grinders. These craftsmen, honing their art over generations, would be the very people who later built the first microscopes and telescopes.
 
@@ -33,7 +52,25 @@ The real breakthrough in microscopy, however, came in 1665 when the English poly
 
 But Hooke's most consequential observation was almost accidental. While examining thin slices of cork, he noticed a honeycomb-like pattern of tiny, regular compartments. They reminded him of the small rooms ("cells") in a monastery. He had just coined one of the most important terms in biology. What Hooke was actually seeing were the dead cell walls left behind in the cork tissue, not living cells, but he had unknowingly stumbled upon the basic unit of life. *Micrographia* showed that microscopy could be both scientifically groundbreaking and accessible to the general public, and it inspired a generation of naturalists to look more closely at the world around them.
 
+```{figure} ../figures/hooke.png
+---
+width: 50%
+name: hooke
+align: center
+---
+Illustrations of the microstructure of cork, hair, and silks, taken from *Micrographia*. Copyright: CC BY 4.0, via Wikimedia Commons
+```
+
 Around the same time, an unlikely figure was about to revolutionize the field. **Antonie van Leeuwenhoek**, a Dutch draper and tradesman from Delft with no formal scientific training, had an extraordinary talent for grinding and polishing tiny glass lenses. His approach was the opposite of the compound microscope: instead of stacking imperfect lenses, he crafted _single_ lenses so small (some less than 2 mm in diameter) and so precisely shaped that they achieved over 270× magnification with remarkable clarity. He built hundreds of these simple microscopes over his lifetime, each one dedicated to a particular specimen, and guarded his lens-making techniques jealously, taking them to his grave.
+
+```{figure} ../figures/van-leeuwenhoeck.png
+---
+width: 50%
+name: van-leeuwenhoeck
+align: center
+---
+A model of the microscope created by Antonie van Leeuwenhoek. The microscope used a glass bead as a magnifier, giving a much greater magnification than other types of lenses available at the time. Copyright: Mark Cartwright, CC BY-NC-SA, via Science Museum, London
+```
 
 Through these instruments, van Leeuwenhoek became the first human to observe an entirely new realm of life. In 1676, examining water from a nearby lake, he described tiny creatures swimming and rotating with purposeful motion, which he called "animalcules" (little animals). He was looking at bacteria, protists and other microorganisms, millions of times smaller than any creature known at the time. Over the following decades, he went on to discover spermatozoa, red blood cells, the striations in muscle tissue, and bacteria from his own mouth. For nearly fifty years, he communicated his findings to the Royal Society of London in hundreds of letters written in Dutch, accompanied by his own meticulous drawings. Van Leeuwenhoek proved that life existed at scales far beyond what anyone had imagined.
 
@@ -59,6 +96,15 @@ This deceptively simple equation states that the smallest detail $d$ that a micr
 
 Abbe's insight transformed microscope design from an empirical craft into a rigorous science grounded in physical principles. Together with Zeiss and the glassmaker Otto Schott, he developed new optical glasses and objective designs that pushed performance toward the theoretical maximum. But his work also carried an uncomfortable message: breaking this barrier would require either shorter wavelengths or entirely new ideas. Both paths would eventually be taken.
 
+```{figure} ../figures/abbe_stone.jpg
+---
+width: 50%
+name: abbestone
+align: center
+---
+The resolution limit formula engraved in an Ernst Abbe memorial in Jena, Germany. Copyright: Daniel Mietchen, CC0, via Wikimedia Commons
+```
+
 ### Waves, particles, and electrons
 
 In 1905, **Albert Einstein** and his first wife **Mileva Marić** explained the photoelectric effect by proposing that light also behaves as discrete packets of energy called photons, each carrying energy $E = hf$ proportional to its frequency. The photoelectric effect had puzzled physicists: increasing the intensity of light did not increase the energy of ejected electrons, and below a certain threshold frequency no electrons were ejected at all, regardless of intensity. The photon hypothesis explained all of this elegantly: electrons are knocked out when individual photons transfer enough energy, determined by frequency rather than intensity.
@@ -66,9 +112,27 @@ In 1905, **Albert Einstein** and his first wife **Mileva Marić** explained the 
 This work earned Einstein the 1921 Nobel Prize in Physics (contrary to popular belief, not for relativity). Mileva Marić, a physicist and mathematician who had studied alongside Einstein at the Zurich Polytechnic, received no recognition. She was one of the very few women admitted to the physics and mathematics program at the time, and her intermediate exam grades in physics matched Einstein's. Yet she failed the final diploma examinations twice, the second time while three months pregnant with their daughter, and never obtained her degree. She had planned to develop her diploma research into a PhD thesis, but abandoned that path after the second failure. Marriage, motherhood and eventually divorce removed her from academic life entirely.
 The extent of Marić's intellectual contribution to the 1905 papers remains a matter of debate among historians. Early letters between the two refer to "our work" and "our theory," and Marić herself reportedly told a friend that "we finished some important work that will make my husband world famous." Some scholars interpret these as signs of genuine collaboration, while others argue that they reflect the language of a couple sharing their lives rather than co-authorship. What is beyond dispute is that Marić was a trained physicist who served as an intellectual companion during Einstein's most creative period, and that the academic and social structures of the time made it virtually impossible for a woman in her position to receive credit for any contribution she may have made. Her story is a reminder that the history of science, as it has been written, is not always the full story.
 
+```{figure} ../figures/einsteinmaric.jpg
+---
+width: 50%
+name: einsteinmaric
+align: center
+---
+Albert Einstein and his first wife Mileva Maric. Copyright: Public domain
+```
+
 The wave nature of _particles_, in turn, opened a new door for microscopy. Around 1931, **Ernst Ruska** and Max Knoll at the Technical University of Berlin built the first transmission electron microscope (TEM). Quantum mechanics had shown that electrons, too, behave as waves, but with wavelengths thousands of times shorter than visible light. By focusing electrons with magnetic "lenses" (electromagnetic coils that bend electron paths), the TEM could in principle achieve magnifications of hundreds of thousands of times, revealing structures far beyond the reach of any light microscope. The first instruments were modest, but improvements came rapidly.
 
 In 1939, Gustav Kausche, Edgar Pfankuch and **Helmut Ruska** (Ernst's younger brother, who had turned his attention to biological applications) used the TEM to capture the first images of a virus: tobacco mosaic virus (TMV), revealed as rod-shaped particles about 300 nm long and 15 nm in diameter. Viruses had been hypothesized to exist since the 1890s based on their disease-causing properties and their ability to pass through filters that blocked bacteria, but they had never been directly observed. Were they the smallest living organisms? Chemical agents with infectious properties? Something in between? The electron microscope images settled the question by showing that viruses are discrete physical particles with defined shapes and sizes, existing at the boundary between living and non-living matter.
+
+```{figure} ../figures/tmv.jpg
+---
+width: 50%
+name: tmv
+align: center
+---
+Electron microscopy image of the tobacco mosaic virus (TMV). It exclusively infects plants, but has significant economic implications. It is the cause of mosaic disease in tobacco, which also affects other agricultural crops such as tomatoes and bell peppers. Copyright: Public domain
+```
 
 ### Seeing surfaces and seeing living cells
 
@@ -92,6 +156,16 @@ In 1962, **Osamu Shimomura**, Frank Johnson and Yo Saiga were studying a seeming
 
 The revolution took three decades to arrive. In the 1990s, molecular biologists realized that they could genetically fuse GFP to any protein of interest. By inserting the gene for GFP alongside the gene for a target protein, cells would produce a hybrid molecule carrying its own built-in fluorescent label. Suddenly, specific proteins could be watched as they moved through living cells, gene expression could be monitored in real time, and neural connections could be traced in transparent organisms. Researchers developed color variants (blue, cyan, yellow, red), enabling simultaneous tracking of multiple targets. Cells became self-illuminating. Shimomura, Martin Chalfie and Roger Tsien shared the 2008 Nobel Prize in Chemistry for this discovery and its development.
 
+```{figure} ../figures/aequorea.png
+---
+width: 50%
+name: aequorea
+align: center
+---
+Aequorea victoria, also sometimes called the crystal jelly, is a bioluminescent hydrozoan jellyfish, or hydromedusa, that is found off the west coast of North America. The species is best known as the source of aequorin (a photoprotein), and green fluorescent protein (GFP), two proteins involved in bioluminescence. Their discoverers, Osamu Shimomura and colleagues, won the 2008 Nobel Prize in Chemistry for their work on GFP. Copyright: CC BY 4.0, via Animalia.Bio
+```
+
+
 ### Breaking the diffraction limit
 
 For over a century after Abbe's formula, the roughly 200 nm resolution barrier seemed absolute: a law of physics, not an engineering problem. Then, in the 1990s and 2000s, **Stefan Hell** and others showed that this was not quite the case.
@@ -105,6 +179,15 @@ These techniques were revolutionary because they combined the molecular specific
 The timeline culminates with cryo-electron microscopy (cryo-EM). The technique, pioneered in the 1970s, involves freezing biological samples so rapidly (plunging them into liquid ethane at -180°C) that water forms vitreous ice rather than damaging crystals. This preserves structures in their native, hydrated state. By imaging these frozen specimens with electron beams and computationally combining thousands of images to average out noise, researchers can reconstruct three-dimensional structures at near-atomic resolution, without the need for crystallization.
 
 Over the decades that followed, cryo-EM underwent what is often called a "resolution revolution," driven by better electron detectors, more powerful computers and improved reconstruction algorithms. By the 2010s, the technique routinely achieved atomic resolution, allowing researchers to determine the structure of viruses and protein complexes atom by atom. Jacques Dubochet, Joachim Frank and Richard Henderson received the 2017 Nobel Prize in Chemistry for developing this capability.
+
+```{figure} ../figures/nuclearpore.png
+---
+width: 50%
+name: nuclearpore
+align: center
+---
+The nuclear pore complex is a giant protein assembly that penetrates the double layers of the nuclear membrane. The great size and complexity of the NPC have hindered the study of its structure for many years until recent breakthroughs were achieved by integrating the latest high-resolution cryo-electron microscopy and artificial intelligence modeling. Copyright: CC BY-NC 4.0, via Journal of Molecular Biology, Tai et al. (2023)
+```
 
 ### Today
 

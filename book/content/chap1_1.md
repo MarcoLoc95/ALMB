@@ -31,7 +31,7 @@ Meanwhile, around 400 BCE and halfway across the world, the Chinese philosopher 
 
 The next major leap came from the Arab polymath **Ibn al-Haytham** (known in the West as Alhazen), who completed his monumental seven-volume *Book of Optics* (*Kitab al-Manazir*) around 1021 CE. This work was revolutionary on multiple levels. Ibn al-Haytham demonstrated experimentally that light travels _from_ objects _to_ the eye, overturning centuries of emission theories. He analyzed reflection and refraction with mathematical rigor, studied the anatomy of the eye, investigated phenomena like rainbows and twilight, and explained the workings of the camera obscura. Perhaps most importantly, his insistence on combining experimental evidence with mathematical description established a methodology that we would now call scientific. The Latin translation of his book, circulated from the 13th century onward, profoundly influenced European scholars for generations.
 
-```{figure} ../figures/Ibn_al-Haytham.jpg
+```{figure} ../figures/Ibn_al-Haytham.png
 ---
 width: 50%
 name: ibnalhaytham
@@ -54,7 +54,7 @@ But Hooke's most consequential observation was almost accidental. While examinin
 
 ```{figure} ../figures/hooke.png
 ---
-width: 50%
+width: 90%
 name: hooke
 align: center
 ---
@@ -98,7 +98,7 @@ Abbe's insight transformed microscope design from an empirical craft into a rigo
 
 ```{figure} ../figures/abbe_stone.jpg
 ---
-width: 50%
+width: 80%
 name: abbestone
 align: center
 ---
@@ -180,7 +180,7 @@ The timeline culminates with cryo-electron microscopy (cryo-EM). The technique, 
 
 Over the decades that followed, cryo-EM underwent what is often called a "resolution revolution," driven by better electron detectors, more powerful computers and improved reconstruction algorithms. By the 2010s, the technique routinely achieved atomic resolution, allowing researchers to determine the structure of viruses and protein complexes atom by atom. Jacques Dubochet, Joachim Frank and Richard Henderson received the 2017 Nobel Prize in Chemistry for developing this capability.
 
-```{figure} ../figures/nuclearpore.png
+```{figure} ../figures/nuclearpore.jpg
 ---
 width: 50%
 name: nuclearpore

@@ -6,7 +6,7 @@ If you have ever watched waves in a pond, you already have a surprisingly good m
 
 What exactly oscillates in a light wave? Two fields: the electric field $\vec{E}$ and the magnetic field $\vec{B}$. They oscillate perpendicular to each other and perpendicular to the direction the wave is moving. This makes light a **transverse wave**: the oscillation is at right angles to the propagation direction, unlike a sound wave, where air molecules compress and expand along the same axis.
 
-```{figure} ../figures/em_wave.png
+```{figure} ../figures/emwave.png
 ---
 width: 70%
 name: em_wave

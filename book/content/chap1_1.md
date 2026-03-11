@@ -182,7 +182,7 @@ Over the decades that followed, cryo-EM underwent what is often called a "resolu
 
 ```{figure} ../figures/nuclearpore.jpg
 ---
-width: 50%
+width: 90%
 name: nuclearpore
 align: center
 ---

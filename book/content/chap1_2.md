@@ -34,13 +34,13 @@ A few other terms are useful. The **period** $T = 1/f$ is the time for one compl
 
 Visible light, the light our eyes can detect, occupies only a tiny sliver of the electromagnetic spectrum: wavelengths from about 400 nm (violet) to 700 nm (red). But the same physics governs an enormous range of radiation. Radio waves have wavelengths of meters to kilometers. Microwaves, the ones that heat your food, have wavelengths of centimeters. Infrared radiation is what you feel as warmth from a fire. On the other side of visible light, ultraviolet radiation is what gives you a sunburn, X-rays pass through soft tissue to image bones, and gamma rays are emitted by radioactive nuclei.
 
-```{figure} ../figures/em_spectrum.png
+```{figure} ../figures/emspectrum.png
 ---
 width: 90%
 name: em_spectrum
 align: center
 ---
-The electromagnetic spectrum. Visible light occupies a remarkably narrow band of wavelengths. The approximate scale of objects that interact with each type of radiation is shown below.
+The electromagnetic spectrum. Visible light occupies a remarkably narrow band of wavelengths. The approximate scale of objects that interact with each type of radiation is shown below. Copyright: CC-BY-SA 3.0, via Wikimedia Commons
 ```
 
 What makes this relevant for microscopy? The wavelength of the light you use sets a fundamental limit on the size of the features you can resolve. Visible light interacts with structures on the order of hundreds of nanometers to micrometers, which is precisely the scale of cells, organelles and subcellular structures. This is not a coincidence: it is the reason optical microscopy became biology's most important tool.
@@ -55,13 +55,13 @@ Because light is a wave, two (or more) light waves can overlap and combine. What
 
 If two waves arrive at the same point with their peaks aligned (in phase), their amplitudes add up. The result is a brighter wave. This is **constructive interference**. If they arrive with the peaks of one aligned with the troughs of the other (exactly out of phase, or $\pi$ radians apart), their amplitudes cancel. The result is darkness. This is **destructive interference**.
 
-```{figure} ../figures/interference.png
+```{figure} ../figures/interference.jpg
 ---
 width: 70%
 name: interference
 align: center
 ---
-(a) Destructive interference: when waves arrive out of phase, they cancel. (b) Constructive interference: when waves arrive in phase, they reinforce each other.
+(a) Destructive interference: when waves arrive out of phase, they cancel. (b) Constructive interference: when waves arrive in phase, they reinforce each other. Copyright: CC BY 4.0, via LibreTexts
 ```
 
 This might sound like an abstract curiosity, but interference is central to almost every topic in this book. Image formation in a microscope is fundamentally an interference process: light scattered by different parts of the specimen recombines to form the image. The resolution limit, the contrast mechanisms we will discuss in later chapters, and even techniques like phase contrast and structured illumination microscopy all depend on interference. We will revisit it in depth in {ref}`Chapter 6 <chap6>`, where we connect it to Fourier optics.

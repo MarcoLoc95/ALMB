@@ -122,10 +122,10 @@ $$
 
 where $\lambda_0$ is the wavelength in vacuum.
 
-```{figure} ../figures/refractive_index.png
+```{figure} ../figures/wave_in_media.gif
 ---
 width: 80%
-name: refractive_index
+name: wave_in_media
 align: center
 ---
 When light passes from a medium with low refractive index to one with high refractive index, it slows down and its wavelength decreases, while the frequency remains constant.

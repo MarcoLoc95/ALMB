@@ -6,8 +6,6 @@ A video version of this section is available below, covering the derivations and
 
 <iframe src="https://player.vimeo.com/video/1172906310?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
 
-https://player.vimeo.com/video/1172906310?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479
-
 The monochromatic aberrations we discussed in the previous section arise from the geometry of the lens and persist even with perfectly monochromatic light. Chromatic aberrations have a fundamentally different origin: they arise because the refractive index of any transparent material is not a single number but a function of wavelength. The word "chromatic" comes from the Greek _chroma_ (color), and the phenomenon it describes is familiar to anyone who has seen a prism split white light into a rainbow. In a lens, this wavelength dependence means that blue light and red light are focused at different positions, degrading the image whenever the illumination is not perfectly monochromatic.
 
 ## Why does the focal length depend on wavelength?

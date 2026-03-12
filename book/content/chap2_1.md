@@ -4,8 +4,7 @@
 A video version of this section is available below, covering the same derivations with live demonstrations on a whiteboard.
 ```
 
-```{video} https://player.vimeo.com/video/1172901768?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479 
-```
+<iframe src="https://player.vimeo.com/video/1172901768?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
 
 ## What is a lens?
 

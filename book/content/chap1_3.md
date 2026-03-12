@@ -92,7 +92,7 @@ One of the most practical skills in geometrical optics is **ray tracing**: drawi
 
 ```{figure} ../figures/ray_tracing.png
 ---
-width: 80%
+width: 90%
 name: ray_tracing
 align: center
 ---
@@ -121,7 +121,7 @@ This means that even a perfect lens with no aberrations at all does not focus a 
 
 ```{figure} ../figures/ray_vs_wave.png
 ---
-width: 70%
+width: 90%
 name: ray_vs_wave
 align: center
 ---

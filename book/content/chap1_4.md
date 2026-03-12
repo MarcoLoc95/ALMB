@@ -78,7 +78,7 @@ Before moving on, here is some vocabulary that cuts across all three description
 
 ```{figure} ../figures/light_properties.png
 ---
-width: 80%
+width: 90%
 name: light_properties
 align: center
 ---
@@ -91,7 +91,7 @@ When light encounters matter, a range of things can happen: it can be **transmit
 
 ```{figure} ../figures/light_matter.png
 ---
-width: 80%
+width: 90%
 name: light_matter
 align: center
 ---

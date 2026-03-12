@@ -64,7 +64,11 @@ align: center
 (a) Destructive interference: when waves arrive out of phase, they cancel. (b) Constructive interference: when waves arrive in phase, they reinforce each other. Copyright: CC BY 4.0, via LibreTexts
 ```
 
-This might sound like an abstract curiosity, but interference is central to almost every topic in this book. Image formation in a microscope is fundamentally an interference process: light scattered by different parts of the specimen recombines to form the image. The resolution limit, the contrast mechanisms we will discuss in later chapters, and even techniques like phase contrast and structured illumination microscopy all depend on interference. We will revisit it in depth in {ref}`Chapter 6 <chap6>`, where we connect it to Fourier optics.
+This might sound like an abstract curiosity, but interference is central to almost every topic in this book. Image formation in a microscope is fundamentally an interference process: light scattered by different parts of the specimen recombines to form the image. The resolution limit, the contrast mechanisms we will discuss in later chapters, and even techniques like phase contrast and structured illumination microscopy all depend on interference. 
+
+```{tip}
+A common question: if two identical beams travel in the same direction and are perfectly out of phase, they cancel everywhere. Where does the energy go? The answer is that this situation cannot actually be created. To combine two beams into one path, you need an optical element (a beam splitter, a fiber coupler, etc.), and every such element has at least two output ports. When you tune the phases for perfect destructive interference at one output, you automatically get perfect constructive interference at the other. Energy conservation demands this: the scattering matrix of any lossless optical element must be unitary, which makes it mathematically impossible for energy to vanish at all outputs simultaneously. The universe does not let you set up the paradox in the first place.
+```
 
 ## Diffraction
 
@@ -72,10 +76,10 @@ Closely related to interference is **diffraction**: the phenomenon by which wave
 
 In microscopy, however, diffraction is impossible to ignore. Every lens has a finite aperture, and when light passes through it, it diffracts. The practical consequence is that a point source of light, no matter how small, is never imaged as a perfect point. Instead, it appears as a central bright disc surrounded by concentric rings, a pattern called the **Airy pattern** (after the astronomer George Biddell Airy). The size of this pattern depends on the wavelength of light and on how much of the diffracted light the lens can collect. This is the origin of the resolution limit we mentioned in the historical chapter, and we will analyze it quantitatively in {ref}`Chapter 6 <chap6_1>`.
 
-```{figure} ../figures/airy_disk.png
+```{figure} ../figures/diffraction_slit1D.png
 ---
-width: 60%
-name: airy_disk
+width: 90%
+name: diffraction_slit1D
 align: center
 ---
 When parallel light passes through a lens with finite aperture, the focal point is not a perfect point but an Airy pattern: a central disc surrounded by concentric rings of decreasing intensity.

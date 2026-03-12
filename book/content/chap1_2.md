@@ -8,7 +8,7 @@ What exactly oscillates in a light wave? Two fields: the electric field $\vec{E}
 
 ```{figure} ../figures/emwave.png
 ---
-width: 70%
+width: 90%
 name: em_wave
 align: center
 ---

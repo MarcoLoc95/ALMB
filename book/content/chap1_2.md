@@ -97,7 +97,7 @@ A polarizing filter selects only the component of the electric field along one a
 
 ```{figure} ../figures/polarization.png
 ---
-width: 80%
+width: 90%
 name: polarization
 align: center
 ---

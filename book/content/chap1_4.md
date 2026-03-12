@@ -54,17 +54,9 @@ align: center
 The three fundamental photon-matter interactions. In absorption, a photon excites an electron to a higher state. In spontaneous emission, the electron drops down and a photon is released in a random direction. In stimulated emission, an incoming photon triggers the release of a second, identical photon.
 ```
 
-## Fluorescence and the Jablonski diagram
+## Example of photon phenomena in biology
 
-Fluorescence is so central to modern microscopy that it deserves a closer look even at this introductory stage. The full treatment will come in {ref}`Chapter 4 <chap4>`, but the essential physics is best understood through the **Jablonski diagram**, a simple energy-level diagram that maps out what happens after a molecule absorbs a photon.
-
-The ground state of the molecule is labeled $S_0$. When a photon is absorbed, the molecule jumps to one of the vibrational levels of the first (or second) excited state, $S_1$ (or $S_2$). Within picoseconds, the molecule relaxes non-radiatively (through vibrations and collisions with surrounding molecules) to the lowest vibrational level of $S_1$. This process is called **internal conversion** and it is fast enough to be essentially instantaneous on the timescale of fluorescence.
-
-From the lowest level of $S_1$, the molecule can return to $S_0$ by emitting a fluorescence photon. Because some energy was lost during the internal conversion step, the emitted photon has less energy (longer wavelength) than the absorbed photon. This is the Stokes shift we mentioned, and it is the reason why excitation light and fluorescence light can be separated with optical filters.
-
-
-
-A practical example ties this together beautifully: photosynthesis. Chlorophyll molecules in plant cells absorb blue and red photons, using most of the energy to drive chemical reactions (the conversion of water and CO$_2$ into sugars). But a small fraction of the absorbed energy is re-emitted as red fluorescence. This is why leaves glow faintly red under UV illumination, and it is the same physical process that makes GFP, DAPI and all other fluorescent probes work in the microscope.
+A practical example ties this together beautifully: photosynthesis. Chlorophyll molecules in plant cells absorb blue and red photons, using most of the energy to drive chemical reactions (the conversion of water and CO$_2$ into sugars). Furthermore, a small fraction of the absorbed energy (roughly 1-2%) is re-emitted as red fluorescence. This is why leaves glow faintly red under UV illumination, and it is the same physical process that makes GFP, DAPI and all other fluorescent probes work in the microscope.
 
 ```{figure} ../figures/photosynthesis.png
 ---
@@ -72,7 +64,7 @@ width: 90%
 name: photosynthesis
 align: center
 ---
- Copyright: Ponor, CC BY-SA 4.0, via Khan Academy
+The Z-scheme of photosynthesis. Light energy absorbed by Photosystem II (P680) and Photosystem I (P700) excites electrons to higher energy states. Between the two photosystems, the electrons lose energy through an electron transport chain, driving the synthesis of ATP. The final electron acceptor is NADPH. Water serves as the initial electron donor, replacing the electrons lost by P680. Copyright: CC BY-SA 4.0, via Khan Academy
 ```
 
 ## General properties of light

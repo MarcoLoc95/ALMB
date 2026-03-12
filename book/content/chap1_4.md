@@ -24,7 +24,7 @@ width: 70%
 name: photoelectric
 align: center
 ---
-The photoelectric effect. The wave picture (crossed out) predicts that increasing intensity should increase electron energy. The photon picture correctly predicts that energy depends on frequency, not intensity.
+The photoelectric effect. The wave model predicts that increasing intensity should increase electron energy. The photon model correctly predicts that energy depends on frequency, not intensity. Copyright: Ponor, CC BY-SA 4.0, via Wikimedia Commons
 ```
 
 ## Why photons matter for microscopy
@@ -62,19 +62,17 @@ The ground state of the molecule is labeled $S_0$. When a photon is absorbed, th
 
 From the lowest level of $S_1$, the molecule can return to $S_0$ by emitting a fluorescence photon. Because some energy was lost during the internal conversion step, the emitted photon has less energy (longer wavelength) than the absorbed photon. This is the Stokes shift we mentioned, and it is the reason why excitation light and fluorescence light can be separated with optical filters.
 
-```{figure} ../figures/jablonski.png
----
-width: 80%
-name: jablonski
-align: center
----
-A simplified Jablonski diagram. After absorption (blue arrows), the molecule quickly relaxes to the lowest vibrational level of $S_1$ via internal conversion (wavy arrow). Fluorescence emission (green/red arrows) then returns the molecule to $S_0$ at a longer wavelength. The Stokes shift is the wavelength difference between excitation and emission peaks.
-```
+
 
 A practical example ties this together beautifully: photosynthesis. Chlorophyll molecules in plant cells absorb blue and red photons, using most of the energy to drive chemical reactions (the conversion of water and CO$_2$ into sugars). But a small fraction of the absorbed energy is re-emitted as red fluorescence. This is why leaves glow faintly red under UV illumination, and it is the same physical process that makes GFP, DAPI and all other fluorescent probes work in the microscope.
 
-```{tip}
-The fact that the emitted photon always has less energy (longer wavelength) than the absorbed photon is not just a useful filter trick. It is a consequence of the second law of thermodynamics: some energy is always dissipated as heat during the relaxation process. This makes fluorescence inherently less than 100% efficient, a quantity measured by the **quantum yield** of the fluorophore.
+```{figure} ../figures/photosynthesis.png
+---
+width: 90%
+name: photosynthesis
+align: center
+---
+ Copyright: Ponor, CC BY-SA 4.0, via Khan Academy
 ```
 
 ## General properties of light

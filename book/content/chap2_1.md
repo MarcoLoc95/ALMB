@@ -10,7 +10,7 @@ A video version of this section is available below, covering the same derivation
 
 At its simplest, a **lens** is a piece of transparent material whose surfaces are curved. When a ray of light enters the lens, it slows down (or speeds up, depending on the material), and because the surfaces are not flat, different parts of the wavefront change speed at different times. The net effect is that the ray bends: it _refracts_. By shaping the surfaces carefully, we can make all the rays from a single point converge to another single point, forming an image.
 
-Most lenses you will encounter in optics courses and in the laboratory have surfaces that are portions of spheres. This is partly a historical accident (spherical surfaces are relatively easy to grind and polish) and partly a matter of convenience (the geometry of spheres is well understood). We will see later in this chapter that the spherical shape is also the root cause of several aberrations, but for now it is a perfectly good starting point.
+Most lenses you will encounter in optics courses and in the laboratory have surfaces that are portions of spheres. This is partly a historical coincidence (spherical surfaces are relatively easy to grind and polish) and partly a matter of convenience (the geometry of spheres is well understood). We will see later in this chapter that the spherical shape is also the root cause of several aberrations, but for now it is a perfectly good starting point.
 
 ## Refraction at a single spherical surface
 

@@ -26,5 +26,5 @@ width: 90%
 name: light_matter
 align: center
 ---
-The main types of light-matter interactions. Each one is the basis for one or more contrast mechanisms in microscopy.
+The main types of light-matter interactions.
 ```

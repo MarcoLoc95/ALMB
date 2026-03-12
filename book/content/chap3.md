@@ -1,3 +1,3 @@
-# 3 - Simple microscopes and image formation
+# 3 - Widefield microscopes and image formation
 
 aa

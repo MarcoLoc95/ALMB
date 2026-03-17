@@ -24,7 +24,7 @@ $$
 
 ```{figure} ../figures/chap2_spherical_surface.png
 ---
-width: 80%
+width: 90%
 name: chap2_spherical_surface
 align: center
 ---

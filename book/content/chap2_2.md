@@ -43,6 +43,15 @@ Because the correction term grows with $h^2$, rays that pass through the outer z
 
 Between the marginal and paraxial foci there is a plane where the spot size is smallest: this is the **circle of least confusion**, the best compromise when spherical aberration cannot be fully corrected.
 
+```{figure} ../figures/chap2_sa_simulation.png
+---
+width: 60%
+name: chap2_sa_simulation
+align: center
+---
+Simulation of spherical aberration on a test image. At the marginal focus (left), the core is relatively sharp but surrounded by a bright ring-like halo. At the circle of least confusion (center), the overall spot size is minimized and the image is sharpest. At the paraxial focus (right), fine details near the axis are preserved but the broad halo from uncorrected marginal rays washes out the contrast. In all three cases the image is degraded compared to the original object (top), illustrating why spherical aberration must be corrected in any high-resolution imaging system.
+```
+
 ### How to correct it
 
 There are several strategies, listed here from simplest to most effective:

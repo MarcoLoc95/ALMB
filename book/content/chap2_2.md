@@ -62,6 +62,14 @@ align: center
 An aspherical lens corrects for spherical aberration by varying the curvature across its aperture, so that marginal and paraxial rays converge to the same focal point. Copyright: ArtMechanic, CC BY-SA 3.0, via Wikimedia Commons
 ```
 
+How does one design an aspherical surface in practice? The shape of any rotationally symmetric optical surface can be described by its _sag_, the distance $z$ from a flat reference plane as a function of the radial distance $r$ from the optical axis:
+
+$$
+z(r) = \frac{r^2 / R}{1 + \sqrt{1 - (1+\kappa)\,r^2/R^2}} + A_4\,r^4 + A_6\,r^6 + A_8\,r^8 + \cdots
+$$
+
+The first term is a conic section: $R$ is the vertex radius of curvature and $\kappa$ is the **conic constant**, which selects the type of surface ($\kappa = 0$ for a sphere, $\kappa = -1$ for a paraboloid, $\kappa < -1$ for a hyperboloid). The higher-order coefficients $A_4, A_6, A_8, \ldots$ are free parameters that the lens designer optimizes numerically to minimize aberrations across the full aperture. A spherical lens corresponds to $\kappa = 0$ and all $A_i = 0$. In modern microscope objectives, these coefficients are tuned with sub-nanometer precision, which is one of the reasons why high-quality objectives are so expensive to manufacture.
+
 ```{tip}
 Even a perfectly designed aspherical objective can exhibit spherical aberration if you use it under conditions it was not designed for. A common example in microscopy: an oil-immersion objective ($n = 1.515$) used to image deep into a watery sample ($n = 1.33$). The mismatch between the immersion medium and the sample introduces spherical aberration that worsens with imaging depth. This is why matching the immersion medium to the sample is so important (and why water-immersion objectives exist).
 ```

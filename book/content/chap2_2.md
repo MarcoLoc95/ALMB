@@ -55,11 +55,11 @@ There are several strategies, listed here from simplest to most effective:
 
 ```{figure} ../figures/chap2_aspherical.png
 ---
-width: 70%
+width: 50%
 name: chap2_aspherical
 align: center
 ---
-An aspherical lens corrects for spherical aberration by varying the curvature across its aperture, so that marginal and paraxial rays converge to the same focal point.
+An aspherical lens corrects for spherical aberration by varying the curvature across its aperture, so that marginal and paraxial rays converge to the same focal point. Copyright: ArtMechanic, CC BY-SA 3.0, via Wikimedia Commons
 ```
 
 ```{tip}

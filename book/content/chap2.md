@@ -6,7 +6,7 @@ The power of geometrical optics lies in its economy: a handful of rules about ho
 
 ```{figure} ../figures/chap2_lens_overview.png
 ---
-width: 80%
+width: 90%
 name: chap2_lens_overview
 align: center
 ---
@@ -21,6 +21,6 @@ At the end of this chapter you should be able to:
 - Use ray tracing rules to locate and characterize the image of an object
 - Explain how the paraxial approximation leads to the thin lens equation and why its failure produces aberrations
 - Describe the five Seidel aberrations and their physical origins
-- Distinguish between longitudinal and lateral chromatic aberration
-- Explain the principle behind achromatic doublets and apochromatic objectives
+- Estimate the longitudinal and lateral chromatic aberration given two colors and the dispersion of the lens
+- Explain the principle behind achromatic, apochromatic and superachromatic objectives
 - Argue which level of aberration correction is appropriate for a given microscopy application

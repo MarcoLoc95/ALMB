@@ -16,10 +16,10 @@ Most lenses you will encounter in optics courses and in the laboratory have surf
 
 Before tackling a full lens with two curved surfaces, let us start with something simpler: a single spherical interface between two media with refractive indices $n_1$ (the surroundings, say air) and $n_2$ (the lens material, say glass). The surface has a radius of curvature $R$, and we place a point source on the optical axis at a distance $s_o$ from the surface.
 
-A ray leaving the source at a small angle $\alpha$ hits the surface at height $h$ above the axis, where the local normal points toward the center of curvature. Using the geometry of the triangle formed by the source, the point of incidence, and the center of curvature, we can express the angles of incidence $\theta_1$ and refraction $\theta_2$ in terms of $\alpha$, the angle $\phi$ subtended at the center, and the angle $\beta$ at which the refracted ray crosses the axis on the other side:
+A ray leaving the source at a small angle $\alpha$ hits the surface at height $h$ above the axis, where the local normal points toward the center of curvature. Using the geometry of the triangle formed by the source, the point of incidence, and the center of curvature, we can express the angles of incidence $\theta_1$ and refraction $\theta_2$ in terms of $\alpha$, the angle $\varphi$ subtended at the center, and the angle $\beta$ at which the refracted ray crosses the axis on the other side:
 
 $$
-\theta_1 = \alpha + \phi, \qquad \theta_2 = \phi - \beta
+\theta_1 = \alpha + \varphi, \qquad \theta_2 = \varphi - \beta
 $$
 
 ```{figure} ../figures/chap2_spherical_surface.png
@@ -28,28 +28,28 @@ width: 90%
 name: chap2_spherical_surface
 align: center
 ---
-Refraction at a single spherical surface. A point source at distance $s_o$ emits a ray that refracts and crosses the axis at distance $s_i$. The height $h$, the angle $\phi$ at the center of curvature, and the angles $\alpha$ and $\beta$ are all related by simple trigonometry.
+Refraction at a single spherical surface. A point source at distance $s_o$ emits a ray that refracts and crosses the axis at distance $s_i$. The height $h$, the angle $\varphi$ at the center of curvature, and the angles $\alpha$ and $\beta$ are all related by simple trigonometry.
 ```
 
 From the figure we can also write:
 
 $$
-\tan\alpha = \frac{h}{s_o}, \qquad \tan\beta = \frac{h}{s_i}, \qquad \sin\phi = \frac{h}{R}
+\tan\alpha = \frac{h}{s_o}, \qquad \tan\beta = \frac{h}{s_i}, \qquad \sin\varphi = \frac{h}{R}
 $$
 
 At this point the exact expressions are messy: they involve inverse trigonometric functions and do not simplify into anything memorable. This is where we introduce the **paraxial approximation**. If the angles are small (rays stay close to the axis), we can replace $\sin\theta \approx \theta$ and $\tan\theta \approx \theta$, which are just the first-order Taylor expansions. Under this approximation the three relations become:
 
 $$
-\alpha \approx \frac{h}{s_o}, \qquad \beta \approx \frac{h}{s_i}, \qquad \phi \approx \frac{h}{R}
+\alpha \approx \frac{h}{s_o}, \qquad \beta \approx \frac{h}{s_i}, \qquad \varphi \approx \frac{h}{R}
 $$
 
 Now we apply Snell's law. In the paraxial regime, $n_1 \sin\theta_1 = n_2 \sin\theta_2$ simplifies to $n_1 \theta_1 = n_2 \theta_2$. Substituting the expressions for $\theta_1$ and $\theta_2$:
 
 $$
-n_1(\alpha + \phi) = n_2(\phi - \beta)
+n_1(\alpha + \varphi) = n_2(\varphi - \beta)
 $$
 
-Replacing $\alpha$, $\beta$ and $\phi$ with their expressions in terms of $h$, $s_o$, $s_i$ and $R$:
+Replacing $\alpha$, $\beta$ and $\varphi$ with their expressions in terms of $h$, $s_o$, $s_i$ and $R$:
 
 $$
 n_1\left(\frac{h}{s_o} + \frac{h}{R}\right) = n_2\left(\frac{h}{R} - \frac{h}{s_i}\right)

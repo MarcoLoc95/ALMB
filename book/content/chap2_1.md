@@ -157,25 +157,6 @@ An extended object at distance $s_o$ produces an inverted image at distance $s_i
 
 When $|M| > 1$ the image is magnified; when $|M| < 1$ it is minified. A positive $M$ means the image is upright (same orientation as the object), while a negative $M$ means the image is inverted. In a typical microscope objective, $M$ is negative and its absolute value can range from 4 to 100 or more.
 
-## Ray tracing rules
-
-Combining everything we have derived, we arrive at three simple rules for tracing rays through a thin converging lens, which are the everyday workhorse of geometrical optics:
-
-1. A ray travelling _parallel_ to the optical axis is refracted through the back focal point.
-2. A ray passing through the _center_ of the lens continues in a straight line.
-3. A ray passing through the _front focal point_ exits the lens parallel to the axis.
-
-Any two of these three rays are sufficient to locate the image of a point. For a _diverging_ lens, the rules are the same but the focal points are swapped (the ray appears to come from, rather than pass through, the focal point).
-
-```{figure} ../figures/chap2_raytracing.png
----
-width: 90%
-name: chap2_raytracing
-align: center
----
-The three principal rays for a converging thin lens. Their intersection determines the image location and size.
-```
-
 ## Real and virtual images
 
 When the object is placed beyond the focal point ($s_o > f$), the three rays converge on the other side of the lens. A screen placed at $s_i$ would show a real, inverted image. This is the configuration used in every microscope objective and every camera.

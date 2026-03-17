@@ -55,7 +55,7 @@ There are several strategies, listed here from simplest to most effective:
 
 ```{figure} ../figures/chap2_aspherical.png
 ---
-width: 50%
+width: 40%
 name: chap2_aspherical
 align: center
 ---

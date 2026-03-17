@@ -32,13 +32,23 @@ $$
 
 Because $B > 0$ for normal glass, shorter wavelengths have a larger $n$ and therefore a _shorter_ focal length. Blue light is focused closer to the lens than red light.
 
+```{figure} ../figures/chap2_f_vs_lambda.png
+---
+width: 80%
+name: chap2_f_vs_lambda
+align: center
+---
+Focal length of a symmetric biconvex N-BK7 lens as a function of wavelength, calculated from the Cauchy equation and the lensmaker equation. The lens is designed to have $f = 200$ mm at 588 nm. The steep rise below 450 nm illustrates why UV light is particularly problematic for uncorrected glass optics.
+```
+
+
 ## Longitudinal chromatic aberration
 
 When a lens is illuminated with white light, each wavelength focuses at a different distance along the optical axis (_{numref}`Fig. {number} <chap2_longitudinal_chromatic>`_). Blue light, being refracted more strongly, converges first; red light converges farther away. This spread of focal positions is called **longitudinal** (or **axial**) **chromatic aberration**.
 
 ```{figure} ../figures/chap2_longitudinal_chromatic.png
 ---
-width: 80%
+width: 70%
 name: chap2_longitudinal_chromatic
 align: center
 ---
@@ -53,7 +63,7 @@ There is a second effect. Because different wavelengths have different focal len
 
 ```{figure} ../figures/chap2_lateral_chromatic.png
 ---
-width: 70%
+width: 90%
 name: chap2_lateral_chromatic
 align: center
 ---

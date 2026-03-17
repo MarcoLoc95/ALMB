@@ -73,7 +73,7 @@ A real lens has two surfaces. Consider a lens of refractive index $n$ (we use $n
 
 ```{figure} ../figures/chap2_thick_lens.png
 ---
-width: 80%
+width: 90%
 name: chap2_thick_lens
 align: center
 ---

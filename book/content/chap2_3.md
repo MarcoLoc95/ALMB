@@ -116,7 +116,7 @@ An achromatic doublet corrects for two wavelengths: red and blue. What about all
 
 ```{figure} ../figures/chap2_secondary_spectrum.png
 ---
-width: 70%
+width: 50%
 name: chap2_secondary_spectrum
 align: center
 ---

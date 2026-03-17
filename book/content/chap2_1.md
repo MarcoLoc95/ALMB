@@ -148,7 +148,7 @@ $$
 
 ```{figure} ../figures/chap2_magnification.png
 ---
-width: 80%
+width: 90%
 name: chap2_magnification
 align: center
 ---

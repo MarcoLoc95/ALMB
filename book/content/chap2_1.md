@@ -122,7 +122,7 @@ A lens with a positive focal length ($f > 0$) is _converging_ (convex), while on
 
 Two limiting cases of the thin lens equation will appear again and again throughout this book.
 
-**Object at the focal point ($s_o = f$).** Substituting into the thin lens equation: $\frac{1}{f} + \frac{1}{s_i} = \frac{1}{f}$, which gives $\frac{1}{s_i} = 0$, meaning $s_i \to \infty$. The rays exit the lens _parallel_ to each other. This is exactly the configuration we used in {ref}`Chapter 6 <chap6_1>` to explain why a lens acts as a Fourier transformer: a point source in the focal plane produces plane waves after the lens.
+**Object at the focal point ($s_o = f$).** Substituting into the thin lens equation: $\frac{1}{f} + \frac{1}{s_i} = \frac{1}{f}$, which gives $\frac{1}{s_i} = 0$, meaning $s_i \to \infty$. The rays exit the lens _parallel_ to each other.
 
 **Object at infinity ($s_o \to \infty$).** Now $\frac{1}{\infty} + \frac{1}{s_i} = \frac{1}{f}$, so $s_i = f$. Parallel incoming rays converge at the focal point. This is how a lens focuses sunlight, and it is the basic principle of every camera and telescope.
 

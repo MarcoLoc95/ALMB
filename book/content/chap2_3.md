@@ -57,6 +57,16 @@ Longitudinal chromatic aberration. A white-light beam is focused by a single len
 
 At any given screen position, only one wavelength is in perfect focus. The others contribute defocused halos, giving the image a characteristic color fringe. Somewhere between the blue and red foci there is a plane where the overall spot is smallest: the circle of least confusion, analogous to the one we encountered for spherical aberration. This circle is typically located closer to the red focus than to the blue, because the relationship between $n$ and $\lambda$ is not linear.
 
+```{tip}
+**Worked example: axial chromatic aberration**
+
+A biconvex lens made of N-BK7 glass has a focal length $f = 100$ mm at 550 nm (green). Using the Cauchy equation with $A = 1.505$ and $B = 4220$ nm$^2$, the refractive indices at two common fluorescence wavelengths are $n(488\text{ nm}) \approx 1.522$ and $n(640\text{ nm}) \approx 1.515$.
+
+From the lensmaker equation, the focal lengths scale as $f(\lambda) = f_0 \cdot \frac{n_0 - 1}{n(\lambda) - 1}$, giving $f(488) \approx 98.7$ mm and $f(640) \approx 100.7$ mm.
+
+The axial chromatic aberration between the two channels is therefore $\Delta f \approx 2.0$ mm: if you focus on GFP (488 nm excitation), your red channel (640 nm) is out of focus by 2 mm.
+```
+
 ## Lateral chromatic aberration
 
 There is a second effect. Because different wavelengths have different focal lengths, they also produce images of different sizes. Consider an off-axis point: the blue image and the red image are formed at different heights in their respective focal planes. Even if we could somehow bring both colors into the same plane, the two images would not overlap. The difference in image size is called **lateral** (or **transverse**) **chromatic aberration**, and it manifests as colored fringes at the edges of objects, especially toward the periphery of the field of view.
@@ -68,6 +78,18 @@ name: chap2_lateral_chromatic
 align: center
 ---
 Lateral chromatic aberration. Because the red and blue images have different magnifications, off-axis features show colored fringes.
+```
+
+```{tip}
+**Worked example: lateral chromatic aberration**
+
+Consider the same lens ($f = 100$ mm at 550 nm) imaging a fluorescently labelled cell at distance $s_o = 200$ mm. 
+
+From the thin lens equation, $s_i(488) = 1/(1/98.7 - 1/200) \approx 194.7$ mm and $s_i(640) = 1/(1/100.7 - 1/200) \approx 202.8$ mm.
+
+The lateral magnification for each channel is $M = -s_i / s_o$, so $M(488) \approx -0.974$ and $M(640) \approx -1.014$.
+
+A structure 10 $\mu$m wide in the sample appears as 9.74 $\mu$m in the blue channel and 10.14 $\mu$m in the red channel: a difference of 0.40 $\mu$m, or about 4% of the feature size. In a colocalization experiment this shift would be enough to make two co-located proteins appear spatially separated, leading to a false-negative result.
 ```
 
 ## Correcting chromatic aberration: achromatic doublets

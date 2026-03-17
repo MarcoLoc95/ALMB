@@ -89,7 +89,7 @@ Coma is the aberration of _off-axis_ point sources imaged through a lens with a 
 
 ```{figure} ../figures/chap2_coma.png
 ---
-width: 70%
+width: 90%
 name: chap2_coma
 align: center
 ---

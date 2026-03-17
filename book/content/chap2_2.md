@@ -32,7 +32,7 @@ Spherical aberration is the most fundamental of the five, and the one most direc
 
 ```{figure} ../figures/chap2_spherical_aberration.png
 ---
-width: 80%
+width: 90%
 name: chap2_spherical_aberration
 align: center
 ---

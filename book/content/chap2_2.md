@@ -139,7 +139,7 @@ Even if we correct for spherical aberration, coma and astigmatism, the image of 
 
 ```{figure} ../figures/chap2_field_curvature.png
 ---
-width: 70%
+width: 90%
 name: chap2_field_curvature
 align: center
 ---

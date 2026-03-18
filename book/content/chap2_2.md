@@ -172,9 +172,18 @@ Another approach to field curvature is to use a curved detector instead of a fla
 
 ## Distortion
 
-The last Seidel aberration, **distortion**, is different from the previous four in an important way: it does not blur the image. Instead, it changes the _magnification_ across the field. If the magnification increases with distance from the axis, straight lines bow outward (pincushion distortion); if it decreases, they bow inward (barrel distortion).
+The last Seidel aberration, **distortion**, is different from the previous four in an important way: it does not blur the image. Instead, it changes the _magnification_ across the field. If the magnification increases with distance from the axis, straight lines bow outward (pincushion distortion); if it decreases, they bow inward (barrel distortion). In both cases every point in the image is still sharply focused, but its _position_ is shifted radially, so the geometry of the object is no longer faithfully reproduced.
 
-Distortion does not affect resolution, but it does affect the accuracy of geometric measurements. In microscopy, it can cause artifacts when stitching tiled images or when measuring distances across a large field. Modern Plan objectives are designed to minimize distortion along with field curvature.
+```{figure} ../figures/chap2_distortion.png
+---
+width: 90%
+name: chap2_distortion
+align: center
+---
+Barrel and pincushion distortion applied to a newspaper extract. Note that the text remains sharp in both cases: distortion displaces image points but does not blur them.
+```
+
+Distortion does not affect resolution, but it does affect the accuracy of geometric measurements. In microscopy, it can cause artifacts when stitching tiled images or when measuring distances across a large field of view. Modern Plan objectives are designed to minimize distortion along with field curvature.
 
 ## Summary and practical message
 

@@ -45,7 +45,7 @@ Between the marginal and paraxial foci there is a plane where the spot size is s
 
 ```{figure} ../figures/chap2_sa_simulation.png
 ---
-width: 60%
+width: 90%
 name: chap2_sa_simulation
 align: center
 ---
@@ -64,7 +64,7 @@ There are several strategies, listed here from simplest to most effective:
 
 ```{figure} ../figures/chap2_aspherical.png
 ---
-width: 40%
+width: 30%
 name: chap2_aspherical
 align: center
 ---

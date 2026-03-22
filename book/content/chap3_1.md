@@ -70,7 +70,7 @@ A common source of confusion: the magnification printed on an objective refers t
 
 A microscope objective carries a surprising amount of information engraved or printed on its barrel. Learning to read these markings is an essential skill for any microscopist. The interactive figure below lets you explore each marking on a typical high-end objective: hover over (or tap on) any part to learn what it encodes.
 
-```{iframe} ../_static/objective_explorer.html
+```{iframe} ../content/objective_explorer.html
 :width: 100%
 :height: 550px
 ```

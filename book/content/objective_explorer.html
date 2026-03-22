@@ -21,7 +21,7 @@
   }
   .objectives {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     flex: 0 0 auto;
   }
   .obj-label {
@@ -96,102 +96,96 @@
     <!-- LEFT: Dry 40x/0.95 -->
     <div>
       <div class="obj-label">40&#215; dry</div>
-      <svg width="190" viewBox="0 0 190 540" xmlns="http://www.w3.org/2000/svg">
-        <!-- Screw thread -->
+      <svg width="210" viewBox="0 0 210 420" xmlns="http://www.w3.org/2000/svg">
+        <!-- Screw thread (gold, wide) -->
         <g class="zone" onmouseenter="show('thread')" onmouseleave="clr()" onclick="show('thread')">
-          <rect x="45" y="8" width="100" height="30" rx="6" fill="#c8a84e" stroke="#a08030" stroke-width="0.8"/>
-          <g opacity="0.2" stroke="#806020" stroke-width="0.5">
-            <line x1="48" y1="14" x2="142" y2="14"/><line x1="48" y1="20" x2="142" y2="20"/>
-            <line x1="48" y1="26" x2="142" y2="26"/><line x1="48" y1="32" x2="142" y2="32"/>
+          <rect x="30" y="6" width="150" height="24" rx="6" fill="#c8a84e" stroke="#a08030" stroke-width="0.8"/>
+          <g opacity="0.18" stroke="#806020" stroke-width="0.5">
+            <line x1="34" y1="12" x2="176" y2="12"/><line x1="34" y1="17" x2="176" y2="17"/>
+            <line x1="34" y1="22" x2="176" y2="22"/><line x1="34" y1="27" x2="176" y2="27"/>
           </g>
         </g>
-        <!-- Barrel -->
-        <rect x="35" y="38" width="120" height="380" rx="10" fill="#e8e8e5" stroke="#999" stroke-width="1"/>
+        <!-- Barrel body (wide, shorter) -->
+        <rect x="18" y="30" width="174" height="280" rx="12" fill="#e8e8e5" stroke="#999" stroke-width="1.2"/>
         <!-- Manufacturer -->
         <g class="zone" onmouseenter="show('manufacturer')" onmouseleave="clr()" onclick="show('manufacturer')">
-          <rect x="40" y="44" width="110" height="28" rx="4" fill="transparent"/>
-          <text x="95" y="64" text-anchor="middle" font-size="14" fill="#555" font-weight="600" font-family="inherit">NIKON</text>
+          <rect x="24" y="36" width="162" height="26" rx="4" fill="transparent"/>
+          <text x="105" y="54" text-anchor="middle" font-size="15" fill="#555" font-weight="600" font-family="inherit">NIKON</text>
         </g>
         <!-- Correction -->
         <g class="zone" onmouseenter="show('correction')" onmouseleave="clr()" onclick="show('correction')">
-          <rect x="40" y="74" width="110" height="26" rx="4" fill="transparent"/>
-          <text x="95" y="93" text-anchor="middle" font-size="13" fill="#333" font-weight="600" font-family="inherit">Plan Apo &#955;</text>
+          <rect x="24" y="64" width="162" height="24" rx="4" fill="transparent"/>
+          <text x="105" y="81" text-anchor="middle" font-size="14" fill="#333" font-weight="600" font-family="inherit">Plan Apo &#955;</text>
         </g>
         <!-- Mag / NA -->
         <g class="zone" onmouseenter="show('mag_na')" onmouseleave="clr()" onclick="show('mag_na')">
-          <rect x="40" y="106" width="110" height="56" rx="4" fill="transparent"/>
-          <text x="95" y="134" text-anchor="middle" font-size="26" fill="#1a1a1a" font-weight="700" font-family="inherit">40&#215;</text>
-          <text x="95" y="155" text-anchor="middle" font-size="14" fill="#555" font-family="inherit">/0.95</text>
+          <rect x="24" y="92" width="162" height="50" rx="4" fill="transparent"/>
+          <text x="105" y="117" text-anchor="middle" font-size="28" fill="#1a1a1a" font-weight="700" font-family="inherit">40&#215;</text>
+          <text x="105" y="137" text-anchor="middle" font-size="15" fill="#555" font-family="inherit">/0.95</text>
         </g>
         <!-- Infinity / coverglass -->
         <g class="zone" onmouseenter="show('infinity')" onmouseleave="clr()" onclick="show('infinity')">
-          <rect x="40" y="166" width="110" height="26" rx="4" fill="transparent"/>
-          <text x="95" y="184" text-anchor="middle" font-size="14" fill="#555" font-family="inherit">&#8734; / 0.17</text>
+          <rect x="24" y="146" width="162" height="22" rx="4" fill="transparent"/>
+          <text x="105" y="163" text-anchor="middle" font-size="14" fill="#555" font-family="inherit">&#8734; / 0.17</text>
         </g>
         <!-- WD -->
         <g class="zone" onmouseenter="show('wd')" onmouseleave="clr()" onclick="show('wd')">
-          <rect x="40" y="196" width="110" height="24" rx="4" fill="transparent"/>
-          <text x="95" y="213" text-anchor="middle" font-size="12" fill="#777" font-family="inherit">WD 0.14</text>
+          <rect x="24" y="170" width="162" height="20" rx="4" fill="transparent"/>
+          <text x="105" y="185" text-anchor="middle" font-size="12" fill="#777" font-family="inherit">WD 0.14</text>
         </g>
-        <!-- Knurled grip -->
+        <!-- Knurled grip (wide) -->
         <g opacity="0.08" stroke="#333" stroke-width="0.5">
-          <line x1="38" y1="232" x2="152" y2="232"/><line x1="38" y1="238" x2="152" y2="238"/>
-          <line x1="38" y1="244" x2="152" y2="244"/><line x1="38" y1="250" x2="152" y2="250"/>
-          <line x1="38" y1="256" x2="152" y2="256"/><line x1="38" y1="262" x2="152" y2="262"/>
-          <line x1="38" y1="268" x2="152" y2="268"/><line x1="38" y1="274" x2="152" y2="274"/>
-          <line x1="38" y1="280" x2="152" y2="280"/><line x1="38" y1="286" x2="152" y2="286"/>
-          <line x1="38" y1="292" x2="152" y2="292"/><line x1="38" y1="298" x2="152" y2="298"/>
+          <line x1="20" y1="200" x2="190" y2="200"/><line x1="20" y1="205" x2="190" y2="205"/>
+          <line x1="20" y1="210" x2="190" y2="210"/><line x1="20" y1="215" x2="190" y2="215"/>
+          <line x1="20" y1="220" x2="190" y2="220"/><line x1="20" y1="225" x2="190" y2="225"/>
+          <line x1="20" y1="230" x2="190" y2="230"/><line x1="20" y1="235" x2="190" y2="235"/>
+          <line x1="20" y1="240" x2="190" y2="240"/><line x1="20" y1="245" x2="190" y2="245"/>
         </g>
         <!-- Serial -->
         <g class="zone" onmouseenter="show('serial')" onmouseleave="clr()" onclick="show('serial')">
-          <rect x="40" y="308" width="110" height="22" rx="4" fill="transparent"/>
-          <text x="95" y="323" text-anchor="middle" font-size="10" fill="#aaa" font-family="inherit">S/N 410237</text>
+          <rect x="24" y="254" width="162" height="18" rx="4" fill="transparent"/>
+          <text x="105" y="268" text-anchor="middle" font-size="10" fill="#aaa" font-family="inherit">S/N 410237</text>
         </g>
-        <!-- Parfocal annotation (left side) -->
+        <!-- Parfocal (left side) -->
         <g class="zone" onmouseenter="show('parfocal')" onmouseleave="clr()" onclick="show('parfocal')">
-          <line x1="18" y1="8" x2="18" y2="492" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 2"/>
-          <line x1="14" y1="8" x2="22" y2="8" stroke="#ccc" stroke-width="0.5"/>
-          <line x1="14" y1="492" x2="22" y2="492" stroke="#ccc" stroke-width="0.5"/>
-          <text x="10" y="250" text-anchor="middle" font-size="9" fill="#bbb" font-family="inherit" transform="rotate(-90,10,250)">45 mm parfocal</text>
+          <line x1="8" y1="6" x2="8" y2="388" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 2"/>
+          <line x1="4" y1="6" x2="12" y2="6" stroke="#ccc" stroke-width="0.5"/>
+          <line x1="4" y1="388" x2="12" y2="388" stroke="#ccc" stroke-width="0.5"/>
+          <text x="4" y="200" text-anchor="middle" font-size="9" fill="#bbb" font-family="inherit" transform="rotate(-90,4,200)">45 mm parfocal</text>
         </g>
-        <!-- Magnification color band (light blue = 40x) -->
+        <!-- Mag color band (light blue = 40x) -->
         <g class="zone" onmouseenter="show('magring')" onmouseleave="clr()" onclick="show('magring')">
-          <rect x="33" y="340" width="124" height="16" rx="3" fill="#56B4E9" opacity="0.9"/>
-          <text x="95" y="352" text-anchor="middle" font-size="8" fill="#042C53" font-weight="600" font-family="inherit">MAG. COLOR BAND</text>
+          <rect x="16" y="278" width="178" height="14" rx="3" fill="#56B4E9" opacity="0.9"/>
+          <text x="105" y="289" text-anchor="middle" font-size="8" fill="#042C53" font-weight="600" font-family="inherit">MAG. COLOR BAND</text>
         </g>
-        <!-- No immersion band for dry -->
+        <!-- No immersion ring -->
         <g class="zone" onmouseenter="show('immring')" onmouseleave="clr()" onclick="show('immring')">
-          <rect x="40" y="360" width="110" height="18" rx="3" fill="transparent"/>
-          <text x="95" y="374" text-anchor="middle" font-size="9" fill="#bbb" font-family="inherit">(no imm. ring = dry)</text>
+          <rect x="24" y="296" width="162" height="14" rx="3" fill="transparent"/>
+          <text x="105" y="307" text-anchor="middle" font-size="9" fill="#bbb" font-family="inherit">(no imm. ring = dry)</text>
         </g>
-        <!-- Nose -->
-        <rect x="50" y="382" width="90" height="54" rx="4" fill="#ddd" stroke="#aaa" stroke-width="0.5"/>
+        <!-- Nose / lower barrel (tapered) -->
+        <path d="M42 314 L42 340 Q42 348 50 350 L50 362 Q50 368 60 370 L150 370 Q160 368 160 362 L160 350 Q168 348 168 340 L168 314" fill="#ddd" stroke="#aaa" stroke-width="0.8"/>
         <!-- Spring -->
         <g class="zone" onmouseenter="show('spring')" onmouseleave="clr()" onclick="show('spring')">
-          <path d="M54 434 Q54 440 58 440 L132 440 Q136 440 136 434" fill="none" stroke="#aaa" stroke-width="0.8" stroke-dasharray="2 2"/>
+          <path d="M56 368 Q56 374 62 374 L148 374 Q154 374 154 368" fill="none" stroke="#aaa" stroke-width="0.8" stroke-dasharray="2 2"/>
         </g>
         <!-- Front element -->
         <g class="zone" onmouseenter="show('front')" onmouseleave="clr()" onclick="show('front')">
-          <path d="M62 442 Q62 474 95 482 Q128 474 128 442" fill="#dce8f2" stroke="#888" stroke-width="0.8"/>
+          <path d="M66 376 Q66 396 105 402 Q144 396 144 376" fill="#dce8f2" stroke="#888" stroke-width="0.8"/>
         </g>
-        <!-- Coverglass + slide -->
-        <rect x="30" y="492" width="130" height="3" rx="1" fill="#c8ddf0" stroke="#99b" stroke-width="0.3"/>
-        <rect x="25" y="498" width="140" height="8" rx="2" fill="#d8e8f8" stroke="#aac" stroke-width="0.3"/>
-        <text x="95" y="520" text-anchor="middle" font-size="8" fill="#bbb" font-family="inherit">coverglass + slide</text>
-
-        <!-- Highlights (left) -->
-        <rect class="hl" data-zone="thread" x="43" y="6" width="104" height="34" rx="6" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="manufacturer" x="38" y="42" width="114" height="32" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="correction" x="38" y="72" width="114" height="30" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="mag_na" x="38" y="104" width="114" height="60" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="infinity" x="38" y="164" width="114" height="30" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="wd" x="38" y="194" width="114" height="28" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="serial" x="38" y="306" width="114" height="26" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="parfocal" x="4" y="4" width="20" height="494" rx="4" fill="none" stroke="#E69F00" stroke-width="1.5" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="magring" x="31" y="338" width="128" height="20" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="immring" x="38" y="358" width="114" height="22" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="spring" x="52" y="430" width="86" height="14" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="front" x="60" y="440" width="70" height="46" rx="6" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <!-- Highlights -->
+        <rect class="hl" data-zone="thread" x="28" y="4" width="154" height="28" rx="6" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="manufacturer" x="22" y="34" width="166" height="30" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="correction" x="22" y="62" width="166" height="28" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="mag_na" x="22" y="90" width="166" height="54" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="infinity" x="22" y="144" width="166" height="26" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="wd" x="22" y="168" width="166" height="24" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="serial" x="22" y="252" width="166" height="22" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="parfocal" x="1" y="2" width="14" height="390" rx="4" fill="none" stroke="#E69F00" stroke-width="1.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="magring" x="14" y="276" width="182" height="18" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="immring" x="22" y="294" width="166" height="18" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="spring" x="54" y="364" width="102" height="14" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="front" x="64" y="374" width="82" height="32" rx="6" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
         <rect class="hl" data-zone="iris" x="0" y="0" width="0" height="0" opacity="0"/>
       </svg>
     </div>
@@ -199,103 +193,96 @@
     <!-- RIGHT: Oil 100x/1.35 Iris -->
     <div>
       <div class="obj-label">100&#215; oil iris</div>
-      <svg width="210" viewBox="0 0 210 540" xmlns="http://www.w3.org/2000/svg">
+      <svg width="230" viewBox="0 0 230 420" xmlns="http://www.w3.org/2000/svg">
         <!-- Screw thread -->
         <g class="zone" onmouseenter="show('thread')" onmouseleave="clr()" onclick="show('thread')">
-          <rect x="45" y="8" width="100" height="30" rx="6" fill="#c8a84e" stroke="#a08030" stroke-width="0.8"/>
-          <g opacity="0.2" stroke="#806020" stroke-width="0.5">
-            <line x1="48" y1="14" x2="142" y2="14"/><line x1="48" y1="20" x2="142" y2="20"/>
-            <line x1="48" y1="26" x2="142" y2="26"/><line x1="48" y1="32" x2="142" y2="32"/>
+          <rect x="30" y="6" width="150" height="24" rx="6" fill="#c8a84e" stroke="#a08030" stroke-width="0.8"/>
+          <g opacity="0.18" stroke="#806020" stroke-width="0.5">
+            <line x1="34" y1="12" x2="176" y2="12"/><line x1="34" y1="17" x2="176" y2="17"/>
+            <line x1="34" y1="22" x2="176" y2="22"/><line x1="34" y1="27" x2="176" y2="27"/>
           </g>
         </g>
         <!-- Barrel -->
-        <rect x="35" y="38" width="120" height="380" rx="10" fill="#e8e8e5" stroke="#999" stroke-width="1"/>
+        <rect x="18" y="30" width="174" height="280" rx="12" fill="#e8e8e5" stroke="#999" stroke-width="1.2"/>
         <!-- Manufacturer -->
         <g class="zone" onmouseenter="show('manufacturer')" onmouseleave="clr()" onclick="show('manufacturer')">
-          <rect x="40" y="44" width="110" height="28" rx="4" fill="transparent"/>
-          <text x="95" y="64" text-anchor="middle" font-size="14" fill="#555" font-weight="600" font-family="inherit">OLYMPUS</text>
+          <rect x="24" y="36" width="162" height="26" rx="4" fill="transparent"/>
+          <text x="105" y="54" text-anchor="middle" font-size="15" fill="#555" font-weight="600" font-family="inherit">OLYMPUS</text>
         </g>
         <!-- Correction -->
         <g class="zone" onmouseenter="show('correction')" onmouseleave="clr()" onclick="show('correction')">
-          <rect x="40" y="74" width="110" height="26" rx="4" fill="transparent"/>
-          <text x="95" y="93" text-anchor="middle" font-size="13" fill="#333" font-weight="600" font-family="inherit">UPlanApo</text>
+          <rect x="24" y="64" width="162" height="24" rx="4" fill="transparent"/>
+          <text x="105" y="81" text-anchor="middle" font-size="14" fill="#333" font-weight="600" font-family="inherit">UPlanApo</text>
         </g>
         <!-- Mag / NA / Oil Iris -->
         <g class="zone" onmouseenter="show('mag_na')" onmouseleave="clr()" onclick="show('mag_na')">
-          <rect x="40" y="106" width="110" height="56" rx="4" fill="transparent"/>
-          <text x="95" y="132" text-anchor="middle" font-size="24" fill="#1a1a1a" font-weight="700" font-family="inherit">100&#215;</text>
-          <text x="95" y="155" text-anchor="middle" font-size="13" fill="#555" font-family="inherit">/1.35 Oil Iris</text>
+          <rect x="24" y="92" width="162" height="50" rx="4" fill="transparent"/>
+          <text x="105" y="116" text-anchor="middle" font-size="26" fill="#1a1a1a" font-weight="700" font-family="inherit">100&#215;</text>
+          <text x="105" y="137" text-anchor="middle" font-size="14" fill="#555" font-family="inherit">/1.35 Oil Iris</text>
         </g>
         <!-- Infinity / coverglass -->
         <g class="zone" onmouseenter="show('infinity')" onmouseleave="clr()" onclick="show('infinity')">
-          <rect x="40" y="166" width="110" height="26" rx="4" fill="transparent"/>
-          <text x="95" y="184" text-anchor="middle" font-size="14" fill="#555" font-family="inherit">&#8734; / 0.17</text>
+          <rect x="24" y="146" width="162" height="22" rx="4" fill="transparent"/>
+          <text x="105" y="163" text-anchor="middle" font-size="14" fill="#555" font-family="inherit">&#8734; / 0.17</text>
         </g>
         <!-- Iris adjustment -->
         <g class="zone" onmouseenter="show('iris')" onmouseleave="clr()" onclick="show('iris')">
-          <rect x="40" y="196" width="110" height="26" rx="4" fill="transparent"/>
-          <text x="95" y="214" text-anchor="middle" font-size="12" fill="#666" font-family="inherit">1.35 &#9654;   &#9664; 0.5</text>
+          <rect x="24" y="170" width="162" height="22" rx="4" fill="transparent"/>
+          <text x="105" y="186" text-anchor="middle" font-size="12" fill="#666" font-family="inherit">1.35 &#9654;   &#9664; 0.5</text>
         </g>
         <!-- WD -->
         <g class="zone" onmouseenter="show('wd')" onmouseleave="clr()" onclick="show('wd')">
-          <rect x="40" y="224" width="110" height="22" rx="4" fill="transparent"/>
-          <text x="95" y="240" text-anchor="middle" font-size="12" fill="#777" font-family="inherit">WD 0.10</text>
+          <rect x="24" y="194" width="162" height="20" rx="4" fill="transparent"/>
+          <text x="105" y="209" text-anchor="middle" font-size="12" fill="#777" font-family="inherit">WD 0.10</text>
         </g>
         <!-- Knurled grip -->
         <g opacity="0.08" stroke="#333" stroke-width="0.5">
-          <line x1="38" y1="258" x2="152" y2="258"/><line x1="38" y1="264" x2="152" y2="264"/>
-          <line x1="38" y1="270" x2="152" y2="270"/><line x1="38" y1="276" x2="152" y2="276"/>
-          <line x1="38" y1="282" x2="152" y2="282"/><line x1="38" y1="288" x2="152" y2="288"/>
-          <line x1="38" y1="294" x2="152" y2="294"/><line x1="38" y1="300" x2="152" y2="300"/>
-          <line x1="38" y1="306" x2="152" y2="306"/><line x1="38" y1="312" x2="152" y2="312"/>
-          <line x1="38" y1="318" x2="152" y2="318"/><line x1="38" y1="324" x2="152" y2="324"/>
+          <line x1="20" y1="224" x2="190" y2="224"/><line x1="20" y1="229" x2="190" y2="229"/>
+          <line x1="20" y1="234" x2="190" y2="234"/><line x1="20" y1="239" x2="190" y2="239"/>
+          <line x1="20" y1="244" x2="190" y2="244"/><line x1="20" y1="249" x2="190" y2="249"/>
+          <line x1="20" y1="254" x2="190" y2="254"/><line x1="20" y1="259" x2="190" y2="259"/>
+          <line x1="20" y1="264" x2="190" y2="264"/>
         </g>
-        <!-- Magnification color band (white = 100x) -->
+        <!-- Mag color band (white = 100x) -->
         <g class="zone" onmouseenter="show('magring')" onmouseleave="clr()" onclick="show('magring')">
-          <rect x="33" y="340" width="124" height="16" rx="3" fill="#f0f0f0" stroke="#bbb" stroke-width="0.5"/>
-          <text x="95" y="352" text-anchor="middle" font-size="8" fill="#666" font-weight="600" font-family="inherit">MAG. COLOR BAND</text>
+          <rect x="16" y="278" width="178" height="14" rx="3" fill="#f0f0f0" stroke="#bbb" stroke-width="0.5"/>
+          <text x="105" y="289" text-anchor="middle" font-size="8" fill="#666" font-weight="600" font-family="inherit">MAG. COLOR BAND</text>
         </g>
         <!-- Immersion color band (black = oil) -->
         <g class="zone" onmouseenter="show('immring')" onmouseleave="clr()" onclick="show('immring')">
-          <rect x="33" y="360" width="124" height="14" rx="3" fill="#333"/>
-          <text x="95" y="371" text-anchor="middle" font-size="8" fill="#ccc" font-weight="600" font-family="inherit">IMM. COLOR BAND</text>
+          <rect x="16" y="296" width="178" height="12" rx="3" fill="#333"/>
+          <text x="105" y="306" text-anchor="middle" font-size="8" fill="#ccc" font-weight="600" font-family="inherit">IMM. COLOR BAND</text>
         </g>
-        <!-- Nose -->
-        <rect x="50" y="380" width="90" height="56" rx="4" fill="#ddd" stroke="#aaa" stroke-width="0.5"/>
+        <!-- Nose / lower barrel (tapered) -->
+        <path d="M42 314 L42 340 Q42 348 50 350 L50 362 Q50 368 60 370 L150 370 Q160 368 160 362 L160 350 Q168 348 168 340 L168 314" fill="#ddd" stroke="#aaa" stroke-width="0.8"/>
         <!-- Spring -->
         <g class="zone" onmouseenter="show('spring')" onmouseleave="clr()" onclick="show('spring')">
-          <path d="M54 434 Q54 440 58 440 L132 440 Q136 440 136 434" fill="none" stroke="#aaa" stroke-width="0.8" stroke-dasharray="2 2"/>
+          <path d="M56 368 Q56 374 62 374 L148 374 Q154 374 154 368" fill="none" stroke="#aaa" stroke-width="0.8" stroke-dasharray="2 2"/>
         </g>
         <!-- Front element -->
         <g class="zone" onmouseenter="show('front')" onmouseleave="clr()" onclick="show('front')">
-          <path d="M62 442 Q62 474 95 482 Q128 474 128 442" fill="#dce8f2" stroke="#888" stroke-width="0.8"/>
+          <path d="M66 376 Q66 396 105 402 Q144 396 144 376" fill="#dce8f2" stroke="#888" stroke-width="0.8"/>
         </g>
-        <!-- Coverglass + slide -->
-        <rect x="30" y="492" width="130" height="3" rx="1" fill="#c8ddf0" stroke="#99b" stroke-width="0.3"/>
-        <rect x="25" y="498" width="140" height="8" rx="2" fill="#d8e8f8" stroke="#aac" stroke-width="0.3"/>
-        <text x="95" y="520" text-anchor="middle" font-size="8" fill="#bbb" font-family="inherit">coverglass + slide</text>
-
-        <!-- Working distance annotation (right side) -->
+        <!-- WD annotation (right side) -->
         <g class="zone" onmouseenter="show('wd')" onmouseleave="clr()" onclick="show('wd')">
-          <line x1="165" y1="482" x2="165" y2="492" stroke="#999" stroke-width="0.8"/>
-          <line x1="160" y1="482" x2="170" y2="482" stroke="#999" stroke-width="0.8"/>
-          <line x1="160" y1="492" x2="170" y2="492" stroke="#999" stroke-width="0.8"/>
-          <text x="174" y="490" text-anchor="start" font-size="9" fill="#999" font-family="inherit">WD</text>
-          <line x1="165" y1="482" x2="165" y2="440" stroke="#ccc" stroke-width="0.5" stroke-dasharray="2 2"/>
+          <line x1="198" y1="376" x2="198" y2="388" stroke="#999" stroke-width="0.8"/>
+          <line x1="193" y1="376" x2="203" y2="376" stroke="#999" stroke-width="0.8"/>
+          <line x1="193" y1="388" x2="203" y2="388" stroke="#999" stroke-width="0.8"/>
+          <text x="208" y="385" text-anchor="start" font-size="10" fill="#999" font-family="inherit">WD</text>
         </g>
 
-        <!-- Highlights (right) -->
-        <rect class="hl" data-zone="thread" x="43" y="6" width="104" height="34" rx="6" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="manufacturer" x="38" y="42" width="114" height="32" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="correction" x="38" y="72" width="114" height="30" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="mag_na" x="38" y="104" width="114" height="60" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="infinity" x="38" y="164" width="114" height="30" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="iris" x="38" y="194" width="114" height="30" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="wd" x="38" y="222" width="134" height="26" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="magring" x="31" y="338" width="128" height="20" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="immring" x="31" y="358" width="128" height="18" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="spring" x="52" y="430" width="86" height="14" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="front" x="60" y="440" width="70" height="46" rx="6" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <!-- Highlights -->
+        <rect class="hl" data-zone="thread" x="28" y="4" width="154" height="28" rx="6" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="manufacturer" x="22" y="34" width="166" height="30" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="correction" x="22" y="62" width="166" height="28" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="mag_na" x="22" y="90" width="166" height="54" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="infinity" x="22" y="144" width="166" height="26" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="iris" x="22" y="168" width="166" height="26" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="wd" x="22" y="192" width="200" height="24" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="magring" x="14" y="276" width="182" height="18" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="immring" x="14" y="294" width="182" height="16" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="spring" x="54" y="364" width="102" height="14" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="front" x="64" y="374" width="82" height="32" rx="6" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
         <rect class="hl" data-zone="serial" x="0" y="0" width="0" height="0" opacity="0"/>
         <rect class="hl" data-zone="parfocal" x="0" y="0" width="0" height="0" opacity="0"/>
       </svg>
@@ -346,7 +333,7 @@ const info = {
   },
   wd: {
     title: 'Working distance',
-    body: 'The free space between the front lens and the cover glass when in focus. The 40\u00d7 has WD 0.14 mm; the 100\u00d7 oil has WD 0.10 mm. Both are extremely short. Be careful when focusing: you can easily crash the objective into the cover glass. The annotation on the right objective shows this gap visually.',
+    body: 'The free space between the front lens and the cover glass when in focus. The 40\u00d7 has WD 0.14 mm; the 100\u00d7 oil has WD 0.10 mm. Both are extremely short. Be careful when focusing: you can easily crash the objective into the cover glass.',
     extra: ''
   },
   serial: {
@@ -356,7 +343,7 @@ const info = {
   },
   parfocal: {
     title: 'Parfocal distance (45 mm)',
-    body: 'The distance from the nosepiece mounting surface to the focal plane. Most modern objectives are standardized at 45 mm, so when you rotate the turret to switch objectives, the specimen stays approximately in focus. This only works if all objectives on the turret share the same parfocal distance.',
+    body: 'The distance from the nosepiece mounting surface to the focal plane. Most modern objectives are standardized at 45 mm, so when you rotate the turret to switch objectives, the specimen stays approximately in focus.',
     extra: ''
   },
   magring: {
@@ -376,7 +363,7 @@ const info = {
   },
   front: {
     title: 'Front lens element',
-    body: 'The foremost optical surface. In high-NA objectives this can be 1\u20132 mm in diameter. Keep it clean: fingerprints, dried oil, or dust degrade image quality. Clean with lens paper and lens cleaning solution. For oil objectives, always wipe off the oil after each session.',
+    body: 'The foremost optical surface. In high-NA objectives this can be 1\u20132 mm in diameter. Keep it clean: fingerprints, dried oil, or dust degrade image quality. For oil objectives, always wipe off the oil after each session.',
     extra: ''
   }
 };

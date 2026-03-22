@@ -18,6 +18,11 @@ parts:
       - file: content/chap2_2.md
       - file: content/chap2_3.md
     - file: content/chap3.md
+      sections:
+      - file: content/chap3_1.md
+      - file: content/chap3_2.md
+      - file: content/chap3_3.md  
+      - file: content/chap3_4.md    
     - file: content/chap4.md
     - file: content/chap5.md
       sections:

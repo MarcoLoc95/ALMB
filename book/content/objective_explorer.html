@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microscope Objective Explorer</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: #fff;
+    color: #333;
+    padding: 12px;
+  }
+  .layout {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .objectives {
+    display: flex;
+    gap: 8px;
+    flex: 0 0 auto;
+  }
+  .obj-label {
+    font-size: 13px;
+    color: #777;
+    text-align: center;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .info-col { flex: 1; min-width: 230px; }
+  .info-card {
+    background: #f7f7f5;
+    border-radius: 12px;
+    padding: 1.25rem;
+    min-height: 240px;
+  }
+  .info-card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 8px;
+  }
+  .info-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .hint {
+    font-size: 13px;
+    color: #999;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .zone { cursor: pointer; }
+  .color-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 4px;
+    font-size: 12px;
+  }
+  .color-table td, .color-table th {
+    padding: 4px 7px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+  }
+  .color-table th {
+    font-weight: 600;
+    font-size: 11px;
+    color: #666;
+    background: #f0f0ee;
+  }
+  .sw {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius: 3px;
+    vertical-align: middle;
+    border: 1px solid rgba(0,0,0,0.15);
+    margin-right: 3px;
+  }
+  @media (max-width: 700px) {
+    .layout { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+  <div class="objectives">
+
+    <!-- LEFT: Dry 40x/0.95 -->
+    <div>
+      <div class="obj-label">40&#215; dry</div>
+      <svg width="190" viewBox="0 0 190 540" xmlns="http://www.w3.org/2000/svg">
+        <!-- Screw thread -->
+        <g class="zone" onmouseenter="show('thread')" onmouseleave="clr()" onclick="show('thread')">
+          <rect x="45" y="8" width="100" height="30" rx="6" fill="#c8a84e" stroke="#a08030" stroke-width="0.8"/>
+          <g opacity="0.2" stroke="#806020" stroke-width="0.5">
+            <line x1="48" y1="14" x2="142" y2="14"/><line x1="48" y1="20" x2="142" y2="20"/>
+            <line x1="48" y1="26" x2="142" y2="26"/><line x1="48" y1="32" x2="142" y2="32"/>
+          </g>
+        </g>
+        <!-- Barrel -->
+        <rect x="35" y="38" width="120" height="380" rx="10" fill="#e8e8e5" stroke="#999" stroke-width="1"/>
+        <!-- Manufacturer -->
+        <g class="zone" onmouseenter="show('manufacturer')" onmouseleave="clr()" onclick="show('manufacturer')">
+          <rect x="40" y="44" width="110" height="28" rx="4" fill="transparent"/>
+          <text x="95" y="64" text-anchor="middle" font-size="14" fill="#555" font-weight="600" font-family="inherit">NIKON</text>
+        </g>
+        <!-- Correction -->
+        <g class="zone" onmouseenter="show('correction')" onmouseleave="clr()" onclick="show('correction')">
+          <rect x="40" y="74" width="110" height="26" rx="4" fill="transparent"/>
+          <text x="95" y="93" text-anchor="middle" font-size="13" fill="#333" font-weight="600" font-family="inherit">Plan Apo &#955;</text>
+        </g>
+        <!-- Mag / NA -->
+        <g class="zone" onmouseenter="show('mag_na')" onmouseleave="clr()" onclick="show('mag_na')">
+          <rect x="40" y="106" width="110" height="56" rx="4" fill="transparent"/>
+          <text x="95" y="134" text-anchor="middle" font-size="26" fill="#1a1a1a" font-weight="700" font-family="inherit">40&#215;</text>
+          <text x="95" y="155" text-anchor="middle" font-size="14" fill="#555" font-family="inherit">/0.95</text>
+        </g>
+        <!-- Infinity / coverglass -->
+        <g class="zone" onmouseenter="show('infinity')" onmouseleave="clr()" onclick="show('infinity')">
+          <rect x="40" y="166" width="110" height="26" rx="4" fill="transparent"/>
+          <text x="95" y="184" text-anchor="middle" font-size="14" fill="#555" font-family="inherit">&#8734; / 0.17</text>
+        </g>
+        <!-- WD -->
+        <g class="zone" onmouseenter="show('wd')" onmouseleave="clr()" onclick="show('wd')">
+          <rect x="40" y="196" width="110" height="24" rx="4" fill="transparent"/>
+          <text x="95" y="213" text-anchor="middle" font-size="12" fill="#777" font-family="inherit">WD 0.14</text>
+        </g>
+        <!-- Knurled grip -->
+        <g opacity="0.08" stroke="#333" stroke-width="0.5">
+          <line x1="38" y1="232" x2="152" y2="232"/><line x1="38" y1="238" x2="152" y2="238"/>
+          <line x1="38" y1="244" x2="152" y2="244"/><line x1="38" y1="250" x2="152" y2="250"/>
+          <line x1="38" y1="256" x2="152" y2="256"/><line x1="38" y1="262" x2="152" y2="262"/>
+          <line x1="38" y1="268" x2="152" y2="268"/><line x1="38" y1="274" x2="152" y2="274"/>
+          <line x1="38" y1="280" x2="152" y2="280"/><line x1="38" y1="286" x2="152" y2="286"/>
+          <line x1="38" y1="292" x2="152" y2="292"/><line x1="38" y1="298" x2="152" y2="298"/>
+        </g>
+        <!-- Serial -->
+        <g class="zone" onmouseenter="show('serial')" onmouseleave="clr()" onclick="show('serial')">
+          <rect x="40" y="308" width="110" height="22" rx="4" fill="transparent"/>
+          <text x="95" y="323" text-anchor="middle" font-size="10" fill="#aaa" font-family="inherit">S/N 410237</text>
+        </g>
+        <!-- Parfocal annotation (left side) -->
+        <g class="zone" onmouseenter="show('parfocal')" onmouseleave="clr()" onclick="show('parfocal')">
+          <line x1="18" y1="8" x2="18" y2="492" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 2"/>
+          <line x1="14" y1="8" x2="22" y2="8" stroke="#ccc" stroke-width="0.5"/>
+          <line x1="14" y1="492" x2="22" y2="492" stroke="#ccc" stroke-width="0.5"/>
+          <text x="10" y="250" text-anchor="middle" font-size="9" fill="#bbb" font-family="inherit" transform="rotate(-90,10,250)">45 mm parfocal</text>
+        </g>
+        <!-- Magnification color band (light blue = 40x) -->
+        <g class="zone" onmouseenter="show('magring')" onmouseleave="clr()" onclick="show('magring')">
+          <rect x="33" y="340" width="124" height="16" rx="3" fill="#56B4E9" opacity="0.9"/>
+          <text x="95" y="352" text-anchor="middle" font-size="8" fill="#042C53" font-weight="600" font-family="inherit">MAG. COLOR BAND</text>
+        </g>
+        <!-- No immersion band for dry -->
+        <g class="zone" onmouseenter="show('immring')" onmouseleave="clr()" onclick="show('immring')">
+          <rect x="40" y="360" width="110" height="18" rx="3" fill="transparent"/>
+          <text x="95" y="374" text-anchor="middle" font-size="9" fill="#bbb" font-family="inherit">(no imm. ring = dry)</text>
+        </g>
+        <!-- Nose -->
+        <rect x="50" y="382" width="90" height="54" rx="4" fill="#ddd" stroke="#aaa" stroke-width="0.5"/>
+        <!-- Spring -->
+        <g class="zone" onmouseenter="show('spring')" onmouseleave="clr()" onclick="show('spring')">
+          <path d="M54 434 Q54 440 58 440 L132 440 Q136 440 136 434" fill="none" stroke="#aaa" stroke-width="0.8" stroke-dasharray="2 2"/>
+        </g>
+        <!-- Front element -->
+        <g class="zone" onmouseenter="show('front')" onmouseleave="clr()" onclick="show('front')">
+          <path d="M62 442 Q62 474 95 482 Q128 474 128 442" fill="#dce8f2" stroke="#888" stroke-width="0.8"/>
+        </g>
+        <!-- Coverglass + slide -->
+        <rect x="30" y="492" width="130" height="3" rx="1" fill="#c8ddf0" stroke="#99b" stroke-width="0.3"/>
+        <rect x="25" y="498" width="140" height="8" rx="2" fill="#d8e8f8" stroke="#aac" stroke-width="0.3"/>
+        <text x="95" y="520" text-anchor="middle" font-size="8" fill="#bbb" font-family="inherit">coverglass + slide</text>
+
+        <!-- Highlights (left) -->
+        <rect class="hl" data-zone="thread" x="43" y="6" width="104" height="34" rx="6" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="manufacturer" x="38" y="42" width="114" height="32" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="correction" x="38" y="72" width="114" height="30" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="mag_na" x="38" y="104" width="114" height="60" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="infinity" x="38" y="164" width="114" height="30" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="wd" x="38" y="194" width="114" height="28" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="serial" x="38" y="306" width="114" height="26" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="parfocal" x="4" y="4" width="20" height="494" rx="4" fill="none" stroke="#E69F00" stroke-width="1.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="magring" x="31" y="338" width="128" height="20" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="immring" x="38" y="358" width="114" height="22" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="spring" x="52" y="430" width="86" height="14" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="front" x="60" y="440" width="70" height="46" rx="6" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="iris" x="0" y="0" width="0" height="0" opacity="0"/>
+      </svg>
+    </div>
+
+    <!-- RIGHT: Oil 100x/1.35 Iris -->
+    <div>
+      <div class="obj-label">100&#215; oil iris</div>
+      <svg width="210" viewBox="0 0 210 540" xmlns="http://www.w3.org/2000/svg">
+        <!-- Screw thread -->
+        <g class="zone" onmouseenter="show('thread')" onmouseleave="clr()" onclick="show('thread')">
+          <rect x="45" y="8" width="100" height="30" rx="6" fill="#c8a84e" stroke="#a08030" stroke-width="0.8"/>
+          <g opacity="0.2" stroke="#806020" stroke-width="0.5">
+            <line x1="48" y1="14" x2="142" y2="14"/><line x1="48" y1="20" x2="142" y2="20"/>
+            <line x1="48" y1="26" x2="142" y2="26"/><line x1="48" y1="32" x2="142" y2="32"/>
+          </g>
+        </g>
+        <!-- Barrel -->
+        <rect x="35" y="38" width="120" height="380" rx="10" fill="#e8e8e5" stroke="#999" stroke-width="1"/>
+        <!-- Manufacturer -->
+        <g class="zone" onmouseenter="show('manufacturer')" onmouseleave="clr()" onclick="show('manufacturer')">
+          <rect x="40" y="44" width="110" height="28" rx="4" fill="transparent"/>
+          <text x="95" y="64" text-anchor="middle" font-size="14" fill="#555" font-weight="600" font-family="inherit">OLYMPUS</text>
+        </g>
+        <!-- Correction -->
+        <g class="zone" onmouseenter="show('correction')" onmouseleave="clr()" onclick="show('correction')">
+          <rect x="40" y="74" width="110" height="26" rx="4" fill="transparent"/>
+          <text x="95" y="93" text-anchor="middle" font-size="13" fill="#333" font-weight="600" font-family="inherit">UPlanApo</text>
+        </g>
+        <!-- Mag / NA / Oil Iris -->
+        <g class="zone" onmouseenter="show('mag_na')" onmouseleave="clr()" onclick="show('mag_na')">
+          <rect x="40" y="106" width="110" height="56" rx="4" fill="transparent"/>
+          <text x="95" y="132" text-anchor="middle" font-size="24" fill="#1a1a1a" font-weight="700" font-family="inherit">100&#215;</text>
+          <text x="95" y="155" text-anchor="middle" font-size="13" fill="#555" font-family="inherit">/1.35 Oil Iris</text>
+        </g>
+        <!-- Infinity / coverglass -->
+        <g class="zone" onmouseenter="show('infinity')" onmouseleave="clr()" onclick="show('infinity')">
+          <rect x="40" y="166" width="110" height="26" rx="4" fill="transparent"/>
+          <text x="95" y="184" text-anchor="middle" font-size="14" fill="#555" font-family="inherit">&#8734; / 0.17</text>
+        </g>
+        <!-- Iris adjustment -->
+        <g class="zone" onmouseenter="show('iris')" onmouseleave="clr()" onclick="show('iris')">
+          <rect x="40" y="196" width="110" height="26" rx="4" fill="transparent"/>
+          <text x="95" y="214" text-anchor="middle" font-size="12" fill="#666" font-family="inherit">1.35 &#9654;   &#9664; 0.5</text>
+        </g>
+        <!-- WD -->
+        <g class="zone" onmouseenter="show('wd')" onmouseleave="clr()" onclick="show('wd')">
+          <rect x="40" y="224" width="110" height="22" rx="4" fill="transparent"/>
+          <text x="95" y="240" text-anchor="middle" font-size="12" fill="#777" font-family="inherit">WD 0.10</text>
+        </g>
+        <!-- Knurled grip -->
+        <g opacity="0.08" stroke="#333" stroke-width="0.5">
+          <line x1="38" y1="258" x2="152" y2="258"/><line x1="38" y1="264" x2="152" y2="264"/>
+          <line x1="38" y1="270" x2="152" y2="270"/><line x1="38" y1="276" x2="152" y2="276"/>
+          <line x1="38" y1="282" x2="152" y2="282"/><line x1="38" y1="288" x2="152" y2="288"/>
+          <line x1="38" y1="294" x2="152" y2="294"/><line x1="38" y1="300" x2="152" y2="300"/>
+          <line x1="38" y1="306" x2="152" y2="306"/><line x1="38" y1="312" x2="152" y2="312"/>
+          <line x1="38" y1="318" x2="152" y2="318"/><line x1="38" y1="324" x2="152" y2="324"/>
+        </g>
+        <!-- Magnification color band (white = 100x) -->
+        <g class="zone" onmouseenter="show('magring')" onmouseleave="clr()" onclick="show('magring')">
+          <rect x="33" y="340" width="124" height="16" rx="3" fill="#f0f0f0" stroke="#bbb" stroke-width="0.5"/>
+          <text x="95" y="352" text-anchor="middle" font-size="8" fill="#666" font-weight="600" font-family="inherit">MAG. COLOR BAND</text>
+        </g>
+        <!-- Immersion color band (black = oil) -->
+        <g class="zone" onmouseenter="show('immring')" onmouseleave="clr()" onclick="show('immring')">
+          <rect x="33" y="360" width="124" height="14" rx="3" fill="#333"/>
+          <text x="95" y="371" text-anchor="middle" font-size="8" fill="#ccc" font-weight="600" font-family="inherit">IMM. COLOR BAND</text>
+        </g>
+        <!-- Nose -->
+        <rect x="50" y="380" width="90" height="56" rx="4" fill="#ddd" stroke="#aaa" stroke-width="0.5"/>
+        <!-- Spring -->
+        <g class="zone" onmouseenter="show('spring')" onmouseleave="clr()" onclick="show('spring')">
+          <path d="M54 434 Q54 440 58 440 L132 440 Q136 440 136 434" fill="none" stroke="#aaa" stroke-width="0.8" stroke-dasharray="2 2"/>
+        </g>
+        <!-- Front element -->
+        <g class="zone" onmouseenter="show('front')" onmouseleave="clr()" onclick="show('front')">
+          <path d="M62 442 Q62 474 95 482 Q128 474 128 442" fill="#dce8f2" stroke="#888" stroke-width="0.8"/>
+        </g>
+        <!-- Coverglass + slide -->
+        <rect x="30" y="492" width="130" height="3" rx="1" fill="#c8ddf0" stroke="#99b" stroke-width="0.3"/>
+        <rect x="25" y="498" width="140" height="8" rx="2" fill="#d8e8f8" stroke="#aac" stroke-width="0.3"/>
+        <text x="95" y="520" text-anchor="middle" font-size="8" fill="#bbb" font-family="inherit">coverglass + slide</text>
+
+        <!-- Working distance annotation (right side) -->
+        <g class="zone" onmouseenter="show('wd')" onmouseleave="clr()" onclick="show('wd')">
+          <line x1="165" y1="482" x2="165" y2="492" stroke="#999" stroke-width="0.8"/>
+          <line x1="160" y1="482" x2="170" y2="482" stroke="#999" stroke-width="0.8"/>
+          <line x1="160" y1="492" x2="170" y2="492" stroke="#999" stroke-width="0.8"/>
+          <text x="174" y="490" text-anchor="start" font-size="9" fill="#999" font-family="inherit">WD</text>
+          <line x1="165" y1="482" x2="165" y2="440" stroke="#ccc" stroke-width="0.5" stroke-dasharray="2 2"/>
+        </g>
+
+        <!-- Highlights (right) -->
+        <rect class="hl" data-zone="thread" x="43" y="6" width="104" height="34" rx="6" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="manufacturer" x="38" y="42" width="114" height="32" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="correction" x="38" y="72" width="114" height="30" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="mag_na" x="38" y="104" width="114" height="60" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="infinity" x="38" y="164" width="114" height="30" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="iris" x="38" y="194" width="114" height="30" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="wd" x="38" y="222" width="134" height="26" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="magring" x="31" y="338" width="128" height="20" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="immring" x="31" y="358" width="128" height="18" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="spring" x="52" y="430" width="86" height="14" rx="4" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="front" x="60" y="440" width="70" height="46" rx="6" fill="none" stroke="#E69F00" stroke-width="2" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="serial" x="0" y="0" width="0" height="0" opacity="0"/>
+        <rect class="hl" data-zone="parfocal" x="0" y="0" width="0" height="0" opacity="0"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="info-col">
+    <div class="info-card" id="info-panel">
+      <h3 id="info-title">Explore the objectives</h3>
+      <p id="info-body">Hover over (or tap) any marking on either objective to learn what it means. The same feature is highlighted on both lenses so you can compare. Left: a Nikon 40&#215;/0.95 dry objective. Right: an Olympus 100&#215;/1.35 oil immersion objective with iris diaphragm.</p>
+      <div id="info-extra"></div>
+    </div>
+    <p class="hint" id="hint-text">Hover or tap any part of either objective</p>
+  </div>
+</div>
+
+<script>
+const info = {
+  thread: {
+    title: 'Screw thread',
+    body: 'The threaded mount that screws into the nosepiece. Most modern objectives use a standard RMS (Royal Microscopical Society) thread or a manufacturer-specific mount. The thread pitch and diameter must match the nosepiece.',
+    extra: ''
+  },
+  manufacturer: {
+    title: 'Manufacturer',
+    body: 'The brand name identifies the maker. This matters because each manufacturer uses a different tube lens focal length: Nikon and Leica use 200 mm, Olympus uses 180 mm, Zeiss uses 165 mm. The magnification on the barrel is only correct with the matching tube lens.',
+    extra: ''
+  },
+  correction: {
+    title: 'Optical correction class',
+    body: 'Indicates how thoroughly the lens is corrected for aberrations. "Plan" = flat field. "Apo" = apochromat (chromatic correction at 3+ wavelengths, spherical at 2+). The Nikon "\u03bb" suffix means optimized for a broad wavelength range (useful for fluorescence). The Olympus "U" prefix = universal, designed for multiple contrast techniques.',
+    extra: '<table class="color-table"><tr><th>Class</th><th>Chromatic corr.</th><th>Spherical corr.</th></tr><tr><td>Achromat</td><td>2 wavelengths</td><td>1 wavelength</td></tr><tr><td>Fluorite</td><td>2\u20133 wavelengths</td><td>improved</td></tr><tr><td>Apochromat</td><td>3+ wavelengths</td><td>2+ wavelengths</td></tr></table>'
+  },
+  mag_na: {
+    title: 'Magnification, NA, and immersion',
+    body: 'The most prominent markings. The 40\u00d7 has NA 0.95 (near the max of 1.0 for air). The 100\u00d7 has NA 1.35 (only possible with oil, n = 1.515). "Oil" indicates the required immersion medium. "Iris" means this objective has an internal adjustable diaphragm to reduce the effective NA.',
+    extra: ''
+  },
+  infinity: {
+    title: 'Infinity correction / cover glass',
+    body: 'The \u221e symbol means infinity-corrected: light exits as a collimated beam, and a tube lens forms the image. The number after the slash (0.17) is the cover glass thickness in mm the lens is designed for. Standard #1.5 cover glasses are 0.17 mm. Wrong thickness = spherical aberration.',
+    extra: ''
+  },
+  iris: {
+    title: 'Aperture (iris) adjustment',
+    body: 'Some high-NA objectives have an internal iris diaphragm. On the 100\u00d7, the range is 1.35 (fully open) down to 0.5 (stopped down). Reducing the NA is useful for darkfield (where illumination NA must exceed objective NA) and can improve contrast for certain specimens. The 40\u00d7 dry objective does not have this feature.',
+    extra: ''
+  },
+  wd: {
+    title: 'Working distance',
+    body: 'The free space between the front lens and the cover glass when in focus. The 40\u00d7 has WD 0.14 mm; the 100\u00d7 oil has WD 0.10 mm. Both are extremely short. Be careful when focusing: you can easily crash the objective into the cover glass. The annotation on the right objective shows this gap visually.',
+    extra: ''
+  },
+  serial: {
+    title: 'Serial number',
+    body: 'A unique identifier for the individual lens. Useful for inventory, logging which objective was used in an experiment (for reproducibility), and warranty. Not all manufacturers place it in the same position.',
+    extra: ''
+  },
+  parfocal: {
+    title: 'Parfocal distance (45 mm)',
+    body: 'The distance from the nosepiece mounting surface to the focal plane. Most modern objectives are standardized at 45 mm, so when you rotate the turret to switch objectives, the specimen stays approximately in focus. This only works if all objectives on the turret share the same parfocal distance.',
+    extra: ''
+  },
+  magring: {
+    title: 'Magnification color band',
+    body: 'A colored ring near the bottom of the barrel for quick identification. Light blue = 40\u00d7, White = 100\u00d7. In a turret with multiple objectives, this lets you grab the right one at a glance.',
+    extra: '<table class="color-table"><tr><th>Mag.</th><th>Color</th></tr><tr><td>1\u00d7</td><td><span class="sw" style="background:#222"></span>Black</td></tr><tr><td>2\u00d7</td><td><span class="sw" style="background:#999"></span>Grey</td></tr><tr><td>4\u00d7</td><td><span class="sw" style="background:#e05020"></span>Red</td></tr><tr><td>10\u00d7</td><td><span class="sw" style="background:#e6c619"></span>Yellow</td></tr><tr><td>20\u00d7</td><td><span class="sw" style="background:#2a8a3e"></span>Green</td></tr><tr><td>40\u00d7</td><td><span class="sw" style="background:#56B4E9"></span>Light blue</td></tr><tr><td>60\u00d7</td><td><span class="sw" style="background:#1a47b8"></span>Dark blue</td></tr><tr><td>100\u00d7</td><td><span class="sw" style="background:#eee;border-color:#999"></span>White</td></tr></table>'
+  },
+  immring: {
+    title: 'Immersion medium color band',
+    body: 'A second ring just below the magnification band, present only on immersion objectives. The 100\u00d7 oil has a black ring (= oil). The 40\u00d7 dry has no immersion ring, confirming it is designed for air.',
+    extra: '<table class="color-table"><tr><th>Medium</th><th>Ring color</th></tr><tr><td>Oil</td><td><span class="sw" style="background:#222"></span>Black</td></tr><tr><td>Water</td><td><span class="sw" style="background:#eee;border-color:#999"></span>White</td></tr><tr><td>Glycerol</td><td><span class="sw" style="background:#E69F00"></span>Orange</td></tr><tr><td>Multi-immersion</td><td><span class="sw" style="background:#cc2222"></span>Red</td></tr><tr><td>Dry (air)</td><td>No ring</td></tr></table>'
+  },
+  spring: {
+    title: 'Spring-loaded front assembly',
+    body: 'Both objectives have a spring-loaded nosepiece that retracts on contact, protecting the front lens and cover glass from damage. It is a safety feature, not a substitute for careful focusing.',
+    extra: ''
+  },
+  front: {
+    title: 'Front lens element',
+    body: 'The foremost optical surface. In high-NA objectives this can be 1\u20132 mm in diameter. Keep it clean: fingerprints, dried oil, or dust degrade image quality. Clean with lens paper and lens cleaning solution. For oil objectives, always wipe off the oil after each session.',
+    extra: ''
+  }
+};
+
+function show(zone) {
+  const d = info[zone];
+  if (!d) return;
+  document.getElementById('info-title').textContent = d.title;
+  document.getElementById('info-body').textContent = d.body;
+  document.getElementById('info-extra').innerHTML = d.extra;
+  document.getElementById('hint-text').textContent = '';
+  document.querySelectorAll('.hl').forEach(el => {
+    el.setAttribute('opacity', el.dataset.zone === zone ? '1' : '0');
+  });
+}
+
+function clr() {
+  document.getElementById('info-title').textContent = 'Explore the objectives';
+  document.getElementById('info-body').textContent = 'Hover over (or tap) any marking on either objective. The same feature is highlighted on both lenses so you can compare. Left: Nikon 40\u00d7/0.95 dry. Right: Olympus 100\u00d7/1.35 oil with iris.';
+  document.getElementById('info-extra').innerHTML = '';
+  document.getElementById('hint-text').textContent = 'Hover or tap any part of either objective';
+  document.querySelectorAll('.hl').forEach(el => el.setAttribute('opacity', '0'));
+}
+</script>
+</body>
+</html>

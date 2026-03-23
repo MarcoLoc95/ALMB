@@ -96,8 +96,8 @@
     <!-- LEFT: Dry 40x/0.95 -->
     <div>
       <div class="obj-label">40&#215; dry</div>
-      <svg width="210" viewBox="0 0 210 420" xmlns="http://www.w3.org/2000/svg">
-        <!-- Screw thread (gold, wide) -->
+      <svg width="224" viewBox="0 0 224 462" xmlns="http://www.w3.org/2000/svg">
+        <!-- Screw thread -->
         <g class="zone" onmouseenter="show('thread')" onmouseleave="clr()" onclick="show('thread')">
           <rect x="30" y="6" width="150" height="24" rx="6" fill="#c8a84e" stroke="#a08030" stroke-width="0.8"/>
           <g opacity="0.18" stroke="#806020" stroke-width="0.5">
@@ -105,7 +105,7 @@
             <line x1="34" y1="22" x2="176" y2="22"/><line x1="34" y1="27" x2="176" y2="27"/>
           </g>
         </g>
-        <!-- Barrel body (wide, shorter) -->
+        <!-- Barrel -->
         <rect x="18" y="30" width="174" height="280" rx="12" fill="#e8e8e5" stroke="#999" stroke-width="1.2"/>
         <!-- Manufacturer -->
         <g class="zone" onmouseenter="show('manufacturer')" onmouseleave="clr()" onclick="show('manufacturer')">
@@ -133,7 +133,7 @@
           <rect x="24" y="170" width="162" height="20" rx="4" fill="transparent"/>
           <text x="105" y="185" text-anchor="middle" font-size="12" fill="#777" font-family="inherit">WD 0.14</text>
         </g>
-        <!-- Knurled grip (wide) -->
+        <!-- Knurled grip -->
         <g opacity="0.08" stroke="#333" stroke-width="0.5">
           <line x1="20" y1="200" x2="190" y2="200"/><line x1="20" y1="205" x2="190" y2="205"/>
           <line x1="20" y1="210" x2="190" y2="210"/><line x1="20" y1="215" x2="190" y2="215"/>
@@ -146,14 +146,14 @@
           <rect x="24" y="254" width="162" height="18" rx="4" fill="transparent"/>
           <text x="105" y="268" text-anchor="middle" font-size="10" fill="#aaa" font-family="inherit">S/N 410237</text>
         </g>
-        <!-- Parfocal (left side) -->
+        <!-- Parfocal (left side, shifted right so text not clipped) -->
         <g class="zone" onmouseenter="show('parfocal')" onmouseleave="clr()" onclick="show('parfocal')">
-          <line x1="8" y1="6" x2="8" y2="388" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 2"/>
-          <line x1="4" y1="6" x2="12" y2="6" stroke="#ccc" stroke-width="0.5"/>
-          <line x1="4" y1="388" x2="12" y2="388" stroke="#ccc" stroke-width="0.5"/>
-          <text x="4" y="200" text-anchor="middle" font-size="9" fill="#bbb" font-family="inherit" transform="rotate(-90,4,200)">45 mm parfocal</text>
+          <line x1="14" y1="6" x2="14" y2="402" stroke="#bbb" stroke-width="0.7" stroke-dasharray="3 2"/>
+          <line x1="9" y1="6" x2="19" y2="6" stroke="#bbb" stroke-width="0.7"/>
+          <line x1="9" y1="402" x2="19" y2="402" stroke="#bbb" stroke-width="0.7"/>
+          <text x="11" y="204" text-anchor="middle" font-size="13" fill="#999" font-weight="500" font-family="inherit" transform="rotate(-90,11,204)">45 mm parfocal</text>
         </g>
-        <!-- Mag color band (light blue = 40x) -->
+        <!-- Mag color band -->
         <g class="zone" onmouseenter="show('magring')" onmouseleave="clr()" onclick="show('magring')">
           <rect x="16" y="278" width="178" height="14" rx="3" fill="#56B4E9" opacity="0.9"/>
           <text x="105" y="289" text-anchor="middle" font-size="8" fill="#042C53" font-weight="600" font-family="inherit">MAG. COLOR BAND</text>
@@ -163,7 +163,7 @@
           <rect x="24" y="296" width="162" height="14" rx="3" fill="transparent"/>
           <text x="105" y="307" text-anchor="middle" font-size="9" fill="#bbb" font-family="inherit">(no imm. ring = dry)</text>
         </g>
-        <!-- Nose / lower barrel (tapered) -->
+        <!-- Nose -->
         <path d="M42 314 L42 340 Q42 348 50 350 L50 362 Q50 368 60 370 L150 370 Q160 368 160 362 L160 350 Q168 348 168 340 L168 314" fill="#ddd" stroke="#aaa" stroke-width="0.8"/>
         <!-- Spring -->
         <g class="zone" onmouseenter="show('spring')" onmouseleave="clr()" onclick="show('spring')">
@@ -173,6 +173,19 @@
         <g class="zone" onmouseenter="show('front')" onmouseleave="clr()" onclick="show('front')">
           <path d="M66 376 Q66 396 105 402 Q144 396 144 376" fill="#dce8f2" stroke="#888" stroke-width="0.8"/>
         </g>
+        <!-- AIR GAP (WD 0.14, slightly bigger gap) -->
+        <!-- WD bracket (right side) -->
+        <g class="zone" onmouseenter="show('wd')" onmouseleave="clr()" onclick="show('wd')">
+          <line x1="196" y1="402" x2="196" y2="420" stroke="#888" stroke-width="1"/>
+          <line x1="191" y1="402" x2="201" y2="402" stroke="#888" stroke-width="1"/>
+          <line x1="191" y1="420" x2="201" y2="420" stroke="#888" stroke-width="1"/>
+          <text x="206" y="414" text-anchor="start" font-size="11" fill="#888" font-weight="500" font-family="inherit">WD</text>
+        </g>
+        <!-- Coverglass + slide -->
+        <rect x="15" y="420" width="180" height="4" rx="1" fill="#c8ddf0" stroke="#99b" stroke-width="0.4"/>
+        <rect x="10" y="428" width="190" height="10" rx="2" fill="#d8e8f8" stroke="#aac" stroke-width="0.4"/>
+        <text x="105" y="452" text-anchor="middle" font-size="9" fill="#aaa" font-family="inherit">coverglass + slide</text>
+
         <!-- Highlights -->
         <rect class="hl" data-zone="thread" x="28" y="4" width="154" height="28" rx="6" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
         <rect class="hl" data-zone="manufacturer" x="22" y="34" width="166" height="30" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
@@ -181,7 +194,7 @@
         <rect class="hl" data-zone="infinity" x="22" y="144" width="166" height="26" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
         <rect class="hl" data-zone="wd" x="22" y="168" width="166" height="24" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
         <rect class="hl" data-zone="serial" x="22" y="252" width="166" height="22" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="parfocal" x="1" y="2" width="14" height="390" rx="4" fill="none" stroke="#E69F00" stroke-width="1.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="parfocal" x="4" y="2" width="20" height="404" rx="4" fill="none" stroke="#E69F00" stroke-width="1.5" stroke-dasharray="4 3" opacity="0"/>
         <rect class="hl" data-zone="magring" x="14" y="276" width="182" height="18" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
         <rect class="hl" data-zone="immring" x="22" y="294" width="166" height="18" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
         <rect class="hl" data-zone="spring" x="54" y="364" width="102" height="14" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
@@ -193,7 +206,7 @@
     <!-- RIGHT: Oil 100x/1.35 Iris -->
     <div>
       <div class="obj-label">100&#215; oil iris</div>
-      <svg width="230" viewBox="0 0 230 420" xmlns="http://www.w3.org/2000/svg">
+      <svg width="230" viewBox="0 0 230 462" xmlns="http://www.w3.org/2000/svg">
         <!-- Screw thread -->
         <g class="zone" onmouseenter="show('thread')" onmouseleave="clr()" onclick="show('thread')">
           <rect x="30" y="6" width="150" height="24" rx="6" fill="#c8a84e" stroke="#a08030" stroke-width="0.8"/>
@@ -253,7 +266,7 @@
           <rect x="16" y="296" width="178" height="12" rx="3" fill="#333"/>
           <text x="105" y="306" text-anchor="middle" font-size="8" fill="#ccc" font-weight="600" font-family="inherit">IMM. COLOR BAND</text>
         </g>
-        <!-- Nose / lower barrel (tapered) -->
+        <!-- Nose -->
         <path d="M42 314 L42 340 Q42 348 50 350 L50 362 Q50 368 60 370 L150 370 Q160 368 160 362 L160 350 Q168 348 168 340 L168 314" fill="#ddd" stroke="#aaa" stroke-width="0.8"/>
         <!-- Spring -->
         <g class="zone" onmouseenter="show('spring')" onmouseleave="clr()" onclick="show('spring')">
@@ -263,12 +276,22 @@
         <g class="zone" onmouseenter="show('front')" onmouseleave="clr()" onclick="show('front')">
           <path d="M66 376 Q66 396 105 402 Q144 396 144 376" fill="#dce8f2" stroke="#888" stroke-width="0.8"/>
         </g>
-        <!-- WD annotation (right side) -->
+
+        <!-- OIL DROP between front element and coverglass -->
+        <ellipse cx="105" cy="408" rx="30" ry="8" fill="#f0d870" opacity="0.45" stroke="#c8a020" stroke-width="0.5"/>
+        <text x="105" y="412" text-anchor="middle" font-size="7" fill="#a08020" font-family="inherit">oil</text>
+
+        <!-- Coverglass + slide (CLOSER, WD 0.10 < 0.14) -->
+        <rect x="15" y="414" width="180" height="4" rx="1" fill="#c8ddf0" stroke="#99b" stroke-width="0.4"/>
+        <rect x="10" y="422" width="190" height="10" rx="2" fill="#d8e8f8" stroke="#aac" stroke-width="0.4"/>
+        <text x="105" y="446" text-anchor="middle" font-size="9" fill="#aaa" font-family="inherit">coverglass + slide</text>
+
+        <!-- WD bracket (right side, gap between front element ~402 and coverglass ~414) -->
         <g class="zone" onmouseenter="show('wd')" onmouseleave="clr()" onclick="show('wd')">
-          <line x1="198" y1="376" x2="198" y2="388" stroke="#999" stroke-width="0.8"/>
-          <line x1="193" y1="376" x2="203" y2="376" stroke="#999" stroke-width="0.8"/>
-          <line x1="193" y1="388" x2="203" y2="388" stroke="#999" stroke-width="0.8"/>
-          <text x="208" y="385" text-anchor="start" font-size="10" fill="#999" font-family="inherit">WD</text>
+          <line x1="196" y1="402" x2="196" y2="414" stroke="#888" stroke-width="1"/>
+          <line x1="191" y1="402" x2="201" y2="402" stroke="#888" stroke-width="1"/>
+          <line x1="191" y1="414" x2="201" y2="414" stroke="#888" stroke-width="1"/>
+          <text x="206" y="411" text-anchor="start" font-size="11" fill="#888" font-weight="500" font-family="inherit">WD</text>
         </g>
 
         <!-- Highlights -->
@@ -278,7 +301,7 @@
         <rect class="hl" data-zone="mag_na" x="22" y="90" width="166" height="54" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
         <rect class="hl" data-zone="infinity" x="22" y="144" width="166" height="26" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
         <rect class="hl" data-zone="iris" x="22" y="168" width="166" height="26" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
-        <rect class="hl" data-zone="wd" x="22" y="192" width="200" height="24" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
+        <rect class="hl" data-zone="wd" x="22" y="192" width="166" height="24" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
         <rect class="hl" data-zone="magring" x="14" y="276" width="182" height="18" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
         <rect class="hl" data-zone="immring" x="14" y="294" width="182" height="16" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
         <rect class="hl" data-zone="spring" x="54" y="364" width="102" height="14" rx="4" fill="none" stroke="#E69F00" stroke-width="2.5" stroke-dasharray="4 3" opacity="0"/>
@@ -303,17 +326,17 @@
 const info = {
   thread: {
     title: 'Screw thread',
-    body: 'The threaded mount that screws into the nosepiece. Most modern objectives use a standard RMS (Royal Microscopical Society) thread or a manufacturer-specific mount. The thread pitch and diameter must match the nosepiece.',
+    body: 'The threaded mount that screws into the nosepiece. Most modern objectives use a standard RMS (Royal Microscopical Society) thread or a manufacturer-specific mount.',
     extra: ''
   },
   manufacturer: {
     title: 'Manufacturer',
-    body: 'The brand name identifies the maker. This matters because each manufacturer uses a different tube lens focal length: Nikon and Leica use 200 mm, Olympus uses 180 mm, Zeiss uses 165 mm. The magnification on the barrel is only correct with the matching tube lens.',
+    body: 'Each manufacturer uses a different tube lens focal length: Nikon and Leica use 200 mm, Olympus uses 180 mm, Zeiss uses 165 mm. The magnification on the barrel is only correct with the matching tube lens.',
     extra: ''
   },
   correction: {
     title: 'Optical correction class',
-    body: 'Indicates how thoroughly the lens is corrected for aberrations. "Plan" = flat field. "Apo" = apochromat (chromatic correction at 3+ wavelengths, spherical at 2+). The Nikon "\u03bb" suffix means optimized for a broad wavelength range (useful for fluorescence). The Olympus "U" prefix = universal, designed for multiple contrast techniques.',
+    body: '"Plan" = flat field. "Apo" = apochromat (chromatic correction at 3+ wavelengths, spherical at 2+). The Nikon "\u03bb" suffix means optimized across a broad wavelength range for fluorescence. The Olympus "U" prefix = universal, designed for multiple contrast techniques.',
     extra: '<table class="color-table"><tr><th>Class</th><th>Chromatic corr.</th><th>Spherical corr.</th></tr><tr><td>Achromat</td><td>2 wavelengths</td><td>1 wavelength</td></tr><tr><td>Fluorite</td><td>2\u20133 wavelengths</td><td>improved</td></tr><tr><td>Apochromat</td><td>3+ wavelengths</td><td>2+ wavelengths</td></tr></table>'
   },
   mag_na: {
@@ -323,47 +346,47 @@ const info = {
   },
   infinity: {
     title: 'Infinity correction / cover glass',
-    body: 'The \u221e symbol means infinity-corrected: light exits as a collimated beam, and a tube lens forms the image. The number after the slash (0.17) is the cover glass thickness in mm the lens is designed for. Standard #1.5 cover glasses are 0.17 mm. Wrong thickness = spherical aberration.',
+    body: 'The \u221e symbol means infinity-corrected: light exits as a collimated beam, and a tube lens forms the image. "0.17" is the designed cover glass thickness in mm. Wrong thickness = spherical aberration.',
     extra: ''
   },
   iris: {
     title: 'Aperture (iris) adjustment',
-    body: 'Some high-NA objectives have an internal iris diaphragm. On the 100\u00d7, the range is 1.35 (fully open) down to 0.5 (stopped down). Reducing the NA is useful for darkfield (where illumination NA must exceed objective NA) and can improve contrast for certain specimens. The 40\u00d7 dry objective does not have this feature.',
+    body: 'Some high-NA objectives have an internal iris diaphragm. On the 100\u00d7, the range is 1.35 (fully open) down to 0.5 (stopped down). Useful for darkfield (illumination NA must exceed objective NA) and for improving contrast. The 40\u00d7 dry does not have this feature.',
     extra: ''
   },
   wd: {
     title: 'Working distance',
-    body: 'The free space between the front lens and the cover glass when in focus. The 40\u00d7 has WD 0.14 mm; the 100\u00d7 oil has WD 0.10 mm. Both are extremely short. Be careful when focusing: you can easily crash the objective into the cover glass.',
+    body: 'The free space between the front lens and the cover glass when in focus. The 40\u00d7 has WD 0.14 mm; the 100\u00d7 oil has WD 0.10 mm (notice the coverglass sits closer on the right). The bracket on the right objective shows this tiny gap. Be careful when focusing at these distances.',
     extra: ''
   },
   serial: {
     title: 'Serial number',
-    body: 'A unique identifier for the individual lens. Useful for inventory, logging which objective was used in an experiment (for reproducibility), and warranty. Not all manufacturers place it in the same position.',
+    body: 'A unique identifier for the individual lens. Useful for inventory, experiment logging, and warranty.',
     extra: ''
   },
   parfocal: {
     title: 'Parfocal distance (45 mm)',
-    body: 'The distance from the nosepiece mounting surface to the focal plane. Most modern objectives are standardized at 45 mm, so when you rotate the turret to switch objectives, the specimen stays approximately in focus.',
+    body: 'The distance from the nosepiece mounting surface to the focal plane. Most modern objectives are standardized at 45 mm, so switching objectives on the turret keeps the specimen approximately in focus.',
     extra: ''
   },
   magring: {
     title: 'Magnification color band',
-    body: 'A colored ring near the bottom of the barrel for quick identification. Light blue = 40\u00d7, White = 100\u00d7. In a turret with multiple objectives, this lets you grab the right one at a glance.',
+    body: 'A colored ring near the bottom of the barrel. Light blue = 40\u00d7, White = 100\u00d7.',
     extra: '<table class="color-table"><tr><th>Mag.</th><th>Color</th></tr><tr><td>1\u00d7</td><td><span class="sw" style="background:#222"></span>Black</td></tr><tr><td>2\u00d7</td><td><span class="sw" style="background:#999"></span>Grey</td></tr><tr><td>4\u00d7</td><td><span class="sw" style="background:#e05020"></span>Red</td></tr><tr><td>10\u00d7</td><td><span class="sw" style="background:#e6c619"></span>Yellow</td></tr><tr><td>20\u00d7</td><td><span class="sw" style="background:#2a8a3e"></span>Green</td></tr><tr><td>40\u00d7</td><td><span class="sw" style="background:#56B4E9"></span>Light blue</td></tr><tr><td>60\u00d7</td><td><span class="sw" style="background:#1a47b8"></span>Dark blue</td></tr><tr><td>100\u00d7</td><td><span class="sw" style="background:#eee;border-color:#999"></span>White</td></tr></table>'
   },
   immring: {
     title: 'Immersion medium color band',
-    body: 'A second ring just below the magnification band, present only on immersion objectives. The 100\u00d7 oil has a black ring (= oil). The 40\u00d7 dry has no immersion ring, confirming it is designed for air.',
+    body: 'A second ring below the magnification band, only on immersion objectives. The 100\u00d7 oil has a black ring (= oil). The 40\u00d7 dry has no ring.',
     extra: '<table class="color-table"><tr><th>Medium</th><th>Ring color</th></tr><tr><td>Oil</td><td><span class="sw" style="background:#222"></span>Black</td></tr><tr><td>Water</td><td><span class="sw" style="background:#eee;border-color:#999"></span>White</td></tr><tr><td>Glycerol</td><td><span class="sw" style="background:#E69F00"></span>Orange</td></tr><tr><td>Multi-immersion</td><td><span class="sw" style="background:#cc2222"></span>Red</td></tr><tr><td>Dry (air)</td><td>No ring</td></tr></table>'
   },
   spring: {
     title: 'Spring-loaded front assembly',
-    body: 'Both objectives have a spring-loaded nosepiece that retracts on contact, protecting the front lens and cover glass from damage. It is a safety feature, not a substitute for careful focusing.',
+    body: 'Both objectives have a spring-loaded nosepiece that retracts on contact, protecting the front lens and cover glass.',
     extra: ''
   },
   front: {
     title: 'Front lens element',
-    body: 'The foremost optical surface. In high-NA objectives this can be 1\u20132 mm in diameter. Keep it clean: fingerprints, dried oil, or dust degrade image quality. For oil objectives, always wipe off the oil after each session.',
+    body: 'The foremost optical surface. In high-NA objectives this can be 1\u20132 mm in diameter. Keep it clean. For oil objectives, always wipe off the oil after each session.',
     extra: ''
   }
 };
@@ -382,7 +405,7 @@ function show(zone) {
 
 function clr() {
   document.getElementById('info-title').textContent = 'Explore the objectives';
-  document.getElementById('info-body').textContent = 'Hover over (or tap) any marking on either objective. The same feature is highlighted on both lenses so you can compare. Left: Nikon 40\u00d7/0.95 dry. Right: Olympus 100\u00d7/1.35 oil with iris.';
+  document.getElementById('info-body').textContent = 'Hover over (or tap) any marking on either objective. Left: Nikon 40\u00d7/0.95 dry. Right: Olympus 100\u00d7/1.35 oil with iris.';
   document.getElementById('info-extra').innerHTML = '';
   document.getElementById('hint-text').textContent = 'Hover or tap any part of either objective';
   document.querySelectorAll('.hl').forEach(el => el.setAttribute('opacity', '0'));

@@ -111,7 +111,7 @@ $$
 
 The minus sign indicates that a real image formed by a single converging lens is inverted (flipped upside down) compared to the object. If $|M| > 1$, the image is magnified; if $|M| < 1$, it is demagnified.
 
-In a compound microscope, two lenses work in series. The objective produces a magnified, real, inverted intermediate image, and the eyepiece magnifies it further. The total magnification is the product of the two. But magnification alone is not useful without resolution: you can always make an image bigger, but you cannot reveal details that were not resolved in the first place. This is sometimes called "empty magnification," and it is a trap that beginners fall into when they crank up the zoom on a digital image.
+In a compound microscope, two lenses work in series. The objective produces a magnified, real, inverted intermediate image, and the eyepiece magnifies it further. The total magnification is the product of the two. But magnification alone is not useful without resolution: you can always make an image bigger, but you cannot reveal details that were not resolved in the first place. This is sometimes called "empty magnification", and it is a trap that beginners fall into when they crank up the zoom on a digital image.
 
 ## But don't forget waves...
 

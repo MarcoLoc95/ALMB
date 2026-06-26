@@ -167,4 +167,8 @@ When the object is placed _inside_ the focal point ($s_o < f$), the rays diverge
 A useful mnemonic: real images live where light actually goes; virtual images live where light _appears_ to come from. In a microscope, the objective creates a real intermediate image, while the eyepiece (when used visually) creates a virtual image at a comfortable viewing distance for the eye. We will explore these configurations in detail in {ref}`Chapter 3 <chap3>`.
 ```
 
+:::{raw} html
+<iframe src="../content/thin_lens_widget.html" width="100%" height="560px" frameborder="0" style="border: none;"></iframe>
+:::
+
 These results are elegant and practical, but they rest on the paraxial approximation: small angles, thin lenses, and perfectly spherical surfaces. In the next section we will see what happens when these assumptions start to break down, and meet the family of _monochromatic aberrations_ that every real lens suffers from to some degree.

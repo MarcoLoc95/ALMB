@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+  font-family: -apple-system, 'Segoe UI', sans-serif; 
+  background: #fff; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  padding: 20px;
+  color: #222;
+}
+h2 { margin-bottom: 4px; font-weight: 600; font-size: 1.3em; }
+.subtitle { color: #666; font-size: 0.9em; margin-bottom: 12px; }
+canvas { 
+  border: 1px solid #e0e0e0; 
+  border-radius: 6px; 
+  cursor: ew-resize;
+  touch-action: none;
+}
+.controls {
+  display: flex; align-items: center; gap: 16px; 
+  margin-top: 14px; flex-wrap: wrap; justify-content: center;
+}
+.controls label { font-size: 0.95em; color: #444; }
+input[type=range] { width: 280px; accent-color: #3366cc; }
+.info-box {
+  margin-top: 10px; padding: 10px 18px; border-radius: 6px;
+  font-size: 0.92em; font-weight: 500; text-align: center; min-width: 320px;
+}
+.real { background: #e8f4e8; color: #1a6b1a; border: 1px solid #b8ddb8; }
+.virtual { background: #fff3e0; color: #b35900; border: 1px solid #ffd699; }
+.infinity { background: #e3ecf9; color: #2255aa; border: 1px solid #a8c4e8; }
+.equations { margin-top: 8px; font-size: 0.88em; color: #555; text-align: center; }
+</style>
+</head>
+<body>
+
+<h2>Thin lens: real and virtual images</h2>
+<p class="subtitle">Drag the object arrow or use the slider</p>
+<canvas id="c" width="900" height="480"></canvas>
+<div class="controls">
+  <label>Object distance s<sub>o</sub>:</label>
+  <input type="range" id="slider" min="20" max="400" value="200">
+  <span id="valLabel" style="min-width:100px; font-size:0.9em; color:#666;"></span>
+</div>
+<div class="controls">
+  <label>Focal length f:</label>
+  <input type="range" id="fslider" min="40" max="250" value="140">
+  <span id="fvalLabel" style="min-width:80px; font-size:0.9em; color:#666;"></span>
+</div>
+<div id="infoBox" class="info-box real"></div>
+<div id="equations" class="equations"></div>
+
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const slider = document.getElementById('slider');
+const fslider = document.getElementById('fslider');
+const valLabel = document.getElementById('valLabel');
+const fvalLabel = document.getElementById('fvalLabel');
+const infoBox = document.getElementById('infoBox');
+const eqBox = document.getElementById('equations');
+
+const W = canvas.width, H = canvas.height;
+const cx = W * 0.45;
+const cy = H / 2;
+const pxPerUnit = 28;
+let f_units = 5;
+let f_px = f_units * pxPerUnit;
+const ARROW_H = 60;
+const UNIT = 'mm';
+
+const COL_REAL    = '#1a8a1a';
+const COL_VIRTUAL = '#cc6600';
+const COL_INFTY   = '#2255aa';
+const COL_OBJ     = '#222222';
+const COL_LENS    = '#D5ECFF';
+const COL_LENS_EDGE = 'rgba(90,130,170,0.55)';
+const COL_AXIS    = '#999';
+const COL_RAY1    = '#e05020';
+const COL_RAY2    = '#3366cc';
+
+let s_o_px = 200;
+
+function drawLens() {
+  // Two circles; only draw the intersection (the vesica piscis shape).
+  // Left circle center at cx - d, right at cx + d, both radius R.
+  // The intersection height h_int = sqrt(R^2 - d^2).
+  const R = 220;
+  const d = R - 12;  // offset from cx
+  const h_int = Math.sqrt(R * R - d * d);  // intersection half-height
+
+  ctx.save();
+  ctx.beginPath();
+  // Right arc of LEFT circle (from bottom intersection to top)
+  const a_left = Math.asin(h_int / R);
+  ctx.arc(cx - d, cy, R, -a_left, a_left, false);
+  // Left arc of RIGHT circle (from top intersection to bottom)
+  const a_right = Math.asin(h_int / R);
+  ctx.arc(cx + d, cy, R, Math.PI - a_right, Math.PI + a_right, false);
+  ctx.closePath();
+
+  ctx.fillStyle = COL_LENS;
+  ctx.fill();
+  ctx.strokeStyle = COL_LENS_EDGE;
+  ctx.lineWidth = 2;
+  ctx.stroke();
+  ctx.restore();
+}
+
+function drawAxis() {
+  ctx.save();
+  ctx.setLineDash([6, 4]);
+  ctx.strokeStyle = COL_AXIS;
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(10, cy); ctx.lineTo(W - 10, cy);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#888';
+  ctx.font = '13px sans-serif';
+  ctx.textAlign = 'center';
+  for (const fx of [cx - f_px, cx + f_px]) {
+    ctx.beginPath();
+    ctx.moveTo(fx - 4, cy - 4); ctx.lineTo(fx + 4, cy + 4);
+    ctx.moveTo(fx + 4, cy - 4); ctx.lineTo(fx - 4, cy + 4);
+    ctx.strokeStyle = '#888'; ctx.lineWidth = 1.5; ctx.stroke();
+  }
+  ctx.fillText('F', cx - f_px, cy + 18);
+  ctx.fillText("F'", cx + f_px, cy + 18);
+  ctx.restore();
+}
+
+function drawArrow(x, y_base, y_tip, color, lineWidth, dashed) {
+  ctx.save();
+  ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = lineWidth;
+  if (dashed) ctx.setLineDash([6, 4]);
+  ctx.beginPath(); ctx.moveTo(x, y_base); ctx.lineTo(x, y_tip); ctx.stroke();
+  const dir = y_tip < y_base ? -1 : 1;
+  const aSize = 8;
+  ctx.setLineDash([]);
+  ctx.beginPath();
+  ctx.moveTo(x, y_tip);
+  ctx.lineTo(x - aSize * 0.5, y_tip - dir * aSize);
+  ctx.lineTo(x + aSize * 0.5, y_tip - dir * aSize);
+  ctx.closePath(); ctx.fill();
+  ctx.restore();
+}
+
+function drawRay(x1, y1, x2, y2, color, dashed, lw) {
+  ctx.save();
+  ctx.strokeStyle = color; ctx.lineWidth = lw || 1.8;
+  if (dashed) ctx.setLineDash([7, 5]);
+  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+  ctx.setLineDash([]); ctx.restore();
+}
+
+function update() {
+  ctx.clearRect(0, 0, W, H);
+  drawAxis();
+  drawLens();
+
+  const obj_x = cx - s_o_px;
+  const obj_tip_y = cy - ARROW_H;
+  drawArrow(obj_x, cy, obj_tip_y, COL_OBJ, 2.5, false);
+
+  const s_o = s_o_px / pxPerUnit;
+  const s_i = 1 / (1 / f_units - 1 / s_o);
+  const M = -s_i / s_o;
+  const img_h = M * ARROW_H;
+  const s_i_px = s_i * pxPerUnit;
+  const img_x = cx + s_i_px;
+
+  let regime, regimeColor, regimeClass;
+  const tol = 0.15;
+  if (Math.abs(s_o - f_units) < tol) {
+    regime = 'infinity'; regimeColor = COL_INFTY; regimeClass = 'infinity';
+  } else if (s_o > f_units) {
+    regime = 'real'; regimeColor = COL_REAL; regimeClass = 'real';
+  } else {
+    regime = 'virtual'; regimeColor = COL_VIRTUAL; regimeClass = 'virtual';
+  }
+
+  if (regime === 'infinity') {
+    drawRay(obj_x, obj_tip_y, cx, obj_tip_y, COL_RAY1, false);
+    const slope1 = (cy - obj_tip_y) / f_px;
+    drawRay(cx, obj_tip_y, W - 10, obj_tip_y + slope1 * (W - 10 - cx), COL_RAY1, false);
+    const slope_c = (obj_tip_y - cy) / (obj_x - cx);
+    drawRay(obj_x, obj_tip_y, W - 10, cy + slope_c * (W - 10 - cx), COL_RAY2, false);
+    infoBox.className = 'info-box ' + regimeClass;
+    infoBox.innerHTML = 'Image at infinity: rays exit parallel, no image is formed';
+    eqBox.innerHTML = `s<sub>o</sub> = f = ${f_units.toFixed(1)} ${UNIT} &rarr; s<sub>i</sub> &rarr; &infin;`;
+
+  } else if (regime === 'real') {
+    drawRay(obj_x, obj_tip_y, cx, obj_tip_y, COL_RAY1, false);
+    drawRay(cx, obj_tip_y, img_x, cy - img_h, COL_RAY1, false);
+    drawRay(obj_x, obj_tip_y, img_x, cy - img_h, COL_RAY2, false);
+    drawArrow(img_x, cy, cy - img_h, regimeColor, 2.5, false);
+    infoBox.className = 'info-box ' + regimeClass;
+    infoBox.innerHTML = `<b>Real image</b> &mdash; inverted, ${Math.abs(M) > 1 ? 'magnified' : Math.abs(M) < 1 ? 'minified' : 'same size'} (M = ${M.toFixed(2)})`;
+    eqBox.innerHTML = `s<sub>o</sub> = ${s_o.toFixed(1)} ${UNIT} &nbsp;|&nbsp; s<sub>i</sub> = ${s_i.toFixed(1)} ${UNIT} &nbsp;|&nbsp; f = ${f_units.toFixed(1)} ${UNIT}`;
+
+  } else {
+    drawRay(obj_x, obj_tip_y, cx, obj_tip_y, COL_RAY1, false);
+    const slope1 = (cy - obj_tip_y) / f_px;
+    drawRay(cx, obj_tip_y, W - 10, obj_tip_y + slope1 * (W - 10 - cx), COL_RAY1, false);
+    drawRay(cx, obj_tip_y, img_x, cy - img_h, COL_RAY1, true, 1.5);
+    const slope_c = (obj_tip_y - cy) / (obj_x - cx);
+    drawRay(obj_x, obj_tip_y, W - 10, cy + slope_c * (W - 10 - cx), COL_RAY2, false);
+    drawRay(obj_x, obj_tip_y, img_x, cy - img_h, COL_RAY2, true, 1.5);
+    drawArrow(img_x, cy, cy - img_h, regimeColor, 2.5, true);
+    infoBox.className = 'info-box ' + regimeClass;
+    infoBox.innerHTML = `<b>Virtual image</b> &mdash; upright, magnified (M = +${Math.abs(M).toFixed(2)})`;
+    eqBox.innerHTML = `s<sub>o</sub> = ${s_o.toFixed(1)} ${UNIT} &nbsp;|&nbsp; s<sub>i</sub> = ${s_i.toFixed(1)} ${UNIT} &nbsp;|&nbsp; f = ${f_units.toFixed(1)} ${UNIT}`;
+  }
+
+  // --- Dimension lines ---
+  ctx.save();
+  ctx.font = '12px sans-serif';
+  ctx.textAlign = 'center';
+
+  const dim_y = cy + 50;  // y-position for dimension lines
+  const ah = 5;  // arrowhead size
+
+  // Helper: draw a double-headed arrow with centered label
+  function dimLine(x1, x2, y, label, color) {
+    if (Math.abs(x2 - x1) < 20) return;  // too small to draw
+    ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = 1;
+    // Line
+    ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(x2, y); ctx.stroke();
+    // Left arrowhead
+    ctx.beginPath();
+    ctx.moveTo(x1, y); ctx.lineTo(x1 + ah, y - ah); ctx.lineTo(x1 + ah, y + ah);
+    ctx.closePath(); ctx.fill();
+    // Right arrowhead
+    ctx.beginPath();
+    ctx.moveTo(x2, y); ctx.lineTo(x2 - ah, y - ah); ctx.lineTo(x2 - ah, y + ah);
+    ctx.closePath(); ctx.fill();
+    // Label (white background for readability)
+    const mid = (x1 + x2) / 2;
+    const metrics = ctx.measureText(label);
+    const pad = 3;
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(mid - metrics.width/2 - pad, y - 8, metrics.width + 2*pad, 16);
+    ctx.fillStyle = color;
+    ctx.fillText(label, mid, y + 4);
+  }
+
+  // s_o: from object arrow to lens
+  dimLine(obj_x, cx, dim_y, `s\u2080 = ${s_o.toFixed(1)} ${UNIT}`, '#555');
+
+  // s_i: from lens to image arrow (only if finite and on screen)
+  if (regime !== 'infinity' && Math.abs(s_i_px) < W * 1.5) {
+    const si_x = img_x;
+    if (si_x > 40 && si_x < W - 40) {
+      dimLine(cx, si_x, dim_y + 22, `s\u1D62 = ${s_i.toFixed(1)} ${UNIT}`, '#555');
+    }
+  }
+
+  // Object label
+  ctx.fillStyle = COL_OBJ;
+  ctx.fillText('object', obj_x, obj_tip_y - 10);
+
+  // Image label: position depends on arrow direction
+  if (regime === 'real' && img_x > 40 && img_x < W - 40) {
+    ctx.fillStyle = regimeColor;
+    // Real image arrow points down (inverted), label goes below the tip
+    const tip_y = cy - img_h;  // img_h is negative so tip is below cy
+    ctx.fillText('real image', img_x, Math.max(tip_y, cy) + 18);
+  } else if (regime === 'virtual' && img_x > 40 && img_x < W - 40) {
+    ctx.fillStyle = regimeColor;
+    // Virtual image arrow points up (upright), label goes above the tip
+    const tip_y = cy - img_h;  // img_h is positive so tip is above cy
+    ctx.fillText('virtual image', img_x, Math.min(tip_y, cy) - 12);
+  }
+
+  ctx.restore();
+
+  valLabel.textContent = `${s_o.toFixed(1)} ${UNIT}`;
+  fvalLabel.textContent = `${f_units.toFixed(1)} ${UNIT}`;
+}
+
+const snap_range = 12;
+
+function snapToF(val) {
+  const f_snap_px = f_units * pxPerUnit;
+  return (Math.abs(val - f_snap_px) < snap_range) ? f_snap_px : val;
+}
+
+slider.addEventListener('input', () => { s_o_px = snapToF(parseInt(slider.value)); update(); });
+
+fslider.addEventListener('input', () => {
+  f_px = parseInt(fslider.value);
+  f_units = f_px / pxPerUnit;
+  // Re-snap s_o if it's now near the new f
+  s_o_px = snapToF(s_o_px);
+  slider.value = Math.round(s_o_px);
+  update();
+});
+
+let dragging = false;
+canvas.addEventListener('pointerdown', (e) => { dragging = true; canvas.setPointerCapture(e.pointerId); handleDrag(e); });
+canvas.addEventListener('pointermove', (e) => { if (dragging) handleDrag(e); });
+canvas.addEventListener('pointerup', () => { dragging = false; });
+
+function handleDrag(e) {
+  const rect = canvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left) * (W / rect.width);
+  s_o_px = snapToF(Math.max(20, Math.min(400, cx - mx)));
+  slider.value = Math.round(s_o_px);
+  update();
+}
+
+update();
+</script>
+</body>
+</html>

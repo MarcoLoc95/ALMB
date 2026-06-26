@@ -157,8 +157,6 @@ Focal shift as a function of wavelength for different levels of chromatic correc
 
 For many applications the secondary spectrum is negligible. But when high color fidelity is required (multicolor fluorescence microscopy, for example), it becomes a problem. The solution is to add more lens elements and correct for more wavelengths.
 
-## Apochromats and superachromats
-
 An **apochromat** uses three or more lens elements to bring _three_ wavelengths to a common focus. The secondary spectrum is dramatically reduced across the visible range (_{numref}`Fig. {number} <chap2_secondary_spectrum>`_). Apochromatic objectives are the workhorses of modern fluorescence microscopy, where multiple fluorophores emitting at different wavelengths must be imaged with high precision.
 
 A **superachromat** takes this one step further, correcting for four wavelengths and producing an even flatter focal-shift curve. The price is complexity: superachromatic objectives may contain six or more individual lens elements, each made of a carefully selected glass type. The materials themselves (such as fluorite, CaF$_2$) can be expensive, which is why these objectives carry premium price tags.

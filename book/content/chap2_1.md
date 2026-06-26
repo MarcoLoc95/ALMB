@@ -168,7 +168,7 @@ A useful mnemonic: real images live where light actually goes; virtual images li
 ```
 
 :::{raw} html
-<iframe src="../content/thin_lens_widget.html" width="100%" height="700px" frameborder="0" style="border: none;"></iframe>
+<iframe src="../content/thin_lens_widget.html" width="100%" height="750px" frameborder="0" style="border: none;"></iframe>
 :::
 
 These results are elegant and practical, but they rest on the paraxial approximation: small angles, thin lenses, and perfectly spherical surfaces. In the next section we will see what happens when these assumptions start to break down, and meet the family of _monochromatic aberrations_ that every real lens suffers from to some degree.

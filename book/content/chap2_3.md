@@ -114,10 +114,10 @@ where $\rho_i = 1/R_{1,i} - 1/R_{2,i}$ collects the geometric factors of each le
 
 ### Abbe numbers
 
-To put this on a more practical footing, we introduce a convenient quantity. For each glass we pick three reference wavelengths: a "yellow" wavelength $\lambda_y$ in between the blue $\lambda_B$ and the red $\lambda_R$. The **Abbe number** (also called the V-number or dispersive index) of the glass is defined as:
+To put this on a more practical footing, we introduce a convenient quantity. For each glass we pick three reference wavelengths: a "yellow" wavelength $\lambda_Y$ in between the blue $\lambda_B$ and the red $\lambda_R$. The **Abbe number** (also called the V-number or dispersive index) of the glass is defined as:
 
 $$
-V = \frac{n_y - 1}{n_B - n_R}
+V = \frac{n_Y - 1}{n_B - n_R}
 $$
 
 A large $V$ means low dispersion (the refractive index changes little across the visible spectrum); a small $V$ means high dispersion. Typical crown glass has $V \approx 60$, while flint glass has $V \approx 35$.
@@ -125,10 +125,10 @@ A large $V$ means low dispersion (the refractive index changes little across the
 Using the Abbe numbers, the condition for an achromatic doublet can be written in a compact and elegant form:
 
 $$
-\boxed{\frac{f_{1,y}}{V_1} + \frac{f_{2,y}}{V_2} = 0}
+\boxed{\frac{f_{1,Y}}{V_1} + \frac{f_{2,Y}}{V_2} = 0}
 $$
 
-where $f_{1,y}$ and $f_{2,y}$ are the focal lengths evaluated at the yellow wavelength. This tells us something important: one lens must be converging and the other diverging (their focal lengths have opposite signs), and the ratio of their focal lengths is set by the ratio of their Abbe numbers. By choosing two glasses with sufficiently different $V$ values, we can design a doublet that brings red and blue light to the same focus while still having a net positive (or negative) focal power.
+where $f_{1,Y}$ and $f_{2,Y}$ are the focal lengths evaluated at the yellow wavelength. This tells us something important: one lens must be converging and the other diverging (their focal lengths have opposite signs), and the ratio of their focal lengths is set by the ratio of their Abbe numbers. By choosing two glasses with sufficiently different $V$ values, we can design a doublet that brings red and blue light to the same focus while still having a net positive (or negative) focal power.
 
 The most common practical realization is the **Fraunhofer cemented doublet**: a positive crown-glass element bonded to a negative flint-glass element. Such doublets are inexpensive, compact, and effective for many applications.
 

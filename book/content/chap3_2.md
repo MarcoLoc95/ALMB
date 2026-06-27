@@ -20,7 +20,7 @@ To understand this limit quantitatively, let us consider the simplest possible s
 
 ```{figure} ../figures/chap3_airy_disk.png
 ---
-width: 70%
+width: 100%
 name: airy_disk
 align: center
 ---

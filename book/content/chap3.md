@@ -8,9 +8,9 @@ In this chapter, we will build up the complete picture of a widefield transmitte
 
 These transmitted-light methods may seem old-fashioned compared to the fluorescence techniques we will encounter in {ref}`Chapter 4 <chap4>`, but they remain indispensable in the modern laboratory. Phase contrast is still the go-to method for checking cell cultures, darkfield microscopy is used to track single nanoparticles with nanometer precision, and DIC produces stunning images of unstained tissue. More importantly, the optical principles introduced here (image formation, resolution, conjugate planes, spatial filtering) form the foundation for everything that follows in this book.
 
-```{figure} ../figures/widefield_overview.png
+```{figure} ../figures/chap3_widefield_overview.png
 ---
-width: 90%
+width: 80%
 name: widefield_overview
 align: center
 ---

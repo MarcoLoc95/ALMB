@@ -54,7 +54,7 @@ $$
 Different manufacturers use different tube lens focal lengths: Nikon and Leica use 200 mm, Olympus uses 180 mm, and Zeiss uses 165 mm. This is why objectives from different brands are generally _not_ interchangeable, even though they may have the same thread: a 40x Nikon objective paired with a Zeiss tube lens will not give exactly 40x magnification.
 
 :::{raw} html
-<iframe src="../content/finite_vs_infinity_widget.html" width="100%" height="1000px" frameborder="0" style="-webkit-transform:scale(0.85);-moz-transform-scale(0.85); border:none"></iframe>
+<iframe src="../content/finite_vs_infinity_widget.html" width="100%" height="900px" frameborder="0" style="-webkit-transform:scale(0.8);-moz-transform-scale(0.8); border:none"></iframe>
 :::
 
 Both systems are sharp only when the specimen sits in its design plane; move it and both images blur. The difference is the **magnification**. In the finite system it drifts with focus, and inserting any glass into the tube shifts the image and forces a refocus that changes it again. The infinity-corrected system holds magnification fixed at $f_{tube} / f_{obj}$ and ignores flat elements dropped into the collimated infinity space. That stability is why every modern research microscope is built this way.

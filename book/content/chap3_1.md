@@ -41,16 +41,7 @@ This design works well for simple setups, but it has a significant limitation: a
 
 ## Infinity-corrected configuration
 
-Modern research microscopes solve this problem with an elegant trick. Instead of forming the intermediate image directly, the objective is designed so that light from an in-focus point on the specimen exits as a _parallel beam_ (collimated light). A second lens, called the **tube lens**, is then placed after the objective to converge these parallel rays and form the intermediate image at its focal plane ({numref}`Fig. {number} <infinity_config>`).
-
-```{figure} ../figures/infinity_config.png
----
-width: 90%
-name: infinity_config
-align: center
----
-Comparison of the finite-tube-length (top) and infinity-corrected (bottom) optical configurations. In the infinity-corrected design, the space between the objective and the tube lens contains collimated light, allowing optical elements to be inserted without affecting image formation.
-```
+Modern research microscopes solve this problem with an elegant trick. Instead of forming the intermediate image directly, the objective is designed so that light from an in-focus point on the specimen exits as a _parallel beam_ (collimated light). A second lens, called the **tube lens**, is then placed after the objective to converge these parallel rays and form the intermediate image at its focal plane.
 
 The space between the objective and the tube lens is called the **infinity space**. Because the beam is collimated there, you can insert flat optical elements (filters, dichroic mirrors, analyzers, beam splitters) without introducing any focus shift or additional aberrations. This is the reason virtually all modern research microscopes use the infinity-corrected design: it makes the system modular. You can swap optical components in and out of the infinity space without touching the focus or the image quality.
 
@@ -60,7 +51,13 @@ $$
 M_{\text{obj}} = \frac{f_{\text{tube}}}{f_{\text{obj}}}
 $$
 
-Different manufacturers use different tube lens focal lengths: Nikon and Leica use 200 mm, Olympus uses 180 mm, and Zeiss uses 165 mm. This is why objectives from different brands are generally _not_ interchangeable, even though they may have the same thread: a 40× Nikon objective paired with a Zeiss tube lens will not give exactly 40× magnification.
+Different manufacturers use different tube lens focal lengths: Nikon and Leica use 200 mm, Olympus uses 180 mm, and Zeiss uses 165 mm. This is why objectives from different brands are generally _not_ interchangeable, even though they may have the same thread: a 40x Nikon objective paired with a Zeiss tube lens will not give exactly 40x magnification.
+
+:::{raw} html
+<iframe src="../content/finite_vs_infinity_widget.html" width="100%" height="750px" frameborder="0" style="border: none;"></iframe>
+:::
+
+Both systems are sharp only when the specimen sits in its design plane; move it and both images blur. The difference is the **magnification**. In the finite system it drifts with focus, and inserting any glass into the tube shifts the image and forces a refocus that changes it again. The infinity-corrected system holds magnification fixed at $f_{tube} / f_{obj}$ and ignores flat elements dropped into the collimated infinity space. That stability is why every modern research microscope is built this way.
 
 ```{tip}
 A common source of confusion: the magnification printed on an objective refers to the magnification when used with the _matching_ tube lens from the same manufacturer. If you mix brands, the actual magnification will differ from the label. For quantitative work, always calibrate with a stage micrometer.
@@ -76,7 +73,7 @@ A microscope objective carries a surprising amount of information engraved or pr
 
 Let us go through the most important parameters one by one.
 
-**Magnification and numerical aperture.** These are always printed prominently, for example "40×/0.95". The first number is the magnification (with the matching tube lens), and the second is the numerical aperture, which we will discuss in detail in the next section.
+**Magnification and numerical aperture.** These are always printed prominently, for example "40x/0.95". The first number is the magnification (with the matching tube lens), and the second is the numerical aperture, which we will discuss in detail in the next section.
 
 **Optical correction class.** Objectives are corrected for aberrations to different degrees. The most common classes are:
 - _Achromat_: corrected for chromatic aberration at two wavelengths and spherical aberration at one. Affordable and suitable for routine work.
@@ -92,4 +89,4 @@ Let us go through the most important parameters one by one.
 
 **Parfocal distance.** The distance from the nosepiece mounting surface to the focal plane. Most modern objectives are standardized at 45 mm, meaning that when you rotate the turret to switch objectives, the specimen stays approximately in focus. This only works if all objectives on the turret share the same parfocal distance.
 
-**Iris diaphragm.** Some high-NA objectives (typically 60× and 100× oil) have an internal adjustable iris that lets you reduce the effective numerical aperture. This is indicated on the barrel by a range (for example "1.35 ► ◄ 0.5") and by the abbreviation "Iris". Reducing the NA is useful for darkfield microscopy, where the illumination NA must exceed the collection NA of the objective.
+**Iris diaphragm.** Some high-NA objectives (typically 60x and 100x oil) have an internal adjustable iris that lets you reduce the effective numerical aperture. This is indicated on the barrel by a range (for example "1.35 ► ◄ 0.5") and by the abbreviation "Iris". Reducing the NA is useful for darkfield microscopy, where the illumination NA must exceed the collection NA of the objective.

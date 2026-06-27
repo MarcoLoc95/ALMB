@@ -20,16 +20,6 @@ On the imaging side:
 2. In infinity-corrected systems, the **tube lens** forms the intermediate image.
 3. The **eyepiece** (or a camera sensor) captures the final image.
 
-### Upright versus inverted
-
-Microscopes come in two basic geometries. In an **upright** microscope, the objective sits above the specimen and the condenser below. The specimen is placed on the stage with the cover glass facing up. This is the classical layout, used for most routine histology, pathology and materials science work.
-
-In an **inverted** microscope, the geometry is flipped: the objective is below the stage and the condenser above. The specimen sits with the cover glass facing down, and gravity keeps it in contact with the immersion medium. This configuration is strongly preferred for live-cell imaging, because cells grow on the bottom of a dish or a cover glass, and the objective can image them through the glass without the culture medium getting in the way. It also makes it easy to access the sample from above (for example, to add reagents, insert microelectrodes, or perform microinjection) while imaging.
-
-```{tip}
-If you work with living cells, you will almost certainly use an inverted microscope. The combination of an inverted frame, a water- or oil-immersion objective, and an incubation chamber (to keep cells at 37°C and 5% CO$_2$) is the standard setup in any cell biology lab.
-```
-
 ## Critical illumination
 
 The simplest way to illuminate a specimen is to image the light source directly onto the sample plane. This is called **critical illumination** (sometimes also called Nelsonian illumination). A collector lens takes the light from the lamp filament and the condenser focuses it onto the specimen, so that the filament and the specimen are in conjugate planes.

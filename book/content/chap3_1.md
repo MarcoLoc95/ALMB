@@ -14,7 +14,28 @@ A 40x objective paired with a 10x eyepiece therefore gives 400x total magnificat
 
 ## Upright and inverted microscopes
 
-aaa
+Every transmitted-light microscope we have built up so far can be assembled in one of two physical layouts, and although the optics are identical, the choice matters a great deal in practice.
+
+In an **upright** microscope the objective sits above the specimen and the condenser below it, so light travels upward from the lamp, through the sample, and into the objective. This is the classical arrangement, the one most people picture, and it remains the standard for fixed, mounted preparations such as histological sections, stained smears, and polished blocks in materials science. The specimen sits on the stage with its cover glass facing up, and you focus by moving the objective toward the sample.
+
+In an **inverted** microscope the geometry is turned over: the objective is below the stage and the condenser above it, and light now travels downward through the specimen. This looks like a pointless flip until you try to image living cells. Cells in culture grow on the bottom of a dish under several millimeters of medium. An upright objective would have to reach down through all that liquid to find them, whereas an inverted objective simply looks up through the thin glass bottom, placing its high-NA front element exactly where it belongs. Gravity helps too, holding the cells against the glass and in optical contact with the immersion medium.
+
+The inverted layout has a second decisive advantage: it leaves the top of the sample completely open. While you image from below, you can add reagents, lower a patch-clamp pipette onto a single cell, perform a microinjection, or run a perfusion line across the dish, none of which disturbs the optics underneath. This is why the inverted frame, combined with a water- or oil-immersion objective and an incubation chamber holding the cells at 37°C and 5% CO$_2$, is the standard platform for live-cell imaging.
+
+What does not change is the optics. The lenses, the diaphragms, the Köhler illumination scheme, and the conjugate planes are the same in both designs; an inverted microscope is just an upright one folded over, with a few mirrors steering the light to a conveniently placed eyepiece and camera. Resolution, magnification, and contrast obey exactly the same physics either way.
+
+```{figure} ../figures/chap3_uprightinverted.png
+---
+width: 80%
+name: uprightinverted
+align: center
+---
+The two standard geometries of a transmitted-light microscope. In the _upright_ configuration (left) the objective sits above the specimen and the condenser below it, and light travels upward. In the _inverted_ configuration (right) the layout is flipped: the objective is below the stage and the condenser above, so the objective can image cultured cells directly through the thin glass bottom of their dish. The lenses, apertures, and conjugate planes are identical in both arrangements; only the physical orientation of the light path differs.
+```
+
+```{tip}
+If you work with living cells, you will almost certainly use an inverted microscope. The combination of an inverted frame, a water- or oil-immersion objective, and an incubation chamber (to keep cells at 37°C and 5% CO$_2$) is the standard setup in any cell biology lab.
+```
 
 ## Finite-tube-length and infinity-corrected configuration
 

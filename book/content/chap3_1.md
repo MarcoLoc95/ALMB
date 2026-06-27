@@ -22,8 +22,6 @@ In an **inverted** microscope the geometry is turned over: the objective is belo
 
 The inverted layout has a second decisive advantage: it leaves the top of the sample completely open. While you image from below, you can add reagents, lower a patch-clamp pipette onto a single cell, perform a microinjection, or run a perfusion line across the dish, none of which disturbs the optics underneath. This is why the inverted frame, combined with a water- or oil-immersion objective and an incubation chamber holding the cells at 37°C and 5% CO$_2$, is the standard platform for live-cell imaging.
 
-What does not change is the optics. The lenses, the diaphragms, the Köhler illumination scheme, and the conjugate planes are the same in both designs; an inverted microscope is just an upright one folded over, with a few mirrors steering the light to a conveniently placed eyepiece and camera. Resolution, magnification, and contrast obey exactly the same physics either way.
-
 ```{figure} ../figures/chap3_uprightinverted.png
 ---
 width: 100%

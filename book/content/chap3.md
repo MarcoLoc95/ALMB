@@ -14,7 +14,7 @@ width: 80%
 name: widefield_overview
 align: center
 ---
-Overview of a transmitted-light widefield microscope showing the illumination path (left) and the imaging path (right). The interplay between these two paths determines the quality and contrast of the final image.
+Overview of a transmitted-light widefield microscope showing the illumination path and the imaging path.
 ```
 
 At the end of this chapter you should be able to:

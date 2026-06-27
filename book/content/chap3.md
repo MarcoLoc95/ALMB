@@ -18,9 +18,9 @@ Overview of a transmitted-light widefield microscope showing the illumination pa
 ```
 
 At the end of this chapter you should be able to:
-- Explain the difference between real and virtual images in a compound microscope
+- Explain the difference between upright and inverted microscopes
 - Describe the advantages of the infinity-corrected optical configuration over the finite-tube-length design
-- Read and interpret the markings on a microscope objective
+- Interpret the markings on a microscope objective
 - Define numerical aperture and explain its role in determining resolution
 - State and apply the Abbe and Rayleigh resolution criteria
 - Explain why immersion media improve resolution and when to use oil versus water

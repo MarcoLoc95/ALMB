@@ -12,6 +12,10 @@ $$
 
 A 40x objective paired with a 10x eyepiece therefore gives 400x total magnification. This multiplicative principle is the reason compound microscopes can reach magnifications of 1000x or more, far beyond what any single lens could deliver without intolerable aberrations.
 
+## Upright and inverted microscopes
+
+aaa
+
 ## Finite-tube-length and infinity-corrected configuration
 
 In older microscope designs (and many educational microscopes still in use), the objective is designed to form the intermediate image at a fixed distance from its shoulder, called the **mechanical tube length**. The international standard, established by the Royal Microscopical Society in the 19th century, is 160 mm. In this configuration, the objective and the eyepiece are mounted at opposite ends of a tube whose length is precisely controlled.
@@ -57,10 +61,6 @@ Both systems are sharp only when the specimen sits in its design plane; move it 
 ```{tip}
 A common source of confusion: the magnification printed on an objective refers to the magnification when used with the _matching_ tube lens from the same manufacturer. If you mix brands, the actual magnification will differ from the label. For quantitative work, always calibrate with a stage micrometer.
 ```
-
-## Upright and inverted microscopes
-
-aaa
 
 ## Reading an objective
 

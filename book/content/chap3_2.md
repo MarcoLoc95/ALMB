@@ -18,7 +18,7 @@ Second, the objective lens has a finite diameter. It can only collect light up t
 
 To understand this limit quantitatively, let us consider the simplest possible specimen: a single, infinitely small point of light (a point source). In a perfect world with no diffraction, the lens would focus this into an infinitely small point in the image. In reality, diffraction through the circular aperture of the objective produces not a point but a characteristic pattern of concentric bright and dark rings, called the **Airy pattern** (named after George Biddell Airy, who first calculated it in 1835). The central bright disk is called the **Airy disk** ({numref}`Fig. {number} <airy_disk>`).
 
-```{figure} ../figures/airy_disk.png
+```{figure} ../figures/chap3_airy_disk.png
 ---
 width: 70%
 name: airy_disk
@@ -37,7 +37,7 @@ The PSF is arguably the single most important concept in microscopy. Every image
 
 The physical mechanism is best understood through the Huygens-Fresnel principle: every point on a wavefront passing through the aperture acts as a source of secondary spherical wavelets. These wavelets travel to the image plane and _interfere_ with each other. At the center of the image, all wavelets arrive roughly in phase, producing a bright spot (constructive interference). Moving away from the center, the path differences between wavelets from opposite sides of the aperture increase. At a specific angle, the path difference equals half a wavelength, and the wavelets cancel out, producing the first dark ring (destructive interference). Further out, the pattern alternates between partial constructive and destructive interference, forming the characteristic ring structure ({numref}`Fig. {number} <airy_explanation>`).
 
-```{figure} ../figures/airy_explanation.png
+```{figure} ../figures/chap3_airy_explanation.png
 ---
 width: 80%
 name: airy_explanation

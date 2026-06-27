@@ -106,23 +106,6 @@ However, wide-open illumination also means that more stray light reaches the ima
 
 The field diaphragm is simpler: it controls the illuminated area on the specimen. Closing it so that it just circumscribes the field of view reduces the amount of light entering the optical system outside the observed region. This minimizes stray light, veiling glare, and internal reflections, all of which degrade contrast. A properly closed field diaphragm is one of the easiest and most effective ways to improve image quality.
 
-### Setting up Köhler illumination
-
-Aligning a microscope for Köhler illumination is a practical skill every microscopist should master. The procedure is straightforward:
-
-1. Focus on the specimen using the objective.
-2. Close the field diaphragm almost completely.
-3. Focus the condenser (move it up or down) until the edges of the field diaphragm appear sharp and in focus, superimposed on the specimen image. This ensures that the field diaphragm and the specimen are conjugate.
-4. Center the condenser so that the field diaphragm image is centered in the field of view.
-5. Open the field diaphragm until it just disappears from the edges of the field of view.
-6. Adjust the aperture diaphragm for the desired balance of resolution and contrast (remove one eyepiece and look at the back focal plane of the objective, or use a Bertrand lens, to see the aperture diaphragm image there).
-
-When properly aligned, the illumination is perfectly uniform across the field, the resolution is optimized, and contrast is maximized for the given specimen. This procedure takes about 30 seconds and should be repeated whenever you change the objective.
-
-### Köhler illumination with a tube lens
-
-In infinity-corrected systems, the optical layout is essentially the same. The tube lens sits between the objective and the eyepiece (or camera), forming the intermediate image. The conjugate plane relationships are unchanged: the back focal plane of the objective remains an aperture conjugate, and the intermediate image plane remains a field conjugate. The only practical difference is that optical elements can be inserted in the infinity space without disturbing the conjugate plane structure.
-
 ## From brightfield to contrast techniques
 
 With Köhler illumination providing uniform, well-controlled light, we now have a solid foundation for brightfield imaging. In brightfield mode, the specimen is illuminated with white light and imaged directly: structures that absorb light appear dark against a bright background. This works well for stained specimens (histological sections, Gram-stained bacteria), but most biological specimens in their native state are nearly transparent. They absorb almost no light and are essentially invisible in brightfield.

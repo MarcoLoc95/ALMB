@@ -26,7 +26,7 @@ What does not change is the optics. The lenses, the diaphragms, the Köhler illu
 
 ```{figure} ../figures/chap3_uprightinverted.png
 ---
-width: 80%
+width: 100%
 name: uprightinverted
 align: center
 ---

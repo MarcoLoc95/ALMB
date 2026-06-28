@@ -207,7 +207,7 @@ The axial resolution is roughly two and a half times worse than the lateral reso
 
 ```{figure} ../figures/chap3_psf_3d.png
 ---
-width: 80%
+width: 70%
 name: psf_3d
 align: center
 ---

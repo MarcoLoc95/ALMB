@@ -183,27 +183,35 @@ A common mistake in the lab: using an oil-immersion objective on a live cell sam
 
 So far we have discussed lateral ($x$-$y$) resolution. What about the $z$-direction, along the optical axis?
 
-As mentioned earlier, the PSF is elongated along $z$. The axial extent of the central lobe of the PSF is given by:
+As mentioned earlier, the PSF is elongated along $z$. The natural measure of axial resolution is the distance from the focus to the first axial minimum of the PSF. The exact scalar-diffraction result is:
 
 $$
-d_{\text{Abbe},\, z} = \frac{2\lambda}{(n \sin\theta)^2} = \frac{2\lambda}{\text{NA}^2}
+d_z = \frac{\lambda}{n\,(1 - \cos\theta)}
 $$
 
-This is _much_ worse than the lateral resolution. For the same parameters as before ($\lambda$ = 500 nm, NA = 1.4):
+where $\theta$ is the half-angle of the focused cone and $n$ the refractive index of the immersion medium. For small angles this reduces to the more familiar approximation
 
 $$
-d_{\text{Abbe},\, z} = \frac{2 \times 500 \text{ nm}}{1.4^2} = \frac{1000 \text{ nm}}{1.96} \approx 510 \text{ nm}
+d_z \approx \frac{2 n \lambda}{\text{NA}^2}
 $$
 
-The axial resolution is roughly three times worse than the lateral resolution ({numref}`Fig. {number} <psf_3d>`). This fundamental asymmetry is the reason why optical sections in conventional widefield microscopy are thick and why techniques like confocal microscopy (which we will meet in {ref}`Chapter 5 <chap5>`) were developed: to improve the axial resolution by rejecting out-of-focus light.
+(and if you set $n \approx 1$ you recover the textbook $2\lambda/\text{NA}^2$, but for an immersion objective the factor $n$ should be kept).
 
-```{figure} ../figures/psf_3d.png
+This is _much_ worse than the lateral resolution. For the same parameters as before ($\lambda$ = 500 nm, NA = 1.4, oil with $n$ = 1.515), we have $\sin\theta = \text{NA}/n \approx 0.92$, so $\cos\theta \approx 0.38$ and
+
+$$
+d_z = \frac{500 \text{ nm}}{1.515 \,(1 - 0.38)} \approx 534 \text{ nm}
+$$
+
+The axial resolution is roughly two and a half times worse than the lateral resolution ({numref}`Fig. {number} <psf_3d>`). This fundamental asymmetry is the reason why optical sections in conventional widefield microscopy are thick and why techniques like confocal microscopy (which we will meet in {ref}`Chapter 5 <chap5>`) were developed: to improve the axial resolution by rejecting out-of-focus light.
+
+```{figure} ../figures/chap3_psf_3d.png
 ---
-width: 60%
+width: 80%
 name: psf_3d
 align: center
 ---
-The PSF of a high-NA objective ($\lambda$ = 500 nm, NA = 1.4). Left: lateral ($x$-$y$) cross-section showing the Airy pattern. Right: axial ($x$-$z$) cross-section showing the elongated shape. The lateral resolution ($\sim$180 nm) is roughly three times better than the axial resolution ($\sim$510 nm).
+The point spread function of a high-NA objective ($\lambda$ = 500 nm, NA = 1.4), rendered as the glowing blob it forms in three dimensions (top right) together with two orthogonal sections through it. End-on, in the focal $x$-$y$ plane, it is a compact round Airy disk whose first dark ring lies about 220 nm from the centre (bottom right). From the side, in the $x$-$z$ plane, it is stretched along the optical axis, with the first axial minimum about 530 nm from the centre (top left). The dashed lines show how each section maps onto the 3D blob. The blob is about two and a half times as long as it is wide, so a microscope resolves detail markedly more poorly along $z$ than in the focal plane.
 ```
 
 ```{tip}

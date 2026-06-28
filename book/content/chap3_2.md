@@ -143,7 +143,7 @@ The Abbe formula $d = \lambda / (2 \cdot \text{NA}) = \lambda / (2\, n \sin\thet
 
 **Increase the refractive index of the medium.** This is where immersion objectives come in.
 
-## Immersion media and why oil matters
+## Immersion media
 
 When light passes from a dense medium (the glass cover slip, $n \approx 1.52$) into air ($n = 1.0$), it refracts according to Snell's law. Rays that leave the cover slip at steep angles are bent even further from the optical axis, and beyond the critical angle they undergo total internal reflection: they never reach the objective at all. This means that a dry objective simply _cannot_ collect the highest-angle light, no matter how large its front element is.
 

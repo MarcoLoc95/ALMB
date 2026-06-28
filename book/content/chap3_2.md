@@ -9,7 +9,9 @@ Magnification and resolution are not the same thing. Magnification makes things 
 Imagine you are taking a photograph of two stars that are very close together in the night sky. You zoom in with your camera, and at first the two stars become easier to see. But at some point, no matter how much you zoom, the two stars merge into a single blob. This is not because your camera is bad: even a perfect lens would produce the same result. The reason is that light, being a wave, spreads out when it passes through any finite opening, including the aperture of your lens. This spreading is called **diffraction**, and it sets an absolute floor on the smallest detail any optical system can resolve.
 
 :::{raw} html
-<iframe src="../content/diffraction_zoom.html" width="560" height="710" frameborder="0" style="border:none;"></iframe>
+<div style="text-align:center; margin:1em 0;">
+  <iframe src="../content/diffraction_zoom.html" width="560" height="760" style="border:none; max-width:100%;"></iframe>
+</div>
 :::
 
 A useful working definition: diffraction is any deviation of light from straight-line propagation that cannot be explained by reflection or refraction. When a wave encounters an obstacle or an aperture comparable in size to its wavelength, it bends around edges and spreads into regions that ray optics would predict to be in shadow.

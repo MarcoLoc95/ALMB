@@ -45,6 +45,10 @@
     background:#fff; border:3px solid var(--accent); cursor:pointer;
   }
   input[type=range]:focus-visible{box-shadow:0 0 0 3px rgba(224,80,32,.30);}
+  .credit{
+    font-size:11.5px; line-height:1.55; color:var(--muted); margin:13px 2px 2px;
+  }
+  .credit a{color:var(--muted); text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -52,9 +56,13 @@
   <div class="stage"><canvas id="cv"></canvas></div>
   <div class="readout">field of view&nbsp; <b id="fov">125 &micro;m</b></div>
   <div class="controls">
-    <label for="z">Zoom into the center</label>
+    <label for="z">Zoom into the centre</label>
     <input id="z" type="range" min="0" max="1000" value="0">
   </div>
+  <p class="credit">
+    Confocal image of living HeLa cells: mitochondria in red, the nucleus in blue, microtubules in green.
+    Copyright: 8x57is, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>, via Wikimedia Commons.
+  </p>
 </div>
 
 <script>

@@ -1,8 +1,10 @@
 # Resolution and the diffraction limit
 
-We ended the previous section with a provocative question: if we can multiply magnifications at will, why not just use a 10,000x system and see molecules? The answer is deceptively simple: because magnification and resolution are not the same thing. Magnification makes things bigger; resolution makes things distinguishable. You can magnify a blurry image as much as you like, and all you get is a bigger blur. What limits resolution is not the quality of our lenses (although that matters), but a fundamental property of light itself: _diffraction_.
+We ended the previous section with a provocative question: if we can multiply magnifications at will, why not just use a 10,000x system and see molecules? The answer is deceptively simple, and it comes down to a fundamental property of light itself: _diffraction_.
 
 ## Why can't we just keep magnifying?
+
+Magnification and resolution are not the same thing. Magnification makes things bigger; resolution makes things distinguishable. You can magnify a blurry image as much as you like, and all you get is a bigger blur. What limits resolution is not the quality of our lenses (although that matters), but diffraction.
 
 Imagine you are taking a photograph of two stars that are very close together in the night sky. You zoom in with your camera, and at first the two stars become easier to see. But at some point, no matter how much you zoom, the two stars merge into a single blob. This is not because your camera is bad: even a perfect lens would produce the same result. The reason is that light, being a wave, spreads out when it passes through any finite opening, including the aperture of your lens. This spreading is called **diffraction**, and it sets an absolute floor on the smallest detail any optical system can resolve.
 
@@ -13,6 +15,14 @@ A useful working definition: diffraction is any deviation of light from straight
 In a microscope, diffraction happens in two places. First, the specimen itself diffracts the illuminating light. Any structure in the sample that has spatial features on the scale of the wavelength of light will scatter (diffract) the incoming beam into a range of angles. Finer details scatter light at larger angles, while coarser features scatter at smaller angles. This is a direct consequence of the Fourier relationship we will explore quantitatively in {ref}`Chapter 6 <chap6>`.
 
 Second, the objective lens has a finite diameter. It can only collect light up to a certain angle. Any diffracted light that leaves the sample at angles too steep for the objective to capture is simply lost. And here is the key insight: because fine details produce high-angle diffracted light, and the objective can only collect angles up to a maximum, there is a fundamental limit to how fine a detail the microscope can resolve. No amount of magnification downstream can recover information that the objective never collected in the first place.
+
+It helps to name this collecting power right away, because it will dominate everything that follows. We capture it in a single number, the **numerical aperture** (NA):
+
+$$
+\text{NA} = n \sin\theta
+$$
+
+where $\theta$ is the half-angle of the widest cone of light the objective can accept and $n$ is the refractive index of the medium in front of it. For now, read NA simply as a measure of how much of the diffracted light the objective manages to collect: the larger it is, the finer the detail that survives. We will come back to its values and consequences below.
 
 ## The Airy disk and the point spread function
 
@@ -27,7 +37,7 @@ align: center
 The Airy pattern produced by a circular aperture. Left: the 2D intensity distribution showing the central disk and surrounding rings. Right: a cross-sectional intensity profile. The first dark ring defines the radius of the Airy disk.
 ```
 
-The three-dimensional intensity distribution produced by imaging a point source is called the **point spread function** (PSF). In the lateral ($x$-$y$) plane, the PSF is the Airy pattern. In the axial ($z$) direction, the PSF is elongated, resembling an hourglass or an elongated ellipsoid. This means that the resolution of a microscope is always _worse_ along the optical axis than in the lateral plane: a fundamental asymmetry that has profound consequences for three-dimensional imaging.
+The three-dimensional intensity distribution produced by imaging a point source is called the **point spread function** (PSF). In the lateral ($x$-$y$) plane, the PSF is the Airy pattern. In the axial ($z$) direction, the PSF is elongated, resembling an hourglass or an elongated ellipsoid. This means that the resolution of a microscope is always _worse_ along the optical axis than in the lateral plane: a fundamental asymmetry that we quantify at the end of this chapter, and that has profound consequences for three-dimensional imaging.
 
 ```{tip}
 The PSF is arguably the single most important concept in microscopy. Every image you take with a microscope is the _true_ image of the specimen convolved (blurred) with the PSF. If you know the PSF, you can, in principle, computationally reverse this blurring to recover a sharper image. This process is called _deconvolution_, and we will return to it in {ref}`Chapter 6 <chap6>`.
@@ -35,7 +45,7 @@ The PSF is arguably the single most important concept in microscopy. Every image
 
 ## How does diffraction produce the Airy pattern?
 
-The physical mechanism is best understood through the Huygens-Fresnel principle: every point on a wavefront passing through the aperture acts as a source of secondary spherical wavelets. These wavelets travel to the image plane and _interfere_ with each other. At the center of the image, all wavelets arrive roughly in phase, producing a bright spot (constructive interference). Moving away from the center, the path differences between wavelets from opposite sides of the aperture increase. At a specific angle, the path difference equals half a wavelength, and the wavelets cancel out, producing the first dark ring (destructive interference). Further out, the pattern alternates between partial constructive and destructive interference, forming the characteristic ring structure ({numref}`Fig. {number} <airy_explanation>`).
+The physical mechanism is best understood through the Huygens-Fresnel principle: every point on a wavefront passing through the aperture acts as a source of secondary spherical wavelets. These wavelets travel to the image plane and _interfere_ with each other. At the center of the image, all wavelets arrive roughly in phase, producing a bright spot (constructive interference). Moving away from the center, the path differences between wavelets increase. At a specific angle the path difference across the full aperture reaches one wavelength, so the aperture splits into pairs of points half an aperture apart whose wavelets are half a wavelength out of phase; these pairs cancel, producing the first dark ring (destructive interference). Further out, the pattern alternates between partial constructive and destructive interference, forming the characteristic ring structure ({numref}`Fig. {number} <airy_explanation>`).
 
 ```{figure} ../figures/chap3_airy_explanation.gif
 ---
@@ -43,14 +53,18 @@ width: 90%
 name: airy_explanation
 align: center
 ---
-The Airy pattern arises from the interference of wavelets passing through the circular aperture of the objective. At the center, wavelets arrive in phase (constructive interference). At the first dark ring, wavelets from opposite sides of the aperture arrive half a wavelength out of phase (destructive interference).
+The Airy pattern arises from the interference of wavelets passing through the circular aperture of the objective. At the center, wavelets arrive in phase (constructive interference). At the first dark ring, every wavelet is cancelled by another wavelet half an aperture away, which arrives half a wavelength out of phase (destructive interference).
 ```
 
 The critical point is this: the _larger_ the aperture, the smaller the Airy disk. A wide aperture means that wavelets from far-apart points on the aperture interfere, and they cancel at smaller angles, producing a tighter central spot. Conversely, a small aperture produces a large, spread-out Airy disk. This is why resolution is fundamentally tied to how much light the objective can collect.
 
-## The Rayleigh and Abbe criteria
+## Quantifying the limit
 
-When can we say that two nearby point sources are "resolved"? This question does not have a single unambiguous answer, but two criteria have become standard.
+We now have all the physical ingredients. What remains is to turn them into numbers: a criterion for when two features are just barely separable, and a formula for the smallest detail an objective can deliver.
+
+### The Rayleigh and Abbe criteria
+
+When can we say that two nearby point sources are "resolved"? This question does not have a single unambiguous answer, but two criteria have become standard. They are less rivals than two views of the same limit: Rayleigh starts from the image of a single point (the Airy pattern we just met), Abbe from the image of a periodic grating, and the two arrive at almost the same number.
 
 **The Rayleigh criterion** (proposed by Lord Rayleigh in 1879) states that two point sources are just resolved when the central maximum of one Airy pattern falls on the first minimum (first dark ring) of the other. At this separation, the combined intensity profile shows a small dip (about 26% below the peak) between the two maxima, which is just enough for the eye or a detector to distinguish them. The minimum resolvable distance according to Rayleigh is:
 
@@ -68,13 +82,9 @@ $$
 
 The two criteria differ by a small numerical factor (0.61 vs 0.50), but they convey the same physical message: resolution is set by the wavelength of light and the angular aperture of the objective.
 
-## Numerical aperture
+### Numerical aperture
 
-The combination $n \sin\theta$ appears so frequently in optics that it has been given its own name: the **numerical aperture** (NA). It is the single most important number characterizing an objective:
-
-$$
-\text{NA} = n \sin\theta
-$$
+We have already met the numerical aperture, $\text{NA} = n \sin\theta$, but it deserves a closer look, because it is the single most important number characterizing an objective.
 
 For a dry (air) objective, $n = 1.0$. Since $\sin\theta$ can never exceed 1, the maximum theoretical NA for a dry objective is 1.0. In practice, the best dry objectives reach about NA = 0.95. Immersion objectives, which fill the space between the front lens and the cover glass with a medium of higher refractive index, can exceed this limit: oil-immersion objectives routinely reach NA = 1.4, and specialized objectives can go even higher.
 
@@ -92,7 +102,7 @@ $$
 
 This is roughly the best lateral resolution achievable with a conventional light microscope. Structures smaller than about 200 nm will appear as unresolved blobs, no matter how much you magnify the image.
 
-## The grating argument: Abbe's insight
+### The grating argument: Abbe's insight
 
 Abbe's reasoning is worth understanding in some detail, because it connects resolution directly to the Fourier-optical framework that underlies all of modern microscopy.
 

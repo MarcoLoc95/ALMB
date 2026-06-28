@@ -211,11 +211,11 @@ width: 70%
 name: psf_3d
 align: center
 ---
-The point spread function of a high-NA objective ($\lambda$ = 500 nm, NA = 1.4), rendered as the glowing blob it forms in three dimensions (top right) together with two orthogonal sections through it. End-on, in the focal $x$-$y$ plane, it is a compact round Airy disk whose first dark ring lies about 220 nm from the centre (bottom right). From the side, in the $x$-$z$ plane, it is stretched along the optical axis, with the first axial minimum about 530 nm from the centre (top left). The dashed lines show how each section maps onto the 3D blob. The blob is about two and a half times as long as it is wide, so a microscope resolves detail markedly more poorly along $z$ than in the focal plane.
+The point spread function of a high-NA objective ($\lambda$ = 500 nm, NA = 1.4), rendered as the glowing blob it forms in three dimensions (top right) together with two orthogonal sections through it. In the focal $x$-$y$ plane, it is a compact round Airy disk whose first dark ring lies about 220 nm from the centre (bottom right). From the side, in the $x$-$z$ plane, it is stretched along the optical axis, with the first axial minimum about 530 nm from the centre (top left). The dashed lines show how each section maps onto the 3D blob. The blob is about two and a half times as long as it is wide, so a microscope resolves detail markedly more poorly along $z$ than in the focal plane.
 ```
+
+The resolution limits we have discussed here are not the end of the story. In {ref}`Chapter 6 <chap6>`, we will revisit these ideas in the framework of Fourier optics, where the resolution limit appears naturally as a low-pass filter in the spatial frequency domain. And in {ref}`Chapter 9 <chap9>`, we will see how super-resolution techniques manage to break the Abbe barrier, pushing optical microscopy into the realm of tens of nanometers.
 
 ```{tip}
 Here is a quick rule of thumb: for a well-corrected, high-NA objective at visible wavelengths, the lateral resolution is about 200 nm and the axial resolution is about 500 nm. These are the numbers you should have in mind as the baseline performance of a conventional light microscope.
 ```
-
-The resolution limits we have discussed here are not the end of the story. In {ref}`Chapter 6 <chap6>`, we will revisit these ideas in the framework of Fourier optics, where the resolution limit appears naturally as a low-pass filter in the spatial frequency domain. And in {ref}`Chapter 9 <chap9>`, we will see how super-resolution techniques manage to break the Abbe barrier, pushing optical microscopy into the realm of tens of nanometers.

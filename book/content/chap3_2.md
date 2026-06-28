@@ -10,7 +10,7 @@ Imagine you are taking a photograph of two stars that are very close together in
 
 :::{raw} html
 <div style="text-align:center; margin:1em 0;">
-  <iframe src="../content/diffraction_zoom.html" width="560" height="760" style="border:none; max-width:100%;"></iframe>
+  <iframe src="../content/diffraction_zoom.html" width="560" height="650" style="border:none; max-width:100%;"></iframe>
 </div>
 :::
 

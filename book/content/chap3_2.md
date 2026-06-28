@@ -1,12 +1,12 @@
 # Resolution and the diffraction limit
 
-We ended the previous section with a provocative question: if we can multiply magnifications at will, why not just use a 10,000× system and see molecules? The answer is deceptively simple: because magnification and resolution are not the same thing. Magnification makes things bigger; resolution makes things distinguishable. You can magnify a blurry image as much as you like, and all you get is a bigger blur. What limits resolution is not the quality of our lenses (although that matters), but a fundamental property of light itself: _diffraction_.
+We ended the previous section with a provocative question: if we can multiply magnifications at will, why not just use a 10,000x system and see molecules? The answer is deceptively simple: because magnification and resolution are not the same thing. Magnification makes things bigger; resolution makes things distinguishable. You can magnify a blurry image as much as you like, and all you get is a bigger blur. What limits resolution is not the quality of our lenses (although that matters), but a fundamental property of light itself: _diffraction_.
 
 ## Why can't we just keep magnifying?
 
-Imagine you are taking a photograph of two stars that are very close together in the night sky. You zoom in with your camera, and at first the two stars become easier to see. But at some point, no matter how much you zoom, the two stars merge into a single blob. This is not because your camera is bad: even a perfect lens would produce the same result. The reason is that light, being a wave, spreads out when it passes through any finite opening, including the aperture of your lens. This spreading is called _diffraction_, and it sets an absolute floor on the smallest detail any optical system can resolve.
+Imagine you are taking a photograph of two stars that are very close together in the night sky. You zoom in with your camera, and at first the two stars become easier to see. But at some point, no matter how much you zoom, the two stars merge into a single blob. This is not because your camera is bad: even a perfect lens would produce the same result. The reason is that light, being a wave, spreads out when it passes through any finite opening, including the aperture of your lens. This spreading is called **diffraction**, and it sets an absolute floor on the smallest detail any optical system can resolve.
 
-A useful working definition: **diffraction** is any deviation of light from straight-line propagation that cannot be explained by reflection or refraction. When a wave encounters an obstacle or an aperture comparable in size to its wavelength, it bends around edges and spreads into regions that ray optics would predict to be in shadow. This is not a defect of the optical system. It is physics.
+A useful working definition: diffraction is any deviation of light from straight-line propagation that cannot be explained by reflection or refraction. When a wave encounters an obstacle or an aperture comparable in size to its wavelength, it bends around edges and spreads into regions that ray optics would predict to be in shadow.
 
 ## Diffraction in the microscope
 
@@ -37,9 +37,9 @@ The PSF is arguably the single most important concept in microscopy. Every image
 
 The physical mechanism is best understood through the Huygens-Fresnel principle: every point on a wavefront passing through the aperture acts as a source of secondary spherical wavelets. These wavelets travel to the image plane and _interfere_ with each other. At the center of the image, all wavelets arrive roughly in phase, producing a bright spot (constructive interference). Moving away from the center, the path differences between wavelets from opposite sides of the aperture increase. At a specific angle, the path difference equals half a wavelength, and the wavelets cancel out, producing the first dark ring (destructive interference). Further out, the pattern alternates between partial constructive and destructive interference, forming the characteristic ring structure ({numref}`Fig. {number} <airy_explanation>`).
 
-```{figure} ../figures/chap3_airy_explanation.png
+```{figure} ../figures/chap3_airy_explanation.gif
 ---
-width: 80%
+width: 90%
 name: airy_explanation
 align: center
 ---

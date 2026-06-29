@@ -105,7 +105,7 @@ However, wide-open illumination also means that more stray light reaches the ima
 The field diaphragm is simpler: it controls the illuminated area on the specimen. Closing it so that it just circumscribes the field of view reduces the amount of light entering the optical system outside the observed region. This minimizes stray light, veiling glare, and internal reflections, all of which degrade contrast. A properly closed field diaphragm is one of the easiest and most effective ways to improve image quality.
 
 :::{raw} html
-<iframe src="../content/kohler_diaphragms.html" width="100%" height="450px" frameborder="0" style="border: none;"></iframe>
+<iframe src="../content/kohler_diaphragms.html" width="100%" height="470px" frameborder="0" style="border: none;"></iframe>
 :::
 
 

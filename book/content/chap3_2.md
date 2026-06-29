@@ -120,7 +120,7 @@ $$
 
 where $m = 0, \pm 1, \pm 2, \ldots$ is the order of diffraction and $\lambda_{med} = \lambda/n$ is the wavelength in the medium ($\lambda$ is the vacuum wavelength). The zeroth order ($m = 0$) passes straight through and it represents the undiffracted component, the one that would be there even with no sample. It's the first-order beams ($m = \pm 1$) that carry the information about the periodic structure of the grating.
 
-Abbe's key insight was this: to form an image of the grating, the objective must collect _at least_ the first-order diffracted beams in addition to the zeroth order. If only the zeroth order enters the objective, all information about the grating structure is lost, and the image appears as uniform illumination. With the objective's collection half-angle $\theta$ (so that NA $= n\sin\theta$), the condition for the first-order beam to just enter the objective is:
+Abbe's key insight was this: to form an image of the grating, the objective must collect _at least_ the first-order diffracted beams in addition to the zeroth order. If only the zeroth order enters the objective, all information about the grating structure is lost, and the image appears as uniform illumination. With the objective's collection half-angle $\theta$, the condition for the first-order beam to just enter the objective is:
 
 $$
 \sin\beta_1 = \frac{\lambda_{med}}{d} \leq \sin\theta = \frac{\text{NA}}{n}

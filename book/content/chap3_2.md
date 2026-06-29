@@ -115,18 +115,18 @@ Abbe's reasoning is worth understanding in some detail, because it connects reso
 Consider illuminating a specimen that is a simple **diffraction grating**, that is, a periodic structure with spacing $d$ between the lines ({numref}`Fig. {number} <grating_diffraction>`). When a collimated beam of light hits the grating, it is diffracted into discrete orders at angles $\beta_m$ given by:
 
 $$
-\sin\beta_m = \frac{m\lambda}{d}
+\sin\beta_m = \frac{m\lambda_m}{d}
 $$
 
-where $m = 0, \pm 1, \pm 2, \ldots$ is the order of diffraction. The zeroth order ($m = 0$) passes straight through and it represents the undiffracted component, the one that would be there even with no sample. It's the first-order beams ($m = \pm 1$) that carry the information about the periodic structure of the grating.
+where $m = 0, \pm 1, \pm 2, \ldots$ is the order of diffraction and $\lambda_m = \lambda/n$ is the wavelength in the medium ($\lambda$ is the vacuum wavelength). The zeroth order ($m = 0$) passes straight through and it represents the undiffracted component, the one that would be there even with no sample. It's the first-order beams ($m = \pm 1$) that carry the information about the periodic structure of the grating.
 
 Abbe's key insight was this: to form an image of the grating, the objective must collect _at least_ the first-order diffracted beams in addition to the zeroth order. If only the zeroth order enters the objective, all information about the grating structure is lost, and the image appears as uniform illumination. With the objective's collection half-angle $\theta$ (so that NA $= n\sin\theta$), the condition for the first-order beam to just enter the objective is:
 
 $$
-\sin\beta_1 = \frac{\lambda}{d} \leq \sin\theta = \frac{\text{NA}}{n}
+\sin\beta_1 = \frac{\lambda_m}{d} \leq \sin\theta = \frac{\text{NA}}{n}
 $$
 
-Solving for the minimum resolvable grating period:
+Since in the medium $\lambda_m = \lambda/n$, the left side is $\lambda/(nd)$, and the $1/n$ cancels against the $n$ in the numerical aperture, leaving $\lambda/d \leq \text{NA}$. Solving for the minimum resolvable grating period:
 
 $$
 d_{\min} = \frac{\lambda}{\text{NA}}
@@ -146,7 +146,7 @@ width: 100%
 name: grating_diffraction
 align: center
 ---
-A periodic specimen of period $d$ diffracts light into orders at angles $\beta_m$, and the objective collects only those falling within its half-angle $\theta$. **(a)** A coarse grating: the $\pm1$ orders fall inside the collection angle, so the periodicity is captured and resolved. **(b)** A finer grating: the $\pm1$ orders are diffracted beyond $\theta$ and miss the objective, leaving only the 0th order, which carries no spacing information, so the grating is not resolved. **(c)** The same fine grating under oblique illumination: tilting the incident beam slides the 0th and one first order onto opposite rims of the aperture, bringing the pair back within the objective.
+A periodic specimen of period $d$ diffracts light into orders at angles $\beta_m$, and the objective collects only those falling within its half-angle $\theta$ (NA $= n\sin\theta$). **(a)** A coarse grating: the $\pm1$ orders fall inside the collection angle, so the periodicity is captured and resolved. **(b)** A finer grating: the $\pm1$ orders are diffracted beyond $\theta$ and miss the objective, leaving only the 0th order, which carries no spacing information, so the grating is not resolved. **(c)** The same fine grating under oblique illumination: tilting the incident beam slides the 0th and one first order onto opposite rims of the aperture, bringing the pair back within the objective.
 ```
 
 ## How to improve resolution

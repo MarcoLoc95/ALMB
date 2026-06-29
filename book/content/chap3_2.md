@@ -115,18 +115,18 @@ Abbe's reasoning is worth understanding in some detail, because it connects reso
 Consider illuminating a specimen that is a simple **diffraction grating**, that is, a periodic structure with spacing $d$ between the lines ({numref}`Fig. {number} <grating_diffraction>`). When a collimated beam of light hits the grating, it is diffracted into discrete orders at angles $\beta_m$ given by:
 
 $$
-\sin\beta_m = \frac{m\lambda_m}{d}
+\sin\beta_m = \frac{m\lambda_{med}}{d}
 $$
 
-where $m = 0, \pm 1, \pm 2, \ldots$ is the order of diffraction and $\lambda_m = \lambda/n$ is the wavelength in the medium ($\lambda$ is the vacuum wavelength). The zeroth order ($m = 0$) passes straight through and it represents the undiffracted component, the one that would be there even with no sample. It's the first-order beams ($m = \pm 1$) that carry the information about the periodic structure of the grating.
+where $m = 0, \pm 1, \pm 2, \ldots$ is the order of diffraction and $\lambda_{med} = \lambda/n$ is the wavelength in the medium ($\lambda$ is the vacuum wavelength). The zeroth order ($m = 0$) passes straight through and it represents the undiffracted component, the one that would be there even with no sample. It's the first-order beams ($m = \pm 1$) that carry the information about the periodic structure of the grating.
 
 Abbe's key insight was this: to form an image of the grating, the objective must collect _at least_ the first-order diffracted beams in addition to the zeroth order. If only the zeroth order enters the objective, all information about the grating structure is lost, and the image appears as uniform illumination. With the objective's collection half-angle $\theta$ (so that NA $= n\sin\theta$), the condition for the first-order beam to just enter the objective is:
 
 $$
-\sin\beta_1 = \frac{\lambda_m}{d} \leq \sin\theta = \frac{\text{NA}}{n}
+\sin\beta_1 = \frac{\lambda_{med}}{d} \leq \sin\theta = \frac{\text{NA}}{n}
 $$
 
-Since in the medium $\lambda_m = \lambda/n$, the left side is $\lambda/(nd)$, and the $1/n$ cancels against the $n$ in the numerical aperture, leaving $\lambda/d \leq \text{NA}$. Solving for the minimum resolvable grating period:
+Since in the medium $\lambda_{med} = \lambda/n$, the left side is $\lambda/(nd)$, and the $1/n$ cancels against the $n$ in the numerical aperture, leaving $\lambda/d \leq \text{NA}$. Solving for the minimum resolvable grating period:
 
 $$
 d_{\min} = \frac{\lambda}{\text{NA}}

@@ -112,27 +112,18 @@ This is roughly the best lateral resolution achievable with a conventional light
 
 Abbe's reasoning is worth understanding in some detail, because it connects resolution directly to the Fourier-optical framework that underlies all of modern microscopy.
 
-Consider illuminating a specimen that is a simple **diffraction grating**, that is, a periodic structure with spacing $d$ between the lines ({numref}`Fig. {number} <grating_diffraction>`). When a collimated beam of light hits the grating, it is diffracted into discrete orders at angles given by:
+Consider illuminating a specimen that is a simple **diffraction grating**, that is, a periodic structure with spacing $d$ between the lines ({numref}`Fig. {number} <grating_diffraction>`). When a collimated beam of light hits the grating, it is diffracted into discrete orders at angles $\beta_m$ given by:
 
 $$
-\sin\theta_m = \frac{m\lambda}{d}
+\sin\beta_m = \frac{m\lambda}{d}
 $$
 
-where $m = 0, \pm 1, \pm 2, \ldots$ is the order of diffraction. The zeroth order ($m = 0$) passes straight through (it is the undeviated, "DC" component). The first-order beams ($m = \pm 1$) carry the information about the periodic structure of the grating.
+where $m = 0, \pm 1, \pm 2, \ldots$ is the order of diffraction. The zeroth order ($m = 0$) passes straight through and it represents the undiffracted component, the one that would be there even with no sample. It's the first-order beams ($m = \pm 1$) that carry the information about the periodic structure of the grating.
 
-```{figure} ../figures/grating_diffraction.png
----
-width: 80%
-name: grating_diffraction
-align: center
----
-Diffraction of a collimated beam by a grating with spacing $d$. The zeroth order passes straight through. Higher orders are diffracted at angles that depend on the ratio $\lambda / d$: finer gratings (smaller $d$) diffract at larger angles.
-```
-
-Abbe's key insight was this: to form an image of the grating, the objective must collect _at least_ the first-order diffracted beams in addition to the zeroth order. If only the zeroth order enters the objective, all information about the grating structure is lost, and the image appears as uniform illumination. The condition for the first-order beam to just enter the objective is:
+Abbe's key insight was this: to form an image of the grating, the objective must collect _at least_ the first-order diffracted beams in addition to the zeroth order. If only the zeroth order enters the objective, all information about the grating structure is lost, and the image appears as uniform illumination. With the objective's collection half-angle $\theta$ (so that NA $= n\sin\theta$), the condition for the first-order beam to just enter the objective is:
 
 $$
-\sin\theta_1 = \frac{\lambda}{d} \leq \frac{\text{NA}}{n}
+\sin\beta_1 = \frac{\lambda}{d} \leq \sin\theta = \frac{\text{NA}}{n}
 $$
 
 Solving for the minimum resolvable grating period:
@@ -141,13 +132,22 @@ $$
 d_{\min} = \frac{\lambda}{\text{NA}}
 $$
 
-With coherent illumination (a single plane wave), this is the resolution limit. Abbe further showed that with _incoherent_ or _oblique_ illumination (which effectively doubles the range of angles that contribute to image formation), the limit improves by a factor of two:
+With coherent on-axis illumination (a single plane wave), this is the resolution limit. Abbe further showed that with _incoherent_ or _oblique_ illumination (which effectively doubles the range of angles that contribute to image formation), the limit improves by a factor of two:
 
 $$
 d_{\min} = \frac{\lambda}{2 \cdot \text{NA}}
 $$
 
-This is the Abbe diffraction limit. It tells us something profound: the resolution of the microscope depends not on the magnification or the quality of the glass, but on how many spatial frequencies (diffraction orders) the objective can collect. Resolution is an information-collection problem.
+This is the Abbe diffraction limit. It tells us something profound: the resolution of the microscope depends not on the magnification or the quality of the glass, but on how many spatial frequencies (diffraction orders) the objective can collect.
+
+```{figure} ../figures/chap3_grating_diffraction.png
+---
+width: 100%
+name: grating_diffraction
+align: center
+---
+A periodic specimen of period $d$ diffracts light into orders at angles $\beta_m$, and the objective collects only those falling within its half-angle $\theta$. **(a)** A coarse grating: the $\pm1$ orders fall inside the collection angle, so the periodicity is captured and resolved. **(b)** A finer grating: the $\pm1$ orders are diffracted beyond $\theta$ and miss the objective, leaving only the 0th order, which carries no spacing information, so the grating is not resolved. **(c)** The same fine grating under oblique illumination: tilting the incident beam slides the 0th and one first order onto opposite rims of the aperture, bringing the pair back within the objective.
+```
 
 ## How to improve resolution
 

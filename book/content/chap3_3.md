@@ -94,7 +94,7 @@ The two sets of conjugate planes in Köhler illumination. Top (blue): field (ima
 Understanding conjugate planes is the key to understanding _every_ contrast technique in microscopy. Phase contrast works by placing a phase plate in an aperture conjugate plane (the back focal plane of the objective). Darkfield works by blocking the zeroth order in an aperture conjugate plane. Fluorescence filter cubes are inserted in the infinity space precisely because it is an aperture conjugate region. Once you internalize the conjugate-plane picture, the design logic of every microscopy technique becomes transparent.
 ```
 
-### The role of the aperture diaphragm
+### The role of the diaphragms
 
 The aperture diaphragm deserves special attention, because it directly affects both the resolution and the contrast of the image.
 
@@ -102,9 +102,12 @@ Opening the aperture diaphragm increases the illumination NA, which in turn incr
 
 However, wide-open illumination also means that more stray light reaches the image, reducing contrast. For specimens with low inherent contrast (unstained cells, for example), slightly closing the aperture diaphragm can dramatically improve visibility, at the cost of a small reduction in resolution. In practice, most microscopists set the aperture diaphragm to about 70-80% of the objective NA as a compromise between resolution and contrast.
 
-### The role of the field diaphragm
-
 The field diaphragm is simpler: it controls the illuminated area on the specimen. Closing it so that it just circumscribes the field of view reduces the amount of light entering the optical system outside the observed region. This minimizes stray light, veiling glare, and internal reflections, all of which degrade contrast. A properly closed field diaphragm is one of the easiest and most effective ways to improve image quality.
+
+:::{raw} html
+<iframe src="../content/kohler_diaphragms.html" width="100%" height="520px" frameborder="0" style="border: none;"></iframe>
+:::
+
 
 ## From brightfield to contrast techniques
 

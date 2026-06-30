@@ -62,7 +62,7 @@ There is no single best fluorophore, only the best one for a given experiment. T
 | Emission width | Broad | Broad | Narrow (great for multiplexing) |
 | Labeling | Immunofluorescence (antibody) | Genetic, co-expression | Surface ligand on coating |
 | Main drawback | Toxicity over time | Bleaching, larger label | Toxicity (ROS and cadmium) |
-| Best suited to | Fixed samples, bright structural imaging | Live cells, specific genetic targeting | Long imaging, many-color multiplexing |
+| Best suited for | Fixed samples, bright structural imaging | Live cells, specific genetic targeting | Long imaging, many-color multiplexing |
 
 Read the table as a set of compromises rather than a ranking. Fixing a sample and inspecting its architecture with bright, finely chosen colors points toward dyes. Watching a specific protein in a living, dividing cell points toward a fluorescent protein. Tracking something for a long time, or separating many colors at once, points toward quantum dots, provided the toxicity is acceptable. Every one of these decisions traces straight back to the quantitative parameters of {ref}`the previous section <chap4_1>`: brightness, photostability, Stokes shift, and the rest.
 

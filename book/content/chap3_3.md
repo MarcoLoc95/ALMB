@@ -52,7 +52,7 @@ Köhler illumination uses a four-element optical train ({numref}`Fig. {number} <
 3. The **field diaphragm**, which sits in a plane conjugate to the specimen, controls how large an area on the sample is illuminated. Closing the field diaphragm restricts illumination to a smaller region, reducing stray light and improving contrast.
 4. The **aperture diaphragm**, located at the front focal plane of the condenser, controls the cone angle of the illumination. Opening it increases the illumination NA; closing it reduces it.
 
-```{figure} ../figures/chap3_koehler_illum.png
+```{figure} ../figures/chap3_kohler_illum.png
 ---
 width: 100%
 name: koehler_scheme

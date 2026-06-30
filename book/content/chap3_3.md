@@ -65,7 +65,15 @@ Schematic of Köhler illumination showing the two sets of conjugate planes. The 
 
 The most powerful way to understand Köhler illumination is through its system of **conjugate planes**: planes that are images of each other. In a properly aligned Köhler system, there are two independent sets of conjugate planes ({numref}`Fig. {number} <conjugate_planes>`).
 
-**Set 1: the field planes (imaging conjugates).** These planes are all images of the specimen:
+**Set 1: the aperture planes (illumination conjugates).** These planes are all images of the light source:
+- Light source (lamp filament or LED chip)
+- Aperture diaphragm (front focal plane of the condenser)
+- Back focal plane of the objective (also called the pupil plane)
+- Exit pupil of the eyepiece (the Ramsden disk)
+
+An object placed in any of these planes will _not_ appear in the specimen image. Instead, it modifies the angular distribution of light. This is the reason the source structure is invisible at the specimen plane: the source is conjugate to the aperture planes, but not to the field planes.
+
+**Set 2: the field planes (imaging conjugates).** These planes are all images of the specimen:
 - Field diaphragm
 - Specimen plane
 - Intermediate image plane
@@ -73,21 +81,13 @@ The most powerful way to understand Köhler illumination is through its system o
 
 An object placed in any of these planes (a reticle in the eyepiece, a pinhole at the field diaphragm) will appear in sharp focus superimposed on the specimen image.
 
-**Set 2: the aperture planes (illumination conjugates).** These planes are all images of the light source:
-- Light source (lamp filament or LED chip)
-- Aperture diaphragm (front focal plane of the condenser)
-- Back focal plane of the objective (also called the pupil plane)
-- Exit pupil of the eyepiece (the Ramsden disk)
-
-An object placed in any of these planes will _not_ appear in the specimen image. Instead, it modifies the angular distribution of light. This is the reason the source structure is invisible at the specimen plane: the source is conjugate to the aperture planes, not to the field planes.
-
-```{figure} ../figures/conjugate_planes.png
+```{figure} ../figures/chap3_conjugate_planes.png
 ---
 width: 100%
 name: conjugate_planes
 align: center
 ---
-The two sets of conjugate planes in Köhler illumination. Top (blue): field (imaging) conjugates, all images of the specimen. Bottom (orange): aperture (illumination) conjugates, all images of the light source. The two sets are interleaved but optically independent.
+The two sets of conjugate planes in a microscope using Köhler illumination. A single point source emits a cone of light that is traced through the system. The two sets are complementary: wherever the illumination is focused the image is spread out, and vice versa. This is why the field diaphragm (conjugate to the specimen) controls the size of the illuminated field, whereas the condenser aperture diaphragm (conjugate to the source and to the objective back focal plane) controls the illumination angle (NA) and the brightness.
 ```
 
 ```{tip}

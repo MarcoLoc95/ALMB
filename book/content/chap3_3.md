@@ -26,9 +26,9 @@ The simplest way to illuminate a specimen is to image the light source directly 
 
 Critical illumination has one major advantage: it is optically efficient. A large fraction of the lamp's output reaches the specimen. However, it has a devastating drawback: any structure in the light source (the coils of a filament, dust on the lamp housing, spatial non-uniformities in an arc lamp) is imaged _directly_ onto the specimen. The result is an illumination field that is far from uniform. Bright and dark bands from the lamp filament appear superimposed on the specimen image, ruining contrast and making quantitative intensity measurements impossible ({numref}`Fig. {number} <critical_illum>`).
 
-```{figure} ../figures/critical_illum.png
+```{figure} ../figures/chap3_critical_illum.png
 ---
-width: 80%
+width: 100%
 name: critical_illum
 align: center
 ---
@@ -52,7 +52,7 @@ Köhler illumination uses a four-element optical train ({numref}`Fig. {number} <
 3. The **field diaphragm**, which sits in a plane conjugate to the specimen, controls how large an area on the sample is illuminated. Closing the field diaphragm restricts illumination to a smaller region, reducing stray light and improving contrast.
 4. The **aperture diaphragm**, located at the front focal plane of the condenser, controls the cone angle of the illumination. Opening it increases the illumination NA; closing it reduces it.
 
-```{figure} ../figures/koehler_scheme.png
+```{figure} ../figures/chap3_koehler_illum.png
 ---
 width: 100%
 name: koehler_scheme

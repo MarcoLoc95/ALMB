@@ -11,7 +11,7 @@ name: chap4_stokesquinine
 align: center
 ---
 
-Sunlight passes through the blue glass of a church window, which acts as an excitation filter and transmits only short wavelengths below 400 nm. This light excites a solution of quinine, which re-emits at longer wavelengths. A glass of yellow wine then serves as an emission filter, blocking the leftover excitation light and passing only the emitted light above 400 nm, so the quinine appears to glow. From: "Introduction to Fluorescence", Principles of Fluorescence Spectroscopy (2006), Springer, DOI: 10.1007/978-0-387-46312-4_1[https://doi.org/10.1007/978-0-387-46312-4_1]
+Sunlight passes through the blue glass of a church window, which acts as an excitation filter and transmits only short wavelengths below 400 nm. This light excites a solution of quinine, which re-emits at longer wavelengths. A glass of yellow wine then serves as an emission filter, blocking the leftover excitation light and passing only the emitted light above 400 nm, so the quinine appears to glow. From: "Introduction to Fluorescence", Principles of Fluorescence Spectroscopy (2006), Springer, DOI: [10.1007/978-0-387-46312-4_1](https://doi.org/10.1007/978-0-387-46312-4_1)
 ```
 
 

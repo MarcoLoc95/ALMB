@@ -22,8 +22,8 @@ At the end of this chapter you should be able to:
 - Explain why fluorescence provides molecular specificity that phase contrast and dark field cannot.
 - Read a Jablonski diagram and use it to describe absorption, vibrational relaxation, fluorescence, intersystem crossing, and phosphorescence.
 - Distinguish singlet and triplet states and connect them to the timescales of fluorescence and phosphorescence.
-- Relate the shape of excitation and emission spectra to the vibrational structure of a molecule, and define the Stokes shift.
-- Define and use the key quantitative parameters of a fluorophore: radiative and non-radiative decay rates, quantum yield, lifetime, molar extinction coefficient, and brightness.
+- Relate the shape of excitation and emission spectra to the vibrational structure of a molecule.
+- Compare key quantitative parameters of a fluorophore: radiative and non-radiative decay rates, quantum yield, lifetime, molar extinction coefficient, Stokes shift and brightness.
 - Describe autofluorescence, photobleaching, and phototoxicity, and explain why turning up the excitation power is a double-edged sword.
 - Explain the principle of FRET and why its steep distance dependence turns it into a molecular ruler.
 - Compare organic dyes, genetically encoded fluorescent proteins, and quantum dots in terms of size, brightness, photostability, and toxicity, and choose between them for a given experiment.

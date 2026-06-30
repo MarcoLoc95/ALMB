@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Field vs condenser diaphragm</title>
 <style>
   :root{--ink:#1f2933;--muted:#5b6670;--line:#d7dde3;--red:#d8362f;}
   *{box-sizing:border-box}
@@ -23,6 +22,7 @@
 </head>
 <body>
 <div class="kohler">
+  <h3>Field vs condenser diaphragm</h3>
   <div class="stage"><canvas id="cv" width="1640" height="754"></canvas></div>
   <div class="controls">
     <div class="ctl">
@@ -33,7 +33,7 @@
     <div class="ctl">
       <label for="cond">Condenser diaphragm <span class="pct" id="condPct">70% open</span></label>
       <input type="range" id="cond" min="15" max="100" value="70">
-      <div class="hint">Sits in a plane conjugate to the source. Sets the <b>brightness</b> of the illuminated area.</div>
+      <div class="hint">Sits in a plane conjugate to the source. Sets the illumination <b>cone (NA)</b> and <b>brightness</b>.</div>
     </div>
   </div>
 </div>
@@ -46,6 +46,7 @@
   var aLENS=1.7;
   var SRC=[]; for(var i=0;i<5;i++) SRC.push(-0.32+0.64*i/4);
   var FAN=[]; for(var j=0;j<9;j++) FAN.push(-0.33+0.66*j/8);   // centred on the axis (parallel)
+  var COLORS=["#4fc3f7","#74d68a","#ffe24f","#ffab4d","#ef6f6f"]; // one hue per source point
 
   function aF(){ return 0.10 + (field.value/100)*(1.00-0.10); }
   function aC(){ return 0.06 + (cond.value/100)*(0.42-0.06); }
@@ -122,13 +123,13 @@
     ctx.beginPath(); ctx.moveTo(sx(X0),sy(0)); ctx.lineTo(sx(X1),sy(0)); ctx.stroke();
 
     var survY=[], nray=0;
-    SRC.forEach(function(ys){ FAN.forEach(function(u){
+    SRC.forEach(function(ys,si){ FAN.forEach(function(u){
       var r=trace(ys,u,af,ac), p=r.pts;
       ctx.beginPath(); ctx.moveTo(sx(p[0][0]),sy(p[0][1]));
       for(var k=1;k<p.length;k++) ctx.lineTo(sx(p[k][0]),sy(p[k][1]));
-      if(r.reached){ ctx.strokeStyle='rgba(236,226,78,0.92)'; ctx.lineWidth=1.0; survY.push(r.ysamp); nray++; }
-      else { ctx.strokeStyle='rgba(150,140,40,0.18)'; ctx.lineWidth=0.8; }
-      ctx.stroke();
+      if(r.reached){ ctx.strokeStyle=COLORS[si]; ctx.globalAlpha=0.9; ctx.lineWidth=1.1; survY.push(r.ysamp); nray++; }
+      else { ctx.strokeStyle='#8c8228'; ctx.globalAlpha=0.18; ctx.lineWidth=0.8; }
+      ctx.stroke(); ctx.globalAlpha=1.0;
     });});
 
     lens(L1); lens(L2);
@@ -140,8 +141,7 @@
       ctx.beginPath(); ctx.moveTo(sx(SAMP),sy(hi)); ctx.lineTo(sx(SAMP),sy(lo)); ctx.stroke(); ctx.lineCap='butt';
     }
     diaphragm(FD,af); diaphragm(AD,ac);
-    ctx.fillStyle='#7CFC7C';
-    SRC.forEach(function(ys){ ctx.beginPath(); ctx.arc(sx(0),sy(ys),3,0,7); ctx.fill(); });
+    SRC.forEach(function(ys,si){ ctx.fillStyle=COLORS[si]; ctx.beginPath(); ctx.arc(sx(0),sy(ys),3.5,0,7); ctx.fill(); });
 
     topLabel(L1,'Field lens'); topLabel(L2,'Condenser lens'); topLabel(SAMP,'sample','#8fb8e8');
     botLabel2(FD,'Field','diaphragm'); botLabel2(AD,'Condenser','diaphragm');

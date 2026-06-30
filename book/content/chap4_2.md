@@ -1,9 +1,5 @@
 # Types of fluorophores
 
-<iframe src="https://player.vimeo.com/video/VIDEO_ID" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-
-<!-- TODO: replace VIDEO_ID above with the Vimeo id for Lecture 4. This is the second half of the same lecture (after the break). -->
-
 A **fluorophore** is any molecule that emits fluorescence. That is the only thing the candidates in this section have in common. Beyond it, they could hardly be more different in size, origin, and behavior. There are three families worth knowing, and the practical skill is matching the right one to your experiment: organic dyes, genetically encoded fluorescent proteins, and quantum dots. The first two you have almost certainly met before. The third is the one most people see for the first time here.
 
 ## Organic dyes

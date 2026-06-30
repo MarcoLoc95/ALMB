@@ -1,12 +1,20 @@
 # Principles of fluorescence
 
-<iframe src="https://player.vimeo.com/video/VIDEO_ID" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+In 1852, George Gabriel Stokes was puzzling over a glass of quinine solution. Back then, this alkaloid extracted from the bark of the cinchona tree was the prescribed to treat malaria, but due to its intensely foul, bitter taste, soldiers mixed it with carbonated water, sugar, and lime. This mix became the world's first tonic water. To make the medicine even easier to swallow, British officers added their daily gin rations to the mixture, accidentally inventing the iconic Gin & Tonic as we know it today. Where were we? Ah, yes, fluorescence.
 
-<!-- TODO: replace VIDEO_ID above with the Vimeo id for Lecture 4 (Fluorescence microscopy). -->
+Stokes noticed that when the quinine solution was lit by the invisible, ultraviolet part of sunlight, the liquid glowed a soft blue. In his paper _On the Change of Refrangibility of Light_ he worked out what was happening: the solution was absorbing light the eye cannot see and giving back light of a longer wavelength that it can. He even realized he could separate the two with colored glass, using one piece to let only the exciting ultraviolet through and another to block it on the way out, so that only the blue glow reached his eye. Stokes named the effect _fluorescence_, and that simple two-filter trick is, in essence, every fluorescence microscope ever built. If you have a UV "blacklight" and a bottle of tonic water at home, you can easily reproduce his observation (and surprise your friends at any party).
 
-In 1852, George Gabriel Stokes was puzzling over a glass of quinine solution. Quinine is the compound that gives tonic water its bitter taste, and in ordinary light the solution looks as clear and colorless as water. Yet Stokes noticed that when it was lit by the invisible, ultraviolet part of sunlight, the liquid glowed a soft blue. In his paper _On the Change of Refrangibility of Light_ he worked out what was happening: the solution was absorbing light the eye cannot see and giving back light of a longer wavelength that it can. He even realized he could separate the two with colored glass, using one piece to let only the exciting ultraviolet through and another to block it on the way out, so that only the blue glow reached his eye. Stokes named the effect _fluorescence_, and that simple two-filter trick is, in essence, every fluorescence microscope ever built. If you have a UV "blacklight" and a bottle of tonic water at home, you can reproduce his observation in about ten seconds.
+```{figure} ../figures/chap4_stokesquinine.png
+---
+width: 100%
+name: chap4_stokesquinine
+align: center
+---
 
-The reason this matters is the transparency problem from {ref}`Chapter 3 <chap3>`. Phase contrast and dark field reveal structure, but they cannot tell one protein from another. Fluorescence can, because we get to decide which molecules glow. Label actin and only actin lights up; label mitochondria and only mitochondria appear. To use that power well, we first need to understand where the glow comes from.
+From: "Introduction to Fluorescence", Principles of Fluorescence Spectroscopy (2006). Springer, Boston, MA. https://doi.org/10.1007/978-0-387-46312-4_1
+```
+
+
 
 ## Light meets a molecule
 

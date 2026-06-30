@@ -24,6 +24,9 @@ parts:
       - file: content/chap3_3.md  
       - file: content/chap3_4.md    
     - file: content/chap4.md
+      sections:
+      - file: content/chap4_1.md
+      - file: content/chap4_2.md
     - file: content/chap5.md
       sections:
       - file: content/chap5_1.md

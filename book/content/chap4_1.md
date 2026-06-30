@@ -14,13 +14,15 @@ align: center
 Sunlight passes through the blue glass of a church window, which acts as an excitation filter and transmits only short wavelengths below 400 nm. This light excites a solution of quinine, which re-emits at longer wavelengths. A glass of yellow wine then serves as an emission filter, blocking the leftover excitation light and passing only the emitted light above 400 nm, so the quinine appears to glow. From: "Introduction to Fluorescence", Principles of Fluorescence Spectroscopy (2006), Springer, DOI: [10.1007/978-0-387-46312-4_1](https://doi.org/10.1007/978-0-387-46312-4_1)
 ```
 
+## Light-matter interaction
+
 ### He was a photon, she was a molecule, could I make it any more obvious?
 
 Recall from {ref}`Chapter 1 <chap1>` that light sometimes behaves as a stream of photons, each carrying a packet of energy set by its wavelength: short wavelength means high energy, long wavelength means low energy. In a single atom, electrons sit in shells, and a photon with the right energy can kick an electron from a stable inner shell up to a higher, less stable one. After a short wait the electron drops back down and a photon comes out. That is just absorption followed by spontaneous emission.
 
 Molecules are richer. Instead of clean atomic shells we have to deal with molecular orbitals, most importantly the highest one that is normally filled, and the lowest one that is normally empty. We call the stable, filled configuration the **ground state**. Think of it as the sofa at the end of a long day: the molecule will always tend to settle there. When a photon of the right energy is absorbed, an electron is promoted to an **excited state**, and the molecule now holds extra energy it must eventually shed. There are many ways to shed it, and the map of all of them is called the Jablonski diagram.
 
-## The Jablonski diagram
+### The Jablonski diagram
 
 _{numref}`Fig. %s <jablonski>`_ organizes the whole process by energy, which increases as you move up the page. The thick horizontal lines are electronic states: the ground state $S_0$ at the bottom, and excited states $S_1$, $S_2$ above it. Stacked above each electronic state is a ladder of thinner lines, the **vibrational sublevels**. These exist because a molecule is not a rigid object: it can stretch, bend, and rotate, and each of those motions adds a little energy on top of the electronic state. The sublevels get denser the higher you go, so for almost any photon energy in the absorption band there is some vibrational level ready to receive it.
 
@@ -125,9 +127,9 @@ This is the trap that makes the "just use a more powerful laser" instinct fail (
 
 There is a second cost. If the ROS escape the immediate neighborhood of the fluorophore and diffuse into the cell, they damage the living sample itself, causing apoptosis, membrane disruption, mitochondrial stress, DNA damage, and disrupted signaling. Damage to the sample caused by light in this way is called **phototoxicity**. Roughly speaking, photobleaching is the fluorophore breaking, while phototoxicity is the cell paying the price. Genetically encoded proteins like GFP tend to bleach because their delicate chromophore is the casualty, whereas small, robust organic dyes often survive while their ROS go on to harm the surrounding cell.
 
-## Dark states and FRET
-
 A molecule sitting in the triplet state is, for the moment, not fluorescing. The same is true of certain radical or chemically reduced configurations. We call these non-emitting configurations **dark states**. For now, just note that they exist and that they switch a fluorophore temporarily off. Far from being a mere nuisance, the ability to push molecules into and out of dark states is the foundation of several super-resolution methods we will reach in {ref}`Chapter 9 <chap9>`.
+
+## FRET
 
 One last phenomenon deserves a place here because it turns fluorescence into a measuring tape. **FRET**, Förster Resonance Energy Transfer, is a non-radiative handoff of energy from one excited fluorophore, the **donor**, to a second fluorophore, the **acceptor**, sitting very close by. No photon is exchanged in the handoff. For it to work, two conditions must hold: the molecules must be within roughly 1 to 10 nm of each other, and their spectra must overlap, with the donor's emission matching the acceptor's absorption. When both are met, exciting the donor produces emission from the acceptor instead. If you treat the pair as a single unit, the effect looks like a greatly enlarged Stokes shift.
 

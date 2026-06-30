@@ -6,6 +6,8 @@ Fluorescence solves a different problem. Instead of squeezing contrast out of an
 
 The entire field rests on one physical fact: certain molecules can absorb a photon, hold that energy for a brief moment, and then release a new photon of lower energy. _{numref}`Fig. %s <fluorescence_overview>`_ is that idea stripped to its essentials, and learning to read its full version is the goal of the first half of this chapter.
 
+This chapter is deliberately short. It is built around a single lecture, and it splits naturally into two parts. First we look at the physics: where fluorescence comes from, how we describe a fluorophore quantitatively, and the two problems you can never fully escape, autofluorescence and photobleaching. Then we look at the practical toolkit: the three families of fluorophores you will actually meet in the lab, and how they trade brightness, photostability, and toxicity against one another.
+
 ```{figure} ../figures/fluorescence_overview.png
 ---
 width: 75%
@@ -14,14 +16,6 @@ align: center
 ---
 Fluorescence in one picture. A fluorophore absorbs a high-energy (short-wavelength) photon, loses a little of that energy as heat, and emits a lower-energy (longer-wavelength) photon. The shift toward longer wavelengths is precisely what lets us separate excitation from emission with filters.
 ```
-
-This chapter is deliberately short. It is built around a single lecture, and it splits naturally into two parts. First we look at the physics: where fluorescence comes from, how we describe a fluorophore quantitatively, and the two problems you can never fully escape, autofluorescence and photobleaching. Then we look at the practical toolkit: the three families of fluorophores you will actually meet in the lab, and how they trade brightness, photostability, and toxicity against one another.
-
-```{tip}
-We skip two topics here on purpose. The optical filters that make the two-color trick work, and the layout of a complete widefield fluorescence microscope, belong with the instrument itself: widefield is covered in {ref}`Chapter 3 <chap3>`, and filters return later when we design imaging systems. For now we keep our attention on the light and the molecules that produce it.
-```
-
-## Learning objectives
 
 At the end of this chapter you should be able to:
 

@@ -14,13 +14,11 @@ align: center
 Sunlight passes through the blue glass of a church window, which acts as an excitation filter and transmits only short wavelengths below 400 nm. This light excites a solution of quinine, which re-emits at longer wavelengths. A glass of yellow wine then serves as an emission filter, blocking the leftover excitation light and passing only the emitted light above 400 nm, so the quinine appears to glow. From: "Introduction to Fluorescence", Principles of Fluorescence Spectroscopy (2006), Springer, DOI: [10.1007/978-0-387-46312-4_1](https://doi.org/10.1007/978-0-387-46312-4_1)
 ```
 
+## He was a photon, she was a molecule, could I make it any more obvious?
 
+Recall from {ref}`Chapter 1 <chap1>` that light sometimes behaves as a stream of photons, each carrying a packet of energy set by its wavelength: short wavelength means high energy, long wavelength means low energy. In a single atom, electrons sit in shells, and a photon with the right energy can kick an electron from a stable inner shell up to a higher, less stable one. After a short wait the electron drops back down and a photon comes out. That is just absorption followed by spontaneous emission.
 
-## Light meets a molecule
-
-Recall from {ref}`Chapter 1 <chap1>` that light sometimes behaves as a stream of photons, each carrying a packet of energy set by its wavelength: short wavelength means high energy, long wavelength means low energy. In a single atom, electrons sit in shells, and a photon with the right energy can kick an electron from a stable inner shell up to a higher, less stable one. After a short wait the electron drops back down and a photon comes out. That is just absorption followed by spontaneous emission, exactly as before.
-
-Molecules are richer. Instead of clean atomic shells we care about two molecular orbitals: the highest one that is normally filled, and the lowest one that is normally empty. We call the comfortable, filled configuration the **ground state**. Think of it as the sofa at the end of a long day: the molecule will always tend to settle there. When a photon of the right energy is absorbed, an electron is promoted to an **excited state**, and the molecule now holds extra energy it must eventually shed. There are many ways to shed it, and the map of all of them is the Jablonski diagram.
+Molecules are richer. Instead of clean atomic shells we have to deal with molecular orbitals, most importantly the highest one that is normally filled, and the lowest one that is normally empty. We call the stable, filled configuration the **ground state**. Think of it as the sofa at the end of a long day: the molecule will always tend to settle there. When a photon of the right energy is absorbed, an electron is promoted to an **excited state**, and the molecule now holds extra energy it must eventually shed. There are many ways to shed it, and the map of all of them is called the Jablonski diagram.
 
 ## The Jablonski diagram
 

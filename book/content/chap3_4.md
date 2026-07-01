@@ -16,13 +16,14 @@ In the language of Fourier optics from {ref}`Chapter 6 <chap6>`, darkfield imagi
 
 The simplest way to achieve darkfield is to place an opaque disk (a _patch stop_) at the center of the condenser's aperture plane, blocking all on-axis light. The condenser then illuminates the specimen with a hollow cone of light. If the cone's half-angle exceeds the collection angle of the objective, none of the direct illumination enters the objective ({numref}`Fig. {number} <darkfield_scheme>`). Only light scattered by the specimen into angles within the objective's NA reaches the image.
 
-```{figure} ../figures/darkfield_scheme.png
+```{figure} ../figures/chap3_darkfield_scheme.png
 ---
-width: 80%
+width: 100%
 name: darkfield_scheme
 align: center
 ---
-Principle of darkfield microscopy. An annular condenser produces a hollow cone of illumination whose angle exceeds the objective's NA. The direct light misses the objective entirely. Only light scattered by the specimen (colored rays) is collected, producing bright features on a dark background.
+Darkfield microscopy with two forms of annular illumination. In both cases a hollow cone of light illuminates the specimen, and the undiffracted (direct) light is focused by the objective into a ring at its back focal plane, where a ring stop blocks it; only light scattered by the specimen passes around the stop and is relayed by the tube lens to form a bright image on a dark background. The two settings differ only in whether the hollow cone is focused on the specimen or delivered as collimated oblique beams; both exclude the direct light with the same ring stop at the objective back focal plane.
+```
 ```
 
 For this to work, the illumination NA must be _higher_ than the objective's collection NA. This is easy to achieve with low- and medium-power objectives (up to about 40×). For high-NA oil-immersion objectives, special darkfield condensers with very high NA (up to 1.4) are required, or the objective itself must have an internal iris to reduce its effective collection NA.

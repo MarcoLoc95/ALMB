@@ -29,6 +29,27 @@ There is also a second, purely geometric way to keep the direct light out, witho
 Darkfield imaging is extremely sensitive to dust, scratches, and air bubbles, because all of these scatter light and will appear as bright features. A clean cover glass and clean optics are essential. On the positive side, this sensitivity is precisely what makes darkfield so useful for detecting very small objects.
 ```
 
+### Alternative configuration: axial illumination
+
+The scheme above uses annular illumination and a ring stop, but darkfield can also be produced with ordinary **axial (on-axis) illumination** and a single **central stop** in the objective back focal plane. This is the historically original form, sometimes called *central dark-ground*.
+
+The light path is straightforward. The condenser sends a collimated beam straight down the axis onto the specimen. The undiffracted (direct) light carries only the axial direction, so the objective focuses it to a single spot at the **center** of its back focal plane. Light diffracted by the specimen is redirected into other angles and lands **off-center** in that plane, at a radius that grows with spatial frequency. A small opaque **central stop** at the back focal plane therefore removes the direct light while the diffracted light passes around it, and the tube lens rebuilds a bright image on a dark background ({numref}`Fig. {number} <darkfield_alt>`).
+
+```{figure} ../figures/chap3_darkfield_alt.png
+---
+width: 100%
+name: darkfield_alt
+align: center
+---
+Darkfield with axial illumination. The condenser illuminates the specimen with an on-axis beam, so the direct light focuses to the center of the objective back focal plane and is removed by a central stop. Only light scattered by the specimen lands off-axis, passes around the stop, and is relayed by the tube lens to the image.
+```
+
+The essential requirement is that **the central stop must be large enough to cover the entire disk that the direct light fills at the back focal plane**. Each point of the condenser aperture produces one illumination direction, whose zero-order light lands at a back-focal-plane radius proportional to its angle. The aperture center maps to the plane center, but the aperture edge maps to a ring further out. If the condenser diaphragm is opened, the direct light spreads into an annulus wider than the central stop, and the oblique zero-order beams slip past the stop and reappear as background. For this reason the condenser diaphragm must be kept nearly closed, so that the whole zero-order disk stays inside the stop. Equivalently, the illumination NA must be small.
+
+**Advantages.** The setup is mechanically simple: a plain axial beam and a single central stop, with no annular condenser insert to align. It is a clean high-pass spatial filter, removing the DC background and low frequencies while passing the fine structure and edges, which makes it useful as an intuitive teaching case and for simple edge enhancement.
+
+**Disadvantages.** The requirement of a nearly closed condenser diaphragm is limiting. It forces a low illumination NA, so the images are dim, and any residual direct light or glare that is not perfectly on-axis leaks around the small central stop and degrades the contrast. The technique does not extend well to high-NA objectives. These are exactly the shortcomings that the annular-condenser and ring-stop configuration avoids: by parking the direct light at a thin ring at high radius, it frees the entire remaining aperture to collect scattered light, giving brighter, cleaner, higher-NA darkfield. In practice, that is why the annular scheme is the standard implementation and axial illumination is mostly of historical and conceptual interest.
+
 ### Modern applications
 
 Darkfield microscopy may seem like a vintage technique, but it has found powerful modern applications, particularly for imaging small objects that scatter light efficiently.

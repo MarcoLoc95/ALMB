@@ -8,13 +8,11 @@ Over the past century, microscopists have developed several ingenious techniques
 
 ### The principle
 
-Darkfield is conceptually the simplest contrast technique. The idea is to illuminate the specimen in such a way that the direct (unscattered) light never enters the objective. Only light that is _scattered_ or _diffracted_ by the specimen reaches the detector. The result is a dark background with bright features: structures in the sample appear as glowing objects against blackness.
+Darkfield is conceptually the simplest contrast technique. The idea is to illuminate the specimen so that the direct (unscattered) light never reaches the detector, while light that is *scattered* or *diffracted* by the specimen does. The result is a dark background with bright features: structures in the sample appear as glowing objects against blackness.
 
-In the language of Fourier optics from {ref}`Chapter 6 <chap6>`, darkfield imaging removes the zeroth-order (DC) component from the image. What remains are the higher spatial frequencies that encode the actual structure of the specimen.
+To separate the two, darkfield uses **annular illumination**. An opaque disk (a *patch stop*) is placed at the center of the condenser's aperture plane, blocking all on-axis light and leaving only an outer ring open. The condenser turns this ring into a **hollow cone** of oblique light that illuminates the specimen. Note that this stop sits in an *aperture* plane, not a *field* plane, so it does not cast a dark hole onto the sample: every open point of the ring produces an oblique beam that covers the entire field of view, and the specimen, center included, is lit uniformly.
 
-### Implementation
-
-The simplest way to achieve darkfield is to place an opaque disk (a _patch stop_) at the center of the condenser's aperture plane, blocking all on-axis light. The condenser then illuminates the specimen with a hollow cone of light. If the cone's half-angle exceeds the collection angle of the objective, none of the direct illumination enters the objective ({numref}`Fig. {number} <darkfield_scheme>`). Only light scattered by the specimen into angles within the objective's NA reaches the image.
+The separation of direct and scattered light happens at the **objective's back focal plane**. Recall from the discussion of conjugate planes that this plane is optically equivalent to the condenser aperture: whatever pattern sits in the illumination aperture is reproduced there. The undiffracted light carries only the oblique illumination angles, so it is focused into a bright **ring** at the back focal plane, an image of the condenser annulus. Light scattered by the specimen, in contrast, is redirected into new angles and spreads across the rest of that plane. Placing a matching **ring stop** at the back focal plane therefore blocks the direct light while letting the scattered light pass on through the tube lens to form the image ({numref}`Fig. {number} <darkfield_scheme>`).
 
 ```{figure} ../figures/chap3_darkfield_scheme.png
 ---
@@ -24,9 +22,10 @@ align: center
 ---
 Darkfield microscopy with two forms of annular illumination. In both cases a hollow cone of light illuminates the specimen, and the undiffracted (direct) light is focused by the objective into a ring at its back focal plane, where a ring stop blocks it; only light scattered by the specimen passes around the stop and is relayed by the tube lens to form a bright image on a dark background. The two settings differ only in whether the hollow cone is focused on the specimen or delivered as collimated oblique beams; both exclude the direct light with the same ring stop at the objective back focal plane.
 ```
-```
 
-For this to work, the illumination NA must be _higher_ than the objective's collection NA. This is easy to achieve with low- and medium-power objectives (up to about 40×). For high-NA oil-immersion objectives, special darkfield condensers with very high NA (up to 1.4) are required, or the objective itself must have an internal iris to reduce its effective collection NA.
+The hollow cone can be delivered in two ways, shown in the two panels of {numref}`Fig. {number} <darkfield_scheme>`. In the **critical-type** arrangement (top), the condenser focuses the ring of light down onto the specimen, concentrating the illumination there. In the **Köhler** arrangement (bottom), the annulus lies in the condenser aperture plane, so each point of the ring emerges as a collimated oblique beam and the beams together flood the field evenly. The two look different at the specimen but are optically equivalent where it matters: in both, the direct light forms the same ring at the objective back focal plane and is removed by the same ring stop.
+
+There is also a second, purely geometric way to keep the direct light out, without any ring stop: make the illumination cone *steeper than the objective can collect*. If the hollow cone's half-angle exceeds the objective's acceptance angle, the direct light simply passes outside the objective aperture and never enters it. This works whenever the **illumination NA is higher than the objective's collection NA**, which is easy to arrange with low- and medium-power objectives (up to about 40x). For high-NA oil-immersion objectives the condition is harder to meet: it requires special darkfield condensers of very high NA (up to ~1.4), or an objective with an internal iris that stops its effective collection NA down below the illumination NA.
 
 ```{tip}
 Darkfield imaging is extremely sensitive to dust, scratches, and air bubbles, because all of these scatter light and will appear as bright features. A clean cover glass and clean optics are essential. On the positive side, this sensitivity is precisely what makes darkfield so useful for detecting very small objects.

@@ -151,6 +151,15 @@ $$
 
 The contrast scales as $2\varphi/t$: the more the direct light is knocked down (smaller $t$), the larger the fractional intensity swing produced by the same specimen phase $\varphi$. Physically, attenuating $U$ brings the two interfering phasors closer to equal length, and interference between two comparable beams produces a much deeper modulation than interference between a huge beam and a tiny one. In practice the ring transmits only some 10 to 30 % of the direct light, a compromise between contrast (which wants heavy attenuation) and image brightness (which wants light).
 
+```{figure} ../figures/chap3_phase_phasor.png
+---
+width: 90%
+name: phase_phasor
+align: center
+---
+Phasor picture of phase contrast. The transmitted wave splits into a strong undeviated component $U$ (orange) and a weak diffracted component $D=-i\varphi U_0$ (teal), which the factor $-i$ places $90^\circ$ from $U$. (a) In brightfield the two are perpendicular, so the resultant length, and hence the intensity, is unchanged to first order and the object is invisible. (b) Advancing $U$ by $+90^\circ$ makes it collinear with $D$ and the two subtract: the resultant is shorter than the background, so the specimen appears dark (positive phase contrast). (c) Retarding $U$ by $-90^\circ$ makes them add: the resultant is longer and the specimen appears bright (negative phase contrast). (d) Attenuating the direct light by a factor $t$ brings $U$ and $D$ to comparable lengths, deepening the modulation; the contrast scales as $C\approx 2\varphi/t$. The specimen phase $\varphi$ is exaggerated for clarity.
+```
+
 ### The phase plate
 
 How do we selectively shift the phase of the direct light without affecting the diffracted light? This is where the conjugate plane structure of Köhler illumination becomes essential.

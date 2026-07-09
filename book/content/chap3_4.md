@@ -94,7 +94,7 @@ Bleeker's microscopes reached the University of Utrecht in the mid-1950s and ser
     name: bleeker
     align: center
     ---
-    Copyright: [DUB](https://dub.uu.nl/en/news/new-mural-strosteeg-ode-uu-physicist-caroline-bleeker)
+    Copyright: [DUB](https://dub.uu.nl/en/news/new-mural-strosteeg-ode-uu-physicist-caroline-bleeker) 
     ```
 
 ````

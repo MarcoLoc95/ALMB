@@ -62,7 +62,7 @@ width: 100%
 name: phase_objects
 align: center
 ---
-Amplitude objects versus phase objects. An amplitude object (such as a stained section) absorbs light, reducing the wave's amplitude. A phase object (such as a living cell) is transparent but retards the wave, shifting its phase. The human eye and standard detectors are sensitive only to intensity (amplitude squared), not to phase, which is why phase objects are invisible in brightfield.
+Amplitude objects versus phase objects. An amplitude object (such as a stained section) absorbs light, reducing the wave's amplitude. A phase object (such as a living cell) is transparent but retards the wave, shifting its phase. The human eye and standard detectors are sensitive only to intensity (amplitude squared), not to phase, which is why phase objects are invisible in brightfield. 
 ```
 
 The human eye and camera sensors measure _intensity_, which is proportional to the square of the amplitude. Phase differences, by themselves, produce no intensity changes. The wave that passes through a cell and the wave that passes next to it have the same amplitude; they only differ in phase. When these waves reach the detector, they produce the same intensity reading, and the cell is invisible.

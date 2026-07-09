@@ -56,9 +56,9 @@ The essential requirement is that the central stop must be large enough to cover
 
 Most biological specimens (living cells, bacteria, thin tissue sections) are nearly transparent. They absorb very little light, so they are invisible in brightfield. However, they do interact with light in a subtler way: different parts of the specimen have slightly different refractive indices (the cytoplasm, the nucleus, organelles, membranes), and these refractive index variations cause the transmitted wave to be _delayed_ (phase-shifted) relative to the undeviated background light. Such specimens are called **phase objects**: they change the _phase_ of the wave, not its _amplitude_ ({numref}`Fig. {number} <phase_objects>`).
 
-```{figure} ../figures/phase_objects.png
+```{figure} ../figures/chap3_phase_objects.png
 ---
-width: 80%
+width: 100%
 name: phase_objects
 align: center
 ---

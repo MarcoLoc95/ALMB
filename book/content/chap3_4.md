@@ -50,23 +50,6 @@ The essential requirement is that the central stop must be large enough to cover
 
 **Disadvantages.** The requirement of a nearly closed condenser diaphragm is limiting. It forces a low illumination NA, so the images are dim, and any residual direct light or glare that is not perfectly on-axis leaks around the small central stop and degrades the contrast. The technique does not extend well to high-NA objectives. These are exactly the shortcomings that the annular-condenser and ring-stop configuration avoids: by parking the direct light at a thin ring at high radius, it frees the entire remaining aperture to collect scattered light, giving brighter, cleaner, higher-NA darkfield. In practice, that is why the annular scheme is the standard implementation and axial illumination is mostly of historical and conceptual interest.
 
-### Modern applications
-
-Darkfield microscopy may seem like a vintage technique, but it has found powerful modern applications, particularly for imaging small objects that scatter light efficiently.
-
-**Gold nanoparticle tracking.** Gold nanoparticles (20-80 nm diameter) scatter light very strongly due to localized surface plasmon resonance. In darkfield, individual nanoparticles appear as bright, colored spots against a black background. Unlike fluorescent probes, gold particles do not bleach and do not saturate, making them ideal for long-duration tracking experiments. Researchers have used darkfield imaging of gold nanoparticles attached to motor proteins (such as kinesin) to track their stepping motion along microtubules with nanometer precision and millisecond time resolution.
-
-**Label-free imaging of cytoskeletal dynamics.** Individual microtubules (25 nm diameter hollow tubes of tubulin) are too thin to resolve in brightfield, but they scatter enough light to be visible in darkfield. This has been exploited to observe microtubule self-organization _in vitro_: in a landmark study, Surrey et al. (2001) used darkfield microscopy to watch purified microtubules and motor proteins spontaneously assemble into aster-like and vortex-like patterns, directly visualizing the self-organization principles that underlie the mitotic spindle ({numref}`Fig. {number} <darkfield_applications>`).
-
-```{figure} ../figures/darkfield_applications.png
----
-width: 90%
-name: darkfield_applications
-align: center
----
-Modern applications of darkfield microscopy. Left: tracking of gold nanoparticles attached to kinesin molecules walking along microtubules, revealing discrete 8 nm steps (adapted from Nan et al., ChemPhysChem 2008). Right: self-organization of microtubules and motor proteins observed by darkfield imaging (adapted from Surrey et al., Science 2001).
-```
-
 ## Phase contrast microscopy
 
 ### The problem: phase objects

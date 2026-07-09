@@ -82,6 +82,14 @@ For a thin, weakly scattering phase object, the diffracted light is phase-shifte
 
 Zernike's key idea: if we could shift the phase of the direct light by an _additional_ $\lambda/4$ (either advancing or retarding it), the direct and diffracted components would end up either perfectly in phase or perfectly out of phase (0° or 180° relative phase). In the first case, they would interfere constructively, making the specimen appear brighter than the background (_bright_ or _negative_ phase contrast). In the second case, they would interfere destructively, making the specimen appear darker than the background (_dark_ or _positive_ phase contrast, the more common mode).
 
+```{admonition} A local connection: Caroline Bleeker
+:class: tip
+
+Zernike supplied the idea, but turning it into a working instrument took a manufacturer, and the first in the world to build complete phase contrast microscopes was a physicist working a few streets from here. Caroline Emilie Bleeker (1897-1985) earned her physics doctorate at Utrecht in 1928 and, unusually for a woman at the time, founded her own precision-optics company. Working closely with Zernike, her factory (later named Nedoptifa) produced the first commercial phase contrast microscopes, and the two jointly held the patent, applied for in 1947. When Zernike received the 1953 Nobel Prize, the instruments that realised his principle were being made in the Netherlands.
+
+Bleeker's microscopes reached the University of Utrecht in the mid-1950s and served generations of students in the physics teaching lab. She was also active in women's emancipation and, during the Second World War, hid people from the Nazis in her factory. Utrecht has since honoured her with one of the "Utrechtse Muurformules" murals and a building bearing her name.
+```
+
 ### A phasor picture
 
 Zernike's argument becomes much clearer if we represent each wave as a **phasor**: a vector in the complex plane whose length is the amplitude and whose angle is the phase. Dropping the common time factor $e^{-i\omega t}$, the light emerging from a weak phase object is

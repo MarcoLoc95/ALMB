@@ -82,6 +82,75 @@ For a thin, weakly scattering phase object, the diffracted light is phase-shifte
 
 Zernike's key idea: if we could shift the phase of the direct light by an _additional_ $\lambda/4$ (either advancing or retarding it), the direct and diffracted components would end up either perfectly in phase or perfectly out of phase (0° or 180° relative phase). In the first case, they would interfere constructively, making the specimen appear brighter than the background (_bright_ or _negative_ phase contrast). In the second case, they would interfere destructively, making the specimen appear darker than the background (_dark_ or _positive_ phase contrast, the more common mode).
 
+### A phasor picture
+
+Zernike's argument becomes much clearer if we represent each wave as a **phasor**: a vector in the complex plane whose length is the amplitude and whose angle is the phase. Dropping the common time factor $e^{-i\omega t}$, the light emerging from a weak phase object is
+
+$$
+U_0\,e^{-i\varphi} \;=\; U_0\bigl(\cos\varphi - i\sin\varphi\bigr),
+$$
+
+where $\varphi$ is the small extra phase retardation introduced by the specimen. For a weak phase object $\varphi \ll 1$, so we can expand:
+
+$$
+U_0\,e^{-i\varphi} \;\approx\; U_0\,(1 - i\varphi) \;=\; \underbrace{U_0}_{\text{undiffracted}} \;\underbrace{-\, i\varphi U_0}_{\text{diffracted}}.
+$$
+
+This is the key decomposition. The transmitted wave splits into two phasors:
+
+- the **undiffracted** (direct) wave $U = U_0$, the strong background, which we take to point along the real axis, and
+- the **diffracted** wave $D = -i\varphi U_0$, whose amplitude $\varphi U_0$ is small and, crucially, whose factor $-i$ means it is rotated by exactly $90^\circ$ relative to $U$.
+
+That $90^\circ$ is not a modelling choice; it falls straight out of the expansion of $e^{-i\varphi}$. Scattering by a pure phase object necessarily produces light in quadrature with the background.
+
+**Why the object is invisible in brightfield.** Adding the two phasors, $U + D$ forms a right triangle with a long horizontal side $U_0$ and a short vertical side $\varphi U_0$. Its length is
+
+$$
+|U + D| = U_0\sqrt{1 + \varphi^2} \approx U_0\Bigl(1 + \tfrac{1}{2}\varphi^2\Bigr).
+$$
+
+To first order in $\varphi$ the length is unchanged: the phase object rotates the tip of the resultant slightly but does not change its magnitude. Since the detector sees intensity (length squared), the only difference from the background is of order $\varphi^2$, which is negligible. The specimen is there in the phase, but not in the intensity.
+
+### Making phase visible: the $90^\circ$ shift
+
+The diffracted phasor $D$ is perpendicular to the background $U$, so it changes the *direction* of the resultant but not its *length*. The remedy is to rotate the **undiffracted** wave by $90^\circ$ so that it becomes **collinear** with $D$. Then the two phasors add (or subtract) along the same line, and the small quantity $\varphi$ finally shows up as a change in length, hence in intensity.
+
+This is exactly what the phase ring at the objective back focal plane does: it multiplies the direct light (and only the direct light, which is concentrated in the ring) by $e^{\pm i\pi/2} = \pm i$. There are two choices of sign, and they give the two complementary modes of phase contrast:
+
+**Advancing the direct light** ($U \to +iU$):
+
+$$
+U + D \;\to\; iU_0 - i\varphi U_0 \;=\; i\,(1 - \varphi)\,U_0,
+\qquad I \propto (1-\varphi)^2 .
+$$
+
+The resultant is now shorter than the background wherever $\varphi > 0$. Dense structures (larger $\varphi$) appear **darker** than the surroundings. This is *positive* (dark) phase contrast, the mode used on most routine microscopes.
+
+**Retarding the direct light** ($U \to -iU$):
+
+$$
+U + D \;\to\; -iU_0 - i\varphi U_0 \;=\; -i\,(1 + \varphi)\,U_0,
+\qquad I \propto (1+\varphi)^2 .
+$$
+
+Now the resultant is longer, and dense structures appear **brighter** than the background. This is *negative* (bright) phase contrast.
+
+In both cases the trick is the same: rotate the reference wave so it lies along the diffracted wave. Only the sign differs, deciding whether the two add or cancel. And note that the intensity now varies as $(1 \pm \varphi)^2 \approx 1 \pm 2\varphi$, that is, **linearly** in the specimen's phase to first order, which is why phase contrast gives a faithful, roughly quantitative rendering of optical path differences rather than the edge-only response of darkfield.
+
+### Attenuating the direct light to boost contrast
+
+There is one more improvement. The visible signal is the *difference* in length between the object resultant and the background, but that difference sits on top of a large background $U_0$. The fractional modulation is therefore small, because $D$ is tiny compared to $U$.
+
+To fix this, the phase ring is also made **partially absorbing** (a neutral-density, or OD, coating on the ring). It attenuates the strong direct light by a factor $t < 1$, while the diffracted light, spread over the rest of the back focal plane, passes essentially untouched. With attenuation, the dark mode gives
+
+$$
+U + D \;\to\; i\,(t - \varphi)\,U_0,
+\qquad
+C \;=\; \frac{I - I_{\text{bg}}}{I_{\text{bg}}} \;=\; \frac{(t-\varphi)^2 - t^2}{t^2} \;\approx\; -\,\frac{2\varphi}{t}.
+$$
+
+The contrast scales as $2\varphi/t$: the more the direct light is knocked down (smaller $t$), the larger the fractional intensity swing produced by the same specimen phase $\varphi$. Physically, attenuating $U$ brings the two interfering phasors closer to equal length, and interference between two comparable beams produces a much deeper modulation than interference between a huge beam and a tiny one. In practice the ring transmits only some 10 to 30 % of the direct light, a compromise between contrast (which wants heavy attenuation) and image brightness (which wants light).
+
 ### The phase plate
 
 How do we selectively shift the phase of the direct light without affecting the diffracted light? This is where the conjugate plane structure of Köhler illumination becomes essential.

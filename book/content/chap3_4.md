@@ -204,7 +204,7 @@ Phase contrast is by far the most widely used technique for routine observation 
 
 Phase contrast is powerful but not perfect. The most visible artifact is the **halo effect**: a bright or dark halo surrounding edges of specimens where there is a sharp change in optical path length. This halo arises because the phase ring in the back focal plane also intercepts some of the diffracted light near the ring (low-order diffracted light overlaps spatially with the direct light image). This diffracted light receives the same phase shift and attenuation as the direct light, distorting the image near edges.
 
-Another limitation is that the phase plate absorbs some of the fluorescence emission as well. If you try to combine phase contrast with fluorescence imaging, the phase ring will attenuate any fluorescence that happens to pass through it, reducing the overall fluorescence signal and slightly degrading the effective NA. For simultaneous transmitted-light and fluorescence imaging, DIC (discussed next) is often a better choice.
+A more subtle limitation appears when combining phase contrast with fluorescence. The phase ring attenuates and phase-shifts whatever light passes through it, so fluorescence emission crossing the ring zone is partly lost, and because the ring occupies part of the objective's aperture it slightly degrades the effective NA of the fluorescence image. In practice this is just a mild penalty: phase contrast and fluorescence are combined constantly in live-cell imaging, where the phase channel provides morphology, cell finding and autofocus while the fluorescence channel carries the molecular signal, the two simply recorded as separate exposures of the same field.
 
 ## Differential interference contrast (DIC)
 

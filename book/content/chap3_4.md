@@ -149,7 +149,7 @@ U + D \;\to\; i\,(t - \varphi)\,U_0,
 C \;=\; \frac{I - I_{\text{bg}}}{I_{\text{bg}}} \;=\; \frac{(t-\varphi)^2 - t^2}{t^2} \;\approx\; -\,\frac{2\varphi}{t}.
 $$
 
-The contrast scales as $2\varphi/t$: the more the direct light is knocked down (smaller $t$), the larger the fractional intensity swing produced by the same specimen phase $\varphi$. Physically, attenuating $U$ brings the two interfering phasors closer to equal length, and interference between two comparable beams produces a much deeper modulation than interference between a huge beam and a tiny one. In practice the ring transmits only some 10 to 30 % of the direct light, a compromise between contrast (which wants heavy attenuation) and image brightness (which wants light).
+The contrast scales as $2\varphi/t$: the more the direct light is knocked down (smaller $t$), the larger the fractional intensity swing produced by the same specimen phase $\varphi$. Physically, attenuating $U$ brings the two interfering phasors closer to equal length, and interference between two comparable beams produces a much deeper modulation than interference between a huge beam and a tiny one. In practice the ring transmits only some 10 to 30% of the direct light, a compromise between contrast (which wants heavy attenuation) and image brightness (which wants light).
 
 ```{figure} ../figures/chap3_phase_phasor.png
 ---

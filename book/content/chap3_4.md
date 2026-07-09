@@ -90,7 +90,7 @@ Bleeker's microscopes reached the University of Utrecht in the mid-1950s and ser
 
 ```{figure} ../figures/chap3_bleeker.jpg
 ---
-width: 50%
+width: 75%
 name: bleeker
 align: center
 ---

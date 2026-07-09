@@ -52,7 +52,22 @@ The essential requirement is that the central stop must be large enough to cover
 
 ## Phase contrast microscopy
 
+### The problem: phase objects
 
+Most biological specimens (living cells, bacteria, thin tissue sections) are nearly transparent. They absorb very little light, so they are invisible in brightfield. However, they do interact with light in a subtler way: different parts of the specimen have slightly different refractive indices (the cytoplasm, the nucleus, organelles, membranes), and these refractive index variations cause the transmitted wave to be _delayed_ (phase-shifted) relative to the undeviated background light. Such specimens are called **phase objects**: they change the _phase_ of the wave, not its _amplitude_ ({numref}`Fig. {number} <phase_objects>`).
+
+```{figure} ../figures/chap3_phase_objects.png
+---
+width: 100%
+name: phase_objects
+align: center
+---
+Amplitude objects versus phase objects. An amplitude object (such as a stained section) absorbs light, reducing the wave's amplitude. A phase object (such as a living cell) is transparent but retards the wave, shifting its phase. The human eye and standard detectors are sensitive only to intensity (amplitude squared), not to phase, which is why phase objects are invisible in brightfield. 
+```
+
+The human eye and camera sensors measure _intensity_, which is proportional to the square of the amplitude. Phase differences, by themselves, produce no intensity changes. The wave that passes through a cell and the wave that passes next to it have the same amplitude; they only differ in phase. When these waves reach the detector, they produce the same intensity reading, and the cell is invisible.
+
+The challenge, then, is to convert phase differences into amplitude (intensity) differences. This is precisely what phase contrast microscopy achieves.
 
 ### Zernike's insight
 

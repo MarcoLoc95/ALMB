@@ -101,7 +101,7 @@ This is the key decomposition. The transmitted wave splits into two phasors:
 - the **undiffracted** (direct) wave $U = U_0$, the strong background, which we take to point along the real axis, and
 - the **diffracted** wave $D = -i\varphi U_0$, whose amplitude $\varphi U_0$ is small and, crucially, whose factor $-i$ means it is rotated by exactly $90^\circ$ relative to $U$.
 
-That $90^\circ$ is not a modelling choice; it falls straight out of the expansion of $e^{-i\varphi}$. Scattering by a pure phase object necessarily produces light in quadrature with the background.
+That $90^\circ$ means that scattering by a pure phase object necessarily produces light in quadrature with the background.
 
 **Why the object is invisible in brightfield.** Adding the two phasors, $U + D$ forms a right triangle with a long horizontal side $U_0$ and a short vertical side $\varphi U_0$. Its length is
 

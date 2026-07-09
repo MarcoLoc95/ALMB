@@ -88,14 +88,14 @@ Zernike supplied the idea, but turning it into a working instrument took a manuf
 
 Bleeker's microscopes reached the University of Utrecht in the mid-1950s and served generations of students in the physics teaching lab. She was also active in women's emancipation and, during the Second World War, hid people from the Nazis in her factory. Utrecht has since honoured her with one of the "Utrechtse Muurformules" murals and a building bearing her name.
 
-    ```{figure} ../figures/chap3_bleeker.jpg
-    ---
-    width: 50%
-    name: bleeker
-    align: center
-    ---
-    Copyright: [DUB](https://dub.uu.nl/en/news/new-mural-strosteeg-ode-uu-physicist-caroline-bleeker) 
-    ```
+```{figure} ../figures/chap3_bleeker.jpg
+---
+width: 50%
+name: bleeker
+align: center
+---
+Copyright: [DUB](https://dub.uu.nl/en/news/new-mural-strosteeg-ode-uu-physicist-caroline-bleeker) 
+```
 
 ````
 

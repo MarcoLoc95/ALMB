@@ -94,7 +94,7 @@ width: 50%
 name: bleeker
 align: center
 ---
-Copyright: [DUB](https://dub.uu.nl/en/news/new-mural-strosteeg-ode-uu-physicist-caroline-bleeker) 
+The Caroline Bleeker mural on Strosteeg, Utrecht. Photo: [DUB](https://dub.uu.nl/en/news/new-mural-strosteeg-ode-uu-physicist-caroline-bleeker) 
 ```
 
 ````

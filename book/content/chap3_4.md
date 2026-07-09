@@ -185,13 +185,13 @@ In a phase contrast microscope, the condenser is equipped with an **annular diap
 
 A **phase plate** is placed at the back focal plane of the objective ({numref}`Fig. {number} <phase_contrast_scheme>`). This plate has a ring-shaped groove (or ridge) whose position and size match the image of the condenser annulus exactly. The groove introduces an additional $\lambda/4$ phase shift to the direct light passing through it, while the diffracted light, which is spread over the rest of the plate, passes through unaltered. The phase plate also typically attenuates the direct light (the ring region is partially absorbing), which improves contrast by bringing the amplitudes of the direct and diffracted components closer together.
 
-```{figure} ../figures/phase_contrast_scheme.png
+```{figure} ../figures/chap3_phase_contrast_scheme.png
 ---
-width: 90%
+width: 100%
 name: phase_contrast_scheme
 align: center
 ---
-Principle of phase contrast microscopy. The condenser annulus produces a ring-shaped illumination cone. At the back focal plane of the objective, the direct light passes through the phase ring, which advances (or retards) it by $\lambda/4$ and attenuates it. The diffracted light passes through the rest of the plate unaltered. When the two components recombine at the image plane, their interference produces intensity variations that reveal the specimen's phase structure.
+Phase contrast with two forms of annular illumination. The phase plate advances the surround light by +λ/4 (orange) and usually attenuates it, while the light diffracted by the specimen (teal), already retarded by about −λ/4 through the act of scattering, passes through the open part of the plate essentially unaltered. The two components recombine at the image plane with a net λ/2 phase difference, so their interference turns the specimen's otherwise invisible phase structure into visible intensity.
 ```
 
 When the direct and diffracted components recombine at the image plane, their relative phase is now either 0° or 180° (depending on the sign of the phase shift), and the interference produces intensity changes that make the phase structures visible. Dense structures like the nucleus, which retard the wave more, appear darker or brighter than the surrounding cytoplasm.

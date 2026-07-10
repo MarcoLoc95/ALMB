@@ -6,13 +6,32 @@ A **fluorophore** is any molecule that emits fluorescence. That is the only thin
 
 Organic dyes are small synthetic molecules, and their fluorescence comes from **aromatic rings**, the flat hexagonal carbon structures with alternating single and double bonds. The amino acid tryptophan contains one, which is part of why proteins fluoresce faintly on their own. The bonds are not really fixed as alternating single and double; the electrons are spread out over the whole ring in what chemists call _resonance_, and all the equivalent structures coexist at once. That delocalization gives the ring its stability and the sharp, well-defined molecular orbitals that produce clean fluorescence.
 
-Two things follow from this design. First, dyes are small, often just a handful of atoms across, which makes them far less likely to disturb whatever they are attached to than a bulky protein would be. Second, the exact ring system sets the color: change the chemistry and you shift from blue to red. The **cyanine** dyes are a familiar example, with Cy3 (green) and Cy5 (red) among the most common. You will often see sulfonate groups, written SO$_3^-$, hanging off them. These are not decoration. Sulfonation makes the dye water-soluble, so it is easy to deliver into a sample, and it reduces **quenching** after the dye is conjugated to its target.
+```{figure} ../figures/chap4_organicdyes.png
+---
+width: 100%
+name: organic_dyes
+align: center
+---
+Common fluorescent organic dyes. Sulfonation promotes solubilization and reduces quenching after conjugation.
+```
+
+Two things follow from this design. First, dyes are small, often just a handful of atoms across, which makes them far less likely to disturb whatever they are attached to than a bulky protein would be. Second, the exact ring system sets the color: change the chemistry and you shift from blue to red. The **cyanine** dyes are a familiar example, with Cy3 (green) and Cy5 (red) among the most common. You will often see sulfonate groups, written SO$_3^-$, hanging off them. Sulfonation makes the dye water-soluble, so it is easy to deliver into a sample, and it reduces **quenching** after the dye is conjugated to its target.
 
 ```{tip}
 **Quenching** is any loss of fluorescence caused by non-radiative energy transfer to a neighbor, the same kind of pathway that lowers quantum yield. It is the everyday enemy of a bright label: pack fluorophores too close, or let them touch the wrong partner, and they go dark. The FRET we met in the previous section is quenching put to deliberate, useful work.
 ```
 
 The flagship commercial family is the **Alexa Fluor** dyes, which between them cover the whole spectrum from the ultraviolet through the near-infrared. Whatever color your experiment needs, there is an Alexa dye for it, and you simply pick the one that matches your filters. Dyes are popular for good reason: they are very bright, with high quantum yields, and finely tunable. The catch is toxicity. Through the ROS pathway from the previous section, dyes tend to harm living cells over time, so they shine in **fixed** samples where the cell is already dead and you only want to inspect its structure, and they are a poorer choice for long-term live imaging.
+
+```{figure} ../figures/chap4_alexa.png
+---
+width: 100%
+name: alexa
+align: center
+---
+Molecular structures of common Alexa Fluor dyes, and the corresponding spectra.
+```
+
 
 You attach a dye to a chosen structure through **immunofluorescence**: an antibody recognizes the target, and the dye rides along on the antibody. With the right antibodies you can light up almost anything, the nucleus, actin, mitochondria, the cytoskeleton, membranes, one target per structure, which is why immunofluorescence images of dye-labeled cells are among the most recognizable pictures in all of biology.
 
@@ -40,7 +59,7 @@ The fluorescing core is usually surrounded by several extra layers: surface liga
 
 ```{figure} ../figures/chap4_qdot_spectra.gif
 ---
-width: 90%
+width: 80%
 name: qd_tunability
 align: center
 ---

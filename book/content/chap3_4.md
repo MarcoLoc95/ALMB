@@ -244,7 +244,7 @@ In the original design by Smith (1947) and the later refinement by Nomarski (195
 ### DIC simulator
 :::{raw} html
 <div style="text-align:center; margin:1em 0;">
-  <iframe src="../content/dic_lightpaths.html" width="750" height="550"
+  <iframe src="../content/dic_lightpaths.html" width="750" height="560"
           style="border:none; max-width:100%;"></iframe>
 </div>
 :::

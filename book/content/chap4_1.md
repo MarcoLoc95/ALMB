@@ -106,6 +106,15 @@ Here is an uncomfortable fact: if you put a slice of unlabeled tissue under the 
 
 You cannot really engineer it away, at least not without stripping the cell of the very molecules that keep it alive, which defeats the purpose of imaging biology in its natural state. What you can do is manage it: push your signal into a spectral region where autofluorescence is weaker, the near-infrared often being a good choice, and subtract a measured background during analysis. The practical lesson for the bench is simple but easy to forget: not every glowing thing in your image is the thing you labeled.
 
+```{figure} ../figures/chap4_autofluorescence.png
+---
+width: 90%
+name: autofluorescence
+align: center
+---
+Origin of autofluorescence in biological samples. Endogenous fluorophores, including NADH/NADPH, aromatic amino acids in proteins, flavins, lipofuscin, and porphyrins, absorb light at different excitation wavelengths and emit broad fluorescence spectra. Because these emission spectra overlap, autofluorescence can reduce image contrast and interfere with the detection of fluorescent labels.
+```
+
 ## Photobleaching and phototoxicity
 
 The triplet state we met earlier is a quiet troublemaker. It is chemically reactive, and a molecule that lingers there can react with nearby oxygen, which cells always have, to produce **reactive oxygen species (ROS)**: singlet oxygen, superoxide, hydrogen peroxide, and similar aggressive radicals. When those species attack the fluorophore itself, they break or modify it: a double bond becomes a single bond, a group is cleaved, and the molecule simply stops fluorescing. This irreversible destruction is **photobleaching**, and there is no coming back from it.

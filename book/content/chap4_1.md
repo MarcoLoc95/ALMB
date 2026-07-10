@@ -74,6 +74,9 @@ A large Stokes shift is a gift. The further the emission peak sits from the exci
 
 ## Episcopic illumination in fluorescence microscopy
 
+Fluorescence poses an awkward engineering problem: the excitation light is overwhelmingly brighter than the signal you want to see. Only a fraction of the excitation is absorbed, only a fraction of that returns as emission, and the emission leaves in all directions. If you lit the sample from one side and placed the detector on the other, as in the brightfield transillumination of {ref}`Chapter 3 <chap3>`, the full excitation beam would pour straight into the detector and bury the faint glow.
+
+The solution is geometry. In **episcopic** (or **epifluorescence**) illumination, the sample is lit from the same side it is viewed, and the objective does double duty: it focuses the excitation onto the sample and collects the emission that comes back. The intense excitation beam continues through the sample and away from the detector, so the only excitation that can return is the small amount reflected or scattered back, which the filters then remove. What reaches the eye or camera is almost pure signal.
 
 ```{figure} ../figures/chap4_episcopic.png
 ---
@@ -81,9 +84,20 @@ width: 100%
 name: episcopic
 align: center
 ---
-aaa
+The epifluorescence (episcopic) light path, drawn for an upright microscope (left) and an inverted one (right). Excitation light from the source (blue) is trimmed by the excitation filter and strikes the dichroic mirror, which reflects it down through the objective onto the sample. The sample fluoresces at a longer wavelength (green), and this emission travels back up through the same objective, passes through the dichroic mirror, and is cleaned up by the emission filter before reaching the eye or camera. Because the Stokes shift separates excitation from emission in wavelength, the dichroic can send one down to the sample and let the other through to the detector, so a single objective both illuminates and collects.
 ```
 
+Three components make this work, and together they form a **filter set**, usually housed in a swappable **filter cube** (_{numref}`Fig. %s <episcopic>`_):
+
+- The **excitation filter** is a bandpass filter that carves the desired excitation band out of a broadband source such as a lamp or LED.
+- The **dichroic mirror** (a dichroic beamsplitter) sits at 45° and is wavelength-selective: it reflects the shorter excitation wavelengths down into the objective but transmits the longer emission wavelengths on the way back up. This is the piece that lets one objective both illuminate and collect, and it works only because the Stokes shift has already separated excitation from emission.
+- The **emission filter** is a final bandpass (or longpass) filter that passes the fluorophore's emission and blocks any leftover excitation, giving the dark background that makes fluorescence images so striking.
+
+```{tip}
+The three bands of a filter set line up in Stokes order along the wavelength axis: the excitation band, then the dichroic's cut-on wavelength, then the emission band, each stepping toward the red. A good set keeps them from overlapping so that no excitation light leaks into the emission channel, which is also why a larger Stokes shift is easier to filter cleanly.
+```
+
+Because each set is tuned to one excitation and emission range, imaging a second fluorophore is often just a matter of rotating a different cube into the beam, which is how a microscope records one color channel at a time.
 
 ## Quantifying a fluorophore
 

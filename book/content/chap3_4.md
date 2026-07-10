@@ -241,10 +241,7 @@ The relief-like appearance of DIC images is visually striking, but it can also b
 
 In the original design by Smith (1947) and the later refinement by Nomarski (1955), the Wollaston prisms sit at the front focal plane of the condenser and at the back focal plane of the objective, respectively (both aperture conjugate planes). Nomarski's modification uses a modified prism that can be placed _outside_ the back focal plane of the objective, which is more practical because the back focal plane of a high-NA objective is usually inside the lens barrel and physically inaccessible. This is why the technique is often referred to as Nomarski DIC, and why the Nomarski prism has become the standard component in modern microscopes.
 
-```{tip}
-DIC is the technique of choice when you need to overlay a transmitted-light reference image on a fluorescence dataset. Many cell biologists use DIC to show the outline of cells and then overlay the fluorescence channels to show where specific proteins are located. The clean optical sectioning and absence of halos make DIC ideal for this purpose.
-```
-
+### DIC simulator
 :::{raw} html
 <div style="text-align:center; margin:1em 0;">
   <iframe src="../content/dic_lightpaths.html" width="720" height="500"

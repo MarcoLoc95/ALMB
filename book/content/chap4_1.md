@@ -139,15 +139,15 @@ $$E = \frac{1}{1 + (r/R_0)^6}$$
 
 where $r$ is the donor-acceptor separation and $R_0$, the **Förster radius**, is the distance at which transfer is 50 percent efficient. For common pairs $R_0$ is only a few nanometers, often around 4 to 6 nm. The sixth power is the key (_{numref}`Fig. %s <fret_efficiency>`_): efficiency plunges from near-total to near-nothing over a span of a couple of nanometers, which means the simple act of measuring how much the acceptor glows tells you the distance between the two molecules with nanometer sensitivity.
 
-```{figure} ../figures/fret_efficiency.png
+```{figure} ../figures/chap4_fret_efficiency.png
 ---
-width: 75%
+width: 100%
 name: fret_efficiency
 align: center
 ---
 FRET efficiency as a function of donor-acceptor distance. At $r = R_0$ the efficiency is exactly 50 percent. The sixth-power dependence makes the transition extremely steep, so a change of one or two nanometers swings the efficiency from high to low. This is what turns FRET into a molecular ruler.
 ```
 
-That is a remarkable trick. The diffraction limit, which we will study in {ref}`Chapter 6 <chap6>`, keeps an ordinary light microscope from resolving features closer than a couple of hundred nanometers, yet FRET reports on separations a hundred times smaller. Build a sensor in which two parts move apart when, say, a protein binds a target, label each part with one half of a FRET pair, and the acceptor's brightness becomes a live readout of that motion. We will see FRET sensors put to work later in the course, in the advanced-techniques material of {ref}`Chapter 8 <chap8>`.
+That is a remarkable trick. The diffraction limit keeps an ordinary light microscope from resolving features closer than a couple of hundred nanometers, yet FRET reports on separations a hundred times smaller. Build a sensor in which two parts move apart when, say, a protein binds a target, label each part with one half of a FRET pair, and the acceptor's brightness becomes a live readout of that motion. We will see FRET sensors put to work later in the course, in the advanced-techniques material of {ref}`Chapter 8 <chap8>`.
 
 With the physics of a single fluorophore in hand, the obvious next question is which fluorophores to use. That is the subject of {ref}`the next section <chap4_2>`.

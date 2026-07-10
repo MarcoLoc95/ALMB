@@ -6,7 +6,7 @@ Fluorescence solves this problem. Instead of squeezing contrast out of an unlabe
 
 A warning about those colors, though: they are almost always false. We pick a lookup table that assigns, say, cyan to one channel and magenta to another. The fluorophore does not "know" it is cyan. We decided that, purely for display.
 
-This chapter is deliberately short. It is built around a single lecture, and it splits naturally into two parts. First we look at the physics: where fluorescence comes from, how we describe a fluorophore quantitatively, and the two problems you can never fully escape, autofluorescence and photobleaching. Then we look at the practical toolkit: the three families of fluorophores you will actually meet in the lab, and how they trade brightness, photostability, and toxicity against one another.
+This chapter is deliberately short. First we look at the physics: where fluorescence comes from, how we describe a fluorophore quantitatively, and the two problems you can never fully escape, autofluorescence and photobleaching. Then we look at the practical toolkit: the three families of fluorophores you will actually meet in the lab, and how they trade brightness, photostability, and toxicity against one another.
 
 ```{figure} ../figures/chap4_fluorescence_wrapper.png
 ---

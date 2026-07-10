@@ -222,13 +222,13 @@ DIC uses polarized light and a pair of specialized prisms called **Wollaston pri
 4. After the objective, a second Wollaston prism recombines the two beams into a single beam. The recombined beam has a polarization state that depends on the _phase difference_ between the two sheared beams, which in turn depends on the gradient of the refractive index across the shear distance.
 5. An **analyzer** (a second polarizer, oriented at 90° to the first) converts the polarization changes into intensity variations. Where the phase gradient is zero (uniform regions), the two beams cancel and the image is dark. Where there is a gradient, light passes through the analyzer, and the feature appears bright.
 
-```{figure} ../figures/dic_scheme.png
+```{figure} ../figures/chap3_dic_scheme.png
 ---
-width: 90%
+width: 100%
 name: dic_scheme
 align: center
 ---
-Principle of differential interference contrast. A polarizer and a Wollaston prism split the illumination into two orthogonally polarized beams separated by a sub-resolution shear distance. After passing through the specimen, a second Wollaston prism and an analyzer recombine the beams. The resulting intensity encodes the gradient of the optical path length across the shear direction.
+Differential interference contrast (DIC). Polarized Köhler illumination passes through a Nomarski prism at the condenser aperture, which splits it into two orthogonally polarized beams sheared laterally by a small distance Δx. The two beams traverse the specimen through two nearby points, so each acquires the local optical path length; their phase difference therefore encodes the gradient of optical path along the shear direction. A second Nomarski prism at the objective back focal plane recombines the beams, and a crossed analyzer lets the two orthogonal states interfere.
 ```
 
 ### Advantages over phase contrast

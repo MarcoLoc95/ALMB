@@ -23,6 +23,7 @@ At the end of this chapter you should be able to:
 - Read a Jablonski diagram and use it to describe absorption, vibrational relaxation, fluorescence, intersystem crossing, and phosphorescence.
 - Distinguish singlet and triplet states and connect them to the timescales of fluorescence and phosphorescence.
 - Relate the shape of excitation and emission spectra to the vibrational structure of a molecule.
+- Select an appropriate filter set given a fluorophore's excitation and emission spectra, and explain how episcopic illumination separates signal from excitation light.
 - Compare key quantitative parameters of a fluorophore: radiative and non-radiative decay rates, quantum yield, lifetime, molar extinction coefficient, Stokes shift and brightness.
 - Describe autofluorescence, photobleaching, and phototoxicity, and explain why turning up the excitation power is a double-edged sword.
 - Explain the principle of FRET and why its steep distance dependence turns it into a molecular ruler.

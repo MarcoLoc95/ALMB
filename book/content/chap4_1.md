@@ -140,6 +140,16 @@ A molecule sitting in the triplet state is, for the moment, not fluorescing. The
 
 One last phenomenon deserves a place here because it turns fluorescence into a measuring tape. **FRET**, Förster Resonance Energy Transfer, is a non-radiative handoff of energy from one excited fluorophore, the **donor**, to a second fluorophore, the **acceptor**, sitting very close by. No photon is exchanged in the handoff. For it to work, two conditions must hold: the molecules must be within roughly 1 to 10 nm of each other, and their spectra must overlap, with the donor's emission matching the acceptor's absorption. When both are met, exciting the donor produces emission from the acceptor instead. If you treat the pair as a single unit, the effect looks like a greatly enlarged Stokes shift.
 
+```{figure} ../figures/chap4_fret_principle.png
+---
+width: 100%
+name: fret_principle
+align: center
+---
+Principle of Förster Resonance Energy Transfer (FRET). Upon excitation of the donor fluorophore (Alexa Fluor 488), fluorescence is emitted when no nearby acceptor is present (left). If a suitable acceptor (Cy3) lies within the Förster distance (typically 1-10 nm), excitation energy is transferred non-radiatively through dipole-dipole coupling rather than by photon emission (right). Consequently, donor fluorescence decreases while acceptor fluorescence increases.
+```
+
+
 What makes FRET extraordinary is how sharply it depends on distance. The efficiency is
 
 $$E = \frac{1}{1 + (r/R_0)^6}$$

@@ -75,6 +75,15 @@ A large Stokes shift is a gift. The further the emission peak sits from the exci
 ## Episcopic illumination in fluorescence microscopy
 
 
+```{figure} ../figures/chap4_episcopic.png
+---
+width: 100%
+name: episcopic
+align: center
+---
+aaa
+```
+
 
 ## Quantifying a fluorophore
 

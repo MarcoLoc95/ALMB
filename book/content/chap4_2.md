@@ -27,7 +27,7 @@ Structurally, GFP and its relatives are **beta-barrels**: a cylinder of rigid be
 The defining advantage is that the cell makes the label, which buys you two things. The labeling is genetic rather than chemical: co-express the fluorescent protein with a protein that goes to your target of interest, and wherever that target ends up, the fluorescence follows. This tends to be more reliable than immunofluorescence, which stacks antibody upon antibody. And because the cell keeps producing the protein, fluorescence is replenished over time and across cell divisions, though slowly, on the scale of the cell's own protein turnover. Like all organic fluorophores, fluorescent proteins eventually photobleach.
 
 ```{tip}
-With well over a thousand fluorescent proteins now characterized, choosing one by hand is hopeless. The community-curated database [**FPbase**](https://www.fpbase.org/) lets you filter by exactly the parameters from the previous section: excitation and emission spectra, Stokes shift, brightness, quantum yield, and photostability. It is the natural place to start when you need a protein with a particular set of properties.
+With well over a thousand fluorescent proteins now characterized, choosing one by hand is hopeless. The community-curated database [**FPbase**](https://www.fpbase.org/) lets you filter by exactly the parameters from the previous section: excitation and emission spectra, Stokes shift, brightness, quantum yield, and photostability. This is the natural place to start when you need a protein with a particular set of properties.
 ```
 
 ## Quantum dots

@@ -32,7 +32,7 @@ width: 85%
 name: jablonski
 align: center
 ---
-A Jablonski diagram. Straight vertical arrows are radiative transitions involving a photon (absorption in blue, fluorescence in green, phosphorescence in red). Wavy arrows are non-radiative: internal conversion and vibrational relaxation (grey) shed energy as heat, while intersystem crossing (orange) flips an electron spin and routes the molecule into the triplet state. The small paired and parallel arrows show the singlet ($S$) and triplet ($T$) spin configurations.
+A Jablonski diagram of the processes that follow light absorption. Energy increases upward; thick lines are electronic states ($S_0$, $S_1$, $S_2$, and the triplet $T_1$), and the thin lines above each are its vibrational sublevels. After absorption, fast non-radiative steps (vibrational relaxation and internal conversion) bring the molecule to the bottom of $S_1$, so emission almost always starts from there (Kasha's rule). The colors and characteristic timescales of each process are given in the legend. Source: [Edinburgh Instruments](https://www.edinst.com/resource/what-is-a-jablonski-diagram-perrin-jablonski-diagram/)
 ```
 
 Reading the diagram from left to right tells the story of one excitation cycle:

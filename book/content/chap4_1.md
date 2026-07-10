@@ -72,6 +72,10 @@ $$\Delta\lambda = \lambda_\text{em,max} - \lambda_\text{ex,max}$$
 
 A large Stokes shift is a gift. The further the emission peak sits from the excitation peak, the easier it is to throw away every scrap of excitation light with a filter and collect only the genuine signal, even when the fluorophore is dim. A small Stokes shift means excitation and emission overlap, so some exciting light inevitably leaks into your detector as background. When you choose a fluorophore, the Stokes shift is one of the first numbers you check.
 
+## Episcopic illumination in fluorescence microscopy
+
+
+
 ## Quantifying a fluorophore
 
 Two fluorophores can both glow green and still behave completely differently. To compare them we need numbers, and a handful of parameters do most of the work. They all flow from a simple competition: once a molecule reaches $S_1$, it can either emit a photon or get rid of its energy some other way.

@@ -73,6 +73,15 @@ The newest family was first discovered in 1981 by the Russian scientist Alexey E
 
 In a bulk semiconductor, electrons live in continuous energy bands separated by a band gap. Shrink the crystal down to a few nanometers and the gap is no longer fixed: the smaller the dot, the larger the gap, and the larger the gap, the shorter the emitted wavelength. This is called **quantum confinement**, and it gives quantum dots a property no dye or protein has, namely that you tune the color simply by changing the size.
 
+```{figure} ../figures/chap4_qd.png
+---
+width: 90%
+name: qd
+align: center
+---
+CdSe nanocrystal quantum dot TEM image and corresponding 3D model. This type of structure forces quantum confinement, which modulates the energy bands of the semiconductor to a neat potential well with a defined gap. Source: Efros and Brus, ACS Nano 2021, 15, 4, 6192-6210. DOI: [10.1021/acsnano.1c01399](https://pubs.acs.org/doi/full/10.1021/acsnano.1c01399)
+```
+
 The fluorescing core is usually surrounded by several extra layers: surface ligands, a polymer coating such as PEG that acts as a spacer, and a targeting ligand on the outside. The spacer is not optional. If you bring the core too close to other molecules and energy leaks away non-radiatively, a FRET-like quenching, so the polymer holds everything at a safe distance. In size, quantum dots sit between the two organic families: bigger than a dye, smaller than a protein.
 
 ```{figure} ../figures/chap4_qdot_spectra.gif

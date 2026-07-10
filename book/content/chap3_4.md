@@ -245,6 +245,13 @@ In the original design by Smith (1947) and the later refinement by Nomarski (195
 DIC is the technique of choice when you need to overlay a transmitted-light reference image on a fluorescence dataset. Many cell biologists use DIC to show the outline of cells and then overlay the fluorescence channels to show where specific proteins are located. The clean optical sectioning and absence of halos make DIC ideal for this purpose.
 ```
 
+:::{raw} html
+<div style="text-align:center; margin:1em 0;">
+  <iframe src="../content/dic_lightpaths.html" width="720" height="500"
+          style="border:none; max-width:100%;"></iframe>
+</div>
+:::
+
 ## Summary: choosing the right technique
 
 Each of the four transmitted-light modes we have discussed has its strengths and its niche:

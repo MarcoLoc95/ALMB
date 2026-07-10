@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DIC light paths</title>
+<style>
+  :root{ --teal:#0f9d9d; --orange:#e7901b; --comb:#7b3fa0; --lens:#D5ECFF;
+         --lensE:#6fa8d4; --prism:#e0d3ad; --prismE:#a8905a; --pol:#cdd6de; --polE:#7a8a99; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:#233; background:#fff; }
+  #wrap{ max-width:720px; margin:0 auto; padding:8px 10px 14px; }
+  .title{ font-weight:700; font-size:16px; margin:2px 0 6px; }
+  canvas{ display:block; }
+  #lp{ width:100%; height:auto; }
+  .controls{ display:flex; flex-wrap:wrap; align-items:center; gap:14px; margin:8px 0 6px; font-size:13px; }
+  .controls label{ display:flex; align-items:center; gap:6px; }
+  input[type=range]{ width:200px; accent-color:var(--comb); }
+  select{ font-size:13px; padding:2px 4px; }
+  #biasval{ font-variant-numeric:tabular-nums; color:var(--comb); font-weight:600; min-width:190px; }
+  .row{ display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap; }
+  .cap{ font-size:11.5px; color:#667; text-align:center; margin-top:3px; }
+  .box{ border:1px solid #e6e6ee; border-radius:8px; padding:8px; }
+  #img{ image-rendering:pixelated; width:180px; height:180px; border:1px solid #ccc; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div class="title">Differential interference contrast: light paths</div>
+  <canvas id="lp" width="720" height="238"></canvas>
+
+  <div class="controls">
+    <label>Bias retardation
+      <input type="range" id="bias" min="-600" max="600" step="5" value="140">
+    </label>
+    <span id="biasval"></span>
+    <label>Specimen
+      <select id="spec">
+        <option value="cells">Cells</option>
+        <option value="fibers">Fibres</option>
+        <option value="grid">Diatom-like grid</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="row">
+    <div class="box">
+      <canvas id="wave" width="330" height="150"></canvas>
+      <div class="cap">O-wave (teal) and E-wave (orange): bias sets their relative phase</div>
+    </div>
+    <div class="box">
+      <canvas id="img" width="180" height="180"></canvas>
+      <div class="cap">Simulated DIC image (white-light interference colours)</div>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+const DEG=Math.PI/180;
+const teal="#0f9d9d", orange="#e7901b", comb="#7b3fa0";
+const lensFC="#D5ECFF", lensEC="#6fa8d4", prismFC="#e0d3ad", prismEC="#a8905a",
+      polFC="#cdd6de", polEC="#7a8a99";
+const WL=[615,540,465];      // R,G,B representative wavelengths (nm)
+let biasNM=140;              // bias retardation (nm) == objective prism shift
+
+/* ---------- light-path schematic (redrawn on bias change) ---------- */
+const lp=document.getElementById("lp"), g=lp.getContext("2d");
+const AX=112, S=26;
+const C={pol:60, p1:150, cond:250, spec:360, obj:470, p2:560, anal:640, eye:690};
+
+function lens(x,half=60){ g.save(); g.fillStyle=lensFC; g.strokeStyle=lensEC; g.lineWidth=1.6;
+  g.beginPath(); g.moveTo(x,AX-half); g.quadraticCurveTo(x+13,AX,x,AX+half);
+  g.quadraticCurveTo(x-13,AX,x,AX-half); g.fill(); g.stroke(); g.restore(); }
+function prism(x,h,yoff){ yoff=yoff||0; g.save(); g.fillStyle=prismFC; g.strokeStyle=prismEC; g.lineWidth=1.4;
+  g.fillRect(x-9,AX-h+yoff,18,2*h); g.strokeRect(x-9,AX-h+yoff,18,2*h);
+  g.beginPath(); g.moveTo(x-9,AX-h+yoff); g.lineTo(x+9,AX+h+yoff); g.stroke(); g.restore(); }
+function polfilter(x,angDeg,h=52){ g.save(); g.fillStyle=polFC; g.strokeStyle=polEC; g.lineWidth=1.3;
+  g.fillRect(x-5,AX-h,10,2*h); g.strokeRect(x-5,AX-h,10,2*h);
+  const dx=26*Math.cos(angDeg*DEG),dy=26*Math.sin(angDeg*DEG);
+  g.strokeStyle="#33414d"; g.lineWidth=1.6; arrow2(x-dx,AX+dy,x+dx,AX-dy); g.restore(); }
+function arrow2(x0,y0,x1,y1){ g.beginPath(); g.moveTo(x0,y0); g.lineTo(x1,y1); g.stroke();
+  head(x1,y1,x1-x0,y1-y0); head(x0,y0,x0-x1,y0-y1); }
+function head(x,y,dx,dy){ const a=Math.atan2(dy,dx),s=5; g.beginPath(); g.moveTo(x,y);
+  g.lineTo(x-s*Math.cos(a-0.5),y-s*Math.sin(a-0.5)); g.moveTo(x,y);
+  g.lineTo(x-s*Math.cos(a+0.5),y-s*Math.sin(a+0.5)); g.stroke(); }
+function beam(pts,color,wd){ g.save(); g.strokeStyle=color; g.lineWidth=wd||3; g.lineJoin="round"; g.lineCap="round";
+  g.beginPath(); g.moveTo(pts[0][0],pts[0][1]); for(let i=1;i<pts.length;i++) g.lineTo(pts[i][0],pts[i][1]);
+  g.stroke(); g.restore(); }
+function label(x,y,txt,color,size,bold,align){ color=color||"#333"; size=size||11; align=align||"center";
+  g.save(); g.fillStyle=color; g.textAlign=align; g.textBaseline="middle";
+  g.font=(bold?"600 ":"")+size+"px -apple-system,Segoe UI,Roboto,Arial";
+  txt.split("\n").forEach((l,i)=>g.fillText(l,x,y+i*13)); g.restore(); }
+
+function drawLightPath(){
+  const pdy=biasNM/50;                                  // objective-prism shift (px), along shear
+  g.clearRect(0,0,lp.width,lp.height);
+  g.save(); g.strokeStyle="#dddddd"; g.setLineDash([6,5]); g.lineWidth=1;
+  g.beginPath(); g.moveTo(10,AX); g.lineTo(712,AX); g.stroke(); g.restore();
+  beam([[16,AX],[C.pol,AX],[C.p1,AX]],comb);
+  beam([[C.p1,AX],[C.cond,AX-S],[C.obj,AX-S],[C.p2,AX]],teal);
+  beam([[C.p1,AX],[C.cond,AX+S],[C.obj,AX+S],[C.p2,AX]],orange);
+  beam([[C.p2,AX],[C.anal,AX],[C.eye,AX]],comb);
+  lens(C.cond); lens(C.obj);
+  prism(C.p1,40,0);
+  // objective prism: neutral outline + shifted block (the bias control)
+  g.save(); g.setLineDash([3,3]); g.strokeStyle="#c9bfa0"; g.lineWidth=1; g.strokeRect(C.p2-9,AX-46,18,92); g.restore();
+  prism(C.p2,46,pdy);
+  g.save(); g.strokeStyle="#8a7448"; g.lineWidth=1.2; arrow2(C.p2+18,AX-14,C.p2+18,AX+14); g.restore();
+  polfilter(C.pol,45); polfilter(C.anal,135);
+  g.save(); g.strokeStyle="#2f6fc4"; g.lineWidth=3.4;
+  g.beginPath(); g.moveTo(C.spec,AX-44); g.lineTo(C.spec,AX+44); g.stroke();
+  g.fillStyle="#222"; [AX-S,AX+S].forEach(y=>{g.beginPath(); g.arc(C.spec,y,3.6,0,7); g.fill();}); g.restore();
+  g.save(); g.fillStyle=lensFC; g.strokeStyle=lensEC; g.lineWidth=1.5;
+  g.beginPath(); g.moveTo(C.eye-8,AX-30); g.lineTo(C.eye+8,AX-30); g.lineTo(C.eye+14,AX+30);
+  g.lineTo(C.eye-14,AX+30); g.closePath(); g.fill(); g.stroke(); g.restore();
+  g.save(); g.strokeStyle="#555"; g.lineWidth=1.3; arrow2(C.spec-40,AX-S,C.spec-40,AX+S); g.restore();
+  label(C.spec-46,AX,"shear","#555",10,false,"right");
+  const gx=415;
+  g.save(); g.strokeStyle=teal; g.lineWidth=1.5; arrow2(gx-13,AX-S-16,gx+13,AX-S-16); g.restore();
+  g.save(); g.strokeStyle=orange; g.fillStyle=orange; g.lineWidth=1.5;
+  g.beginPath(); g.arc(gx,AX+S+17,6,0,7); g.stroke(); g.beginPath(); g.arc(gx,AX+S+17,1.6,0,7); g.fill(); g.restore();
+  label(gx+22,AX-S-16,"O",teal,10,true,"left"); label(gx+13,AX+S+17,"E",orange,10,true,"left");
+  const names=[["1  Polarizer",C.pol],["2  Nomarski prism",C.p1],["3  Condenser",C.cond],
+    ["4  Specimen",C.spec],["5  Objective",C.obj],["6  Nomarski prism (bias)",C.p2],
+    ["7  Analyzer",C.anal],["8  Eyepiece",C.eye]];
+  g.save(); g.fillStyle="#556"; g.font="10px -apple-system,Segoe UI,Roboto,Arial";
+  g.textAlign="center"; g.textBaseline="top"; const rows=[C.pol,C.cond,C.obj,C.anal];
+  names.forEach(a=>{ const y=(rows.indexOf(a[1])>=0)?AX+58:AX+74; g.fillText(a[0],a[1],y); }); g.restore();
+  label(360,18,"Two sheared, orthogonally polarized waves; sliding prism 6 sets the bias","#556",11,false,"center");
+}
+
+/* ---------- animated O/E wave inset ---------- */
+const wv=document.getElementById("wave"), w=wv.getContext("2d");
+let t0=performance.now();
+function rgbBackground(){                       // background colour at zero specimen path
+  return WL.map(l=>Math.round(255*Math.sin(Math.PI*biasNM/l)**2));
+}
+function drawWaves(now){
+  const biasRad=2*Math.PI*biasNM/550, t=(now-t0)/1000;
+  w.clearRect(0,0,wv.width,wv.height);
+  const midO=48,midE=104,A=22,k=0.09,om=3.2;
+  w.strokeStyle="#eee"; w.lineWidth=1;
+  [midO,midE].forEach(m=>{w.beginPath(); w.moveTo(8,m); w.lineTo(322,m); w.stroke();});
+  function plot(mid,phase,color){ w.strokeStyle=color; w.lineWidth=2; w.beginPath();
+    for(let x=8;x<=322;x++){ const y=mid-A*Math.sin(k*x-om*t-phase); x===8?w.moveTo(x,y):w.lineTo(x,y);} w.stroke(); }
+  plot(midO,0,teal); plot(midE,biasRad,orange);
+  w.fillStyle=teal; w.font="600 11px Arial"; w.textAlign="left"; w.fillText("O-wave",10,midO-30);
+  w.fillStyle=orange; w.fillText("E-wave  (shifted by bias)",10,midE+34);
+  const c=rgbBackground();
+  w.fillStyle="rgb("+c[0]+","+c[1]+","+c[2]+")"; w.strokeStyle="#999"; w.lineWidth=1;
+  w.fillRect(292,20,28,28); w.strokeRect(292,20,28,28);
+  w.fillStyle="#556"; w.font="9px Arial"; w.textAlign="center"; w.fillText("background",306,58);
+  requestAnimationFrame(drawWaves);
+}
+
+/* ---------- simulated DIC image (RGB interference colours) ---------- */
+const N=150, ds=2, SPEC=120;      // grid, shear px, specimen path scale (nm per unit)
+let phase=new Float32Array(N*N), diff=new Float32Array(N*N);
+/* ---------- procedural phase-map generators (seeded, licence-free) ---------- */
+function mul(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function makeNoise(seed){const rng=mul(seed),G=64,grid=new Float32Array(G*G);for(let i=0;i<G*G;i++)grid[i]=rng();
+  return function(x,y){const fx=x*G,fy=y*G;let x0=Math.floor(fx),y0=Math.floor(fy);const tx=fx-x0,ty=fy-y0;
+    const sx=tx*tx*(3-2*tx),sy=ty*ty*(3-2*ty);x0=((x0%G)+G)%G;y0=((y0%G)+G)%G;const x1=(x0+1)%G,y1=(y0+1)%G;
+    const a=grid[y0*G+x0]+(grid[y0*G+x1]-grid[y0*G+x0])*sx,b=grid[y1*G+x0]+(grid[y1*G+x1]-grid[y1*G+x0])*sx;
+    return a+(b-a)*sy;};}
+function fbm(n,x,y,o){let s=0,a=0.5,f=1;for(let i=0;i<o;i++){s+=a*n(x*f,y*f);f*=2;a*=0.5;}return s;}
+function gauss(ph,cx,cy,amp,sx,sy){for(let j=0;j<N;j++)for(let i=0;i<N;i++){const dx=(i-cx)/sx,dy=(j-cy)/sy;ph[j*N+i]+=amp*Math.exp(-0.5*(dx*dx+dy*dy));}}
+function blur(ph,sig){const rad=Math.max(1,Math.ceil(sig*2)),ker=[];let sum=0;
+  for(let t=-rad;t<=rad;t++){const v=Math.exp(-t*t/(2*sig*sig));ker.push(v);sum+=v;}for(let t=0;t<ker.length;t++)ker[t]/=sum;
+  const tmp=new Float32Array(N*N);
+  for(let j=0;j<N;j++)for(let i=0;i<N;i++){let s=0;for(let t=-rad;t<=rad;t++){let ii=i+t;if(ii<0)ii=0;if(ii>=N)ii=N-1;s+=ph[j*N+ii]*ker[t+rad];}tmp[j*N+i]=s;}
+  for(let j=0;j<N;j++)for(let i=0;i<N;i++){let s=0;for(let t=-rad;t<=rad;t++){let jj=j+t;if(jj<0)jj=0;if(jj>=N)jj=N-1;s+=tmp[jj*N+i]*ker[t+rad];}ph[j*N+i]=s;}}
+function genCells(ph){const rng=mul(1234),noise=makeNoise(77),sites=[],minD=16;let tr=0;
+  while(sites.length<26&&tr<5000){tr++;const x=6+rng()*(N-12),y=6+rng()*(N-12);let ok=true;
+    for(const s of sites)if((s[0]-x)**2+(s[1]-y)**2<minD*minD){ok=false;break;}if(ok)sites.push([x,y,0.7+rng()*0.6]);}
+  for(let j=0;j<N;j++)for(let i=0;i<N;i++){let f1=1e9,f2=1e9,c=0;
+    for(let k=0;k<sites.length;k++){const dx=i-sites[k][0],dy=j-sites[k][1],d=Math.sqrt(dx*dx+dy*dy);
+      if(d<f1){f2=f1;f1=d;c=k;}else if(d<f2)f2=d;}
+    const edge=(f2-f1)*0.5,hf=sites[c][2];
+    ph[j*N+i]=hf*2.6*(edge/(edge+6))+hf*1.7*Math.exp(-(f1*f1)/98)-0.9*Math.exp(-(edge*edge)/5.12);}
+  const r2=mul(999);for(let m=0;m<70;m++)gauss(ph,8+r2()*(N-16),8+r2()*(N-16),0.5+r2()*0.5,2+r2()*2,2+r2()*2);
+  for(let j=0;j<N;j++)for(let i=0;i<N;i++)ph[j*N+i]+=0.25*(fbm(noise,i/40,j/40,4)-0.5);}
+function genFibers(ph){const rng=mul(4321),noise=makeNoise(21),M=46;
+  for(let m=0;m<M;m++){let x=rng()*N,y=rng()*N,ang=rng()*Math.PI*2;const steps=Math.floor(60+rng()*130),amp=0.34+rng()*0.42,w=1.5+rng()*1.4;
+    for(let s=0;s<steps;s++){ang+=(rng()-0.5)*0.22;x+=Math.cos(ang);y+=Math.sin(ang);if(x<0||x>=N||y<0||y>=N)break;
+      const taper=Math.sin(Math.PI*s/steps),R=Math.ceil(w*2.5),ix=Math.round(x),iy=Math.round(y);
+      for(let dy=-R;dy<=R;dy++)for(let dx=-R;dx<=R;dx++){const xx=ix+dx,yy=iy+dy;if(xx<0||xx>=N||yy<0||yy>=N)continue;
+        ph[yy*N+xx]+=amp*taper*Math.exp(-(dx*dx+dy*dy)/(2*w*w));}}}
+  for(let j=0;j<N;j++)for(let i=0;i<N;i++)ph[j*N+i]+=0.18*(fbm(noise,i/30,j/30,4)-0.5);}
+function genGrid(ph){const noise=makeNoise(9),a=13;for(let n=0;n<N*N;n++)ph[n]=2.3;
+  for(let row=-1;row*a*0.866<N+a;row++)for(let col=-1;col*a<N+a;col++)gauss(ph,col*a+((row&1)?a/2:0),row*a*0.866,-1.6,3.0,3.0);
+  for(let j=0;j<N;j++)for(let i=0;i<N;i++)ph[j*N+i]+=0.12*(fbm(noise,i/28,j/28,3)-0.5);}
+function buildPhase(kind){const ph=new Float32Array(N*N);
+  if(kind==="cells"){genCells(ph);blur(ph,1.2);}
+  else if(kind==="fibers"){genFibers(ph);blur(ph,1.2);}
+  else{genGrid(ph);blur(ph,1.0);}
+  return ph;}
+function computeDiff(){ for(let j=0;j<N;j++)for(let i=0;i<N;i++){
+  const i2=Math.min(N-1,i+ds); diff[j*N+i]=(phase[j*N+i2]-phase[j*N+i])*SPEC; } }
+const img=document.getElementById("img"), ig=img.getContext("2d");
+const buf=ig.createImageData(N,N);
+function renderDIC(){ const G0=biasNM;
+  for(let n=0;n<N*N;n++){ const tot=G0+diff[n], p=4*n;
+    buf.data[p]  =255*Math.sin(Math.PI*tot/WL[0])**2;
+    buf.data[p+1]=255*Math.sin(Math.PI*tot/WL[1])**2;
+    buf.data[p+2]=255*Math.sin(Math.PI*tot/WL[2])**2;
+    buf.data[p+3]=255; }
+  ig.putImageData(buf,0,0); }
+
+/* ---------- wiring ---------- */
+const biasEl=document.getElementById("bias"), biasVal=document.getElementById("biasval"),
+      specEl=document.getElementById("spec");
+function updateBiasLabel(nm){ const lam=(nm/550), s=nm>0?"+":"";
+  let mode = Math.abs(nm)<15?"  (darkfield-like)" : (Math.abs(Math.abs(nm)-140)<25?"  (grey relief)":"  (colour)");
+  biasVal.textContent="\u0393 = "+s+nm+" nm  ("+s+lam.toFixed(2)+" \u03bb)"+mode; }
+function refresh(){ biasNM=+biasEl.value; updateBiasLabel(biasNM); drawLightPath(); renderDIC(); }
+biasEl.addEventListener("input",refresh);
+specEl.addEventListener("change",()=>{ phase=buildPhase(specEl.value); computeDiff(); renderDIC(); });
+
+/* init */
+phase=buildPhase("cells"); computeDiff();
+biasNM=+biasEl.value; updateBiasLabel(biasNM);
+drawLightPath(); renderDIC();
+requestAnimationFrame(drawWaves);
+</script>
+</body>
+</html>

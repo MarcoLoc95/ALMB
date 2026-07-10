@@ -100,8 +100,6 @@ Brightness is what you actually perceive at the eyepiece, and it has a practical
 Brightness is a product, so a fluorophore can be dim for two very different reasons: it barely absorbs (low $\varepsilon$), or it absorbs well but wastes the energy as heat (low $\Phi$). Diagnosing which one is failing tells you whether to change the excitation wavelength or change the molecule.
 ```
 
-The last parameter on the list is not a property of the fluorophore but of your measurement: the **signal-to-noise ratio (SNR)**, the ratio of the signal carrying real information to everything else you detect, including background and random noise from the camera. We will spend real time on SNR in the image-analysis part of the course; for now, just note that brighter fluorophores and lower background both push it in the right direction.
-
 ## Autofluorescence
 
 Here is an uncomfortable fact: if you put a slice of unlabeled tissue under the microscope, it will probably glow anyway. Cells are full of molecules that fluoresce on their own, including reduced nucleotides such as NADH, aromatic amino acids in proteins, and natural pigments like flavins and porphyrins. Anything with color in nature, from fruit to leaves, contains such pigments. This intrinsic glow is called **autofluorescence**, and the inconvenient part is that it appears across the whole spectrum, from the violet to the near-infrared, so there is no single color where you are guaranteed to be safe.

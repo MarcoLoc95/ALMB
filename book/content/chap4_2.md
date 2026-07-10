@@ -32,8 +32,17 @@ align: center
 Molecular structures of common Alexa Fluor dyes, and the corresponding spectra.
 ```
 
-
 You attach a dye to a chosen structure through **immunofluorescence**: an antibody recognizes the target, and the dye rides along on the antibody. With the right antibodies you can light up almost anything, the nucleus, actin, mitochondria, the cytoskeleton, membranes, one target per structure, which is why immunofluorescence images of dye-labeled cells are among the most recognizable pictures in all of biology.
+
+```{figure} ../figures/chap4_dyes_examples.png
+---
+width: 90%
+name: dyes_examples
+align: center
+---
+Examples of fixed samples labelled with organic dyes.
+```
+
 
 ## Genetically encoded fluorescent proteins
 

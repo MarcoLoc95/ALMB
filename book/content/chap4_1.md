@@ -26,9 +26,9 @@ Molecules are richer. Instead of clean atomic shells we have to deal with molecu
 
 _{numref}`Fig. %s <jablonski>`_ organizes the whole process by energy, which increases as you move up the page. The thick horizontal lines are electronic states: the ground state $S_0$ at the bottom, and excited states $S_1$, $S_2$ above it. Stacked above each electronic state is a ladder of thinner lines, the **vibrational sublevels**. These exist because a molecule is not a rigid object: it can stretch, bend, and rotate, and each of those motions adds a little energy on top of the electronic state. The sublevels get denser the higher you go, so for almost any photon energy in the absorption band there is some vibrational level ready to receive it.
 
-```{figure} ../figures/jablonski.png
+```{figure} ../figures/chap4_jablonski.png
 ---
-width: 85%
+width: 100%
 name: jablonski
 align: center
 ---

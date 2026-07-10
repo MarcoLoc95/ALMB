@@ -112,11 +112,11 @@ You cannot really engineer it away, at least not without stripping the cell of t
 
 The triplet state we met earlier is a quiet troublemaker. It is chemically reactive, and a molecule that lingers there can react with nearby oxygen, which cells always have, to produce **reactive oxygen species (ROS)**: singlet oxygen, superoxide, hydrogen peroxide, and similar aggressive radicals. When those species attack the fluorophore itself, they break or modify it: a double bond becomes a single bond, a group is cleaved, and the molecule simply stops fluorescing. This irreversible destruction is **photobleaching**, and there is no coming back from it.
 
-It might seem that the triplet route is so rare it should not matter. For many fluorophores the transition from $S_1$ down to $S_0$ is about a billion times more probable than the crossing from $S_1$ into the triplet, $k_2 \approx 10^9\,k_3$. But a fluorophore is cycled through excitation enormous numbers of times per second, so even a one-in-a-billion detour adds up. Under ordinary illumination, a few milliwatts of excitation, a typical organic fluorophore survives only on the order of seconds before it bleaches.
+It might seem that the triplet route is so rare it should not matter. For many fluorophores the transition from $S_1$ down to $S_0$ is about a billion times more probable than the crossing from $S_1$ into the triplet. But a fluorophore is cycled through excitation an enormous numbers of times per second, so even a one-in-a-billion detour adds up. Under ordinary illumination, a few milliwatts of excitation, a typical organic fluorophore survives only on the order of seconds before it bleaches.
 
-```{figure} ../figures/photobleaching.png
+```{figure} ../figures/chap4_photobleaching.png
 ---
-width: 80%
+width: 100%
 name: photobleaching
 align: center
 ---

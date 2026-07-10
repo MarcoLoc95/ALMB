@@ -49,7 +49,7 @@ Size-tunable emission of colloidal CdSe quantum dots. Only the dot diameter chan
 
 Quantum dots bring a striking list of advantages. They are very bright, with quantum yields near one, and because they have no troublesome triplet states they are extraordinarily photostable: you essentially have to physically destroy the particle to stop it glowing, so for practical purposes they barely photobleach at all. Furthermore, they are highly tunable through size, and their emission peaks are narrow and symmetric, much sharper than the broad, tailing peaks of organic fluorophores. That sharpness is most suitable for **multiplexing**, imaging many colors at once, because narrow peaks can be cleanly separated by filters where broad ones would bleed into each other. A single excitation wavelength can excite dots of many colors simultaneously, and four, five, or six channels become realistic. In practice they have been used to label membranes, intracellular targets, and a range of cell types including neurons and glia.
 
-```{figure} ../figures/chap4_qdot_examples.png
+```{figure} ../figures/chap4_qd_examples.png
 ---
 width: 80%
 name: qd_examples

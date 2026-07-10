@@ -36,13 +36,13 @@ The newest family, first made in the 1980s and developed for biology somewhat la
 
 In a bulk semiconductor, electrons live in continuous energy bands separated by a band gap. Shrink the crystal down to a few nanometers and the gap is no longer fixed: the smaller the dot, the larger the gap, and the larger the gap, the shorter (bluer) the emitted wavelength. This is **quantum confinement**, and it gives quantum dots a property no dye or protein has, namely that you tune the color simply by changing the size. The fluorescing core is usually surrounded by several extra layers: surface ligands, a polymer coating such as PEG that acts as a spacer, and a targeting ligand on the outside. The spacer is not optional. Bring the core too close to other molecules and energy leaks away non-radiatively, a FRET-like quenching, so the polymer holds everything at a safe distance. In size, quantum dots sit between the two organic families: bigger than a dye, smaller than a protein.
 
-```{figure} ../figures/qd_tunability.png
+```{figure} ../figures/chap4_qdot_spectra.gif
 ---
-width: 80%
+width: 90%
 name: qd_tunability
 align: center
 ---
-Simulated emission of quantum dots of increasing diameter, each colored by its emission wavelength, contrasted with the much broader emission of a typical organic dye (grey, dashed). Larger dots emit at longer wavelengths, and the narrow, symmetric quantum-dot peaks make it possible to pack many distinguishable colors into the spectrum at once.
+Size-tunable emission of colloidal CdSe quantum dots. Only the dot diameter changes, yet the emission peak marches from the blue toward the red as the dot grows. This is quantum confinement in action: in a crystal only a few nanometers across, the electron and hole are boxed into a space smaller than they would naturally occupy, which widens the energy gap. A smaller box means a larger gap and shorter-wavelength emission, a larger box a smaller gap and longer-wavelength emission, so a single material can be tuned across the whole visible spectrum by size alone. Notice too how narrow and symmetric each peak is, unlike the red-tailed emission of organic dyes and fluorescent proteins.
 ```
 
 Quantum dots bring a striking list of advantages (_{numref}`Fig. %s <qd_tunability>`_). They are very bright, with quantum yields near one, and because they have no troublesome triplet states they are extraordinarily photostable: you essentially have to physically destroy the particle to stop it glowing, so for practical purposes they barely photobleach at all. They are highly tunable through size. And their emission peaks are narrow and symmetric, much sharper than the broad, tailing peaks of organic fluorophores. That sharpness is gold for **multiplexing**, imaging many colors at once, because narrow peaks can be cleanly separated by filters where broad ones would bleed into each other. A single excitation wavelength can excite dots of many colors simultaneously, and four, five, or six channels become realistic. In practice they have been used to label membranes, intracellular targets, and a range of cell types including neurons and glia.

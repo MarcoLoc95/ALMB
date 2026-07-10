@@ -93,6 +93,8 @@ Three components make this work, and together they form a **filter set**, usuall
 - The **dichroic mirror** (a dichroic beamsplitter) sits at 45° and is wavelength-selective: it reflects the shorter excitation wavelengths down into the objective but transmits the longer emission wavelengths on the way back up. This is the piece that lets one objective both illuminate and collect, and it works only because the Stokes shift has already separated excitation from emission.
 - The **emission filter** is a final bandpass (or longpass) filter that passes the fluorophore's emission and blocks any leftover excitation, giving the dark background that makes fluorescence images so striking.
 
+Although most of the excitation light never reaches the detector, a few photons are reflected or scattered back into the objective and slip through the emission filter, adding to the background. This residual excitation light (sometimes called excitation bleedthrough) matters mainly for dim fluorophores, and is usually corrected by background subtraction during image processing.
+
 ```{tip}
 The three bands of a filter set line up in Stokes order along the wavelength axis: the excitation band, then the dichroic's cut-on wavelength, then the emission band, each stepping toward the red. A good set keeps them from overlapping so that no excitation light leaks into the emission channel, which is also why a larger Stokes shift is easier to filter cleanly.
 ```
@@ -141,6 +143,8 @@ align: center
 ---
 Origin of autofluorescence in biological samples. Endogenous fluorophores, including NADH/NADPH, aromatic amino acids in proteins, flavins, lipofuscin, and porphyrins, absorb light at different excitation wavelengths and emit broad fluorescence spectra. Because these emission spectra overlap, autofluorescence can reduce image contrast and interfere with the detection of fluorescent labels.
 ```
+
+Together with the autofluorescence discussed earlier, excitation bleedthrough is one of the two main sources of background in a fluorescence image.
 
 ## Photobleaching and phototoxicity
 

@@ -267,5 +267,5 @@ width: 100%
 name: compare_contrast
 align: center
 ---
-Comparison of the same sample of adherent human osteosarcoma cells (U2OS), left to right: brightfield, phase contrast, and DIC. Courtesy of Ernest van der Wee.
+Comparison of the same sample of adherent human osteosarcoma cells (U2OS), left to right: brightfield, phase contrast, and DIC. Courtesy of Alfredo Rates Soriano and Ernest van der Wee.
 ```

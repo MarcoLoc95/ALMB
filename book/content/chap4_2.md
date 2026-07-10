@@ -48,9 +48,18 @@ Examples of fixed samples labelled with organic dyes.
 
 The alternative is to let the cell build its own fluorophore. **Genetically encoded fluorescent proteins** are written into the cell's DNA, typically delivered on a plasmid (a small circular DNA borrowed from bacteria) or by a virus, and the cell then manufactures the glowing protein itself.
 
-The icon of this family is the **green fluorescent protein (GFP)**, discovered in the jellyfish _Aequorea victoria_. Its story is a small monument in biology: Osamu Shimomura isolated it in the 1960s, Martin Chalfie showed in the 1990s that the gene could be expressed in other organisms to act as a living marker, and Roger Tsien engineered a whole palette of color variants and worked out how the color arises. The three shared the 2008 Nobel Prize in Chemistry. Most of the common fluorescent proteins in use today are descendants of GFP, with additional colors borrowed from proteins found in corals and sea anemones.
+The icon of this family is the **green fluorescent protein (GFP)**, discovered in the jellyfish _Aequorea victoria_. Its story is a small monument in biology: Osamu Shimomura isolated it in the 1960s, Martin Chalfie showed in the 1990s that the gene could be expressed in other organisms to act as a living marker, and Roger Tsien engineered a whole palette of color variants and worked out how the color arises. The three shared the 2008 Nobel Prize in Chemistry. Most of the common fluorescent proteins in use today are descendants of GFP.
 
 Structurally, GFP and its relatives are **beta-barrels**: a cylinder of rigid beta-sheets wrapped around a central **chromophore**, the small group of amino acids that actually does the fluorescing. The barrel is doing real work. It is stiff and protective, shielding the chromophore from the outside world so that it does not get quenched, much as the aromatic rings of an organic dye are themselves the emitting part. The precise chemistry of the chromophore sets the color.
+
+```{figure} ../figures/chap4_genencoded.png
+---
+width: 90%
+name: genencoded
+align: center
+---
+From left to right: EGFP, Citrine and mCherry beta-barrel structures and, below, the respective chromophores responsible for fluorescence. Source: [PBD](https://www.rcsb.org/)
+```
 
 The defining advantage is that the cell makes the label, which buys you two things. The labeling is genetic rather than chemical: co-express the fluorescent protein with a protein that goes to your target of interest, and wherever that target ends up, the fluorescence follows. This tends to be more reliable than immunofluorescence, which stacks antibody upon antibody. And because the cell keeps producing the protein, fluorescence is replenished over time and across cell divisions, though slowly, on the scale of the cell's own protein turnover. Like all organic fluorophores, fluorescent proteins eventually photobleach.
 

@@ -260,3 +260,12 @@ Each of the four transmitted-light modes we have discussed has its strengths and
 **Phase contrast** is the workhorse for routine live-cell observation. It converts phase shifts into intensity and reveals the internal structure of transparent cells (nucleus, organelles, membranes). The halo artifact and the interference with fluorescence are its main drawbacks.
 
 **DIC** produces relief-like images with excellent optical sectioning, no halos, and full compatibility with fluorescence. It is the premium transmitted-light technique for research imaging. Its main disadvantage is cost (the Wollaston prisms and polarizers are expensive) and the fact that it does not work well with plastic dishes or birefringent specimens.
+
+```{figure} ../figures/chap3_comparison.png
+---
+width: 100%
+name: compare_contrast
+align: center
+---
+Comparison of the same sample of adherent human osteosarcoma cells (U2OS), left to right: brightfield, phase contrast, and DIC. Courtesy of Ernest van der Wee.
+```

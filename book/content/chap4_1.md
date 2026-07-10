@@ -57,13 +57,13 @@ The timescale ladder is worth committing to memory because it explains so much d
 
 We cannot see individual energy levels, but we can measure spectra, and a spectrum is a direct fingerprint of those levels. Sweep the excitation wavelength and record how strongly the molecule fluoresces: that is the **excitation spectrum**, and it traces the upward arrows, with stronger absorption where a transition is more probable. Fix the excitation and record the colors that come out: that is the **emission spectrum**, tracing the downward fluorescence arrows. Because excitation samples the vibrational levels of the excited state and emission samples those of the ground state, and because the two ladders are usually similar, the spectra often look like mirror images of each other (_{numref}`Fig. %s <spectra_stokes>`_).
 
-```{figure} ../figures/spectra_stokes.png
+```{figure} ../figures/chap4_jablonski_spectra.png
 ---
-width: 80%
+width: 90%
 name: spectra_stokes
 align: center
 ---
-Excitation (blue, dashed) and emission (green, solid) spectra of a typical fluorophore, with the characteristic near-mirror symmetry. The emission is shifted toward longer wavelengths. The gap between the two peaks is the Stokes shift, $\Delta\lambda$.
+The transition manifold of mCherry mapped onto its measured spectrum (data from [FPbase](https://www.fpbase.org/protein/mcherry/)). In the Jablonski diagram each arrow is drawn at the wavelength of its transition, and its width is scaled to the transition probability, that is, to the intensity of the spectrum at that wavelength. Absorption (upward) from the ground state $S_0$ reaches the vibrational sublevels of $S_1$ across the main band, and a weaker set of violet arrows reaches the higher electronic state $S_2$ at the UV band near 345 nm. The molecule then loses energy without emitting: internal conversion from $S_2$ to $S_1$ and vibrational relaxation to the bottom of $S_1$ (grey wave arrows). Fluorescence (downward) returns the molecule to the vibrational sublevels of $S_0$. The energy lost to vibrational relaxation is the Stokes shift (excitation maximum 587 nm, emission maximum 610 nm), and the shared vibrational spacing on both sides is why the two bands are near mirror images.
 ```
 
 The single most useful feature of this plot is the gap between the two peaks, the **Stokes shift** $\Delta\lambda$, named after the same Stokes:

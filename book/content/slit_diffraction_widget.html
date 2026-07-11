@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diffraction from a slit</title>
+<style>body{margin:0;padding:24px;background:#f0f0f0;}</style>
+</head>
+<body>
+<!-- WIDGET START -->
+<div id="slit-widget" class="almb-widget">
+  <style>
+    #slit-widget.almb-widget{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;max-width:640px;margin:1.2em auto;padding:18px 22px 16px;background:#fff;border:1px solid #e6e6e6;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.05);color:#222;box-sizing:border-box;}
+    #slit-widget .ctrls{display:flex;flex-direction:column;gap:11px;margin-bottom:4px;}
+    #slit-widget .row{display:grid;grid-template-columns:180px 1fr;align-items:center;gap:14px;}
+    #slit-widget .lab{font-size:14px;font-variant-numeric:tabular-nums;color:#333;white-space:nowrap;}
+    #slit-widget .lab b{color:#e05020;font-weight:600;}
+    #slit-widget input[type=range]{width:100%;accent-color:#e05020;height:22px;cursor:pointer;}
+    #slit-widget svg{width:100%;height:auto;display:block;margin-top:6px;}
+    #slit-widget .hint{font-size:12.5px;color:#777;margin-top:8px;line-height:1.45;}
+    @media (max-width:460px){#slit-widget .row{grid-template-columns:1fr;gap:2px;}}
+  </style>
+  <div class="ctrls">
+    <div class="row"><span class="lab" id="sw-l-lab">Wavelength <b>&lambda;</b> = 500 nm</span><input type="range" id="sw-l" min="300" max="700" step="1" value="500"></div>
+    <div class="row"><span class="lab" id="sw-d-lab">Slit width <b>d</b> = 50 &mu;m</span><input type="range" id="sw-d" min="50" max="300" step="1" value="50"></div>
+    <div class="row"><span class="lab" id="sw-D-lab">Distance <b>D</b> = 1.0 m</span><input type="range" id="sw-D" min="0.2" max="10" step="0.1" value="1"></div>
+  </div>
+  <svg id="sw-svg" viewBox="0 0 560 300" role="img" aria-label="Single-slit diffraction intensity profile"></svg>
+  <div class="hint">The intensity on the screen follows a sinc&sup2; profile. Notice how a <em>narrower</em> slit spreads the pattern <em>wider</em>.</div>
+  <script>
+  (function(){
+    var NS="http://www.w3.org/2000/svg";
+    var svg=document.getElementById("sw-svg");
+    var sL=document.getElementById("sw-l"), sd=document.getElementById("sw-d"), sD=document.getElementById("sw-D");
+    var lL=document.getElementById("sw-l-lab"), ld=document.getElementById("sw-d-lab"), lD=document.getElementById("sw-D-lab");
+    var W=560,H=300,mL=56,mR=16,mT=14,mB=44;
+    var x0=mL,x1=W-mR,y0=H-mB,y1=mT,xmin=-0.1,xmax=0.1,ymax=1.05;
+    function X(x){return x0+(x-xmin)/(xmax-xmin)*(x1-x0);}
+    function Y(y){return y0+(y)/(ymax)*(y1-y0);}
+    function mk(n,a,txt){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;svg.appendChild(e);return e;}
+    var area,curve;
+    function frame(){
+      [0,0.25,0.5,0.75,1].forEach(function(v){
+        mk("line",{x1:x0,y1:Y(v),x2:x1,y2:Y(v),stroke:"#eee","stroke-width":1});
+        mk("text",{x:x0-9,y:Y(v)+4,"text-anchor":"end","font-size":12,fill:"#8a8a8a","font-family":"sans-serif"},v.toFixed(2));
+      });
+      [-10,-5,0,5,10].forEach(function(cm){
+        mk("line",{x1:X(cm/100),y1:y0,x2:X(cm/100),y2:y0+5,stroke:"#aaa","stroke-width":1});
+        mk("text",{x:X(cm/100),y:y0+20,"text-anchor":"middle","font-size":12,fill:"#8a8a8a","font-family":"sans-serif"},cm);
+      });
+      mk("line",{x1:x0,y1:y0,x2:x1,y2:y0,stroke:"#555","stroke-width":1.2});
+      mk("line",{x1:x0,y1:y0,x2:x0,y2:y1,stroke:"#555","stroke-width":1.2});
+      mk("text",{x:(x0+x1)/2,y:H-8,"text-anchor":"middle","font-size":13,fill:"#444","font-family":"sans-serif"},"Position on the screen [cm]");
+      var cy=(y0+y1)/2;
+      mk("text",{x:15,y:cy,"text-anchor":"middle","font-size":13,fill:"#444","font-family":"sans-serif",transform:"rotate(-90 15 "+cy+")"},"Normalized intensity [a.u.]");
+      area=mk("path",{fill:"#2a4494","fill-opacity":0.10,stroke:"none"});
+      curve=mk("path",{fill:"none",stroke:"#2a4494","stroke-width":1.8,"stroke-linejoin":"round"});
+    }
+    function update(){
+      var lam=+sL.value*1e-9, d=+sd.value*1e-6, D=+sD.value;
+      lL.innerHTML="Wavelength <b>&lambda;</b> = "+sL.value+" nm";
+      ld.innerHTML="Slit width <b>d</b> = "+sd.value+" &mu;m";
+      lD.innerHTML="Distance <b>D</b> = "+(+sD.value).toFixed(1)+" m";
+      var N=640,dp="",ap="M "+X(xmin).toFixed(2)+" "+Y(0).toFixed(2)+" ";
+      for(var i=0;i<=N;i++){
+        var x=xmin+(xmax-xmin)*i/N;
+        var arg=Math.PI*d*x/(lam*D);
+        var y=(Math.abs(arg)<1e-9)?1:Math.pow(Math.sin(arg)/arg,2);
+        var px=X(x).toFixed(2),py=Y(y).toFixed(2);
+        dp+=(i===0?"M ":"L ")+px+" "+py+" ";
+        ap+="L "+px+" "+py+" ";
+      }
+      ap+="L "+X(xmax).toFixed(2)+" "+Y(0).toFixed(2)+" Z";
+      curve.setAttribute("d",dp); area.setAttribute("d",ap);
+    }
+    frame();
+    [sL,sd,sD].forEach(function(s){s.addEventListener("input",update);});
+    update();
+  })();
+  </script>
+</div>
+<!-- WIDGET END -->
+</body>
+</html>

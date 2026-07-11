@@ -59,7 +59,7 @@ We can immediately see that the farther we are from the source, the dimmer the e
 
 Huygens-Fresnel principle
 ---
-The genious idea behind the principle proposed by Christiaans Huygens and Augustin-Jean Fresnel is that every point on a wavefront can itself be the source of spherical wavelets, and the secondary wavelets emanating from different points mutually interfere. You can think of it as a sort of "Taylor's expansion" for waves.
+The genius idea behind the principle proposed by Christiaan Huygens and Augustin-Jean Fresnel is that every point on a wavefront can itself be the source of spherical wavelets, and the secondary wavelets emanating from different points mutually interfere. You can think of it as a sort of "Taylor's expansion" for waves.
 
 The sum of these spherical wavelets forms a new wavefront. So, when a beam of coherent light (a plane wave) hits an aperture, diffraction can be easily explained as the interference of the point sources that were not blocked and passed through the aperture (_{numref}`Fig. {number} <huygens>`_).
 
@@ -100,7 +100,7 @@ E(Y) = \int_{-\infty}^{+\infty} dE \propto \int_{-\infty}^{+\infty} f(y) \frac{e
 0 \text{ elsewhere} \end{cases}
 $$
 
-The function $f(y)$ is called the _aperture fuction_. It can also represent a diffracting object.
+The function $f(y)$ is called the _aperture function_. It can also represent a diffracting object.
 
 We can rewrite $R$  as:
 
@@ -185,7 +185,7 @@ width: 80%
 name: lensfourier1
 align: center
 ---
-When an object is placed in the front focal plane of a converging lens and illuminated with coherent light, its Fourier transform forms in the back focal place (cell illustration modified from [Freepik](www.freepik.com)).
+When an object is placed in the front focal plane of a converging lens and illuminated with coherent light, its Fourier transform forms in the back focal plane (cell illustration modified from [Freepik](https://www.freepik.com)).
 ```
 
 On the principal axis of the lens the undiffracted rays all converge into the focal point. That bright spot at the center of the diffraction pattern corresponds to zero spatial frequency (using terminology from electronics, the **DC component**). As this component would be present even without a diffracting object in front of the lens, it does not contain any useful information about the sample. For semi-transparent objects, this is always the brightest component in the spectrum. In imaging terms, the zero-frequency part of the image is responsible for the average brightness (the background level). Without the DC component, the image would appear darker overall, and only the details with higher spatial frequencies (edges, textures and fine structures) would remain visible.
@@ -222,7 +222,7 @@ width: 100%
 name: lensfourier2
 align: center
 ---
-When an object is placed close to a converging lens and illuminated with coherent light, its Fourier transform also forms in the back focal place (cell illustration modified from [Freepik](www.freepik.com)).```
+When an object is placed close to a converging lens and illuminated with coherent light, its Fourier transform also forms in the back focal plane (cell illustration modified from [Freepik](https://www.freepik.com)).```
 
 The difference from the first case is that the rays cross now farther apart in the back focal plane ({numref}`Fig. {number} <lensfourier2mag>`). By calculating the magnification in the same way as before we get:
 

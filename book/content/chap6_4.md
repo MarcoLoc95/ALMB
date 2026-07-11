@@ -156,7 +156,6 @@ $$
 a series of concentric oscillating rings in frequency space. A _filled_ disk, by the same logic, transforms into the Airy pattern built from $J_1$ that we met as the diffraction of a circular aperture. Circularly symmetric objects, and circular apertures, are the reason ringed spectra are so common in microscopy.
 
 ## Sampling diffraction-limited objects
----
 
 The diffraction limit sets the size of the smallest object an optical system can render: anything finer is blurred out to that size. Since the limit depends only on the numerical aperture and the wavelength, it is tempting to assume that every image is automatically diffraction-limited. It is not, because whether we actually _record_ that finest detail depends on the camera, through the pixel size and the magnification.
 
@@ -165,15 +164,6 @@ The total magnification $M$ makes objects in the sample appear $M$ times larger 
 The rule for matching the two comes straight from the frequency picture. The microscope band-limits the image: it passes no spatial frequency above its cutoff, so the image contains no period finer than the resolution $d$. The sampling theorem then says we must place at least two samples across the finest period, so the pixel spacing at the sample must be no larger than half the resolution. In practice a small safety margin is added, and a common convention is to make the pixel about $1/2.3 \approx 0.44$ times the smallest feature. Sampling more coarsely than this loses real information, an error called **undersampling** that shows up as a pixelated, aliased image; sampling much more finely, **oversampling**, adds no new information and only spreads the same photons over more pixels.
 
 To make it concrete, a diffraction-limited resolution of $320\ \text{nm}$ calls for samples every $140\ \text{nm}$ or so across the image. With a $6.5\ \mu\text{m}$ pixel, that requires a magnification of roughly $45$ to $50\times$. The lesson is worth stating plainly: magnification does nothing for the optical blur of the microscope, but it is what lets the detector sample finely enough to record all the detail the optics did transmit.
-
-### Smallest feature measurable: an inverse problem
----
-
-The resolving power of an optical system answers a deceptively simple question: how close can two small features be before the blurring of their images merges them into one? The answer depends on the wavelength and, above all, on how wide a cone of light the objective can collect. A larger back aperture accepts steeper rays, which means a larger collection angle, a larger numerical aperture $\text{NA} = n\sin\alpha$, and finer resolution.
-
-There is a hard geometric ceiling here. The widest cone imaginable would span a full $180^\circ$, a half-angle $\alpha$ of $90^\circ$, but that would require an impossibly large lens hugging the sample. In practice half-angles above about $72^\circ$ are not achievable, so an air objective tops out near $\text{NA} = 0.95$. For green light around $500\ \text{nm}$, the Rayleigh criterion $0.61\,\lambda/\text{NA}$ then gives a best resolution of roughly $320\ \text{nm}$. Two points closer than this are recorded as one, and any object smaller than this is smeared into a blob about $320\ \text{nm}$ wide. This is the diffraction limit, seen from the collection side.
-
-It is illuminating to frame this as an **inverse problem**. Image formation is a forward operation: the object is convolved with the point spread function to produce the image. Asking for the smallest measurable feature is asking to run that operation backwards, to recover the object from the image. Within the passband this inversion is possible, if delicate, which is exactly what deconvolution attempts. Beyond the cutoff, though, the forward map sends many different objects to the very same image, because those high frequencies are multiplied by zero and vanish. No inverse can then distinguish them. In this precise sense the diffraction limit is the point at which the inverse problem stops having a unique solution, and it is why no amount of post-processing can honestly recover detail that the optics never transmitted.
 
 ### Interactive resolution calculator
 ---

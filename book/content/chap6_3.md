@@ -2,8 +2,7 @@
 
 So far we have built the machinery: in the far field we measure the Fourier transform of the object, a converging lens brings that transform into its back focal plane, and the finite objective behaves like a circular aperture that discards the high spatial frequencies, spreading every point into an Airy disk. All of this was, admittedly, rather abstract. In this section we cash in that theory. We will learn to look at an image as a spectrum of spatial frequencies, to describe blurring as a single elegant operation called convolution, and to understand precisely what image processing can and cannot recover. These ideas underpin deconvolution, pixel reassignment and even the way we honestly measure the resolution of a microscope from the data itself.
 
-Images in terms of spatial frequencies
----
+## Images in terms of spatial frequencies
 
 Let us start from the simplest possible image: a sinusoidal grating, a pattern of stripes whose brightness varies as a cosine. This is the spatial equivalent of a pure musical tone, and just like a tone it is described by only a handful of numbers. It has an **amplitude** (the contrast between bright and dark stripes), a **frequency** (how tightly the stripes are packed), a **direction** (the orientation of the stripes) and a **phase** (where the bright stripes sit).
 
@@ -40,12 +39,8 @@ An image and its Fourier transform. Keeping only the low frequencies (a) blurs t
 
 If we deliberately delete the outer part of the spectrum and transform back, we obtain a blurred image, because we have discarded exactly the detail that the high frequencies carried. If instead we delete the center, we are left with the edges and outlines alone: the uniform regions disappear because their information sat at low frequencies. Keep this pair of pictures in mind, because they are the whole idea behind the filtering, deconvolution and reassignment techniques that follow.
 
-```{tip}
-Computational tools make this tangible. Loading an image and taking its two-dimensional Fourier transform (for example with `numpy.fft.fft2` and `numpy.fft.fftshift`) lets you mask regions of the spectrum by hand and watch the reconstructed image change. A few minutes of this builds more intuition than pages of text.
-```
 
-Convolution and deconvolution
----
+## Convolution and deconvolution
 
 We are now ready for what is arguably the most important equation in this whole chapter. Every real image is a blurred version of the true object, and the blurring agent is the point spread function. Because the imaging system responds to each individual point of the object by drawing a PSF there, scaled by how bright that point is, the recorded image is built by stamping a copy of the PSF at every object point and summing them all up. This "stamp everywhere and add" operation is called a **convolution**, written with the symbol $\ast$:
 
@@ -91,8 +86,7 @@ Its drawbacks are equally real:
 
 The honest bottom line is that deconvolution optimally restores the frequencies the microscope actually captured, but it does not break the diffraction limit: it cannot recover what was lost beyond the cutoff.
 
-Spatial filtering
----
+## Spatial filtering
 
 Once we accept that image formation is filtering, the door opens to filtering on purpose. Since a convolution is a multiplication in frequency space, we can shape an image simply by transforming it, multiplying its spectrum by a mask of our choosing, and transforming back. Different masks serve different goals ({numref}`Fig. {number} <filters>`).
 
@@ -111,8 +105,7 @@ A particularly satisfying case is the **notch filter**. Periodic contamination, 
 
 One caution is worth stating. Filters with hard, sharp edges in frequency space produce ringing artifacts in the image, faint ripples around sharp features, for the same reason that a sharp-edged slit produces oscillating diffraction fringes. Smooth-edged masks, or apodization of the mask boundary, keep these artifacts under control. And as always, filtering only rearranges or removes the information already present: it cannot restore frequencies the objective discarded in the first place.
 
-Pixel reassignment
----
+## Pixel reassignment
 
 Confocal microscopy improves resolution and provides optical sectioning by placing a pinhole in front of the detector, rejecting out-of-focus and off-axis light. There is a catch familiar to every confocal user: the tighter the pinhole, the better the resolution but the less light reaches the detector, so the sharpest setting is also the noisiest. It is natural to ask whether we can keep the resolution gain without paying in photons. Pixel reassignment is the elegant answer.
 
@@ -146,8 +139,7 @@ On the negative side:
 
 The deeper lesson is that pixel reassignment is a physical, optical rearrangement of light that is robust and artifact-free, whereas deconvolution is a numerical inversion that is more powerful but more prone to inventing structure. The two are complementary, and modern instruments increasingly use both.
 
-Fourier Ring Correlation (FRC)
----
+## Fourier Ring Correlation (FRC)
 
 We close with a practical question that the theoretical resolution limits cannot answer. Abbe and Rayleigh tell us the best resolution the optics could ever achieve, but the resolution of an actual image also depends on noise, labeling density, sample contrast and drift. How can we measure the true, effective resolution of a real image, from the data alone? **Fourier Ring Correlation** provides an objective answer, and it does so with the frequency-space thinking we have developed throughout this section.
 

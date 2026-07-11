@@ -248,4 +248,4 @@ The two ideas of this section, the diffraction-limited resolution and the sampli
 </div>
 ```
 
-For a fuller tool that includes a large library of real objectives and immersion media, Nikon provides an online resolution calculator at [microscope.healthcare.nikon.com/microtools/resolution-calculator](https://www.microscope.healthcare.nikon.com/microtools/resolution-calculator/).
+For a fuller tool that includes a large library of real objectives and immersion media, Nikon provides an online resolution calculator at [this link](https://www.microscope.healthcare.nikon.com/microtools/resolution-calculator/).

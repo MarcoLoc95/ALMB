@@ -21,19 +21,13 @@ This is the heart of the matter. Any image, no matter how complicated, can be wr
 
 There is a simple and extremely useful rule for reading these maps. The **center of the transform holds the low frequencies**: the coarse, slowly varying content, the overall shapes and the average brightness. The **outskirts hold the high frequencies**: the sharp edges, the fine textures and the small details. This is precisely the intuition we met with the rolling hills at the start of the chapter, where the smooth sky sat at the lowest frequencies and the grass blades at the highest, now made quantitative.
 
-Two consequences follow immediately. First, noise, which changes rapidly and randomly from pixel to pixel, lives predominantly at high frequencies and tends to fill the outer regions of the spectrum ({numref}`Fig. {number} <fft_examples>`). Second, and more importantly for us, we can now understand the objective lens in one sentence. As we saw in the previous section, a finite objective passes only the frequencies inside a disk of radius set by its numerical aperture and blocks everything beyond. It is a **low-pass filter operating in hardware**, and the blur we call the diffraction limit is simply the price of throwing away the high-frequency content.
+:::{raw} html
+<iframe src="../content/spatial_filter_widget.html" width="100%" height="620px" frameborder="0" style="border: none;"></iframe>
+:::
 
-```{figure} ../figures/fft_examples.png
----
-width: 100%
-name: fft_examples
-align: center
----
-An image and its Fourier transform. Keeping only the low frequencies (a) blurs the image, since the fine detail has been removed. Keeping only the high frequencies (b) discards the smooth areas and leaves the edges and outlines, with the background brightness gone.
-```
+### Noise in the Fourier space
 
-If we deliberately delete the outer part of the spectrum and transform back, we obtain a blurred image, because we have discarded exactly the detail that the high frequencies carried. If instead we delete the center, we are left with the edges and outlines alone: the uniform regions disappear because their information sat at low frequencies. Keep this pair of pictures in mind, because they are the whole idea behind the filtering, deconvolution and reassignment techniques that follow.
-
+### The resolution limit is a spatial filtering problem
 
 ## Convolution and deconvolution
 
@@ -81,24 +75,6 @@ Its drawbacks are equally real:
 
 The honest bottom line is that deconvolution optimally restores the frequencies the microscope actually captured, but it does not break the diffraction limit: it cannot recover what was lost beyond the cutoff.
 
-## Spatial filtering
-
-Once we accept that image formation is filtering, the door opens to filtering on purpose. Since a convolution is a multiplication in frequency space, we can shape an image simply by transforming it, multiplying its spectrum by a mask of our choosing, and transforming back. Different masks serve different goals ({numref}`Fig. {number} <filters>`).
-
-```{figure} ../figures/filters.png
----
-width: 100%
-name: filters
-align: center
----
-Common frequency-space filters. A low-pass mask keeps the central disk and smooths the image; a high-pass mask keeps the outskirts and enhances edges; a band-pass mask keeps a ring and isolates features of a chosen size.
-```
-
-A **low-pass filter** keeps the central disk of the spectrum and removes the high frequencies. Because noise is concentrated at high frequencies, this smooths and denoises the image, at the cost of blurring genuine fine detail. A soft Gaussian blur is exactly a gentle low-pass filter. A **high-pass filter** does the opposite, keeping the outer frequencies and suppressing the center. It sharpens edges and, very usefully in microscopy, removes slow, uneven background illumination, which lives at the lowest frequencies. A **band-pass filter** keeps only a ring of frequencies, isolating structures of a particular size while rejecting both the large-scale background and the small-scale noise; the difference-of-Gaussians used for spot and blob detection is a classic example.
-
-A particularly satisfying case is the **notch filter**. Periodic contamination, such as scan-line artifacts, fixed-pattern sensor noise or interference, appears in the spectrum not as a diffuse haze but as a few discrete bright spots away from the center. Masking out those specific spots and transforming back removes the offending pattern while leaving the rest of the image untouched, something that is nearly impossible to do cleanly in real space.
-
-One caution is worth stating. Filters with hard, sharp edges in frequency space produce ringing artifacts in the image, faint ripples around sharp features, for the same reason that a sharp-edged slit produces oscillating diffraction fringes. Smooth-edged masks, or apodization of the mask boundary, keep these artifacts under control. And as always, filtering only rearranges or removes the information already present: it cannot restore frequencies the objective discarded in the first place.
 
 ## Pixel reassignment
 

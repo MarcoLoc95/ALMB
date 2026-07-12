@@ -167,16 +167,6 @@
         }
       }
       gFt1.putImageData(ftData,0,0);
-      caption();
-    }
-
-    function caption(){
-      var t;
-      if(mode==="low") t="The mask keeps only the central disk, so the fine detail is thrown away and the image is <b>blurred</b>. This is what a microscope objective does in hardware.";
-      else if(mode==="high") t="The centre is blocked, so the smooth areas and the overall brightness disappear and only the <b>edges</b> survive. The result is drawn around mid-grey, since its mean is now zero.";
-      else if(mode==="band") t="Only a <b>ring</b> of frequencies passes, isolating structures of one particular size while rejecting both the coarse background and the finest noise.";
-      else t="Only a <b>wedge</b> of directions passes. Since the spots of a grating lie perpendicular to its stripes, the surviving detail runs across the selected direction: whiskers and grass blades of one orientation stay, the rest fade.";
-      cap.innerHTML=t;
     }
 
     function schedule(){ if(!ready||pending) return; pending=true; requestAnimationFrame(function(){ pending=false; render(); }); }

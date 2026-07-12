@@ -22,7 +22,7 @@ This is the heart of the matter. Any image, no matter how complicated, can be wr
 There is a simple and extremely useful rule for reading these maps. The **center of the transform holds the low frequencies**: the coarse, slowly varying content, the overall shapes and the average brightness. The **outskirts hold the high frequencies**: the sharp edges, the fine textures and the small details. This is precisely the intuition we met with the rolling hills at the start of the chapter, where the smooth sky sat at the lowest frequencies and the grass blades at the highest, now made quantitative.
 
 :::{raw} html
-<iframe src="../content/spatial_filter_widget.html" width="90%" height="750px" frameborder="0" style="border: none;"></iframe>
+<c><iframe src="../content/spatial_filter_widget.html" width="90%" height="800px" frameborder="0" style="border: none;"></iframe></c>
 :::
 
 ### Noise in the Fourier space

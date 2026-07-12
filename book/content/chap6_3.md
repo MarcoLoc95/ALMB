@@ -27,7 +27,59 @@ There is a simple and extremely useful rule for reading these maps. The **center
 
 ### Noise in the Fourier space
 
+Everything we have done so far assumed a clean image. Real measurements are not clean, and noise is the reason spatial filtering is useful rather than magical. In fluorescence microscopy the dominant contribution is _shot noise_: light arrives as discrete photons, and the number counted in a pixel during the exposure follows a Poisson distribution, so it fluctuates from pixel to pixel even when the sample is perfectly uniform. On top of it sits the read noise of the detector. What matters for us is a property both share: the fluctuation in one pixel is independent of the fluctuation in its neighbours.
+
+That single property decides everything about how noise looks in Fourier space. Transforming noise produces no compact feature at all, but simply another random field, with, on average, the same power at every spatial frequency. This is what is meant by calling such noise **white**. The transform of noise is noise ({numref}`Fig. {number} <noise_fourier>`), spread thinly and evenly over the entire spectrum, and there is nowhere to aim a mask.
+
+```{figure} ../figures/chap6_noise_fourier.png
+---
+width: 100%
+name: noise_fourier
+align: center
+---
+Noise transforms into noise. The noise alone (left) is grainy in real space and just as grainy in Fourier space, filling the spectrum uniformly rather than collecting anywhere. The noise-free image (centre) has a spectrum concentrated near the origin. The measured image (right) is the sum of the two, so its spectrum is the signal near the centre and the noise floor everywhere, including out where the signal has almost nothing left to say. Photograph by Krzysztof P. Jasiutowicz, CC BY-SA 2.5, via Wikimedia Commons.
+```
+
+Now put the two spectra side by side. The signal is concentrated at low frequencies and its power falls steeply as we move outwards, while the noise floor stays flat all the way to the edge. The two curves must therefore cross ({numref}`Fig. {number} <noise_spectra>`). Below the crossing the image is mostly signal; above it, mostly noise.
+
+```{figure} ../figures/chap6_noise_spectra.png
+---
+width: 90%
+name: noise_spectra
+align: center
+---
+Radially averaged power of the three images above. The signal (blue) falls by more than four orders of magnitude across the spectrum, while the noise (grey) is flat. Beyond the frequency where they cross, the measured image (orange) is essentially pure noise.
+```
+
+This picture explains both the power and the limits of filtering. Its power: a low-pass filter placed near the crossing throws away the band where there is almost no signal left to lose and a great deal of noise to gain by discarding, which is why smoothing genuinely improves the appearance of a noisy image. Its limit: below the crossing, signal and noise sit at exactly the same spatial frequencies, superimposed. A mask can only multiply a frequency as a whole; it has no way of telling which part of the amplitude at that frequency came from the sample and which part came from the photon statistics. Filtering can improve the signal-to-noise ratio by removing the frequencies where noise dominates, but it can never remove noise completely, and every attempt to push it further removes real detail along with it.
+
+The only honest cure is more photons. Averaging $n$ independent frames adds the signal coherently and the noise incoherently, improving the signal-to-noise ratio by $\sqrt{n}$ and pushing the crossing point outwards. This is also why deconvolution is delicate: dividing by a small OTF near the cutoff amplifies whatever sits there, and what sits there is mostly noise. And it is exactly what Fourier Ring Correlation, at the end of this chapter, turns to its advantage: the noise in two independent acquisitions is uncorrelated, while the signal is identical, so the two decorrelate precisely where the noise takes over.
+
 ### The resolution limit is a spatial filtering problem
+
+We have now called the objective a low-pass filter twice without saying what the filter actually is. Everything is in place to be precise, and the answer is that the microscope performs, in glass, exactly the operation we have been performing in software.
+
+Recall the two equivalent statements of image formation: in real space, the image is the object convolved with the point spread function, and in Fourier space that convolution becomes the multiplication $\hat i(\vec k) = \hat o(\vec k)\cdot\text{OTF}(\vec k)$. Read the second one again with the eyes of this section. The microscope takes the spectrum of the object and multiplies it by a fixed mask. That is a spatial filtering operation, performed by the optics, and the only difference from the filters we designed ourselves is that we do not get to choose this one ({numref}`Fig. {number} <resolution_lowpass>`).
+
+```{figure} ../figures/chap6_resolution_lowpass.png
+---
+width: 100%
+name: resolution_lowpass
+align: center
+---
+Imaging as a filtering operation. The object $f(x,y)$ is transformed, its spectrum $|F(u,v)|$ is multiplied by the transfer function of the objective, and the result $|G(u,v)|$ is transformed back to give the image $g(x,y)$. The OTF is zero beyond the cut-off (dashed circle), so those frequencies are not attenuated but erased: the tower survives, its tracery does not.
+```
+
+For a circular pupil the mask is a disk. Frequencies that fall inside it are transmitted, frequencies that fall outside it are not, and the edge of the disk sits at the cut-off
+
+$$
+k_c = \frac{2\,\text{NA}}{\lambda}.
+$$
+
+The reciprocal of that cut-off, $1/k_c = \lambda/2\text{NA}$, is the Abbe limit we met in the previous section, and the point spread function belonging to such a band-limited pupil is exactly the Airy disk we derived there. The diffraction limit, the Airy disk and the cut-off of a low-pass filter are three descriptions of one and the same fact.
+
+Saying it this way makes the consequences unusually clear. Inside the passband the frequencies are attenuated, some of them severely, but they are still present in the recording; they can be boosted back up, which is precisely what deconvolution does, subject to the noise we have just discussed. Beyond the cut-off the frequencies are multiplied by zero. They are not weak, not buried, not hiding under the noise: they are absent. No filter, no algorithm and no amount of contrast stretching can recover a number that was multiplied by zero, which is why the diffraction limit is a genuine limit and not merely a nuisance.
+
 
 ## Convolution and deconvolution
 

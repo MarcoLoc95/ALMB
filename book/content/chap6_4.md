@@ -1,4 +1,4 @@
-# Quantitative approaches
+# Appendix: The math of Fourier transforms 
 
 Having built the intuition, we gather here the quantitative tools that make Fourier optics usable in practice. We first list the handful of general properties that let us manipulate transforms without recomputing integrals, then catalogue the transforms of the simple functions that keep reappearing in microscopy, in one and two dimensions. We close by connecting the resolution limit to the very concrete question of how finely a camera must sample an image, and to the idea of imaging as an inverse problem.
 
@@ -10,8 +10,7 @@ $$
 
 and write transform pairs as $f(x) \leftrightarrow F(k)$. The factors of $2\pi$ that appear below are a consequence of this particular convention; other textbooks distribute them differently, so it is the shapes and the reciprocal relationships that matter, not the exact constants.
 
-General properties of Fourier transforms
----
+## General properties of Fourier transforms
 
 ### Linearity
 
@@ -53,8 +52,7 @@ $$
 
 The two domains play symmetric roles, up to a reflection and a constant. A transform pair read backwards is essentially a transform pair again. This symmetry is why a rectangle and a sinc are partners whichever way round we take them, and why, as we will see, a Gaussian is its own partner.
 
-1D Fourier transforms
----
+## 1D Fourier transforms
 
 For each pair we begin from the definition, $F(k) = \int_{-\infty}^{+\infty} f(x)\, e^{-ikx}\, dx$, and carry the integral through. Several of the results lean on a single identity, so we derive that one first.
 
@@ -154,8 +152,7 @@ $$
 
 A Gaussian transforms into another Gaussian, and the two widths are reciprocal: a function that is narrow in space is broad in frequency, and vice versa. This reciprocity is the seed of both the resolution limit and the uncertainty principle, since one cannot be compact in both domains at once.
 
-2D Fourier transforms
----
+## 2D Fourier transforms
 
 In two dimensions the definition reads $F(\vec k) = \int f(\vec r)\, e^{-i\vec k \cdot \vec r}\, d^2 r$, with $\vec k \cdot \vec r = k_x x + k_y y$. Whenever a function factorises as $f(x, y) = g(x)\, h(y)$ its transform factorises too, $F(\vec k) = G(k_x)\, H(k_y)$, which settles most of the cases below immediately.
 
@@ -218,14 +215,3 @@ e^{-(x^2 + y^2)/2\sigma^2} \;\leftrightarrow\; 2\pi\sigma^2\, e^{-\sigma^2(k_x^2
 $$
 
 A circular Gaussian blob transforms into a circular Gaussian, once again with reciprocal width. This is the standard soft model of a point spread function and its transfer function: a broad PSF (poor resolution) corresponds to a narrow OTF (little high-frequency content), tying the two-dimensional picture straight back to resolution.
-
-### Ring
-
-The ring is the one case here that neither separates nor yields to Euler's formula. Its transform requires integrating $e^{-i\vec k \cdot \vec r}$ once around the circle, and that angular integral is precisely the integral definition of the zeroth-order Bessel function, which is why we quote the result rather than derive it:
-
-$$
-\text{ring of radius } a \;\leftrightarrow\; 2\pi a\, J_0(a k).
-$$
-
-The spectrum is a series of concentric oscillating rings. A _filled_ disk, by the same reasoning, transforms into the Airy pattern built from $J_1$ that we met as the diffraction of a circular aperture. Circularly symmetric objects, and circular apertures, are the reason ringed spectra are so common in microscopy.
-

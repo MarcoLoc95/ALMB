@@ -67,7 +67,7 @@ width: 100%
 name: resolution_lowpass
 align: center
 ---
-Imaging as a filtering operation. The object $f(x,y)$ is transformed, its spectrum $|F(u,v)|$ is multiplied by the transfer function of the objective, and the result $|G(u,v)|$ is transformed back to give the image $g(x,y)$. The OTF is zero beyond the cut-off (dashed circle), so those frequencies are not attenuated but erased: the tower survives, its tracery does not.
+Imaging as a filtering operation. The object $f(x,y)$ is transformed, its spectrum $|F(u,v)|$ is multiplied by the transfer function of the objective, and the result $|G(u,v)|$ is transformed back to give the image $g(x,y)$. The OTF is zero beyond the cut-off (dashed circle), so those frequencies are not attenuated but erased: the tower survives, its details do not.
 ```
 
 For a circular pupil the mask is a disk. Frequencies that fall inside it are transmitted, frequencies that fall outside it are not, and the edge of the disk sits at the cut-off

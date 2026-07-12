@@ -1,6 +1,6 @@
 # Appendix: The math of Fourier transforms 
 
-Having built the intuition, we gather here the quantitative tools that make Fourier optics usable in practice. We first list the handful of general properties that let us manipulate transforms without recomputing integrals, then catalogue the transforms of the simple functions that keep reappearing in microscopy, in one and two dimensions. We close by connecting the resolution limit to the very concrete question of how finely a camera must sample an image, and to the idea of imaging as an inverse problem.
+Having built the intuition, we gather here the quantitative tools that make Fourier optics usable in practice. We first list the handful of general properties that let us manipulate transforms without recomputing integrals, then catalogue the transforms of the simple functions that keep reappearing in microscopy, in one and two dimensions.
 
 Throughout, we use the convention introduced earlier in the chapter,
 

@@ -13,14 +13,9 @@ In the Fourier transform, this grating collapses to something remarkably compact
 - the **phase** of the stripes sets the phase of the two points, without changing where they sit or how bright they are;
 - the **amplitude** sets their brightness.
 
-```{figure} ../figures/grating_props.png
----
-width: 90%
-name: grating_props
-align: center
----
-A single sinusoidal grating appears in the Fourier transform as one symmetric pair of points. Its direction, frequency and phase map onto the orientation, radial distance and phase of that pair.
-```
+:::{raw} html
+<iframe src="../content/grating_fourier_widget.html" width="100%" height="520px" frameborder="0" style="border: none;"></iframe>
+:::
 
 This is the heart of the matter. Any image, no matter how complicated, can be written as a sum of such gratings, exactly as any sound can be written as a sum of tones. Adding just a few gratings already produces recognizable structure; adding thousands reconstructs the picture faithfully. The Fourier transform of a full image is therefore a map that tells us, for every possible direction and frequency, how much of that particular grating is present and with what phase.
 

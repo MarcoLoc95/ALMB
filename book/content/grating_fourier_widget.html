@@ -1,0 +1,70 @@
+<div id="grating-widget" class="almb-widget">
+  <style>
+    #grating-widget.almb-widget{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;max-width:680px;margin:1.2em auto;padding:18px 22px 16px;background:#fff;border:1px solid #e6e6e6;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.05);color:#222;box-sizing:border-box;}
+    #grating-widget .ctrls{display:flex;flex-direction:column;gap:11px;margin-bottom:16px;}
+    #grating-widget .row{display:grid;grid-template-columns:210px 1fr;align-items:center;gap:14px;}
+    #grating-widget .lab{font-size:14px;font-variant-numeric:tabular-nums;color:#333;white-space:nowrap;}
+    #grating-widget .lab b{color:#e05020;font-weight:600;}
+    #grating-widget input[type=range]{width:100%;accent-color:#e05020;height:22px;cursor:pointer;}
+    #grating-widget .panels{display:flex;flex-wrap:wrap;gap:22px;justify-content:center;}
+    #grating-widget .panel{flex:1 1 240px;max-width:280px;}
+    #grating-widget .ptitle{font-size:13px;color:#444;text-align:center;margin-bottom:6px;font-weight:600;}
+    #grating-widget canvas{width:100%;height:auto;display:block;border-radius:4px;background:#000;}
+    #grating-widget .cap{font-size:12.5px;color:#777;margin-top:14px;line-height:1.5;text-align:center;}
+    @media (max-width:480px){#grating-widget .row{grid-template-columns:1fr;gap:2px;}}
+  </style>
+  <div class="ctrls">
+    <div class="row"><span class="lab" id="gw-A-lab">Amplitude <b>A</b> = 0.85</span><input type="range" id="gw-A" min="0.1" max="1" step="0.01" value="0.85"></div>
+    <div class="row"><span class="lab" id="gw-f-lab">Frequency <b>f</b> = 6.0 cycles</span><input type="range" id="gw-f" min="1" max="16" step="0.5" value="6"></div>
+    <div class="row"><span class="lab" id="gw-d-lab">Direction <b>&theta;</b> = 30&deg;</span><input type="range" id="gw-d" min="0" max="180" step="1" value="30"></div>
+    <div class="row"><span class="lab" id="gw-p-lab">Phase <b>&phi;</b> = 0&deg;</span><input type="range" id="gw-p" min="0" max="360" step="1" value="0"></div>
+  </div>
+  <div class="panels">
+    <div class="panel"><div class="ptitle">Grating (real space)</div>
+      <canvas id="gw-real" width="260" height="260"></canvas></div>
+    <div class="panel"><div class="ptitle">Fourier transform (intensity)</div>
+      <canvas id="gw-ft" width="260" height="260"></canvas></div>
+  </div>
+  <div class="cap">A pure grating is a single spatial frequency, so its transform is just two points (ideally sharp Dirac peaks, drawn with a small finite size only so they stay visible). Their distance from the centre is the <b>frequency</b>, their angle is the <b>direction</b>, and their brightness follows the <b>amplitude</b>. Changing the <b>phase</b> slides the stripes on the left but leaves the transform unchanged, because its intensity does not depend on phase.</div>
+  <script>
+  (function(){
+    var W=260, cx=(W-1)/2, cy=(W-1)/2, FMAX=16, SIG2=2*1.8*1.8, TWO=2*Math.PI;
+    var sA=document.getElementById("gw-A"),sf=document.getElementById("gw-f"),sd=document.getElementById("gw-d"),sp=document.getElementById("gw-p");
+    var lA=document.getElementById("gw-A-lab"),lf=document.getElementById("gw-f-lab"),ld=document.getElementById("gw-d-lab"),lp=document.getElementById("gw-p-lab");
+    var cR=document.getElementById("gw-real"),cF=document.getElementById("gw-ft");
+    var gR=cR.getContext("2d"),gF=cF.getContext("2d");
+    var imgR=gR.createImageData(W,W),imgF=gF.createImageData(W,W),dR=imgR.data,dF=imgF.data;
+    function update(){
+      var A=+sA.value,f=+sf.value,dir=+sd.value,ph=+sp.value;
+      var th=dir*Math.PI/180,ct=Math.cos(th),st=Math.sin(th),phr=ph*Math.PI/180;
+      lA.innerHTML="Amplitude <b>A</b> = "+A.toFixed(2);
+      lf.innerHTML="Frequency <b>f</b> = "+f.toFixed(1)+" cycles";
+      ld.innerHTML="Direction <b>&theta;</b> = "+dir+"&deg;";
+      lp.innerHTML="Phase <b>&phi;</b> = "+ph+"&deg;";
+      var R=(f/FMAX)*0.42*W;
+      var sxp=cx+R*ct,syp=cy+R*st,sxm=cx-R*ct,sym=cy-R*st;
+      var k=0, wf=TWO*f;
+      for(var py=0;py<W;py++){
+        var ynl=(py-cy)/W;
+        for(var px=0;px<W;px++){
+          var xnl=(px-cx)/W;
+          var v=0.5+0.5*A*Math.cos(wf*(ct*xnl+st*ynl)+phr);
+          var g=v<0?0:(v>1?255:(255*v)|0);
+          dR[k]=g;dR[k+1]=g;dR[k+2]=g;dR[k+3]=255;
+          var ap=px-sxp,bp=py-syp,am=px-sxm,bm=py-sym;
+          var val=A*(Math.exp(-(ap*ap+bp*bp)/SIG2)+Math.exp(-(am*am+bm*bm)/SIG2));
+          var w=val>1?255:(255*val)|0;
+          dF[k]=w;dF[k+1]=w;dF[k+2]=w;dF[k+3]=255;
+          k+=4;
+        }
+      }
+      gR.putImageData(imgR,0,0); gF.putImageData(imgF,0,0);
+      gF.strokeStyle="rgba(255,255,255,0.14)"; gF.lineWidth=1;
+      gF.beginPath(); gF.moveTo(0,Math.round(cy)+0.5); gF.lineTo(W,Math.round(cy)+0.5);
+      gF.moveTo(Math.round(cx)+0.5,0); gF.lineTo(Math.round(cx)+0.5,W); gF.stroke();
+    }
+    [sA,sf,sd,sp].forEach(function(s){s.addEventListener("input",update);});
+    update();
+  })();
+  </script>
+</div>

@@ -14,7 +14,7 @@ In the Fourier transform, this grating collapses to something remarkably compact
 - the **amplitude** sets their brightness.
 
 :::{raw} html
-<iframe src="../content/grating_fourier_widget.html" width="100%" height="520px" frameborder="0" style="border: none;"></iframe>
+<iframe src="../content/grating_fourier_widget.html" width="100%" height="600px" frameborder="0" style="border: none;"></iframe>
 :::
 
 This is the heart of the matter. Any image, no matter how complicated, can be written as a sum of such gratings, exactly as any sound can be written as a sum of tones. Adding just a few gratings already produces recognizable structure; adding thousands reconstructs the picture faithfully. The Fourier transform of a full image is therefore a map that tells us, for every possible direction and frequency, how much of that particular grating is present and with what phase.

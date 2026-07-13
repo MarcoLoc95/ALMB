@@ -28,4 +28,4 @@ At the end of this chapter you should be able to:
 - Illustrate the relationship between the Fourier transform and the resolution limit
 - Predict how masking a region of the Fourier transform changes the image, and conversely which spectral signature a given image structure produces
 - Explain why noise fills the whole spectrum, and what this implies for the limits of denoising and for deconvolution
-- Discuss the implications of deconvolution and pixel reassignment in image reconstruction
+- Discuss the implications of deconvolution in image reconstruction

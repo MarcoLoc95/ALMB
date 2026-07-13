@@ -58,7 +58,7 @@ width: 90%
 name: genencoded
 align: center
 ---
-From left to right: EGFP, Citrine and mCherry beta-barrel structures and, below, the respective chromophores responsible for fluorescence. Source: [PBD](https://www.rcsb.org/)
+From left to right: EGFP, Citrine and mCherry beta-barrel structures and, below, the respective chromophores responsible for fluorescence. Source: [PDB](https://www.rcsb.org/)
 ```
 
 The defining advantage is that the cell makes the label, which buys you two things. The labeling is genetic rather than chemical: co-express the fluorescent protein with a protein that goes to your target of interest, and wherever that target ends up, the fluorescence follows. This tends to be more reliable than immunofluorescence, which stacks antibody upon antibody. And because the cell keeps producing the protein, fluorescence is replenished over time and across cell divisions, though slowly, on the scale of the cell's own protein turnover. Like all organic fluorophores, fluorescent proteins eventually photobleach.

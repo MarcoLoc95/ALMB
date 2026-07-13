@@ -6,7 +6,7 @@ So far we have built the machinery: in the far field we measure the Fourier tran
 
 Let us start from the simplest possible image: a sinusoidal grating, a pattern of stripes whose brightness varies as a cosine. This is the spatial equivalent of a pure musical tone, and just like a tone it is described by only a handful of numbers. It has an **amplitude** (the contrast between bright and dark stripes), a **frequency** (how tightly the stripes are packed), a **direction** (the orientation of the stripes) and a **phase** (where the bright stripes sit).
 
-In the Fourier transform, this grating collapses to something remarkably compact: a single pair of bright points placed symmetrically around the center, plus the unavoidable DC component at the very center (the average brightness). Each of the grating's four properties maps onto a property of that pair of points ({numref}`Fig. {number} <grating_props>`):
+In the Fourier transform, this grating collapses to something remarkably compact: a single pair of bright points placed symmetrically around the center, plus the unavoidable DC component at the very center (the average brightness). Each of the grating's four properties maps onto a property of that pair of points:
 
 - the **direction** of the stripes sets the orientation of the two points around the center;
 - the **frequency** of the stripes sets their distance from the center, so a finer grating pushes the points farther out;
@@ -21,9 +21,23 @@ This is the heart of the matter. Any image, no matter how complicated, can be wr
 
 There is a simple and extremely useful rule for reading these maps. The **center of the transform holds the low frequencies**: the coarse, slowly varying content, the overall shapes and the average brightness. The **outskirts hold the high frequencies**: the sharp edges, the fine textures and the small details. This is precisely the intuition we met with the rolling hills at the start of the chapter, where the smooth sky sat at the lowest frequencies and the grass blades at the highest, now made quantitative.
 
+Take the transform of a photograph, erase everything outside a small disk around the center, and transform back. Out comes the same picture, softened. The outlines are still there, the fine texture has gone. Now do the opposite and erase the middle instead. The uniform areas collapse to a flat grey, the overall brightness vanishes, and what is left behind is a map of edges. Nothing was added to the image in either case. We only chose which gratings to keep.
+
+Those two experiments have names, and between them they cover most of what filtering does to a picture. A **low-pass** filter keeps the central disk and throws away the rest, which smooths the image and, since noise lives mostly out at high frequencies, removes a good deal of it. The bill is paid in genuine fine detail, which lived out there too. A Gaussian blur is a low-pass filter with a soft edge, nothing more. A **high-pass** filter blocks the center instead. It sharpens edges, but its real use in the lab is more mundane: uneven illumination, a haze of out-of-focus fluorescence, a gradient left by a badly seated filter, all of it varies slowly across the field and therefore lives at the very lowest frequencies, and a high-pass strips it out without touching the structures you actually care about.
+
+A **band-pass** filter keeps a ring, so it selects a size. Anything much coarser than the chosen scale goes out with the background, anything much finer goes out with the noise, and what survives is whatever sits in between. Most spot detectors work this way; the difference-of-Gaussians used to pick out fluorescent puncta is a band-pass filter written in another notation. A **directional** filter keeps a wedge, so it selects an orientation. Here it pays to remember where the spots of a grating sit: along the direction in which the brightness varies, which is across the stripes and not along them. A wedge therefore keeps the structures that run at right angles to it, and that catches almost everyone out the first time.
+
 :::{raw} html
 <center><iframe src="../content/spatial_filter_widget.html" width="90%" height="800px" frameborder="0" style="border: none;"></iframe></center>
 :::
+
+### Filtering in the back focal plane
+
+If the aperture of the objective acts as a mask, then the Fourier plane is not a mathematical convenience. It is a real plane, a few millimetres across, sitting inside the instrument. We saw earlier in this chapter that a lens brings the far field of the sample into its back focal plane, which means the spectrum of your specimen is physically laid out in there, waiting. You can reach in with a piece of metal and edit it. Several of the classical contrast methods are nothing more than that, and it is worth recognising them for what they are.
+
+Place an opaque disk on the axis and you block the zero order: the undiffracted light, the part of the beam that went through the sample without noticing it, which is the DC term and sits dead center in the back focal plane. Everything that then reaches the image has been scattered by the specimen. The background goes black and the scatterers light up. This is **darkfield**, and in the language of this section it is a high-pass filter machined out of brass. In practice it is usually arranged from the illumination side instead, with a hollow cone of light steep enough to miss the objective entirely, but the effect on the spectrum is the same: the zero order is kept out of the image.
+
+The reverse trick is just as common. Put a pinhole at the focus of a beam expander and only the low frequencies of the beam survive, so the speckle and the diffraction rings cast by every speck of dust upstream disappear. Every laser system in the building has one. It is called a spatial filter because that is what it is.
 
 ### Noise in the Fourier space
 
@@ -53,7 +67,25 @@ Radially averaged power of the three images above. The signal (blue) falls by mo
 
 This picture explains both the power and the limits of filtering. Its power: a low-pass filter placed near the crossing throws away the band where there is almost no signal left to lose and a great deal of noise to gain by discarding, which is why smoothing genuinely improves the appearance of a noisy image. Its limit: below the crossing, signal and noise sit at exactly the same spatial frequencies, superimposed. A mask can only multiply a frequency as a whole; it has no way of telling which part of the amplitude at that frequency came from the sample and which part came from the photon statistics. Filtering can improve the signal-to-noise ratio by removing the frequencies where noise dominates, but it can never remove noise completely, and every attempt to push it further removes real detail along with it.
 
-The only honest cure is more photons. Averaging $n$ independent frames adds the signal coherently and the noise incoherently, improving the signal-to-noise ratio by $\sqrt{n}$ and pushing the crossing point outwards. This is also why deconvolution is delicate: dividing by a small OTF near the cutoff amplifies whatever sits there, and what sits there is mostly noise. And it is exactly what Fourier Ring Correlation, at the end of this chapter, turns to its advantage: the noise in two independent acquisitions is uncorrelated, while the signal is identical, so the two decorrelate precisely where the noise takes over.
+The only honest cure is more photons. Averaging $n$ independent frames adds the signal coherently and the noise incoherently, improving the signal-to-noise ratio by $\sqrt{n}$ and pushing the crossing point outwards. Keep that crossing in mind for the next two sections. Deconvolution, which is coming shortly, works by boosting the frequencies that the microscope transmitted weakly, and the more weakly a frequency was transmitted the harder it has to be boosted; where the response of the instrument nearly vanishes, the boost lands almost entirely on noise. Fourier Ring Correlation, at the end of the chapter, turns the same fact to its advantage: the noise in two independent acquisitions is uncorrelated while the signal is identical, so two recordings of the same sample stop agreeing with one another right about where the noise takes over.
+
+## Convolution
+
+We are now ready for what is arguably the most important equation in this whole chapter. Every real image is a blurred version of the true object, and the blurring agent is the point spread function. Because the imaging system responds to each individual point of the object by drawing a PSF there, scaled by how bright that point is, the recorded image is built by stamping a copy of the PSF at every object point and summing them all up. This "stamp everywhere and add" operation is called a **convolution**, written with the symbol $\ast$:
+
+$$
+i(\vec r) = (o \ast \text{PSF})(\vec r) = \int o(\vec r\,') \, \text{PSF}(\vec r - \vec r\,') \, d\vec r\,'
+$$
+
+where $o$ is the true object, $i$ is the measured image and PSF is the point spread function. In words: the image is the object convolved with the point spread function. This single line summarizes image formation in a microscope.
+
+Convolutions are awkward to compute and even more awkward to reason about directly. This is where Fourier optics rewards us greatly, through the **convolution theorem**: a convolution in real space becomes a plain multiplication in frequency space. Transforming the equation above, we get
+
+$$
+\hat i(\vec k) = \hat o(\vec k) \cdot \text{OTF}(\vec k)
+$$
+
+where the hats denote Fourier transforms and $\text{OTF} = \mathcal{F}\{\text{PSF}\}$ is the **optical transfer function**. Its modulus is called the modulation transfer function (MTF) and tells us how strongly each spatial frequency survives the trip through the microscope. The OTF is nothing other than the low-pass filter we have been describing: it is close to one for low frequencies, decreases towards higher frequencies, and drops to exactly zero beyond a cutoff set by the numerical aperture (for incoherent imaging, at a spatial frequency of $2\,\text{NA}/\lambda$). Frequencies past that cutoff are not merely attenuated; they are absent.
 
 ### The resolution limit is a spatial filtering problem
 
@@ -78,26 +110,9 @@ $$
 
 The reciprocal of that cut-off, $1/k_c = \lambda/2\text{NA}$, is the Abbe limit we met in the previous section, and the point spread function belonging to such a band-limited pupil is exactly the Airy disk we derived there. The diffraction limit, the Airy disk and the cut-off of a low-pass filter are three descriptions of one and the same fact.
 
-Saying it this way makes the consequences unusually clear. Inside the passband the frequencies are attenuated, some of them severely, but they are still present in the recording; they can be boosted back up, which is precisely what deconvolution does, subject to the noise we have just discussed. Beyond the cut-off the frequencies are multiplied by zero. They are not weak, not buried, not hiding under the noise: they are absent. No filter, no algorithm and no amount of contrast stretching can recover a number that was multiplied by zero, which is why the diffraction limit is a genuine limit and not merely a nuisance.
+One caveat before we move on, because the figure simplifies. It draws the transfer function flat across the passband, which is the right cartoon for seeing where the limit comes from, but the true one is not flat: it sags from one at the origin all the way down to zero at the cut-off. The frequencies lying just inside the cut-off are therefore transmitted with hardly any contrast left, and once they are that faint the noise floor of the previous section is quite enough to bury them. What you can actually resolve is set not by the cut-off itself but by the point where the transmitted contrast disappears into the noise. Measuring that point is the whole business of Fourier Ring Correlation, which closes the chapter.
 
-
-## Convolution and deconvolution
-
-We are now ready for what is arguably the most important equation in this whole chapter. Every real image is a blurred version of the true object, and the blurring agent is the point spread function. Because the imaging system responds to each individual point of the object by drawing a PSF there, scaled by how bright that point is, the recorded image is built by stamping a copy of the PSF at every object point and summing them all up. This "stamp everywhere and add" operation is called a **convolution**, written with the symbol $\ast$:
-
-$$
-i(\vec r) = (o \ast \text{PSF})(\vec r) = \int o(\vec r\,') \, \text{PSF}(\vec r - \vec r\,') \, d\vec r\,'
-$$
-
-where $o$ is the true object, $i$ is the measured image and PSF is the point spread function. In words: the image is the object convolved with the point spread function. This single line summarizes image formation in a microscope.
-
-Convolutions are awkward to compute and even more awkward to reason about directly. This is where Fourier optics rewards us handsomely, through the **convolution theorem**: a convolution in real space becomes a plain multiplication in frequency space. Transforming the equation above, we get
-
-$$
-\hat i(\vec k) = \hat o(\vec k) \cdot \text{OTF}(\vec k)
-$$
-
-where the hats denote Fourier transforms and $\text{OTF} = \mathcal{F}\{\text{PSF}\}$ is the **optical transfer function**. Its modulus is called the modulation transfer function (MTF) and tells us how strongly each spatial frequency survives the trip through the microscope. The OTF is nothing other than the low-pass filter we have been describing: it is close to one for low frequencies, decreases towards higher frequencies, and drops to exactly zero beyond a cutoff set by the numerical aperture (for incoherent imaging, at a spatial frequency of $2\,\text{NA}/\lambda$). Frequencies past that cutoff are not merely attenuated; they are absent.
+### Deconvolution
 
 This reformulation suggests an irresistible idea. If the image is the object multiplied by the OTF in frequency space, why not simply divide it back out to recover the object?
 
@@ -127,8 +142,7 @@ Its drawbacks are equally real:
 
 The honest bottom line is that deconvolution optimally restores the frequencies the microscope actually captured, but it does not break the diffraction limit: it cannot recover what was lost beyond the cutoff.
 
-
-## Pixel reassignment
+### Pixel reassignment
 
 Confocal microscopy improves resolution and provides optical sectioning by placing a pinhole in front of the detector, rejecting out-of-focus and off-axis light. There is a catch familiar to every confocal user: the tighter the pinhole, the better the resolution but the less light reaches the detector, so the sharpest setting is also the noisiest. It is natural to ask whether we can keep the resolution gain without paying in photons. Pixel reassignment is the elegant answer.
 
@@ -143,7 +157,11 @@ align: center
 Pixel reassignment in image scanning microscopy. Light detected off-axis most likely originated from a point between the excitation and detection PSF peaks, so each sub-image is shifted inward before all are summed.
 ```
 
-The payoff is a resolution improvement of a factor of $\sqrt{2}$ over the widefield or open-pinhole confocal case, equivalent to what a fully closed pinhole would give but without discarding the light, since every photon is kept and simply placed where it belongs. Combining reassignment with a subsequent deconvolution can push the gain towards a factor of two. The best-known commercial implementation is the Zeiss Airyscan detector, a small hexagonal array of elements that performs exactly this reassignment.
+The payoff is a resolution improvement of a factor of $\sqrt{2}$ over the widefield or open-pinhole confocal case, equivalent to what a fully closed pinhole would give but without discarding the light, since every photon is kept and simply placed where it belongs. The best-known commercial implementation is the Zeiss Airyscan detector, a small hexagonal array of elements that performs exactly this reassignment.
+
+It is worth reading this in Fourier space as well, because that is where the gain comes from. We said that the effective PSF is the product of the excitation and detection PSFs. A product in real space is a convolution in frequency space, so the effective transfer function of the instrument is the excitation OTF convolved with the detection OTF, and convolving two functions gives something as wide as the two of them put together. The passband of a scanning microscope therefore reaches out to twice the cut-off of either lens on its own. It records frequencies that a widefield microscope never sees at all.
+
+That is a different kind of claim from anything deconvolution can make. Deconvolution reweights frequencies that are already sitting in the file; here the passband itself is wider. The catch is that this extended part of the transfer function is very weak, which is why reassignment on its own buys a factor of $\sqrt{2}$ rather than $2$, and why a deconvolution applied afterwards, boosting those faint frequencies back up, moves you towards the factor of $2$ that the wider passband allows in principle.
 
 Its advantages and drawbacks make an instructive contrast with deconvolution. On the positive side:
 
@@ -183,6 +201,6 @@ align: center
 A Fourier Ring Correlation curve. The correlation stays near one where signal dominates and drops to zero where noise takes over; the frequency at which it crosses the threshold sets the effective resolution.
 ```
 
-The frequency $k_c$ at which the curve drops below a chosen threshold, commonly the fixed value $1/7 \approx 0.143$ or the so-called three-sigma curve, marks the highest spatial frequency that is reliably present in the data. The effective resolution is simply its inverse, $d = 1/k_c$. Unlike a theoretical limit computed from wavelength and numerical aperture, this number reflects the experiment as it actually happened, noise and all, which is why it has become a standard resolution measure in super-resolution microscopy.
+The frequency $k_{\text{FRC}}$ at which the curve drops below a chosen threshold, commonly the fixed value $1/7 \approx 0.143$ or the so-called three-sigma curve, marks the highest spatial frequency that is reliably present in the data. The effective resolution is simply its inverse, $d = 1/k_{\text{FRC}}$. This is not the diffraction cut-off $k_c$ of a few pages ago, and in any real experiment it falls short of it: the cut-off is what the optics could in principle transmit, while $k_{\text{FRC}}$ is what actually survived the photon statistics of your particular acquisition. That is the point of the measurement. This number reflects the experiment as it happened, noise and all, which is why it has become a standard resolution measure in super-resolution microscopy.
 
 A couple of caveats keep the method honest. The two halves must share identical signal but truly independent noise; correlated noise, such as a fixed sensor pattern, will make the correlation look better than it should and overstate the resolution. Sample drift between the two acquisitions will do the opposite, degrading the correlation and understating it. Used carefully, however, Fourier Ring Correlation turns the abstract spectra of this chapter into a single, honest number for the resolution of a microscope, which is a fitting place to end our tour of Fourier optics.

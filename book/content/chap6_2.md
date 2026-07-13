@@ -351,11 +351,6 @@ Therefore, using an objective, or more in general an imaging system, to measure 
 
 Since tube lenses are much bigger in size than any objective lens, the main limiting factor in the resolution is the numerical aperture of the _objective_ lens $NA_{\text{obj}}$. 
 
-The point spread function (PSF)
----
-
-The point spread function (PSF) is a concept more general than the Airy disk, as it describes the response of an optical imaging system to a point source. While this might sound the same as a diffraction-limited system to the reader, the PSF includes all the aberrations that further distort the "ideal" Airy disk. The PSF of an imaging system is a feature that is typically measured rather than calculated. The measurement of the PSF of a microscope involves, most of the time, the use of beads with size much smaller than the resolution of the microscope, approximating a point source.
-
 Rayleigh's criterion for resolution
 ---
 

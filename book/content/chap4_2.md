@@ -95,7 +95,7 @@ The fluorescing core is usually surrounded by several extra layers: surface liga
 
 ```{figure} ../figures/chap4_qdot_spectra.gif
 ---
-width: 60%
+width: 70%
 name: qd_tunability
 align: center
 ---
@@ -106,7 +106,7 @@ Quantum dots bring a striking list of advantages. They are very bright, with qua
 
 ```{figure} ../figures/chap4_qd_examples.png
 ---
-width: 80%
+width: 60%
 name: qd_examples
 align: center
 ---

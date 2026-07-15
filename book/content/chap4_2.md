@@ -84,7 +84,7 @@ In a bulk semiconductor, electrons live in continuous energy bands separated by 
 
 ```{figure} ../figures/chap4_qd.png
 ---
-width: 90%
+width: 70%
 name: qd
 align: center
 ---

@@ -63,6 +63,15 @@ From left to right: EGFP, Citrine and mCherry beta-barrel structures and, below,
 
 The defining advantage is that the cell makes the label, which buys you two things. The labeling is genetic rather than chemical: co-express the fluorescent protein with a protein that goes to your target of interest, and wherever that target ends up, the fluorescence follows. This tends to be more reliable than immunofluorescence, which stacks antibody upon antibody. And because the cell keeps producing the protein, fluorescence is replenished over time and across cell divisions, though slowly, on the scale of the cell's own protein turnover. Like all organic fluorophores, fluorescent proteins eventually photobleach.
 
+```{figure} ../figures/chap4_genencoded_examples.png
+---
+width: 100%
+name: genencoded_examples
+align: center
+---
+Genetically encoded fluorescent labels in the nematode *C. elegans*. Panels illustrate three common strategies: whole-organism knock-in tagging, promoter-driven expression in selected cells, and multiplexed labeling of distinct structures. (a) A UNC-44::GFP knock-in, in which GFP is fused to the endogenous ankyrin-G locus so that the fusion is expressed at native levels throughout the animal. (b) A myristoylated GFP expressed under a PVD-neuron-specific promoter; the myristoylation anchors the protein to membranes, outlining the fine dendritic architecture of a single identified neuron class against the rest of the tissue. (c) Two-color labeling combining an IFB-2::mCherry knock-in, marking the intestinal intermediate-filament network along the lumen (cyan), with a PH::mTagBFP2 membrane marker expressed in the intestine (magenta), the pleckstrin-homology (PH) domain binding membrane lipids to delineate cell boundaries. Courtesy of Martin Harterink and Mike Boxem.
+```
+
 ```{tip}
 With well over a thousand fluorescent proteins now characterized, choosing one by hand is hopeless. The community-curated database [**FPbase**](https://www.fpbase.org/) lets you filter by exactly the parameters from the previous section: excitation and emission spectra, Stokes shift, brightness, quantum yield, and photostability. This is the natural place to start when you need a protein with a particular set of properties.
 ```

@@ -95,7 +95,7 @@ The fluorescing core is usually surrounded by several extra layers: surface liga
 
 ```{figure} ../figures/chap4_qdot_spectra.gif
 ---
-width: 80%
+width: 60%
 name: qd_tunability
 align: center
 ---

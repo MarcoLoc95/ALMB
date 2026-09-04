@@ -383,7 +383,7 @@ Put two galvos in series with their axes perpendicular and you can steer a beam 
 
 ```{figure} ../figures/chap7_galvo_scan.gif
 ---
-width: 92%
+width: 100%
 name: chap7_galvo_mirrors
 align: center
 ---

@@ -430,7 +430,7 @@ One pixel of a liquid crystal SLM as the applied voltage is ramped from its mini
 
 The other family of SLM is built from **microelectromechanical systems** (MEMS): deformable mirrors, used in reflection. An array of electrostatic actuators pushes a reflective membrane in and out by a fraction of a micrometre. A surface displacement $d$ produces an optical path difference of $2d$ in reflection, so very small movements produce a full wave of phase. Deformable mirrors come as **segmented** devices, where each pixel is an independent flat mirror, and **continuous** devices, where a single flexible membrane is deformed smoothly. Continuous membranes avoid the diffraction from inter-pixel gaps and are preferred for adaptive optics; segmented devices give more independent control.
 
-```{figure} ../figures/chap7_mems_dm.png
+```{figure} ../figures/chap7_mems_dm.gif
 ---
 width: 90%
 name: chap7_mems_dm

@@ -1,89 +1,41 @@
 # 7 - Imaging system design
 
-a
+Everything we have done so far has treated the microscope as an idea. In {ref}`Chapter 2 <chap2>` it was a thin lens obeying a formula. In {ref}`Chapter 3 <chap3>` it was a pair of conjugate planes with an aperture between them. In {ref}`Chapter 6 <chap6>` it dissolved entirely into a low-pass filter acting on spatial frequencies. Those abstractions are powerful, and they are the reason you can now predict what a microscope will and will not show you.
 
+But nobody has ever bought a spatial frequency filter. What you buy, or inherit, or find gathering dust in a corner of the lab, is a table covered in metal cylinders and black boxes with cables coming out of them. Somebody chose every one of those parts. They chose a light source with a particular spectrum, a mirror with a particular coating, a camera with a particular pixel size, and they chose them because of the biology they wanted to see.
 
-To add to subsection about cameras:
-## Sampling diffraction-limited objects
+This chapter is about that translation, and it runs in both directions. Forwards, from a pile of components to a working instrument. Backwards, from a schematic in a paper to an understanding of what the authors were trying to do. Both directions rest on the same foundation: knowing what each part is for, what it costs you, and what it gives you in return.
 
-The diffraction limit sets the size of the smallest object an optical system can render: anything finer is blurred out to that size. Since the limit depends only on the numerical aperture and the wavelength, it is tempting to assume that every image is automatically diffraction-limited. It is not, because whether we actually _record_ that finest detail depends on the camera, through the pixel size and the magnification.
-
-The total magnification $M$ makes objects in the sample appear $M$ times larger at the camera, which means each pixel samples a region of the sample $M$ times smaller than its physical size. Consider a camera with $2000 \times 2000$ pixels, each $6.5\ \mu\text{m}$ across. Behind a $10\times$ objective, one pixel covers $650\ \text{nm}$ of the sample; behind a $100\times$ objective, the same pixel covers only $65\ \text{nm}$. The optics have not changed, but what the pixel grid can capture has.
-
-The rule for matching the two comes straight from the frequency picture. The microscope band-limits the image: it passes no spatial frequency above its cutoff, so the image contains no period finer than the resolution $d$. The sampling theorem then says we must place at least two samples across the finest period, so the pixel spacing at the sample must be no larger than half the resolution. In practice a small safety margin is added, and a common convention is to make the pixel about $1/2.3 \approx 0.44$ times the smallest feature. Sampling more coarsely than this loses real information, an error called **undersampling** that shows up as a pixelated, aliased image; sampling much more finely, **oversampling**, adds no new information and only spreads the same photons over more pixels.
-
-To make it concrete, a diffraction-limited resolution of $320\ \text{nm}$ calls for samples every $140\ \text{nm}$ or so across the image. With a $6.5\ \mu\text{m}$ pixel, that requires a magnification of roughly $45$ to $50\times$. The lesson is worth stating plainly: magnification does nothing for the optical blur of the microscope, but it is what lets the detector sample finely enough to record all the detail the optics did transmit.
-
-### Interactive resolution calculator
-
-The two ideas of this section, the diffraction-limited resolution and the sampling it demands, come together in a small calculator. Enter the wavelength, the numerical aperture, your camera's pixel size and the total magnification, and it reports the Abbe and Rayleigh resolutions, the effective pixel size projected back onto the sample, the sampling that the resolution requires, and whether your current setup is undersampled, well sampled or oversampled.
-
-```{raw} html
-<div id="res-calc" class="almb-widget">
-  <style>
-    #res-calc.almb-widget{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;max-width:640px;margin:1.2em auto;padding:18px 22px 18px;background:#fff;border:1px solid #e6e6e6;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.05);color:#222;box-sizing:border-box;}
-    #res-calc .ctrls{display:flex;flex-direction:column;gap:11px;margin-bottom:16px;}
-    #res-calc .row{display:grid;grid-template-columns:220px 1fr;align-items:center;gap:14px;}
-    #res-calc .lab{font-size:14px;font-variant-numeric:tabular-nums;color:#333;white-space:nowrap;}
-    #res-calc .lab b{color:#e05020;font-weight:600;}
-    #res-calc input[type=range]{width:100%;accent-color:#e05020;height:22px;cursor:pointer;}
-    #res-calc .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px;}
-    #res-calc .card{background:#f7f7f8;border:1px solid #ececec;border-radius:8px;padding:10px 12px;text-align:center;}
-    #res-calc .card .k{font-size:11px;color:#777;line-height:1.25;min-height:26px;display:flex;align-items:center;justify-content:center;}
-    #res-calc .card .v{font-size:19px;font-weight:600;color:#2a4494;margin-top:3px;font-variant-numeric:tabular-nums;}
-    #res-calc .card .u{font-size:11px;color:#999;}
-    #res-calc .status{border-radius:8px;padding:11px 14px;font-size:13.5px;line-height:1.45;}
-    #res-calc .status b{font-weight:700;}
-    @media (max-width:520px){#res-calc .grid{grid-template-columns:repeat(2,1fr);} #res-calc .row{grid-template-columns:1fr;gap:2px;}}
-  </style>
-  <div class="ctrls">
-    <div class="row"><span class="lab" id="rc-l-lab">Wavelength <b>&lambda;</b> = 500 nm</span><input type="range" id="rc-l" min="380" max="750" step="5" value="500"></div>
-    <div class="row"><span class="lab" id="rc-na-lab">Numerical aperture <b>NA</b> = 0.95</span><input type="range" id="rc-na" min="0.1" max="1.49" step="0.01" value="0.95"></div>
-    <div class="row"><span class="lab" id="rc-px-lab">Camera pixel <b>p</b> = 6.5 &mu;m</span><input type="range" id="rc-px" min="1" max="20" step="0.1" value="6.5"></div>
-    <div class="row"><span class="lab" id="rc-m-lab">Total magnification <b>M</b> = 40&times;</span><input type="range" id="rc-m" min="1" max="150" step="1" value="40"></div>
-  </div>
-  <div class="grid">
-    <div class="card"><div class="k">Abbe resolution<br>&lambda;/(2&middot;NA)</div><div class="v" id="rc-abbe">&hellip;</div><div class="u">nm</div></div>
-    <div class="card"><div class="k">Rayleigh resolution<br>0.61&middot;&lambda;/NA</div><div class="v" id="rc-ray">&hellip;</div><div class="u">nm</div></div>
-    <div class="card"><div class="k">Effective pixel<br>at the sample</div><div class="v" id="rc-eff">&hellip;</div><div class="u">nm</div></div>
-    <div class="card"><div class="k">Required sampling<br>(Nyquist, &divide;2.3)</div><div class="v" id="rc-req">&hellip;</div><div class="u">nm</div></div>
-  </div>
-  <div class="status" id="rc-status"></div>
-  <script>
-  (function(){
-    var sL=document.getElementById("rc-l"),sNA=document.getElementById("rc-na"),sP=document.getElementById("rc-px"),sM=document.getElementById("rc-m");
-    var lL=document.getElementById("rc-l-lab"),lNA=document.getElementById("rc-na-lab"),lP=document.getElementById("rc-px-lab"),lM=document.getElementById("rc-m-lab");
-    var oAb=document.getElementById("rc-abbe"),oRa=document.getElementById("rc-ray"),oEf=document.getElementById("rc-eff"),oRq=document.getElementById("rc-req"),oSt=document.getElementById("rc-status");
-    function update(){
-      var lam=+sL.value, NA=+sNA.value, p=+sP.value, M=+sM.value;
-      lL.innerHTML="Wavelength <b>&lambda;</b> = "+lam+" nm";
-      lNA.innerHTML="Numerical aperture <b>NA</b> = "+NA.toFixed(2);
-      lP.innerHTML="Camera pixel <b>p</b> = "+p.toFixed(1)+" &mu;m";
-      lM.innerHTML="Total magnification <b>M</b> = "+M+"&times;";
-      var abbe=lam/(2*NA), ray=0.61*lam/NA, eff=p*1000/M, req=ray/2.3;
-      oAb.textContent=Math.round(abbe);
-      oRa.textContent=Math.round(ray);
-      oEf.textContent=Math.round(eff);
-      oRq.textContent=Math.round(req);
-      var col,txt;
-      if(eff>req){ col="#e05020";
-        txt="<b>Undersampled.</b> Each pixel covers "+Math.round(eff)+"&nbsp;nm at the sample, coarser than the "+Math.round(req)+"&nbsp;nm the optics require. Fine detail is being lost. Increase the magnification or use a smaller pixel.";
-      } else if(eff>=0.5*req){ col="#0d5e22";
-        txt="<b>Well sampled.</b> A pixel covers "+Math.round(eff)+"&nbsp;nm, finer than the "+Math.round(req)+"&nbsp;nm requirement, so the resolution the optics deliver is captured without waste.";
-      } else { col="#b07000";
-        txt="<b>Oversampled.</b> A pixel covers only "+Math.round(eff)+"&nbsp;nm, far below the "+Math.round(req)+"&nbsp;nm needed. No extra detail is gained; the same light is just spread over more pixels, lowering the signal per pixel.";
-      }
-      oSt.style.background=hexA(col,0.10);
-      oSt.style.color="#333";
-      oSt.style.border="1px solid "+hexA(col,0.35);
-      oSt.innerHTML="<span style='color:"+col+"'>"+txt+"</span>";
-    }
-    function hexA(hex,a){var r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return "rgba("+r+","+g+","+b+","+a+")";}
-    [sL,sNA,sP,sM].forEach(function(s){s.addEventListener("input",update);});
-    update();
-  })();
-  </script>
-</div>
+```{figure} ../figures/chap7_building_blocks_map.png
+---
+width: 95%
+name: chap7_building_blocks_map
+align: center
+---
+The families of components that make up any imaging system. Light is generated at a source, shaped and filtered on its way to the sample, collected by an objective, filtered again, and converted into numbers by a detector.
 ```
 
-For a fuller tool that includes a large library of real objectives and immersion media, Nikon provides an online resolution calculator at [this link](https://www.microscope.healthcare.nikon.com/microtools/resolution-calculator/).
+We begin with the parts themselves: sources, mirrors, lenses, filters, detectors, and the specialized optical and mechanical components that show up once you leave the world of catalogue microscopes. Then we practise reading real published schematics, because that skill is what lets you pick up a methods paper and work out what the instrument actually does. Finally we turn the problem around and ask how you would design an instrument yourself, starting from a biological question.
+
+This is also where the first half of the course meets the second. Almost every advanced technique in {ref}`Chapter 8 <chap8>` and {ref}`Chapter 9 <chap9>` is a rearrangement of the components introduced here. Once you recognise a pulsed laser, a pair of galvanometric mirrors and a photomultiplier tube in a figure, you have already worked out that you are looking at a multiphoton microscope, before reading a word of the caption.
+
+## Sampling diffraction-limited objects
+
+```{note}
+This section, together with its interactive widget, is kept from the existing wrapper. It sits naturally here because pixel size is the last link in the chain that runs from the objective, through the magnification, to the detector. If you prefer, it also works well as a closing section after {ref}`From function to design <chap7_3>`, since choosing a camera and choosing a magnification are really the same decision made twice.
+```
+
+## Learning objectives
+
+At the end of this chapter you should be able to:
+
+- Describe the emission characteristics of thermal lamps, arc lamps, LEDs and lasers, and select an appropriate source for a given fluorophore and application.
+- Explain how stimulated emission in a resonant cavity produces monochromatic, coherent and collimated light, and distinguish continuous wave from pulsed operation.
+- Calculate the peak power and duty cycle of a pulsed laser from its average power, pulse duration and repetition rate.
+- Distinguish metallic from dielectric mirror coatings and explain why coated surfaces must never be touched.
+- Distinguish bandpass, longpass, shortpass, neutral density and dichroic filters, and explain why blocking is specified as optical density rather than as transmission.
+- Compare CCD, EMCCD, CMOS and sCMOS detectors in terms of sensitivity, speed, noise and cost, and argue which is appropriate for a given experiment.
+- Explain how a photomultiplier tube amplifies a single photon into a measurable current, and why it carries no spatial information.
+- Describe the function of galvanometric mirrors, digital micromirror devices and spatial light modulators, and identify which one suits a given task.
+- Trace the optical path in a published schematic from source to detector, identify each intermediate component, and infer the function of the instrument.
+- Argue, from a stated biological question, which sample preparation, label, light source, filter set, objective and detector you would choose, and justify the trade-offs.

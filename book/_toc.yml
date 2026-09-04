@@ -40,6 +40,10 @@ parts:
         - file: content/chap6_3.md
         - file: content/chap6_appendix.md
     - file: content/chap7.md
+      sections:
+        - file: content/chap7_1.md
+        - file: content/chap7_2.md
+        - file: content/chap7_3.md
     - file: content/chap8.md
     - file: content/chap9.md
     - file: content/chap10.md

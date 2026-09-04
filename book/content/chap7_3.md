@@ -3,9 +3,9 @@
 
 Reading a schematic is reverse engineering. You are reconstructing somebody else's reasoning from the traces it left. This section runs the arrow forwards: you have a biological question, and you need an instrument.
 
-This is not a course in optical design, and nobody expects you to compute a lens prescription. But you will very likely find yourself choosing a microscope, whether that means picking one from the facility booking system, specifying a purchase, or building something on a bench. In all three cases the reasoning is the same, and it is worth having it explicitly rather than by osmosis.
+This is not a course in optical design, and nobody expects you to build a state-of-the-art microscope from scratch. But you will very likely find yourself choosing a microscope, whether that means picking one from the facility booking system, specifying a purchase, or building something on a bench. In all three cases you need at least a basic understanding of the logic behind optical design.
 
-## Start with the sample, always
+## Always start from the sample
 
 Every design decision cascades from the specimen. Before anything else, answer these:
 
@@ -14,15 +14,6 @@ Every design decision cascades from the specimen. Before anything else, answer t
 - **Is it alive?** If yes, you have a photon budget, a temperature requirement, a medium, and a clock.
 - **What do you need to resolve?** Whole cells at 5 µm, organelles at 500 nm, or protein clusters at 30 nm?
 - **How fast does it move?** Nothing at all, minutes for cell migration, milliseconds for a calcium transient.
-
-```{figure} ../figures/chap7_design_cascade.png
----
-width: 95%
-name: chap7_design_cascade
-align: center
----
-The design cascade. Each choice constrains the next, and the arrows run mostly in one direction: the sample determines the label, the label determines the source and filters, and the required resolution and speed determine the objective and the detector. Budget acts on every stage at once.
-```
 
 ## The cascade
 
@@ -79,37 +70,6 @@ A typical sCMOS has 6.5 µm pixels. Projected back, that is 108 nm per pixel: sl
 Note that the last option is a real option. Oversampling costs you signal per pixel and field of view, and if your sample is dim, deliberately sampling at the Nyquist limit rather than beyond it is the right call. This is the same trade-off explored interactively in the sampling section of this chapter.
 ```
 
-## Two worked designs
-
-### A live zebrafish embryo over 24 hours
-
-**Sample.** A whole embryo, roughly 1 mm across, alive, developing, and needing to stay that way for a day. Fluorescent protein expressed in a tissue of interest.
-
-**Immediate consequences.** Photodamage is the binding constraint. Any technique that illuminates the whole volume in order to image one plane will bleach and cook the embryo long before 24 hours are up, which rules out widefield and makes confocal marginal at best. The sample is thick, so you need optical sectioning. It is alive, so you need speed and a controlled environment.
-
-**Design.** Light-sheet fluorescence microscopy ({ref}`Chapter 5 <chap5_3>`). Illuminating only the imaged plane means the photon budget is spent almost entirely on photons you actually detect, and the dose per plane is orders of magnitude lower than in a confocal.
-
-- **Source:** a CW laser matching the fluorescent protein, fibre-coupled for a clean mode.
-- **Illumination optics:** beam expander, then either a cylindrical lens for a static sheet or a galvo for a scanned one. Given a live, scattering, three-dimensional embryo, the scanned sheet is worth the extra complexity because it suppresses the striping that scattering produces in a coherently illuminated static sheet.
-- **Detection objective:** water dipping, low to moderate magnification, moderate NA. Something like 20x/1.0 W. Resolution of about 260 nm is plenty for tissue-scale development, and the large field of view and long working distance are essential.
-- **Detector:** sCMOS. You need speed to capture a whole volume before the embryo moves, a large field of view to hold the embryo, and low noise because the per-plane dose is deliberately small.
-- **Mechanics:** a sample holder that can rotate, because a millimetre of tissue is opaque enough that you will want to image from more than one side and fuse the views.
-
-### Calcium transients 400 µm deep in a mouse cortex
-
-**Sample.** Living brain, in an anaesthetised or head-fixed animal, with a genetically encoded calcium indicator. You need to resolve individual neurons and catch transients lasting tens of milliseconds, several hundred micrometres below the surface.
-
-**Immediate consequences.** Depth is the binding constraint. Brain tissue scatters visible light heavily, and by 400 µm a one-photon focus is hopeless. Scattering falls off steeply with wavelength, so the answer is to excite in the near infrared.
-
-**Design.** Two-photon laser scanning microscopy ({ref}`Chapter 8 <chap8>`).
-
-- **Source:** a femtosecond pulsed laser near 920 nm. As computed in {ref}`Chapter 7.1 <chap7_1>`, the pulse structure delivers the peak intensity needed for two-photon absorption at a tolerable average power.
-- **Scanning:** a resonant galvo for the fast axis and a conventional galvo for the slow axis, giving video-rate frames, plus a scan lens and tube lens conjugating the mirrors to the objective pupil.
-- **Objective:** water immersion, long working distance, moderate NA and low magnification, for example 16x/0.8 W with a 3 mm working distance. High NA would help collection, but you need the working distance and the field of view more.
-- **Detector:** a PMT, and specifically a GaAsP PMT for the higher quantum efficiency. There is no pinhole and no camera: because two-photon excitation only occurs at the focus, every emitted photon that reaches the detector, however scattered, came from the right place and should be collected. This is a genuinely elegant consequence of the nonlinearity, and it is why the detector sits as close to the objective as the designer can manage.
-- **Mechanics:** a stable, heavy frame and a piezo objective positioner for fast axial jumps between imaging planes.
-
-Notice that the two designs share almost nothing. Same fluorescence, same physics, entirely different instrument, because the samples asked different questions.
 
 ## Sampling diffraction-limited objects
 
@@ -197,20 +157,12 @@ For a fuller tool that includes a large library of real objectives and immersion
 
 ## Being critical
 
-The reason to learn this reasoning is not only so you can build things. It is so you can read the literature properly.
+The reason to learn this reasoning is not only so you can build things, but also so you can read the literature properly.
 
-Once you can go from function to design, you can look at a published instrument and ask whether the choices were good ones. Why an EMCCD when an sCMOS would have been faster and quieter? Probably because the paper predates the widespread availability of sCMOS, and the date of publication is right there. Why a 1.4 NA oil objective on a sample that is 80 µm thick? That is a genuine question, since oil immersion introduces severe spherical aberration when you focus more than a few micrometres into an aqueous sample. Why only two colours when the biology involves three proteins? Perhaps the third label was not available, perhaps the spectra overlapped, perhaps the budget ran out.
+Once you can go from function to design, you can look at a published instrument and ask whether the choices were good ones. Why an EMCCD when an sCMOS would have been faster and quieter? Probably because the paper pre-dates the widespread availability of sCMOS, and the date of publication is right there. Why a 1.4 NA oil objective on a sample that is 80 µm thick? That is a genuine question, since oil immersion introduces severe spherical aberration when you focus more than a few micrometres into an aqueous sample. Why only two colours when the biology involves three proteins? Perhaps the third label was not available, perhaps the spectra overlapped, perhaps the budget ran out.
 
 Some of these questions have good answers and some expose real limitations. Either way, the ability to ask them is what separates reading a methods section from understanding it.
 
 ```{tip}
-Budget is a design constraint, not an embarrassment. A very large fraction of published microscopy is done on instruments that were affordable rather than optimal, and papers like the descSPIM design in the previous section exist precisely to make good imaging accessible. When you look at a schematic and think "why did they not use a better camera", the answer is often simply the price, and the interesting question becomes whether the compromise was well chosen.
+Budget is a design constraint, and it should never be reason for embarrassment. A very large fraction of published microscopy is done on instruments that were affordable rather than optimal, and the aim of many recent papers is precisely to make good imaging accessible. When you look at a schematic and think "why did they not use a better camera", the answer is often simply the price, and the interesting question becomes whether the compromise was well chosen.
 ```
-
-## Where this leads
-
-You now have the two skills that the rest of the course assumes. You can look at an instrument and work out what it does, and you can start from a biological question and reason towards the instrument that answers it.
-
-Everything that follows is an application of this. The advanced techniques of {ref}`Chapter 8 <chap8>` are, almost without exception, rearrangements of components you have now met: a pulsed laser and a PMT for multiphoton, a fast detector and timing electronics for lifetime imaging, a high-NA objective and an oblique beam for TIRF. The super-resolution methods of {ref}`Chapter 9 <chap9>` add a DMD or an SLM to pattern the illumination, or a very sensitive camera and a lot of frames, or both. And {ref}`Chapter 10 <chap10>` deals with what happens after the detector, where the choices made on the optical table show up as the properties of the data you have to analyse.
-
-The parts do not change very much. What changes is the reasoning that arranges them.

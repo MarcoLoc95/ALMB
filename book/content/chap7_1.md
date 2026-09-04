@@ -13,7 +13,7 @@ Four families of source cover almost everything you will meet. They differ mainl
 
 ```{figure} ../figures/chap7_light_source_spectra.gif
 ---
-width: 88%
+width: 100%
 name: chap7_light_source_spectra
 align: center
 ---

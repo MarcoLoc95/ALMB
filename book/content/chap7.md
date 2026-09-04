@@ -6,6 +6,10 @@ But nobody has ever bought a spatial frequency filter. What you buy, or inherit,
 
 This chapter is about that translation, and it runs in both directions. Forwards, from a pile of components to a working instrument. Backwards, from a schematic in a paper to an understanding of what the authors were trying to do. Both directions rest on the same foundation: knowing what each part is for, what it costs you, and what it gives you in return.
 
+We begin with the parts themselves: sources, mirrors, lenses, filters, detectors, and the specialized optical and mechanical components that show up once you leave the world of catalogue microscopes. Then we practise reading real published schematics, because that skill is what lets you pick up a methods paper and work out what the instrument actually does. Finally we turn the problem around and ask how you would design an instrument yourself, starting from a biological question.
+
+This is also where the first half of the course meets the second. Almost every advanced technique in {ref}`Chapter 8 <chap8>` and {ref}`Chapter 9 <chap9>` is a rearrangement of the components introduced here. Once you recognise a pulsed laser, a pair of galvanometric mirrors and a photomultiplier tube in a figure, you have already worked out that you are looking at a multiphoton microscope, before reading a word of the caption.
+
 ```{figure} ../figures/chap7_building_blocks_map.png
 ---
 width: 95%
@@ -14,12 +18,6 @@ align: center
 ---
 The families of components that make up any imaging system. Light is generated at a source, shaped and filtered on its way to the sample, collected by an objective, filtered again, and converted into numbers by a detector.
 ```
-
-We begin with the parts themselves: sources, mirrors, lenses, filters, detectors, and the specialized optical and mechanical components that show up once you leave the world of catalogue microscopes. Then we practise reading real published schematics, because that skill is what lets you pick up a methods paper and work out what the instrument actually does. Finally we turn the problem around and ask how you would design an instrument yourself, starting from a biological question.
-
-This is also where the first half of the course meets the second. Almost every advanced technique in {ref}`Chapter 8 <chap8>` and {ref}`Chapter 9 <chap9>` is a rearrangement of the components introduced here. Once you recognise a pulsed laser, a pair of galvanometric mirrors and a photomultiplier tube in a figure, you have already worked out that you are looking at a multiphoton microscope, before reading a word of the caption.
-
-## Learning objectives
 
 At the end of this chapter you should be able to:
 

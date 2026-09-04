@@ -99,7 +99,7 @@ Turning that into a light source takes three things: a **gain medium** (a gas, a
 
 ```{figure} ../figures/chap7_laser_cavity.gif
 ---
-width: 85%
+width: 100%
 name: chap7_laser_cavity
 align: center
 ---

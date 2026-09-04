@@ -466,9 +466,3 @@ align: center
 ---
 Translation stages for lateral (xy) sample positioning and a piezo objective positioner for axial (z) scanning.
 ```
-
-## Putting it together
-
-That is the catalogue. Sources that differ mainly in the shape of their spectrum, mirrors and filters that are all built from the same interference physics, objectives that encode their entire specification in a few engraved characters, detectors that differ mainly in how they read out, and a set of programmable and mechanical components for putting light exactly where you want it.
-
-None of these parts is interesting on its own. What is interesting is the reasoning that assembles them, and that reasoning leaves visible traces. A PMT means scanning. A pulsed laser means nonlinear excitation. A cylindrical lens means a light sheet. Three LEDs and a set of dichroics mean multicolour imaging. In the next section we will use exactly these clues to read published instruments off the page.

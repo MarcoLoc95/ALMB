@@ -1,12 +1,6 @@
 (chap7_2)=
 # 7.2 - Reading a schematic
 
-```{raw} html
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
-<iframe src="https://player.vimeo.com/video/VIMEO_ID_LECTURE_11" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
-```
-
 Open almost any methods paper in microscopy and you will find, usually as Figure 1, a line drawing full of ellipses, rectangles and diagonal bars, labelled with a dense fog of acronyms. It looks forbidding. It is not. A schematic is a story with a fixed plot: light is born, it travels to the sample, it comes back changed, and it is counted. Your job is to follow it.
 
 This section gives you a procedure and then applies it to real published instruments. The procedure is not the only one possible, and experienced people stop using it consciously, but it works every time and it is what you should fall back on when a figure looks impenetrable.

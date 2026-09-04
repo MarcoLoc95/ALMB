@@ -1,12 +1,6 @@
 (chap7_1)=
 # 7.1 - Building blocks of a microscope
 
-```{raw} html
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
-<iframe src="https://player.vimeo.com/video/VIMEO_ID_LECTURE_10" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
-```
-
 An imaging system, stripped to its essentials, does three things. It makes light, it does something to that light on the way to and from the sample, and it counts the light that comes back. Every component on an optical table belongs to one of those three jobs, or else it exists to hold the others still.
 
 This section is a tour of the parts, deliberately more general than "a microscope", because the same catalogue turns up in a flow cytometer, a spectrometer and an optical tweezer setup. Some of these you have already met. What follows adds the details that matter when you have to choose a part rather than just recognise one.

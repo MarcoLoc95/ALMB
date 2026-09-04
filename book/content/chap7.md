@@ -19,12 +19,6 @@ We begin with the parts themselves: sources, mirrors, lenses, filters, detectors
 
 This is also where the first half of the course meets the second. Almost every advanced technique in {ref}`Chapter 8 <chap8>` and {ref}`Chapter 9 <chap9>` is a rearrangement of the components introduced here. Once you recognise a pulsed laser, a pair of galvanometric mirrors and a photomultiplier tube in a figure, you have already worked out that you are looking at a multiphoton microscope, before reading a word of the caption.
 
-## Sampling diffraction-limited objects
-
-```{note}
-This section, together with its interactive widget, is kept from the existing wrapper. It sits naturally here because pixel size is the last link in the chain that runs from the objective, through the magnification, to the detector. If you prefer, it also works well as a closing section after {ref}`From function to design <chap7_3>`, since choosing a camera and choosing a magnification are really the same decision made twice.
-```
-
 ## Learning objectives
 
 At the end of this chapter you should be able to:

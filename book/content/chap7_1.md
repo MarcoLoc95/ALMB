@@ -451,7 +451,7 @@ width: 85%
 name: chap7_optical_table
 align: center
 ---
-An optical table on pneumatic isolators. The honeycomb core provides stiffness at low mass, and the air legs decouple the table from building vibration.
+An optical table on pneumatic isolators. The honeycomb core provides stiffness at low mass, and the air legs decouple the table from building vibration. Picture taken from the [ThorLabs catalogue](https://www.thorlabs.com/optical-table-and-active-isolator-leg-bundles?tabName=Overview).
 ```
 
 **Translation stages** move the sample in x and y. They can be manual, motorised, or piezoelectric, and the choice is a trade-off between range and precision: a motorised stage covers centimetres with micrometre steps, a piezo stage covers a hundred micrometres with nanometre steps. Stage scanning is much slower than galvo scanning, but it has no field-of-view limit, which is why tiled acquisitions of whole slides are done this way.

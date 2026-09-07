@@ -34,7 +34,7 @@ width: 40%
 name: chap7_tungsten_halogen_lamp
 align: center
 ---
-A tungsten-halogen lamp. The filament is visible inside the quartz envelope, which must be quartz rather than glass because of the operating temperature.
+A tungsten-halogen lamp. The filament is visible inside the quartz envelope, which must be quartz rather than glass because of the operating temperature. Picture from the [LabShops catalogue](https://labshops.com/collections/accessories/products/tungsten-halogen-replacement-lamp-for-shimadzu-part-number-062-65005-00).
 ```
 
 Thermal lamps give you stable, cheap, broadband white light, which makes them excellent for brightfield and for the transmitted-light path of a commercial microscope. They are poor for fluorescence. Most of the emitted power is infrared, so you throw away the overwhelming majority of it in a filter, and what is left in the blue is weak. If your fluorophore is excited in the red you may be fine; if it is excited at 405 nm you will struggle.
@@ -57,7 +57,7 @@ width: 85%
 name: chap7_arc_lamps
 align: center
 ---
-Mercury and xenon arc lamps. In both cases the emitting region is the discharge near the cathode tip, which is why the pointed electrode geometry matters.
+Xenon, xenon-mercury, and high-pressure mercury short-arc lamps. In all three cases the emitting region is the discharge near the cathode tip. Picture taken from [BLC International catalogue](https://blc-america.com/xenon-mercury-short-arc/).
 ```
 
 ### Light-emitting diodes

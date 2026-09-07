@@ -464,5 +464,5 @@ width: 90%
 name: chap7_stages
 align: center
 ---
-Translation stages for lateral (xy) sample positioning and a piezo objective positioner for axial (z) scanning.
+Translation stages for lateral (xy) sample positioning. Pictures taken from the [Standa catalogue](https://www.standa.lt/products/catalog/motorised_positioners?item=311&prod=motrized_xy_scanning_stage&print=1) and the [New Age catalogue](https://www.newagein.com/wp-content/uploads/2025/01/Motorized-Lab-Jack-F.pdf).
 ```

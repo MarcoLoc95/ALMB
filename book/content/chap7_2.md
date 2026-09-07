@@ -1,40 +1,31 @@
 (chap7_2)=
 # 7.2 - Reading a schematic
 
-Open almost any methods paper in microscopy and you will find, usually as Figure 1, a line drawing full of ellipses, rectangles and diagonal bars, labelled with a dense fog of acronyms. It looks forbidding. It is not. A schematic is a story with a fixed plot: light is born, it travels to the sample, it comes back changed, and it is counted. Your job is to follow it.
+Open almost any methods paper in microscopy and you will find, usually as Figure 1, a line drawing full of ellipses, rectangles and diagonal bars, labelled with a dense fog of acronyms. It may looks mysterious, but it doesn't have to be. A schematic is a story with a fixed plot: light is generated, it travels to the sample, it comes back, and it is measured. Your job is to simply follow it.
 
-This section gives you a procedure and then applies it to real published instruments. The procedure is not the only one possible, and experienced people stop using it consciously, but it works every time and it is what you should fall back on when a figure looks impenetrable.
+This section gives you a procedure and then applies it to real published instruments. The procedure is not the only one possible, and experienced people stop using it consciously, but it works every time and it is what you should fall back on when a figure looks impenetrably complicated.
 
-## The procedure
-
-```{figure} ../figures/chap7_schematic_recipe.png
----
-width: 95%
-name: chap7_schematic_recipe
-align: center
----
-The five steps applied to a generic epifluorescence microscope. Find the ends of the story first, then fill in the middle.
-```
+## A simple, step-by-step procedure
 
 **1. Find the light source or sources.** Look for a laser box, an LED, a lamp, or a beam entering the figure from off-page. There may be more than one, and if there are, that fact alone is informative: multiple sources usually means multiple colours, and therefore multiple labels in the sample.
 
 **2. Find the sample.** It is almost always labelled, and it is almost always at the focus of an objective. In a schematic drawn with the optical axis vertical, it will be at the top (an inverted microscope) or in the middle (a light-sheet or a horizontal custom build).
 
-**3. Find the detector or detectors.** A camera is drawn as a rectangle, a PMT as a cylinder with a cable. Again, more than one detector tells you something: either two colours recorded simultaneously, or two different measurement modes.
+**3. Find the detector or detectors.** A camera is typically drawn as a rectangle, a PMT as a cylinder with a cable. Again, more than one detector tells you something: either two colours recorded simultaneously, or multiple possible measurement modes.
 
-**4. Follow the optical path from source to detector, through the sample.** Light travels in straight lines until something bends it. Trace the beam. If the figure is drawn well, the beam itself is shaded, and you can simply follow the shading.
+**4. Follow the optical path from source to detector, through the sample.** Despite some hardcore physicists argue that ray optics is a mere simplification of wave optics, for all practical purposes light travels in straight lines until something bends it. Trace the beam. If the figure is drawn well, the beam will have a distinctive color and run through the whole setup.
 
-**5. Identify each component you cross, and ask what it is for.** This is where the previous section pays off. Every component you cross is a decision somebody made, and each one narrows down what the instrument is for.
+**5. Identify each component you cross, and ask what it is for.** Here you need to apply what you learnt from the previous section. Every component you cross has been chosen for a specific purpose.
 
-Then step back and read the whole thing as a sentence. If you have crossed a pulsed laser, two scanning mirrors and a PMT, you are looking at a multiphoton microscope, and you knew that before reading the caption.
+At this point you can take a step back and read the whole thing as a sentence. If you have crossed a pulsed laser, two scanning mirrors and a PMT, you are looking at a multiphoton microscope, and you knew that before reading the caption. Of course, such expertise can only come with practice, which is why the next subsections cover multiple examples.
 
 ```{tip}
-When you meet a component you do not recognise, do not stop. Note where it sits (illumination path or detection path, before or after the objective, in a pupil plane or an image plane) and keep going. Its position usually tells you more than its name, and you can look the name up afterwards. Outside an exam you always can look it up, and everybody does.
+When you meet a component you do not recognise, do not stop. Note where it sits (illumination path or detection path, before or after the objective, in a pupil plane or an image plane) and keep going. Its position usually tells you more than its name, and you can look the name up afterwards. Outside an exam you always can look it up, and everybody does all the time.
 ```
 
 ## Worked example 1: two ways to build a light sheet
 
-Our first example comes from a review of light-sheet fluorescence microscopy {cite}`stelzer2021lightsheet`, and it is a gift, because it shows two implementations side by side that differ in exactly one respect.
+Our first example comes from a review of light-sheet fluorescence microscopy, and it is a gift, because it shows two implementations side by side that differ in exactly one respect.
 
 ```{figure} ../figures/chap7_schematic_lightsheet_spim_dslm.png
 ---
@@ -69,7 +60,7 @@ This pair of panels is a perfect illustration of the general principle that a sc
 
 ## Worked example 2: patterned illumination with a spatial light modulator
 
-The second example is an open-source structured illumination add-on {cite}`hannebelle2024opensim`, designed to bolt onto the illumination port of an ordinary inverted microscope.
+The second example is an open-source structured illumination add-on, designed to bolt onto the illumination port of an ordinary inverted microscope.
 
 ```{figure} ../figures/chap7_schematic_opensim.png
 ---
@@ -98,7 +89,7 @@ Notice how much you extracted without any knowledge of SIM theory. Three LEDs me
 
 ## Worked example 3: one instrument, four modes
 
-The third example {cite}`meng2022octoscope` is different in character: rather than one optical path, it shows four configurations of the same hardware.
+The third example is different in character: rather than one optical path, it shows four configurations of the same hardware.
 
 ```{figure} ../figures/chap7_schematic_octoscope.png
 ---
@@ -127,7 +118,7 @@ Ask what changes. A PMT has no pixels, so the instrument is no longer forming an
 
 ## Your turn
 
-Here is a schematic to work through yourself before reading the answer. It is an affordable, easy-to-build light-sheet microscope for cleared tissue {cite}`otomo2024descspim`.
+Here is a schematic to work through yourself before reading the answer. It is an affordable, easy-to-build light-sheet microscope for cleared tissue.
 
 ```{figure} ../figures/chap7_schematic_descspim.png
 ---

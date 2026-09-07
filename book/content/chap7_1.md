@@ -30,7 +30,7 @@ Any hot filament slowly evaporates, blackening the envelope and thinning itself 
 
 ```{figure} ../figures/chap7_tungsten_halogen_lamp.png
 ---
-width: 40%
+width: 30%
 name: chap7_tungsten_halogen_lamp
 align: center
 ---

@@ -53,7 +53,7 @@ The **xenon arc lamp** works on the same principle with xenon, and produces a sp
 
 ```{figure} ../figures/chap7_arc_lamps.png
 ---
-width: 85%
+width: 50%
 name: chap7_arc_lamps
 align: center
 ---

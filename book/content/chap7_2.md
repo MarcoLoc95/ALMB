@@ -29,7 +29,7 @@ Our first example comes from a review of light-sheet fluorescence microscopy, an
 
 ```{figure} ../figures/chap7_schematic_lightsheet_spim_dslm.png
 ---
-width: 95%
+width: 60%
 name: chap7_schematic_spim_dslm
 align: center
 ---
@@ -64,7 +64,7 @@ The second example is an open-source structured illumination add-on, designed to
 
 ```{figure} ../figures/chap7_schematic_opensim.png
 ---
-width: 90%
+width: 60%
 name: chap7_schematic_opensim
 align: center
 ---
@@ -93,7 +93,7 @@ The third example is different in character: rather than one optical path, it sh
 
 ```{figure} ../figures/chap7_schematic_octoscope.png
 ---
-width: 95%
+width: 60%
 name: chap7_schematic_octoscope
 align: center
 ---
@@ -122,7 +122,7 @@ Here is a schematic to work through yourself before reading the answer. It is an
 
 ```{figure} ../figures/chap7_schematic_descspim.png
 ---
-width: 90%
+width: 80%
 name: chap7_schematic_descspim
 align: center
 ---

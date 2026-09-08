@@ -28,4 +28,3 @@ At the end of this chapter you should be able to:
 - Explain how a photomultiplier tube amplifies a single photon into a measurable current, and why it carries no spatial information.
 - Describe the function of galvanometric mirrors, digital micromirror devices and spatial light modulators, and identify which one suits a given task.
 - Trace the optical path in a published schematic from source to detector, identify each intermediate component, and infer the function of the instrument.
-- Argue, from a stated biological question, which sample preparation, label, light source, filter set, objective and detector you would choose, and justify the trade-offs.

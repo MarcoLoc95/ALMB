@@ -67,7 +67,7 @@ $$100 \ \text{nm} \times 60 = 6.0 \ \mu\text{m}$$
 
 A typical sCMOS has 6.5 µm pixels. Projected back, that is 108 nm per pixel: slightly undersampled. Options are to add a 1.5x magnification changer (giving 72 nm per pixel, comfortably Nyquist-sampled), to move to a 100x objective, or to accept a small loss of resolution in exchange for a larger field of view and more photons per pixel.
 
-Note that the last option is a real option. Oversampling costs you signal per pixel and field of view, and if your sample is dim, deliberately sampling at the Nyquist limit rather than beyond it is the right call. This is the same trade-off explored interactively in the sampling section of this chapter.
+Note that the last option is a real option. Oversampling costs you signal per pixel and field of view, and if your sample is dim, deliberately sampling at the Nyquist limit rather than beyond it is the right call. This is the same trade-off explored interactively in the next section.
 ```
 
 
@@ -77,9 +77,17 @@ The diffraction limit sets the size of the smallest object an optical system can
 
 The total magnification $M$ makes objects in the sample appear $M$ times larger at the camera, which means each pixel samples a region of the sample $M$ times smaller than its physical size. Consider a camera with $2000 \times 2000$ pixels, each $6.5\ \mu\text{m}$ across. Behind a $10\times$ objective, one pixel covers $650\ \text{nm}$ of the sample; behind a $100\times$ objective, the same pixel covers only $65\ \text{nm}$. The optics have not changed, but what the pixel grid can capture has.
 
-The rule for matching the two comes straight from the frequency picture. The microscope band-limits the image: it passes no spatial frequency above its cutoff, so the image contains no period finer than the resolution $d$. The sampling theorem then says we must place at least two samples across the finest period, so the pixel spacing at the sample must be no larger than half the resolution. In practice a small safety margin is added, and a common convention is to make the pixel about $1/2.3 \approx 0.44$ times the smallest feature. Sampling more coarsely than this loses real information, an error called **undersampling** that shows up as a pixelated, aliased image; sampling much more finely, **oversampling**, adds no new information and only spreads the same photons over more pixels.
+The rule for matching the two comes straight from the frequency picture. The microscope band-limits the image: it passes no spatial frequency above its cutoff, so the image contains no period finer than the resolution. The sampling theorem then says we must place at least two samples across the finest period, so the pixel spacing at the sample must be no larger than half the resolution.
 
-To make it concrete, a diffraction-limited resolution of $320\ \text{nm}$ calls for samples every $140\ \text{nm}$ or so across the image. With a $6.5\ \mu\text{m}$ pixel, that requires a magnification of roughly $45$ to $50\times$. The lesson is worth stating plainly: magnification does nothing for the optical blur of the microscope, but it is what lets the detector sample finely enough to record all the detail the optics did transmit.
+In practice the rule is almost never quoted in that form. The convention is stated against the Rayleigh criterion, with a factor of 2.3:
+
+$$p_{\text{sample}} \leq \frac{d_{\text{Rayleigh}}}{2.3}, \qquad d_{\text{Rayleigh}} = \frac{0.61\,\lambda}{\mathrm{NA}}$$
+
+The 2.3 is often described as a safety margin, and it is worth knowing that it is not one. Half the Abbe resolution is $\lambda/4\mathrm{NA}$, while the Rayleigh convention works out at $0.265\,\lambda/\mathrm{NA}$, so it always permits a pixel 6% coarser, whatever the wavelength and aperture. The two are the same rule in different clothing, and the choice between them changes nothing in practice. What matters is saying which one you used.
+
+Sampling more coarsely than this loses real information, an error called **undersampling** that shows up as a pixelated, aliased image; sampling much more finely, **oversampling**, adds no new information and only spreads the same photons over more pixels.
+
+To make it concrete, a Rayleigh resolution of $320\ \text{nm}$ calls for samples every $140\ \text{nm}$ or so across the image. With a $6.5\ \mu\text{m}$ pixel, that requires a magnification of roughly $45$ to $50\times$. The lesson is worth stating plainly: magnification does nothing for the optical blur of the microscope, but it is what lets the detector sample finely enough to record all the detail the optics did transmit.
 
 ### Interactive resolution calculator
 
@@ -113,7 +121,7 @@ The two ideas of this section, the diffraction-limited resolution and the sampli
     <div class="card"><div class="k">Abbe resolution<br>&lambda;/(2&middot;NA)</div><div class="v" id="rc-abbe">&hellip;</div><div class="u">nm</div></div>
     <div class="card"><div class="k">Rayleigh resolution<br>0.61&middot;&lambda;/NA</div><div class="v" id="rc-ray">&hellip;</div><div class="u">nm</div></div>
     <div class="card"><div class="k">Effective pixel<br>at the sample</div><div class="v" id="rc-eff">&hellip;</div><div class="u">nm</div></div>
-    <div class="card"><div class="k">Required sampling<br>(Nyquist, &divide;2.3)</div><div class="v" id="rc-req">&hellip;</div><div class="u">nm</div></div>
+    <div class="card"><div class="k">Required sampling<br>Rayleigh &divide; 2.3</div><div class="v" id="rc-req">&hellip;</div><div class="u">nm</div></div>
   </div>
   <div class="status" id="rc-status"></div>
   <script>
@@ -166,3 +174,5 @@ Some of these questions have good answers and some expose real limitations. Eith
 ```{tip}
 Budget is a design constraint, and it should never be reason for embarrassment. A very large fraction of published microscopy is done on instruments that were affordable rather than optimal, and the aim of many recent papers is precisely to make good imaging accessible. When you look at a schematic and think "why did they not use a better camera", the answer is often simply the price, and the interesting question becomes whether the compromise was well chosen.
 ```
+
+None of this makes you an optical designer, and it is not meant to. What it should leave you with is the habit of asking, of any instrument you meet, what question it was built to answer and what it gave up in order to answer it. The parts on the table change very little from one microscope to the next. What changes is the reasoning that arranges them.

@@ -225,6 +225,16 @@ $$
 
 because $i \times i = -1$. This is the whole result in one line. There _is_ a field in the sample. It propagates along the surface, in the $x$ direction, exactly as an ordinary wave would. Perpendicular to the surface it does not propagate at all: it simply decays. A wave that fades away instead of travelling is called **evanescent**, from the Latin for vanishing.
 
+```{figure} ../figures/chap5_tirf_evanescent.gif
+---
+width: 100%
+name: chap5_tirf_evanescent
+align: center
+---
+The electric field of a laser beam undergoing total internal reflection, computed exactly for s-polarised light striking an interface between glass and water at 66°. Orange and blue are the two signs of the field, and dark is zero. The beam arrives from the lower left, is totally reflected, and leaves to the lower right, as the arrows show; where the incoming and outgoing beams overlap, they interfere into a pattern that runs along the surface. Above the interface the field does not stop. It continues into the sample as the evanescent wave, travelling along the surface with the beam while dying away within a fraction of a wavelength of the glass. With a 488 nm laser, its intensity falls to $1/e$ about 100 nm into the sample. The beam is drawn only a few wavelengths wide so that it fits the frame; a real TIRF beam is hundreds of micrometres across.
+```
+
+
 Intensity is the squared modulus of the field. The travelling factor has modulus one, so only the decaying factor survives, and it survives squared:
 
 $$

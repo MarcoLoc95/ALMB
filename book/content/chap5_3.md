@@ -5,9 +5,9 @@
 
 Consider what a confocal microscope does to a specimen over the course of a $z$-stack. To record plane 1, it illuminates the entire depth. To record plane 2, it illuminates the entire depth again. After fifty planes, every fluorophore in the specimen has been excited fifty times, and forty-nine of those excitations produced light that was thrown away at the pinhole.
 
-For a fixed sample this is merely wasteful. For a living one it is often fatal. A zebrafish embryo imaged every thirty seconds for twenty-four hours needs about three thousand stacks. At fifty planes each, that is 150 000 full-depth illuminations of a developing animal. Long before you get there, the fluorophores have bleached and the embryo has stopped developing normally, because the light itself is toxic: excited fluorophores generate reactive oxygen species, and doing so a hundred thousand times has consequences.
+For a fixed sample this is merely wasteful. For a living one it is often fatal. A zebrafish embryo imaged every thirty seconds for twenty-four hours needs about three thousand stacks. At fifty planes each, that is 150 000 full-depth illuminations of a developing animal. Long before you get there, the fluorophores have bleached and the embryo has stopped developing normally, because the light itself was toxic: excited fluorophores generate reactive oxygen species, and doing so a hundred thousand times has consequences.
 
-The realisation that fixes this is almost embarrassingly simple. The confocal pinhole is on the detection side, and by the time light reaches it the damage has been done. Move the selectivity to the *illumination* side, and the problem disappears rather than being cleaned up afterwards.
+The realisation that fixes this is almost embarrassingly simple. The confocal pinhole is on the detection side, and by the time light reaches it the damage has been done. Move the selectivity to the *illumination* side, and the problem disappears altogether.
 
 ## One plane at a time, from the side
 
@@ -44,7 +44,7 @@ The first is a **cylindrical lens**. Picture the biconvex lens you have been dra
 
 The second is a **scanned pencil beam**: sweep an ordinary focused beam rapidly across the field, so that over a single camera exposure the specimen has effectively seen a sheet. This is digitally scanned light-sheet microscopy (DSLM), and it gives a more uniform sheet and independent control of the illumination in each direction.
 
-A complete instrument is then short enough to list in one breath. Laser, a beam expander to fill the optics, a scanning mirror to translate the sheet up and down in $z$, the cylindrical lens, and an illumination objective that projects the sheet into the specimen. At right angles: the detection objective, an emission filter to reject the scattered laser light, a tube lens, and a camera. There is nothing conceptually harder than the widefield microscope of {ref}`Chapter 4 <chap4_1>`; the whole trick is the right angle.
+The list of components that make up the complete instrument is then rather short. A laser, a beam expander to fill the optics, a scanning mirror to translate the sheet up and down in $z$, the cylindrical lens, and an illumination objective that projects the sheet into the specimen. At right angles: the detection objective, an emission filter to reject the scattered laser light, a tube lens, and a camera. There is nothing conceptually harder than the widefield microscope of {ref}`Chapter 4 <chap4_1>`; the whole trick is the right angle.
 
 Either way, the sheet is a focused laser beam, and focused laser beams obey a rule that limits everything. A Gaussian beam focused to a waist radius $w_0$ stays approximately that narrow only over its **Rayleigh range**
 

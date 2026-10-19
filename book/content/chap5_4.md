@@ -90,7 +90,7 @@ Three-photon microscopy, using 1300 or 1700 nm, applies the same logic one step 
 
 To summarise multiphoton microscopy on its own terms:
 
-- **Advantages**: intrinsic optical sectioning with no pinhole and no discarded light; the deepest penetration of any fluorescence technique discussed here; no out-of-focus photobleaching; access to SHG and THG contrast; near-infrared light is less phototoxic to bulk tissue.
+- **Advantages**: intrinsic optical sectioning with no pinhole and no discarded light; the deepest penetration of any fluorescence technique discussed here; no out-of-focus photobleaching; near-infrared light is less phototoxic to bulk tissue.
 - **Drawbacks**: lateral and axial resolution about 1.5 times coarser than confocal; point scanning, so the same speed limitations as a laser scanning confocal; a very expensive laser; intense photodamage possible at the focal volume; two-photon spectra must be measured rather than inferred.
 
 And to close the chapter, the comparison that actually matters at the microscope:
@@ -104,5 +104,3 @@ And to close the chapter, the comparison that actually matters at the microscope
 | **Multiphoton** | ~1 to 2 µm | slow (point scanning) | 500 µm to >1 mm | low outside the focus, high at it |
 
 Read the table as a set of questions rather than a ranking. Is the biology at the coverslip? Then TIRF, and nothing else comes close. Is the specimen a living embryo that must survive a day of imaging? Light sheet. Is it 400 µm inside a living mouse brain? Multiphoton. Is it a fixed, well-stained 20 µm section where you want the cleanest possible image and have no particular hurry? Confocal, which is why it remains the default.
-
-In {ref}`Chapter 6 <chap6>` we will change register entirely and ask what all of these instruments are doing in terms of spatial frequencies, which will let us say precisely what information an imaging system keeps and what it destroys.

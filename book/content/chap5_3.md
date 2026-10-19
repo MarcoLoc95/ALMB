@@ -78,7 +78,16 @@ With a moderate-NA detection objective the the axial detection point spread func
 
 Two problems recur often enough to have standard solutions.
 
-The first is the thickness-versus-field trade-off we just derived, which applies to Gaussian beams. There exist beams that do not diffract: the **Bessel beam**, produced by sending a collimated beam through a conical lens called an **axicon**, has a narrow central core whose width is independent of propagation distance. Using one gives a sheet 1 to 2 µm thick over a large field, breaking the trade-off.
+The first is the thickness-versus-field trade-off we just derived, which applies to Gaussian beams. There exist beams that do not diffract: the **Bessel beam**, produced by sending a collimated beam through a conical lens called an **axicon**, has a narrow central core whose width is independent of propagation distance (_{numref}`Fig. {number} <chap5_axicon_bessel>`_). Using one gives a sheet 1 to 2 µm thick over a large field, breaking the trade-off.
+
+```{figure} ../figures/chap5_axicon_bessel.png
+---
+width: 100%
+name: chap5_axicon_bessel
+align: center
+---
+An axicon and the Bessel beam it makes. Left: a rendered axicon, a disc of glass with one flat face and one conical face, with the cone angle exaggerated for visibility; real axicons for light-sheet microscopy are much flatter. Right: a collimated Gaussian beam passing through it, seen from the side, with the intensity computed from diffraction theory and drawn on a logarithmic scale. The conical face tilts every ray towards the axis by the same angle, so rays from all around the cone cross the axis and interfere, building a narrow core that keeps the same width along the whole Bessel zone. The zone ends where rays from the edge of the beam cross the axis; beyond it, the light carries on as a widening hollow cone. Inset: the beam seen head-on in the middle of the zone, a bright core surrounded by concentric rings, which are the side lobes discussed below. The transverse direction is stretched relative to the axial one.
+```
 
 In a sense, it breaks the trade-off by cheating. A Bessel beam carries a large fraction of its energy in concentric side lobes surrounding the core, and those side lobes are perfectly capable of exciting fluorophores several micrometres away from the plane being imaged. You get a thin core and a spread halo of out-of-plane background, which is much of what you were trying to avoid. The fixes are ingenious: excite the side lobes two-photon so their lower intensity suppresses them (see {ref}`Chapter 5.4 <chap5_4>`), subtract them with structured illumination, or arrange many Bessel beams in a periodic pattern whose side lobes interfere destructively. That last approach is **lattice light-sheet microscopy**, introduced by Betzig's group in 2014, and it produces the thinnest sheets in routine use.
 

@@ -3,13 +3,20 @@
 
 In {ref}`Chapter 4 <chap4>` we gained something that no amount of clever optics had given us before: molecular specificity. Attach a fluorophore to a protein, choose the right filter set, and that protein alone lights up against a black background. It feels like the problem of imaging biology has been solved.
 
-Point the same microscope at a thick specimen and the feeling evaporates. A monolayer of cultured cells looks superb. A 30 µm slice of brain tissue looks like a photograph taken through frosted glass: the structures are there somewhere, but they are buried under a bright, shapeless haze.
+Point the same microscope at a thick specimen and the feeling evaporates. If a monolayer of cultured cells looks superb, a 30 µm slice of brain tissue looks like a photograph taken through frosted glass: the structures are there somewhere, but they are buried under a bright, shapeless haze.
 
 The reason is not a failure of the labelling. It is a consequence of a fact we established in {ref}`Chapter 3 <chap3_2>`: the point spread function of an objective is stretched along the optical axis, typically by a factor of two to three relative to its width. What matters here is a stronger and less obvious version of that statement. In a widefield fluorescence microscope, every fluorophore in the illuminated cone is excited, whether or not it sits in the focal plane, and every one of them sends light back into the objective.
 
-It is worth doing the arithmetic, because the result is worse than most people expect. Consider a uniformly labelled specimen and ask how much light reaches the detector from a plane at distance $z$ from the focus. Far from the focus, the illumination is spread over an area growing as $z^2$, so each fluorophore is excited $z^2$ times more weakly. But that same plane contains $z^2$ times more excited fluorophores, because the cone is $z^2$ times wider. The two factors cancel exactly. Every plane in the specimen, in focus or not, contributes roughly the same amount of light.
+It is worth doing the arithmetic, because the result is worse than most people expect. Consider a uniformly labelled specimen and ask how much light reaches the detector from a plane at distance $z$ from the focus. Far from the focus, the illumination is spread over an area growing as $z^2$, so each fluorophore is excited $z^2$ times more weakly. But that same plane contains $z^2$ times more excited fluorophores, because the cone is $z^2$ times wider. The two factors cancel exactly. Every plane in the specimen, in focus or not, contributes roughly the same amount of light (_{numref}`Fig. {number} <chap5_every_plane_equal>`_).
 
-That is the whole problem in one sentence. Focus on a plane inside a 30 µm specimen with a section thickness of half a micrometre, and you collect one plane worth of signal on top of about sixty planes worth of background. The signal is still there. It is simply drowned.
+```{figure} ../figures/chap5_every_plane_equal.png
+---
+width: 100%
+name: chap5_every_plane_equal
+align: center
+---
+Why focusing the light does not help. Excitation focused into a uniformly labelled specimen forms a double cone. Take three planes at distances $d$, $2d$ and $3d$ from the focus. The cone is twice as wide at $2d$ and three times as wide at $3d$, so its cross-section, and with it the number of fluorophores it excites, grows four-fold and nine-fold. The same light is spread over that larger area, so each of those fluorophores is excited four and nine times more weakly. The product does not change: counted in units of the light from one molecule at distance $d$, every plane gives 4. For the uniform column of light used in widefield illumination the argument is simpler still, since there the intensity does not change with depth at all.
+```
 
 Notice that this is not a resolution problem. The objective still resolves 200 nm laterally, and the information about the focal plane is still present in the recorded image. What has collapsed is the **contrast**: the difference between a labelled structure and its surroundings, measured against the noise. No amount of magnification, and no amount of contrast stretching in software, will bring it back, because the background carries its own shot noise.
 

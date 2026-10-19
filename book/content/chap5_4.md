@@ -48,7 +48,7 @@ Maria Göppert-Mayer spent most of her career in unpaid or nominal academic posi
 
 ## Why $I^2$ gives sectioning for free
 
-Return to the argument in the chapter introduction. In a focused cone, the intensity at a distance $z$ from the focus falls as $1/z^2$, because the beam area grows as $z^2$. The number of fluorophores in that plane grows as $z^2$ for the same reason. For one-photon excitation, the fluorescence emitted per plane is therefore proportional to $(1/z^2) \times z^2$, a constant: every plane contributes equally, which is exactly the problem we set out to solve.
+Recall the argument in the chapter introduction. In a focused cone, the intensity at a distance $z$ from the focus falls as $1/z^2$, because the beam area grows as $z^2$. The number of fluorophores in that plane grows as $z^2$ for the same reason. For one-photon excitation, the fluorescence emitted per plane is therefore proportional to $(1/z^2) \times z^2$, a constant: every plane contributes equally, which is exactly the problem we set out to solve.
 
 For two-photon excitation, the rate per fluorophore goes as $(1/z^2)^2 = 1/z^4$, while the number of fluorophores still goes as $z^2$. The fluorescence per plane therefore falls as $1/z^2$ (_{numref}`Fig. {number} <chap5_twophoton_principle>`_c). Out-of-focus planes contribute a rapidly diminishing amount, and in practice essentially all of the fluorescence comes from a femtolitre-scale volume at the focus.
 

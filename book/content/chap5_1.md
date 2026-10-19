@@ -270,7 +270,7 @@ width: 85%
 name: chap5_pinhole_tradeoff
 align: center
 ---
-Effect of the pinhole diameter, computed from the scalar diffraction theory of the confocal point spread function. The lateral width (dashed) saturates around 1 AU: closing further gains little until the pinhole becomes very small, where it approaches the $\sqrt{2}$ limit. The axial width (solid) keeps improving all the way down. The collected signal (dotted, right axis) does the opposite. One Airy unit sits close to where the three curves make the best compromise, which is why it is the default on every instrument.
+How the pinhole diameter trades resolution against signal, for a 63×/1.40 oil objective at 520 nm. Top: the lateral width of an in-focus point, computed from scalar diffraction theory. It stays at the widefield value until the pinhole closes below about 1 AU, and only approaches the $\sqrt{2}$ limit below about a quarter of an Airy unit. Middle: the thickness of the optical section, from the working estimate given below in the text. It shrinks steadily as the pinhole closes, across the whole practical range, and grows without limit as the pinhole opens: a widefield microscope has no optical section at all. Bottom: the fraction of the light from an in-focus point that passes the pinhole. The vertical lines mark 1 AU and 0.5 AU, the two settings used in the worked example.
 ```
 
 A useful working estimate for the thickness of the optical section, and one you may meet in the manual of your microscope, is

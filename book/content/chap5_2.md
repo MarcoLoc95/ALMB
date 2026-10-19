@@ -3,8 +3,6 @@
 
 ## When 850 nm is still far too thick
 
-The confocal microscope we just built gives an optical section of a bit under a micrometre. For most of cell biology that is excellent. For one particular class of question it is hopeless.
-
 Suppose you want to watch a secretory vesicle fuse with the plasma membrane. The plasma membrane is about 5 nm thick. The interesting part of the event, the approach, docking and fusion, plays out within perhaps 100 nm of it. A 850 nm confocal section contains all of that, plus roughly eight times as much cytoplasm, full of vesicles that are not fusing and of freely diffusing labelled protein. The signal you want is a small perturbation on top of a large fluctuating background.
 
 The same problem appears whenever the biology lives at the coverslip: focal adhesions, receptor clustering and diffusion in the membrane, cell-substrate contacts, single-molecule assays with proteins bound to a functionalised glass surface. What is needed is not a thinner slice through the specimen but a way of exciting a shell only a hundred nanometres deep, sitting exactly on the glass.
@@ -187,15 +185,13 @@ and about 65° for the cytoplasm. These are large angles, and that turns out to 
 
 Here is the part that makes the technique possible. "No light is transmitted" is a statement about energy flow, not about the electromagnetic field. The field cannot simply stop at the interface, because Maxwell's equations require the tangential components to be continuous across it, and nothing in nature jumps discontinuously from a finite value to zero. What happens instead is that a field does exist in the second medium, but it carries no net energy away: it oscillates in place and dies off exponentially with distance from the surface.
 
-The result is worth deriving rather than quoting, because every term in the final formula can be traced back to a step in the argument. You will not be asked to reproduce it, but you should be able to follow where each piece comes from.
-
-Write the transmitted wave in complex form, as we did in {ref}`Chapter 1 <chap1_2>`:
+Let us start by writing the transmitted wave in complex form, as we did in {ref}`Chapter 1 <chap1_2>`:
 
 $$
 \vec{E}_t = \vec{E}_{t,0}\,e^{\,i\left(\vec{k}_t \cdot \vec{r} - \omega t\right)}
 $$
 
-Put the origin where the beam meets the interface, let $x$ run along the interface and $z$ perpendicular to it, pointing into the sample. Then $\vec{k}_t \cdot \vec{r} = k_x x + k_z z$, and simple trigonometry on the wave vector gives its two components:
+Place the origin where the beam meets the interface, let $x$ run along the interface and $z$ perpendicular to it, pointing into the sample. Then $\vec{k}_t \cdot \vec{r} = k_x x + k_z z$, and simple trigonometry on the wave vector gives its two components:
 
 $$
 k_x = k_t \sin\theta_t, \qquad k_z = k_t \cos\theta_t
@@ -420,7 +416,7 @@ $$
 The numerical aperture must exceed the refractive index of the *specimen*. For a cell at $n_2 \approx 1.38$, an NA 1.4 objective only just reaches the critical angle, which as we saw is exactly where the sectioning is worthless. You need headroom, and that is why dedicated TIRF objectives are sold at NA 1.45, 1.49 and occasionally 1.7. They are among the most expensive objectives in the catalogue, they demand a matched immersion oil and, at NA 1.7, special high-index cover glass.
 
 ```{tip}
-Two failure modes account for most disappointing TIRF images.
+You have two main ways to obtain the most disappointing TIRF images.
 
 The first is a **dirty or scratched coverslip**. The evanescent field samples 100 nm above the glass, so every speck of debris on it is imaged at full contrast. TIRF is the technique that punishes bad coverslip cleaning most severely.
 

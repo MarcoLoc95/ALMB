@@ -50,11 +50,11 @@ Maria Göppert-Mayer spent most of her career in unpaid or nominal academic posi
 
 Recall the argument in the chapter introduction. In a focused cone, the intensity at a distance $z$ from the focus falls as $1/z^2$, because the beam area grows as $z^2$. The number of fluorophores in that plane grows as $z^2$ for the same reason. For one-photon excitation, the fluorescence emitted per plane is therefore proportional to $(1/z^2) \times z^2$, a constant: every plane contributes equally, which is exactly the problem we set out to solve.
 
-For two-photon excitation, the rate per fluorophore goes as $(1/z^2)^2 = 1/z^4$, while the number of fluorophores still goes as $z^2$. The fluorescence per plane therefore falls as $1/z^2$ (_{numref}`Fig. {number} <chap5_twophoton_principle>`_c). Out-of-focus planes contribute a rapidly diminishing amount, and in practice essentially all of the fluorescence comes from a femtolitre-scale volume at the focus.
+For two-photon excitation, the rate per fluorophore goes as $(1/z^2)^2 = 1/z^4$, while the number of fluorophores still goes as $z^2$. The fluorescence per plane therefore falls as $1/z^2$ (_{numref}`Fig. {number} <chap5_twophoton_principle>`_). Out-of-focus planes contribute a rapidly diminishing amount, and in practice essentially all of the fluorescence comes from a femtolitre-scale volume at the focus.
 
-This has a consequence worth stating on its own line, because it is where the depth performance comes from. **If all the fluorescence originates at the focus, then every detected photon must have come from the focus, no matter what path it took to reach the detector.** There is no need to reject anything, so there is no pinhole. You can put a large-area detector as close to the objective as physically possible and collect scattered photons along with ballistic ones, which is called **non-descanned detection**. In scattering tissue this is worth an enormous amount: the photons that a confocal pinhole would discard are exactly the ones that carry the deep signal.
+This has an important consequence: **if all the fluorescence originates at the focus, then every detected photon must have come from the focus, no matter what path it took to reach the detector**. There is no need to reject anything, so there is no pinhole. You can put a large-area detector as close to the objective as physically possible and collect scattered photons along with ballistic ones, which is called **non-descanned detection**. In scattering tissue this is worth an enormous amount: the photons that a confocal pinhole would discard are exactly the ones that carry the deep signal.
 
-## What it takes
+## Not the easiest (or cheapest) technique
 
 The catch is that two-photon absorption is a very unlikely event, and making it happen at a useful rate requires intensities that would destroy a sample if delivered continuously. The way out is to concentrate the light in time rather than raising the average power.
 
@@ -67,7 +67,7 @@ $$
 100 \times 10^{-15}\ \text{s} \times 80 \times 10^{6}\ \text{s}^{-1} = 8 \times 10^{-6}
 $$
 
-so the light is only present for eight parts per million of the time. The peak power is therefore about $1/(8\times10^{-6}) \approx 1.25 \times 10^{5}$ times the average power. At 10 mW average power at the sample, entirely tolerable for a living cell, the peak power is about **1.25 kW**. Because the rate goes as $I^2$, the pulsed beam produces roughly $10^5$ times more two-photon excitation than a continuous beam of the same average power. Pulsing is not a refinement here. Without it the technique does not work.
+so the light is only present for eight parts per million of the time. The peak power is therefore about $1/(8\times10^{-6}) \approx 1.25 \times 10^{5}$ times the average power. At 10 mW average power at the sample, entirely tolerable for a living cell, the peak power is about **1.25 kW**. Because the rate goes as $I^2$, the pulsed beam produces roughly $10^5$ times more two-photon excitation than a continuous beam of the same average power. Without pulsing, the technique does not work.
 ```
 
 The second advantage comes from the wavelength. Scattering falls steeply with increasing wavelength, and the near-infrared range from about 700 to 1300 nm also sits in the **optical window** of tissue, where absorption by haemoglobin, melanin and water is at a minimum. Excitation light at 900 nm penetrates far better than at 450 nm, on top of everything gained from non-descanned detection. In practice, two-photon microscopy images 500 µm to over 1 mm into living cortex, against roughly 100 µm for confocal.
@@ -78,18 +78,12 @@ The second advantage comes from the wavelength. Scattering falls steeply with in
 
 **The laser is expensive**, both to buy and to keep aligned, and it dominates the cost of the instrument.
 
-**Photodamage is not eliminated, it is relocated.** Out-of-focus bleaching genuinely does disappear, which is a large gain. At the focus, however, the peak intensity is enormous and higher-order processes become possible, so damage there can be more severe than in a confocal. The failure mode is different: instead of bleaching the whole cone gently, you can ablate the focal volume.
+**Photodamage is not eliminated, only relocated.** Out-of-focus bleaching genuinely does disappear, which is a large gain. At the focus, however, the peak intensity is enormous and higher-order processes become possible, so damage there can be more severe than in a confocal. The failure mode is different: instead of bleaching the whole cone gently, you can ablate the focal volume.
 
 **Two-photon spectra are not simply the one-photon spectra at double the wavelength.** The selection rules differ, so two-photon excitation spectra are typically broader and often blue-shifted relative to twice the one-photon peak. Do not assume that a dye excited at 488 nm is best excited at 976 nm; look up its two-photon spectrum. The broadening has an upside: a single wavelength will often excite several fluorophores at once, which makes multi-colour imaging easier than it is with one-photon excitation.
 
 ```{tip}
-Two related processes come along for free, because they need the same femtosecond laser and the same tight focus.
-
-**Second harmonic generation** (SHG) converts two photons into a single photon of exactly half the wavelength, with no absorption and no excited state at all. It occurs only in materials that lack a centre of symmetry, which in tissue means collagen fibres, myosin filaments and microtubule bundles. Because nothing is absorbed, SHG cannot bleach and requires no label.
-
-**Third harmonic generation** (THG) is similarly label-free and highlights interfaces and lipid bodies.
-
-**Three-photon microscopy**, using 1300 or 1700 nm, applies the same logic one step further: an $I^3$ dependence and even less scattering, at the cost of needing higher peak powers still. It reaches through the entire mouse cortex into the hippocampus.
+Three-photon microscopy, using 1300 or 1700 nm, applies the same logic one step further: an $I^3$ dependence and even less scattering, at the cost of needing higher peak powers still. It reaches through the entire mouse cortex into the hippocampus.
 ```
 
 ## Choosing between the four

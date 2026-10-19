@@ -3,9 +3,7 @@
 
 ## Why confocal microscopy stops at 100 µm
 
-Every technique so far has assumed something we have not examined: that light travels in straight lines from the objective to the focus and back. In water and in cleared tissue that is nearly true. In living tissue it is not.
-
-Brain, muscle and skin are dense mixtures of membranes, protein aggregates and organelles with refractive indices that differ by a few percent over sub-micrometre distances. Light passing through them is scattered. The **scattering mean free path**, the distance over which a photon is likely to be deflected, is around 50 to 100 µm in cortex at visible wavelengths. Focus 200 µm deep and only a small fraction of the excitation light is still in the ballistic beam; the rest is diffusely spread around it, exciting fluorophores where it should not.
+Brain, muscle and skin are dense mixtures of membranes, protein aggregates and organelles with refractive indices that differ by a few percent over sub-micrometre distances. Light passing through them is, therefore, scattered. The **scattering mean free path**, the distance over which a photon is likely to be deflected, is around 50 to 100 µm in cortex at visible wavelengths. Focus 200 µm deep and only a small fraction of the excitation light is still travelling in a straight line; the rest is diffusely spread around it, exciting fluorophores where it should not.
 
 The confocal microscope is hit twice. Its excitation is degraded on the way in, and on the way out its pinhole rejects every emitted photon that was scattered, which by then is most of them. The two effects compound, and confocal image quality in living tissue collapses somewhere between 50 and 150 µm.
 
@@ -33,6 +31,20 @@ R_{2\text{P}} \propto I^2 \qquad \text{whereas} \qquad R_{1\text{P}} \propto I
 $$
 
 That single exponent is the whole technique.
+
+````{tip}
+```{figure} ../figures/chap5_goeppertmayer.jpg
+---
+width: 75%
+name: chap5_goeppertmayer
+align: center
+---
+The Nobel laureate for Physics Maria Göppert-Mayer. Credits: Public domain.
+```
+
+Maria Göppert-Mayer spent most of her career in unpaid or nominal academic positions and received the 1963 Nobel Prize in Physics for the nuclear shell model, becoming only the second woman to win it after Marie Curie. The unit of two-photon absorption cross-section, the GM, is named after her.
+
+````
 
 ## Why $I^2$ gives sectioning for free
 

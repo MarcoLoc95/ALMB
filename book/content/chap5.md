@@ -42,6 +42,5 @@ At the end of this chapter you should be able to:
 - Justify a choice of pinhole diameter for a given specimen and photon budget, using the trade-off between optical section thickness and collected signal.
 - Distinguish point-scanning from spinning-disk confocal microscopy, and select the appropriate one for a stated experiment.
 - Calculate the critical angle and the evanescent penetration depth at a glass-sample interface, and explain why objective-type TIRF requires an objective whose numerical aperture exceeds the refractive index of the specimen.
-- Relate the Gaussian beam waist and Rayleigh range to the trade-off between light-sheet thickness and usable field of view, and explain what a Bessel beam buys and what it costs.
 - Describe two-photon excitation, and explain why the quadratic dependence on intensity confines fluorescence to the focal volume without any pinhole.
 - Compare the four techniques in terms of sectioning strength, speed, penetration depth and phototoxicity, and defend a choice of technique for a given biological question.

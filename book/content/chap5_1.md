@@ -3,19 +3,19 @@
 
 ## A very good idea, thirty years too early
 
-In 1957, a 30-year-old junior fellow at Harvard filed a patent for a microscope. His name was **Marvin Minsky**, and he is remembered today as one of the founders of artificial intelligence, not as a microscopist. That is exactly the point: he was not trying to invent an instrument. He was trying to trace the wiring of the brain, and he could not, because every slice of nervous tissue he looked at dissolved into the same milky haze we described in the chapter introduction.
+In 1957, a 30-year-old junior fellow at Harvard filed a patent for a microscope. His name was **Marvin Minsky**, and he is remembered today as one of the founders of artificial intelligence, not as a microscopist. In fact, he was not trying to invent an instrument. However, he was trying hard to trace the wiring of the brain, and he could not, because every slice of nervous tissue he looked at dissolved into the same haze we described in the chapter introduction.
 
-His solution, sketched in {ref}`Chapter 1 <chap1_1>` and worth stating precisely here, has two halves that must be used together. First, do not spread the illumination across the whole field. Focus it to a single diffraction-limited spot, so that almost all of the excitation power lands in one tiny volume. Second, do not image the whole field either. Place an aperture in front of the detector, positioned so that the only light which can pass through it is light that came from that same spot.
+His solution was based on two principles. First, do not spread the illumination across the whole field. Focus it to a single diffraction-limited spot, so that a large excitation power lands in one tiny volume. Second, do not image the whole field either. Place an aperture in front of the detector, positioned so that the only light which can pass through it is light that came from that same spot.
 
-Either half alone helps a little. Together they are transformative, because the two constraints are multiplicative: to reach the detector, a photon must have been emitted in the illuminated volume *and* have come from a point that the aperture accepts. The illuminated point and the detected point are the same point, which is where the name comes from: the illumination focus and the detection focus are _confocal_.
+If either half alone helps only a little, together they are transformative, because the two constraints are multiplicative: to reach the detector, a photon must have been emitted in the illuminated volume *and* have come from a point that the aperture accepts. The illuminated point and the detected point are the same point, which is where the name comes from: the illumination focus and the detection focus are _confocal_.
 
-Minsky built the instrument. It worked. Nobody cared. He had no laser, so he used a zirconium arc lamp and threw away almost all of its light in order to make a point source. He had no fast scanner, so he moved the specimen instead of the beam, at a stately few frames per second. He had no computer, so he displayed the result on the long-persistence screen of a military radar oscilloscope and looked at it before it faded, with no way of recording it other than photographing the screen. The idea had to wait for lasers, photomultipliers, galvanometers and digital storage to catch up. By the late 1980s all four existed, and the confocal microscope went from curiosity to the standard workhorse of cell biology in about a decade.
+Minsky even built the instrument. It worked, but nobody cared. The reason for this is that he had no laser, so he used a zirconium arc lamp and threw away almost all of its light in order to make a point source. He had no fast scanner, so he moved the specimen instead of the beam, at a stately few frames per second. He had no computer, so he displayed the result on the long-persistence screen of a military radar oscilloscope and looked at it before it faded, with no way of recording it other than photographing the screen. The idea had to wait for lasers, photomultipliers, galvanometers and digital storage to catch up. By the late 1980s all four existed, and the confocal microscope went from curiosity to the standard workhorse of cell biology in about a decade.
 
 ## What the pinhole actually does
 
 Consider a fluorophore sitting exactly in the focal plane. The objective collects its light, the tube lens focuses it, and it converges to a diffraction-limited spot in the image plane. Now consider a fluorophore a few micrometres above the focal plane. Its light also enters the objective, but because it was not at the front focal plane, the bundle leaving the objective is not collimated. The tube lens therefore focuses it somewhere else along the axis, and in the image plane it forms not a spot but a broad, dim disc.
 
-Put a small aperture in the image plane and the consequences are asymmetric in exactly the way we want (_{numref}`Fig. {number} <chap5_widefield_vs_confocal>`_). The in-focus light is already concentrated into a spot smaller than the aperture, so essentially all of it gets through. The out-of-focus light is spread over an area hundreds of times larger, so only the tiny fraction that happens to fall on the aperture survives. The rejection is not perfect, and it becomes weaker as the defocus becomes small, but it is dramatic.
+Put a small aperture in the image plane and the consequences are asymmetric in exactly the way we want (_{numref}`Fig. {number} <chap5_widefield_vs_confocal>`_). The in-focus light is already concentrated into a spot smaller than the aperture, so essentially all of it gets through. The out-of-focus light is spread over an area hundreds of times larger, so only the tiny fraction that happens to fall on the aperture survives.
 
 ```{figure} ../figures/chap5_widefield_vs_confocal.png
 ---
@@ -24,10 +24,6 @@ name: chap5_widefield_vs_confocal
 align: center
 ---
 Ray trace through an objective and a tube lens for three fluorophores: one in the focal plane (green) and two displaced along the axis (orange). The in-focus light converges to a point in the image plane. The defocused light comes to a focus before or after it, and by the time it reaches the image plane it is spread out. A pinhole placed at the image plane transmits the first and blocks almost all of the second.
-```
-
-```{tip}
-The pinhole sits in a plane that is conjugate to the focal plane, which is another way of saying that it sits where the camera sensor would sit. This is why a confocal image and a widefield image of the same specimen are in perfect register: the light takes the same path, and the only difference is what happens at the very end of it.
 ```
 
 There is a second consequence that is easy to miss. Because the detector now sees light from one point at a time, it does not need to be a camera. Knowing *where* the light came from is not the detector's job, since the scanner already knows where it pointed the beam. All the detector has to do is count photons, and for that the right device is a photomultiplier tube or an avalanche photodiode: a single, extremely sensitive element with no spatial resolution whatsoever. The image is not recorded. It is assembled, pixel by pixel, from a sequence of intensity measurements.
@@ -45,12 +41,12 @@ There is usually a second pinhole as well, on the excitation side, placed in a p
 ```{tip}
 A question that comes up every year: does the pinhole reduce the numerical aperture?
 
-It does not. The numerical aperture is a property of the objective and the immersion medium, $\text{NA} = n\sin\theta$, fixed by the widest cone of light the front lens can accept. The pinhole sits far downstream, in the image plane, long after that cone has been collected. What it does is discard part of the Airy pattern that the objective has already formed, which changes the shape of the effective point spread function slightly, but not the angular acceptance that produced it. If you replaced the detector with a screen, the spot you would see just before the pinhole and just after it would be the same spot, only dimmer.
+The short answer is that it does not. The numerical aperture is a property of the objective and the immersion medium, $\text{NA} = n\sin\theta$, fixed by the widest cone of light the front lens can accept. The pinhole sits far downstream, in the image plane, long after that cone has been collected. What it does is discard part of the Airy pattern that the objective has already formed, which changes the shape of the effective point spread function slightly, but not the angular acceptance that produced it. If you replaced the detector with a screen, the spot you would see just before the pinhole and just after it would be the same spot, only dimmer.
 ```
 
 ## How wide should the pinhole be?
 
-This is the one setting on a confocal microscope that you will change constantly, so it is worth understanding rather than memorising.
+The pinhole size is the one setting on a confocal microscope that you will change constantly, so it is worth understanding a bit more in detail.
 
 Closing the pinhole rejects more out-of-focus light and gives a thinner optical section. It also throws away signal, because even a perfectly in-focus point source is not a point in the image plane: it is an Airy pattern, with a finite width set by diffraction. Close the pinhole below the size of the Airy disk and you start cutting into the very light you are trying to collect.
 
@@ -62,7 +58,7 @@ $$
 
 Note carefully what a 1 AU pinhole does and does not admit. It passes the central disc of the Airy pattern and nothing else: the rings fall outside it. That central disc happens to contain about 84% of the energy, so that is what gets through, and the remaining 16% sitting in the rings is discarded. Opening the pinhole to recover it is a poor bargain, as the simulation below makes clear: going from 1 AU to 3 AU buys another ten percentage points of signal while tripling the width of the region you accept light from.
 
-### Simulation: sizing the pinhole
+### Simulation: changing the size of the pinhole
 
 Drag the slider and watch two things at once. On the left, the white circle is the pinhole drawn on the Airy pattern, and everything it rejects is dimmed. On the right, the curve is the fraction of the light from an in-focus point source that survives, with the current setting marked. Notice how flat the curve becomes past 1 AU, and how steeply it falls below it.
 
@@ -262,7 +258,7 @@ $$
 That is the size of the Airy disk _in the specimen_. The physical pinhole sits in the image plane, so its diameter must be multiplied by the magnification: $0.45 \times 63 \approx 28$ µm. This is why the pinhole in a real instrument is a visible hole rather than a microscopic one, and it is also why the same setting in micrometres means different things on different objectives. Always set the pinhole in Airy units and let the software do the conversion.
 ```
 
-Now the trade-off itself (_{numref}`Fig. {number} <chap5_pinhole_tradeoff>`_). Two things happen as the pinhole closes, and they happen on different schedules.
+Let us now discuss the  trade-off itself (_{numref}`Fig. {number} <chap5_pinhole_tradeoff>`_).
 
 The **lateral** resolution improves, but only in the last stretch. Down to about 1 AU almost nothing changes, because the pinhole is still larger than the diffraction spot and is not shaping it. Below roughly 0.5 AU the pinhole starts to act as a genuine spatial filter, and in the limit of a vanishingly small pinhole the effective point spread function becomes the *product* of the excitation and detection point spread functions. Multiplying two similar bell shapes gives a narrower bell: the width shrinks by a factor of $\sqrt{2}$, about 40%. That is the entire theoretical resolution gain of confocal microscopy over widefield, and it is available only at a pinhole size that transmits a few percent of your photons. In practice nobody uses it.
 
@@ -315,7 +311,7 @@ The obvious approach, and the one Minsky used, is to leave the optics alone and 
 
 **Laser scanning confocal microscopy** therefore does it the other way and moves the light. Two galvanometer mirrors, one for $x$ and one for $y$, are mounted on shafts that rotate through small angles in response to a voltage from the controller. Tilting them deflects the beam, so the focus traces a raster across the specimen while the specimen itself sits still. The emitted light travels back along the same path and off the same mirrors, which cancels the scan motion and delivers a stationary beam to a stationary pinhole. This trick is called **descanning**, and it is what makes a single fixed pinhole possible at all. To build a $z$-stack you then move the objective or the stage in $z$ alone, one slow step per plane rather than hundreds of fast ones per image.
 
-The cost is time. Each pixel gets the detector's attention for a **dwell time** of typically 1 to 10 µs, and a 512 × 512 image therefore takes somewhere between a quarter of a second and several seconds. Faster is possible with a resonant scanner, which oscillates at a fixed frequency of about 8 kHz and reaches video rate, but the dwell time falls in proportion and the images become noisier.
+The cost is time. Each pixel gets the detector's attention for a **dwell time** of typically 1 to 10 µs, and a 512 × 512 image therefore takes somewhere between a quarter of a second and several seconds. A faster scan is only possible with a resonant scanner, which oscillates at a fixed frequency of about 8 kHz and reaches video rate, but the dwell time falls in proportion and the images become noisier.
 
 **Spinning-disk confocal microscopy** attacks the problem by parallelising it. The idea goes back to the **Nipkow disk**, patented by Paul Nipkow in 1884 for mechanical television and repurposed for microscopy by Mojmír Petráň and Milan Hadravský in the 1960s. A disk carrying about a thousand pinholes, laid out along interleaved Archimedean spirals so that a partial rotation sweeps every point of the field exactly once, spins in a conjugate image plane. Hundreds of confocal spots are illuminated and detected at the same time, and because there are now hundreds of positions to keep track of, the detector has to be a camera again.
 
@@ -342,9 +338,7 @@ To summarise:
 - **Drawbacks**: scanning is slow; the whole depth of the specimen is illuminated for every plane, causing photobleaching and phototoxicity out of proportion to the data collected; the pinholes must be well aligned; signal is discarded by design.
 
 ```{tip}
-A word on cost, since it shapes what you will actually find in a facility. A good commercial confocal starts somewhere around twenty thousand euros and climbs steeply from there, which is expensive but an order of magnitude below the super-resolution instruments of {ref}`Chapter 9 <chap9>`. Much of what you are paying for is alignment. The optical principle is simple enough that confocals were once routinely home-built, but the scanner, the pinhole and the detection path have to stay aligned to a fraction of the Airy disk while mirrors oscillate a few thousand times a second, and that is engineering rather than optics. Almost nobody builds their own any more.
-
-The practical consequence of the photodamage problem is worth stating plainly too: point-scanning confocal is mostly a technique for fixed specimens, or for small fields imaged occasionally. For a fast live process, a plain widefield microscope will often beat it outright, because widefield captures the whole field in one exposure and confocal has to visit it a quarter of a million times.
+A word on actual cost, since it shapes what you will actually find in a facility. A good commercial confocal starts somewhere around twenty thousand euros and climbs steeply from there, which is expensive but an order of magnitude below the super-resolution instruments of {ref}`Chapter 9 <chap9>`. Much of what you are paying for is alignment. The optical principle is simple enough that confocals were once routinely home-built, but the scanner, the pinhole and the detection path have to stay aligned to a fraction of the Airy disk while mirrors oscillate a few thousand times a second, and that is engineering rather than optics. Almost nobody builds their own any more.
 ```
 
 The next three sections all take the same view of the problem. If the trouble is that we generate light we then have to throw away, the answer is to stop generating it.

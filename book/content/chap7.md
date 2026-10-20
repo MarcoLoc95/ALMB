@@ -1,6 +1,6 @@
 # 7 - Imaging system design
 
-We have so far discussed optics in rather general and abstract terms. However, what you buy, or inherit, or find gathering dust in a corner of the lab, is a table covered in metal cylinders and black boxes with cables coming out of them. At a certain point somebody chose every one of those parts. They chose a light source with a particular spectrum, a mirror with a particular coating, a camera with a particular pixel size, and they chose them because of the specific biology they wanted to see.
+We have so far discussed optics in rather general terms. However, what you buy, or inherit, or find gathering dust in a corner of the lab, is a table covered in metal cylinders and black boxes with cables coming out of them. At a certain point somebody chose every one of those parts. They chose a light source with a particular spectrum, a mirror with a particular coating, a camera with a particular pixel size, and they chose them because of the specific biology they wanted to see.
 
 This chapter is about that translation. We will see how to go from a pile of components to a working instrument, but also from a schematic in a paper to an understanding of what the authors were trying to do. The foundation is essentially the same: knowing what each part is for, what it costs you, and what it gives you in return.
 

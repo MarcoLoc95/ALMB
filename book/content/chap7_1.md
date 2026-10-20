@@ -7,7 +7,7 @@ This section is a tour of the parts, deliberately more general than "a microscop
 
 ## Light sources
 
-For the first two centuries of microscopy the light source was the sun, redirected by a mirror under the stage, or a candle. Both work, and both have the obvious limitation that you cannot turn up the sun. Everything since has been an attempt to get more control: more brightness, more stability, a narrower spectrum, or the ability to switch on and off in microseconds.
+For the first two centuries of microscopy the light source was the sun, redirected by a mirror under the stage, or a candle. There are some obvious limitations, for example you cannot turn up the sun, or change the color of a candle flame. Everything since has been an attempt to get more control: more brightness, more stability, a narrower spectrum, or the ability to switch on and off in microseconds.
 
 Four families of source cover almost everything you will meet. They differ mainly in the shape of their emission spectrum, which is the single most useful thing to know about a lamp.
 

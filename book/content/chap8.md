@@ -5,10 +5,10 @@ Every chapter so far has been answering, in one way or another, the same questio
 
 This chapter asks different questions. Not only where a molecule is, but how fast it moves, whether it is stuck to something, whether it is touching a partner, what the pH or the temperature or the membrane voltage is around it, and, in the last section, whether we need to label it at all. Each section is built around one of those questions:
 
-- **Can we watch a living cell in three dimensions, fast, for hours, at the diffraction limit in every direction?** {ref}`Section 8.1 <chap8_1>` follows up on the promise at the end of {ref}`Chapter 5.3 <chap5_3>` and builds a light sheet out of interfering Bessel beams.
-- **How do molecules move, and whom do they touch?** {ref}`Section 8.2 <chap8_2>` covers fluorescence correlation spectroscopy, fluorescence recovery after photobleaching and Förster resonance energy transfer, three techniques that trade pictures for numbers.
-- **What is the environment around a fluorophore?** {ref}`Section 8.3 <chap8_3>` replaces the brightness of a fluorophore with its lifetime, which turns out to be a far more trustworthy observable.
-- **What can the sample tell us without any label?** {ref}`Section 8.4 <chap8_4>` uses the same pulsed lasers as multiphoton microscopy to generate contrast from collagen, membranes and chemical bonds directly.
+- **Can we watch a living cell in three dimensions, fast, for hours, at the diffraction limit in every direction?** Section 8.1 follows up on the promise at the end of Chapter 5.3 and builds a light sheet out of interfering Bessel beams.
+- **How do molecules move, and whom do they touch?** Section 8.2 covers fluorescence correlation spectroscopy, fluorescence recovery after photobleaching and Förster resonance energy transfer, three techniques that trade pictures for numbers.
+- **What is the environment around a fluorophore?** Section 8.3 replaces the brightness of a fluorophore with its lifetime, which turns out to be a far more trustworthy observable.
+- **What can the sample tell us without any label?** Section 8.4 uses the same pulsed lasers as multiphoton microscopy to generate contrast from collagen, membranes and chemical bonds directly.
 
 ```{figure} ../figures/chap8_collage.png
 ---
@@ -16,7 +16,7 @@ width: 90%
 name: chap8_collage
 align: center
 ---
-A gallery of what the techniques in this chapter can do. A neutrophil-like cell crawling through a collagen matrix, recorded with lattice light-sheet microscopy; a fluorescence lifetime map of a zebrafish embryo expressing a voltage sensor; second-harmonic generation from collagen; third-harmonic generation outlining every cell of a zebrafish embryo; and a coherent anti-Stokes Raman image of engineered cartilage, with collagen in cyan and lipid deposits in orange. The last three required no label of any kind.
+A gallery of what the techniques in this chapter can do. A neutrophil-like cell crawling through a collagen matrix, recorded with lattice light-sheet microscopy; a fluorescence lifetime map of a zebrafish embryo expressing a voltage sensor; second-harmonic generation from collagen; third-harmonic generation outlining every cell of a zebrafish embryo; and engineered cartilage imaged with SHG and CARS together, with collagen in cyan and lipid deposits in orange. The last three required no label of any kind.
 ```
 
 ## Advanced, but still diffraction limited
@@ -29,7 +29,7 @@ Chapter 9 is different in kind. Super-resolution techniques go below the diffrac
 
 ## Seven questions to ask of any technique
 
-{ref}`Chapter 7.3 <chap7_3>` argued that every design decision starts from the sample, and that the photon budget is the currency everything is paid in. When the decision is between techniques rather than between components, the trade-offs are conventionally expressed along seven axes. They are the columns of most comparison tables in the literature, so it pays to be fluent in them.
+Chapter 7.3 argued that every design decision starts from the sample, and that the photon budget is the currency everything is paid in. When the decision is between techniques rather than between components, the trade-offs are conventionally expressed along seven axes. They are the columns of most comparison tables in the literature, so it pays to be fluent in them.
 
 - **Lateral resolution**: the minimum resolvable distance in the focal plane.
 - **Axial resolution**: the minimum resolvable distance along the optical axis.
@@ -44,21 +44,6 @@ Only the first two are optics in the narrow sense. The other five belong to the 
 ```{tip}
 Resolution figures quoted in isolation are one of the most common ways in which microscopy papers mislead, usually without meaning to. A technique that achieves 230 nm on fluorescent beads lying on a coverslip may deliver 500 nm in an organoid 80 μm deep. Whenever you read a number, ask what it was measured on, at what depth, and with how many photons.
 ```
-
-## Where the techniques sit
-
-The comparison at the end of {ref}`Chapter 5.4 <chap5_4>` covered the sectioning techniques. The table below does the same for the methods in this chapter. It is deliberately rough: all of these numbers move with the numerical aperture, the wavelength, the sample and the time you are willing to spend.
-
-| Technique | What it reports | Spatial information | Time resolution | Label | Main limitation |
-|---|---|---|---|---|---|
-| Lattice light-sheet microscopy | 3D fluorescence images | ~230 nm lateral, ~370 nm axial | ms per plane | fluorescent | thin samples only; demanding alignment |
-| FCS | concentration, diffusion coefficient | one point, no image | μs to s | fluorescent, at low concentration | model-dependent analysis |
-| FRAP | mobility, bound fraction | the bleached region | 0.1 s to minutes | fluorescent | destructive by design |
-| FRET | proximity on the 2 to 10 nm scale | as the host microscope | as the host microscope | donor and acceptor | absolute efficiency is hard to measure |
-| FLIM | local environment, FRET efficiency | confocal or multiphoton | seconds to minutes per image | fluorescent or autofluorescent | photon budget makes it slow |
-| SHG | ordered, non-centrosymmetric structure | as multiphoton, up to ~1 mm deep | as multiphoton | none | only a few structures generate it |
-| THG | interfaces and refractive index changes | as multiphoton | as multiphoton | none | weak signal |
-| CARS | chemical bonds | as multiphoton, 100 to 300 μm deep | seconds per image | none | non-resonant background; two synchronised lasers |
 
 ---
 

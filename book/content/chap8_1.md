@@ -1,13 +1,13 @@
 (chap8_1)=
 # 8.1 - Lattice light-sheet microscopy
 
-{ref}`Chapter 5.3 <chap5_3>` left us with a problem and a promise. The problem: a Gaussian light sheet can be thin or long, but not both, because its usable length grows only with the square of its thickness. The promise: Bessel beams break that trade-off, at the price of side lobes that excite fluorophores away from the focal plane, and a periodic arrangement of Bessel beams can make those side lobes cancel. That arrangement is the _lattice_, and this section is about how it works and what it has made possible.
+Chapter 5.3 left us with a problem and a promise. The problem: a Gaussian light sheet can be thin or long, but not both, because its usable length grows only with the square of its thickness. The promise: Bessel beams break that trade-off, at the price of side lobes that excite fluorophores away from the focal plane, and a periodic arrangement of Bessel beams can make those side lobes cancel. That arrangement is the _lattice_, and this section is about how it works and what it has made possible.
 
 We will not repeat the axicon picture of Chapter 5.3. Instead we will look at the same beams from the back focal plane, because that is where the lattice is actually designed, and because Chapter 6 has given us exactly the tools to do it.
 
 ## Thinking in the pupil
 
-Recall from {ref}`Chapter 6.3 <chap6_3>` that the field in the back focal plane of a lens and the field at its focus are a Fourier pair. Read in the forward direction, this gives a very physical rule: _every point in the pupil becomes a plane wave at the focus_, travelling at an angle $\theta$ set by how far that point is from the centre. Light near the centre of the pupil becomes waves travelling almost along the axis; light near the edge becomes the steepest waves the objective can deliver, with $n\sin\theta$ equal to the numerical aperture.
+Recall from Chapter 6.3 that the field in the back focal plane of a lens and the field at its focus are a Fourier pair. Read in the forward direction, this gives a very physical rule: _every point in the pupil becomes a plane wave at the focus_, travelling at an angle $\theta$ set by how far that point is from the centre. Light near the centre of the pupil becomes waves travelling almost along the axis; light near the edge becomes the steepest waves the objective can deliver, with $n\sin\theta$ equal to the numerical aperture.
 
 A focused spot, a Gaussian sheet, a Bessel beam and a lattice are then simply four different ways of lighting the pupil:
 
@@ -32,7 +32,7 @@ First, the size of the central spot, in the end view, hardly changes. It is set 
 
 Second, the length of the beam, in the side view, is set by the _width_ of the ring. That is where the trade-off of Chapter 5.3 comes from, seen now from the other side. Two plane waves travelling at slightly different angles have slightly different speeds along the axis, so they slowly drift out of step. The narrower the range of angles, the longer they stay in step, and the longer the beam. In the limit of an infinitely thin ring every wave has the same axial speed, they never drift apart, and the beam is infinitely long: the ideal Bessel beam.
 
-Third, and this is the uncomfortable part, the side lobes are not a separate defect that happens to accompany long beams. They are the _same_ phenomenon. With a filled pupil, about 85% of the light sits in the central spot, which you may recognise as the Airy disk of {ref}`Chapter 3.2 <chap3_2>`. As the ring narrows, the end view turns into a bullseye and the light drains steadily into the rings. You cannot have the length without the lobes, at least not with a single beam.
+Third, and this is the uncomfortable part, the side lobes are not a separate defect that happens to accompany long beams. They are the _same_ phenomenon. With a filled pupil, about 85% of the light sits in the central spot, which you may recognise as the Airy disk of Chapter 3.2. As the ring narrows, the end view turns into a bullseye and the light drains steadily into the rings. You cannot have the length without the lobes, at least not with a single beam.
 
 ```{tip}
 **Worked example: predicting the length of a beam from its pupil.**
@@ -65,7 +65,7 @@ In the pupil, the same thing is achieved by lighting the ring not all the way ar
 
 A lattice is still a set of bright points rather than a sheet. Turning it into a uniform sheet of illumination takes one more step, and here the lattice has a decisive advantage over a single beam.
 
-A single beam has to be _scanned_ across the whole field of view during each camera exposure, so that the time-averaged illumination is a sheet. A lattice only has to be _dithered_: moved back and forth over the distance between two neighbouring peaks, which is under a micrometre. Because the galvanometric mirror ({ref}`Chapter 7.1 <chap7_1>`) only has to travel a tiny distance, it can do so at kilohertz rates, and every point of the sheet is illuminated many times during a single exposure. _{numref}`Fig. {number} <chap8_scanning_vs_dithering>`_ compares the two strategies.
+A single beam has to be _scanned_ across the whole field of view during each camera exposure, so that the time-averaged illumination is a sheet. A lattice only has to be _dithered_: moved back and forth over the distance between two neighbouring peaks, which is under a micrometre. Because the galvanometric mirror (Chapter 7.1) only has to travel a tiny distance, it can do so at kilohertz rates, and every point of the sheet is illuminated many times during a single exposure. _{numref}`Fig. {number} <chap8_scanning_vs_dithering>`_ compares the two strategies.
 
 ```{figure} ../figures/chap8_scanning_vs_dithering.gif
 ---
@@ -84,12 +84,12 @@ width: 60%
 name: chap8_lattice_psf
 align: center
 ---
-Instantaneous intensity at the sample, the swept or dithered intensity, and the resulting overall point spread function, for a Gaussian beam, a Bessel beam and a square lattice. Reproduced from Chen et al., _Science_ **346**, 1257998 (2014).
+Instantaneous intensity at the sample, the swept or dithered intensity, and the resulting overall point spread function, for a Gaussian beam, a Bessel beam and a square lattice. Copyright: Chen et al. (2014), via Science.
 ```
 
 ## Reading the instrument
 
-With the pupil picture in hand, the optical layout in _{numref}`Fig. {number} <chap8_llsm_schematic>`_ reads almost like a sentence. Following the approach of {ref}`Chapter 7.2 <chap7_2>`, trace the light and ask what each element is for.
+With the pupil picture in hand, the optical layout in _{numref}`Fig. {number} <chap8_llsm_schematic>`_ reads almost like a sentence. Following the approach of Chapter 7.2, trace the light and ask what each element is for.
 
 ```{figure} ../figures/chap8_llsm_schematic.png
 ---
@@ -97,14 +97,14 @@ width: 95%
 name: chap8_llsm_schematic
 align: center
 ---
-Simplified optical layout of a lattice light-sheet microscope. The excitation path (orange) shapes the beam into a dithered optical lattice; detection (green) is orthogonal to the sheet.
+Simplified optical layout of a lattice light-sheet microscope. The excitation beam (orange) is expanded into a stripe, patterned by the SLM and filtered by the annular mask, so that only a ring of light, seen here in cross-section as two bands, travels on to the excitation objective. The objective turns that ring into light arriving at a shallow angle from all sides, which overlaps over an extended length to form the sheet. Fluorescence (green) is collected at right angles and focused onto the camera. The drawing is unfolded and simplified: the SLM is a reflective device, the galvo unit contains two mirrors with relay optics between them, and in the real instrument both objectives are tilted and dip into a shared bath of medium.
 ```
 
-The laser beam is first reshaped by two pairs of cylindrical lenses into a thin stripe, which illuminates a narrow band across a spatial light modulator. The SLM in the original instrument is a binary ferroelectric device, each pixel imposing either no phase shift or a phase shift of $\pi$, and the pattern written on it is the lattice to be projected into the sample. Because the SLM sits in a plane conjugate to the sample, a thin stripe on the SLM becomes a lattice confined to a thin slab in the sample.
+The beam from a set of continuous-wave lasers is first reshaped by cylindrical lenses into a thin stripe, which illuminates a narrow band across a spatial light modulator. The SLM in the original instrument is a binary ferroelectric device, each pixel imposing either no phase shift or a phase shift of $\pi$, and the pattern written on it is the lattice to be projected into the sample. Because the SLM sits in a plane conjugate to the sample, a thin stripe on the SLM becomes a lattice confined to a thin slab in the sample.
 
 The next lens is the important one. It performs the Fourier transform of Chapter 6, so in its back focal plane the light from the SLM is spread out according to angle: each diffraction order of the SLM pattern arrives at a different point. An opaque mask with a transparent annulus sits exactly there. It passes only the components lying on the ring, discarding the unwanted orders that a binary SLM inevitably produces and fixing the minimum and maximum NA of the illumination, which, as we just saw, fix the length and thickness of the sheet. This is spatial filtering in the back focal plane, the same idea met in Chapter 6, used here as a routine piece of engineering.
 
-From there, relay lenses carry the filtered pattern to galvanometric mirrors that dither the lattice in $x$ and step it in $z$, and a final mirror turns the beam down into the excitation objective, which points at the sample from above. The relays and their conjugation of the mirrors to the objective pupil are there for exactly the reasons given in the scan lens tip of {ref}`Chapter 7.1 <chap7_1>`. The detection arm is a perfectly ordinary widefield path: a high-NA objective at right angles to the excitation, a tube lens, an emission filter and an sCMOS camera. Because the sheet travels downwards and is thin in the direction the detection objective looks along, it appears in the schematic as a narrow vertical stripe.
+From there, relay lenses carry the filtered pattern to galvanometric mirrors that dither the lattice in $x$ and step it in $z$, and a final mirror turns the beam down into the excitation objective, which points at the sample from above. The relays and their conjugation of the mirrors to the objective pupil are there for exactly the reasons given in the scan lens tip of Chapter 7.1. The detection arm is a perfectly ordinary widefield path: a high-NA objective at right angles to the excitation, a tube lens, an emission filter and an sCMOS camera. Because the sheet travels downwards and is thin in the direction the detection objective looks along, it appears in the schematic as a narrow vertical stripe.
 
 The SLM has one further advantage over a fixed axicon: the pattern can be changed in software. Switching between a single Bessel beam, a square lattice, a hexagonal lattice or a Gaussian sheet is a matter of loading a different image.
 
@@ -112,7 +112,7 @@ The SLM has one further advantage over a fixed axicon: the pattern can be change
 
 In its **dithered mode**, the one described so far, the lattice is smeared into a uniform sheet and the instrument behaves as an exceptionally thin, exceptionally gentle light-sheet microscope. The original report quoted a resolution of roughly 230 nm laterally and 370 nm axially in this mode, at hundreds of planes per second.
 
-In its **structured illumination mode**, the lattice is not smeared out. It is stepped through several positions, an image is recorded at each, and the images are combined computationally to recover detail finer than the diffraction limit. This is the principle of structured illumination microscopy, which belongs to {ref}`Chapter 9 <chap9>`, and it costs speed and photons. In practice the dithered mode is what most lattice light-sheet experiments use.
+In its **structured illumination mode**, the lattice is not smeared out. It is stepped through several positions, an image is recorded at each, and the images are combined computationally to recover detail finer than the diffraction limit. This is the principle of structured illumination microscopy, which belongs to Chapter 9, and it costs speed and photons. In practice the dithered mode is what most lattice light-sheet experiments use.
 
 ## Summary
 
@@ -121,6 +121,6 @@ In its **structured illumination mode**, the lattice is not smeared out. It is s
 
 The applications that made the technique famous all share one feature: they are fast, three-dimensional processes in living cells that would not survive a confocal microscope. Filopodia extending and retracting from the surface of a HeLa cell, followed as full volumes for many minutes. A neutrophil-like HL-60 cell migrating through a three-dimensional collagen matrix, which is far closer to the mechanical environment of real tissue than a glass coverslip. The immunological synapse between a T cell and an antigen-presenting cell in two colours, with actin flowing towards and away from the contact as the T cell decides whether to respond. And a _C. elegans_ embryo shortly before hatching, imaged in a single plane at the maximum frame rate of the camera, resolving individual muscle contractions and, minutes later, the larva levering itself out of the eggshell.
 
-Two developments since the original instrument are worth knowing about. Adding adaptive optics, with the deformable mirrors and SLMs of {ref}`Chapter 7.1 <chap7_1>` correcting the aberrations introduced by the sample, has extended lattice light-sheet imaging into living zebrafish embryos and other multicellular specimens. And commercial instruments now exist, including designs that image through a standard coverslip, which removes much of the burden of sample mounting.
+Two developments since the original instrument are worth knowing about. Adding adaptive optics, with the deformable mirrors and SLMs of Chapter 7.1 correcting the aberrations introduced by the sample, has extended lattice light-sheet imaging into living zebrafish embryos and other multicellular specimens. And commercial instruments now exist, including designs that image through a standard coverslip, which removes much of the burden of sample mounting.
 
 Lattice light-sheet microscopy is, in a sense, the most refined answer this book gives to the question of making better images. The next section stops asking for images altogether.

@@ -254,7 +254,7 @@ width: 95%
 name: chap8_ex_fcs_ago2
 align: center
 ---
-FCS in HEK293 cells stably expressing GFP-tagged Ago2. Left: the two measurement positions, in the nucleus (red) and the cytoplasm (cyan). Middle: normalised autocorrelation curves; the cytoplasmic curve decays later. Right: the interpretation, with largely free Ago2 in the nucleus and Ago2 incorporated into large complexes in the cytoplasm. Source: [to be added].
+FCS in HEK293 cells stably expressing GFP-tagged Ago2. Left: the two measurement positions, in the nucleus (red) and the cytoplasm (cyan). Middle: normalised autocorrelation curves; the cytoplasmic curve decays later. Right: the interpretation, with largely free Ago2 in the nucleus and Ago2 incorporated into large complexes in the cytoplasm. Copyright: PicoQuant, via picoquant.com.
 ```
 
 ```{tip}
@@ -276,11 +276,11 @@ Predicted 2.7, measured 2.5. Neither complex is anywhere near resolvable, yet th
 
 ## Fluorescence recovery after photobleaching
 
-### Burn a hole, watch it fill
+### Principle
 
 FCS listens to a system at equilibrium. FRAP does the opposite: it kicks the system out of equilibrium and watches it recover.
 
-Image a labelled sample, then deliver a brief, intense pulse of light to a defined region, bleaching every fluorophore inside it ({ref}`Chapter 4.1 <chap4_1>`). The region goes dark. Then keep imaging at low power. Bleached molecules diffuse out of the region and unbleached molecules diffuse in, so the region slowly brightens again. How fast it brightens reports on mobility; how bright it eventually becomes reports on what fraction of the molecules can move at all.
+Image a labelled sample, then deliver a brief, intense pulse of light to a defined region, bleaching every fluorophore inside it (Chapter 4.1). The region goes dark. Then keep imaging at low power. Bleached molecules diffuse out of the region and unbleached molecules diffuse in, so the region slowly brightens again. How fast it brightens reports on mobility; how bright it eventually becomes reports on what fraction of the molecules can move at all.
 
 ```{figure} ../figures/chap8_frap_principle.png
 ---
@@ -324,17 +324,17 @@ width: 55%
 name: chap8_ex_frap_lbr
 align: center
 ---
-FRAP of GFP-tagged lamin B receptor. Bleached in the endoplasmic reticulum (left column), the region recovers within minutes: the protein diffuses freely in the ER membrane. Bleached in the nuclear envelope (right column), it barely recovers at all, because there the receptor is anchored to the nuclear lamina. Source: [to be added].
+FRAP of GFP-tagged lamin B receptor. Bleached in the endoplasmic reticulum (left column), the region recovers within minutes: the protein diffuses freely in the ER membrane. Bleached in the nuclear envelope (right column), it barely recovers at all, because there the receptor is anchored to the nuclear lamina. Copyright: Ellenberg et al. (1997), via The Journal of Cell Biology.
 ```
 
 ### Summary
 
-- **Advantages**: possible on almost any confocal microscope, and with a digital micromirror device ({ref}`Chapter 7.1 <chap7_1>`) several regions of arbitrary shape can be bleached in one experiment; reports on a whole region rather than a single point, so it is far less noise-limited than FCS; answers the binary question "free or bound?" very directly.
+- **Advantages**: possible on almost any confocal microscope, and with a digital micromirror device (Chapter 7.1) several regions of arbitrary shape can be bleached in one experiment; reports on a whole region rather than a single point, so it is far less noise-limited than FCS; answers the binary question "free or bound?" very directly.
 - **Drawbacks**: destructive by construction; the bleach pulse itself can be phototoxic; spatial resolution limited by how small a region can usefully be bleached; quantitative interpretation depends on the model, and a finite pool of fluorophores must be corrected for.
 
 ## FRET at work
 
-{ref}`Chapter 4.1 <chap4_1>` introduced Förster resonance energy transfer, the non-radiative handoff of energy from an excited donor to a nearby acceptor, and ended by promising that we would see it at work in this chapter. Here it is.
+Chapter 4.1 introduced Förster resonance energy transfer, the non-radiative handoff of energy from an excited donor to a nearby acceptor, and ended by promising that we would see it at work in this chapter. Here it is.
 
 The physics fits in a single equation, already met in Chapter 4,
 

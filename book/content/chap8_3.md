@@ -15,7 +15,7 @@ Each of these can be partly controlled, and none can be eliminated. Ratiometric 
 
 ## Lifetime is a property of the molecule
 
-{ref}`Chapter 4.1 <chap4_1>` defined the fluorescence lifetime as the average time a molecule spends in the excited state,
+Chapter 4.1 defined the fluorescence lifetime as the average time a molecule spends in the excited state,
 
 $$ \tau = \frac{1}{\Gamma_r + \Gamma_{nr}}, $$
 
@@ -27,7 +27,7 @@ What the lifetime _does_ depend on is anything that opens or closes a non-radiat
 
 $$ \tau_{DA} = \frac{1}{\Gamma_r + \Gamma_{nr} + \Gamma_{\rm FRET}}, \qquad E = \frac{\Gamma_{\rm FRET}}{\Gamma_r + \Gamma_{nr} + \Gamma_{\rm FRET}} = 1 - \frac{\tau_{DA}}{\tau_D}. $$
 
-This is the relation promised at the end of {ref}`Section 8.2 <chap8_2>`, and it is why FLIM is regarded as the most reliable way to measure FRET.
+This is the relation promised at the end of Section 8.2, and it is why FLIM is regarded as the most reliable way to measure FRET.
 
 Once the relationship between lifetime and, say, pH has been characterised for a given probe, every subsequent measurement returns an absolute pH in every pixel, without calibrating anything about the microscope. That is what makes **fluorescence lifetime imaging microscopy**, FLIM, quantitative in a way that intensity imaging is not.
 
@@ -44,7 +44,7 @@ align: center
 (a) In each excitation cycle, the laser pulse starts a clock and the first detected photon stops it, giving one arrival delay. Because emission is random, every cycle gives a different value, and most cycles give none. (b) Accumulated over many cycles, the delays build a histogram whose decay constant is the lifetime. (c) Repeating this at every pixel produces a lifetime map.
 ```
 
-The method is **time-correlated single-photon counting**, TCSPC, and it runs on a scanning confocal or multiphoton microscope with three additions: a pulsed laser ({ref}`Chapter 7.1 <chap7_1>`), a detector fast enough to register individual photons with picosecond timing, and an electronics module that times the interval between each laser pulse and the next detected photon. One such interval tells you almost nothing, since emission is a random process. But tens of thousands of them, sorted into a histogram, trace out the exponential decay itself, as in _{numref}`Fig. {number} <chap8_flim_tcspc>`_, and fitting it gives $\tau$ for that pixel.
+The method is **time-correlated single-photon counting**, TCSPC, and it runs on a scanning confocal or multiphoton microscope with three additions: a pulsed laser (Chapter 7.1), a detector fast enough to register individual photons with picosecond timing, and an electronics module that times the interval between each laser pulse and the next detected photon. One such interval tells you almost nothing, since emission is a random process. But tens of thousands of them, sorted into a histogram, trace out the exponential decay itself, as in _{numref}`Fig. {number} <chap8_flim_tcspc>`_, and fitting it gives $\tau$ for that pixel.
 
 There is one constraint that governs everything about how FLIM feels to use. The electronics can time only the _first_ photon after each pulse. If a pulse happens to produce two detected photons, the second is lost, and because the first of two random arrivals is on average earlier than either one alone, the histogram becomes biased towards short delays. The fitted lifetime comes out too short. This is called **pile-up**, and the only cure is to keep the photon rate low enough that pulses producing two photons are rare. The usual rule is that no more than 1 to 5% of laser pulses should produce a detected photon, which in practice means attenuating the excitation, typically with neutral density filters.
 
@@ -190,7 +190,7 @@ A reliable single-exponential fit needs on the order of $10^4$ photons per pixel
 
 $$ \frac{10^{4}}{8 \times 10^{5}\ \text{s}^{-1}} = 12.5\ \text{ms}. $$
 
-A $256 \times 256$ image therefore takes $65\,536 \times 12.5$ ms $\approx 820$ s, about fourteen minutes, and that assumes a bright probe and a perfect detector. If two populations of the probe coexist, as they do in any FLIM-FRET experiment where some sensors are bound and some are not, the decay is bi-exponential and you need many more photons still. This is the photon budget of {ref}`Chapter 7.3 <chap7_3>` in its starkest form.
+A $256 \times 256$ image therefore takes $65\,536 \times 12.5$ ms $\approx 820$ s, about fourteen minutes, and that assumes a bright probe and a perfect detector. If two populations of the probe coexist, as they do in any FLIM-FRET experiment where some sensors are bound and some are not, the decay is bi-exponential and you need many more photons still. This is the photon budget of Chapter 7.3 in its starkest form.
 ```
 
 TCSPC is not the only option. _Frequency-domain_ FLIM modulates the excitation sinusoidally and measures the phase shift and the loss of modulation depth of the emission, from which the lifetime follows. It can be faster, and is easier to combine with cameras, but copes less gracefully with mixtures of lifetimes. Increasingly common, whichever way the data were acquired, is _phasor analysis_: each pixel's decay is transformed into a single point on a two-dimensional plot, without fitting any model. A pure single-exponential species falls on a semicircle, and a mixture of two species falls on the straight line joining them, at a position that gives their proportions. If you read FLIM papers, you will meet phasor plots.
@@ -205,7 +205,7 @@ width: 95%
 name: chap8_ex_flim_ph
 align: center
 ---
-Cells expressing EYFP in buffers of known pH. Top: intensity images, which vary from cell to cell for reasons unrelated to pH. Bottom: lifetime images, which change systematically from about 1.8 ns at pH 4.5 to 3.2 ns at pH 9.0. Source: [to be added].
+Cells expressing EYFP in buffers of known pH. Top: intensity images, which vary from cell to cell for reasons unrelated to pH. Bottom: lifetime images, which change systematically from about 1.8 ns at pH 4.5 to 3.2 ns at pH 9.0. Copyright: Nakabayashi et al. (2012), via Journal of Photochemistry and Photobiology A: Chemistry.
 ```
 
 **Temperature.** A BODIPY dye carrying a phenyl ring that can twist relative to the rest of the molecule makes a molecular thermometer. The twisting motion is a non-radiative escape route, and it speeds up as the temperature rises, so the lifetime falls from about 5.5 ns at 23 °C to about 4.5 ns at 55 °C. One nanosecond of range may sound small, but TCSPC resolves lifetimes to a few tens of picoseconds, so the sensor distinguishes changes of a few degrees. The image in _{numref}`Fig. {number} <chap8_ex_flim_temperature>`_ also shows a common display convention: brightness from the intensity, which shows where the cells are, and colour from the lifetime, which shows how warm they are.
@@ -216,7 +216,7 @@ width: 85%
 name: chap8_ex_flim_temperature
 align: center
 ---
-A fluorescent molecular thermometer in living cells imaged at temperatures from 23 to 55 °C. Intensity sets the brightness of each pixel and lifetime its colour. Right: the structure of the dye, with the arrow marking the rotation that provides the temperature-dependent non-radiative pathway. Source: [to be added].
+A fluorescent molecular thermometer in living cells imaged at temperatures from 23 to 55 °C. Intensity sets the brightness of each pixel and lifetime its colour. Right: the structure of the dye, with the arrow marking the rotation that provides the temperature-dependent non-radiative pathway. Copyright: Ogle et al. (2019), via The Journal of Physical Chemistry B.
 ```
 
 **Membrane voltage, through FRET.** The Ace2N-mNeon sensor fuses the bright green fluorescent protein mNeonGreen to Ace2N, a rhodopsin domain whose retinal chromophore absorbs differently depending on the membrane voltage. The rhodopsin is the FRET acceptor. When the voltage changes, its absorption spectrum changes, the spectral overlap with mNeonGreen changes, and so $R_0$ and the transfer efficiency change, even though the distance between the two does not. The donor lifetime follows. In the zebrafish embryo of _{numref}`Fig. {number} <chap8_ex_flim_voltage>`_, different tissues sit at visibly different lifetimes. Turning those into millivolts requires calibration and controls, for instance for autofluorescence, but because the readout is a lifetime, the same calibration holds in every cell regardless of how much sensor it expresses. Bioelectric signalling during development, outside the nervous system, is still poorly understood, and this kind of measurement is one of the few ways to study it quantitatively in an intact animal.
@@ -227,7 +227,7 @@ width: 60%
 name: chap8_ex_flim_voltage
 align: center
 ---
-Lifetime image of a zebrafish embryo expressing the voltage sensor Ace2N-mNeon. The colour scale spans 2.5 to 3.1 ns. Source: [to be added].
+Lifetime image of a zebrafish embryo expressing the voltage sensor Ace2N-mNeon. The colour scale spans 2.5 to 3.1 ns. Courtesy of Zhenzhen Wu.
 ```
 
 ## Summary
@@ -235,4 +235,4 @@ Lifetime image of a zebrafish embryo expressing the voltage sensor Ace2N-mNeon. 
 - **Advantages**: quantitative and absolute, once the probe has been calibrated; independent of concentration, excitation power, photobleaching and depth; sensitive to the local chemical and physical environment in ways no intensity measurement can match; the most robust readout of FRET, needing only the donor.
 - **Drawbacks**: slow, for the photon-budget and pile-up reasons above, which puts fast dynamics largely out of reach; analysis is genuinely complicated, especially for mixtures of lifetimes; the hardware, pulsed lasers, single-photon detectors and timing electronics, is expensive.
 
-One observation sets up the next section. Cells contain molecules that fluoresce without any label, among them the metabolic cofactors NADH and NADPH that {ref}`Chapter 4.1 <chap4_1>` introduced as a source of autofluorescence. Their lifetime is around 0.4 ns when they are free in solution and two to three nanoseconds when they are bound to enzymes, so the lifetime of unlabelled tissue reports on its metabolic state. That is already a label-free measurement, and it points towards a family of techniques that do away with fluorophores altogether.
+One observation sets up the next section. Cells contain molecules that fluoresce without any label, among them the metabolic cofactors NADH and NADPH that Chapter 4.1 introduced as a source of autofluorescence. Their lifetime is around 0.4 ns when they are free in solution and two to three nanoseconds when they are bound to enzymes, so the lifetime of unlabelled tissue reports on its metabolic state. That is already a label-free measurement, and it points towards a family of techniques that do away with fluorophores altogether.

@@ -51,6 +51,6 @@ parts:
         - file: content/chap8_3.md
         - file: content/chap8_4.md
     - file: content/chap9.md
-    - file: content/chap10.md
+    #- file: content/chap10.md
 
    # - file: references.md

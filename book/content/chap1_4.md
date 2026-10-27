@@ -64,5 +64,5 @@ width: 90%
 name: photosynthesis
 align: center
 ---
-The Z-scheme of photosynthesis. Light energy absorbed by Photosystem II (P680) and Photosystem I (P700) excites electrons to higher energy states. Between the two photosystems, the electrons lose energy through an electron transport chain, driving the synthesis of ATP. The final electron acceptor is NADPH. Water serves as the initial electron donor, replacing the electrons lost by P680. Copyright: CC BY-SA 4.0, via Khan Academy
+The Z-scheme of photosynthesis. Light energy absorbed by Photosystem II (P680) and Photosystem I (P700) excites electrons to higher energy states. Between the two photosystems, the electrons lose energy through an electron transport chain, driving the synthesis of ATP. The final electron acceptor is NADPH. Water serves as the initial electron donor, replacing the electrons lost by P680.
 ```

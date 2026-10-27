@@ -42,7 +42,7 @@ Chapter 7.3 argued that every design decision starts from the sample, and that t
 Only the first two are optics in the narrow sense. The other five belong to the sample, the probe, the detector and your patience, which is why choosing a technique is never a purely optical decision.
 
 ```{tip}
-Resolution figures quoted in isolation are one of the most common ways in which microscopy papers mislead, usually without meaning to. A technique that achieves 230 nm on fluorescent beads lying on a coverslip may deliver 500 nm in an organoid 80 μm deep. Whenever you read a number, ask what it was measured on, at what depth, and with how many photons.
+Resolution figures quoted in isolation are one of the most common ways in which microscopy papers mislead, usually without meaning to. A technique that achieves 230 nm on fluorescent beads lying on a coverslip may deliver 500 nm in an organoid 80 μm deep. Whenever you read a number, ask what it was measured on, at what depth, and with how many photons. 
 ```
 
 ---

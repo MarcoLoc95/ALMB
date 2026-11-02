@@ -1,0 +1,159 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SMLM simulator</title><style>:root{--ink:#1f2933;--muted:#5b6670;--line:#d7dde3;--acc:#e05020;--blue:#2a4494;--green:#0d5e22;--bg:#ffffff;--soft:#f5f7f9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wg{max-width:900px;margin:0 auto;padding:4px 6px 8px}
+.row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.pan{flex:1 1 0;min-width:200px;max-width:300px}
+.pan canvas{width:100%;height:auto;display:block;border-radius:6px;background:#000}
+.pan.light canvas{background:#fff;border:1px solid var(--line)}
+.cap{font-size:.8rem;color:var(--muted);text-align:center;margin-top:5px;line-height:1.25}
+.ctrls{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin:14px 2px 4px}
+@media(max-width:600px){.ctrls{grid-template-columns:1fr}}
+.ctl label{display:flex;justify-content:space-between;align-items:baseline;font-size:.86rem;font-weight:600;margin-bottom:3px}
+.ctl .v{font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums}
+.ctl input[type=range]{width:100%;accent-color:var(--acc)}
+.ctl select{width:100%;font-size:.86rem;padding:3px 4px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--ink)}
+.ctl .h{font-size:.75rem;color:var(--muted);margin-top:2px;line-height:1.3}
+.read{display:block;line-height:1.7;font-size:.86rem;margin:8px 2px;padding:8px 10px;background:var(--soft);border-radius:6px}
+.read b{font-variant-numeric:tabular-nums}
+.warn{color:#b3261e}
+.ok{color:var(--green)}
+details.q{font-size:.84rem;margin:8px 2px 0;border-top:1px solid var(--line);padding-top:6px}
+details.q summary{cursor:pointer;font-weight:600}
+details.q ol{margin:6px 0 0 0;padding-left:20px;line-height:1.45}
+button{font-size:.84rem;padding:4px 10px;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:pointer}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+.btns{display:flex;gap:10px;align-items:center;justify-content:center;margin:12px 0 2px}
+.btns button{font-size:.92rem;padding:6px 18px;font-weight:600}
+#go{background:var(--acc);color:#fff;border-color:var(--acc)}
+#go:disabled{opacity:.5;cursor:default}
+.prog{flex:0 1 260px;height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.prog div{height:100%;width:0;background:var(--acc)}
+.trace{margin-top:6px}
+.trace canvas{background:#fff!important;border:1px solid var(--line)}
+</style></head><body><div class="wg">
+<div class="row">
+ <div class="pan"><canvas id="cR" width="240" height="240"></canvas>
+  <div class="trace"><canvas id="cT" width="240" height="70"></canvas></div>
+  <div class="cap">Current camera frame (100 nm pixels) with its localizations. Below: photons in the boxed pixel over time.</div></div>
+ <div class="pan"><canvas id="cW" width="240" height="240"></canvas><div class="cap">Sum of all frames so far (widefield)</div></div>
+ <div class="pan"><canvas id="cS" width="240" height="240"></canvas><div class="cap">Localizations so far (orange tint: from overlapping molecules)</div></div>
+</div>
+<div class="btns"><button id="go">Measure</button><button id="stop">Stop</button><div class="prog"><div id="pb"></div></div></div>
+<div class="read" id="rd"></div>
+<div class="ctrls">
+ <div class="ctl"><label for="ph"><span>Photons per localization</span><span class="v" id="phv"></span></label><input type="range" id="ph" min="2" max="3.7" step="0.05" value="3"></div>
+ <div class="ctl"><label for="bg"><span>Background per pixel</span><span class="v" id="bgv"></span></label><input type="range" id="bg" min="0" max="60" step="2" value="10"></div>
+ <div class="ctl"><label for="act"><span>Molecules ON per frame</span><span class="v" id="actv"></span></label><input type="range" id="act" min="1" max="40" step="1" value="3"><div class="h">Set by the activation power (PALM), the buffer (STORM) or the imager concentration (PAINT).</div></div>
+ <div class="ctl"><label for="fr"><span>Number of frames</span><span class="v" id="frv"></span></label><input type="range" id="fr" min="200" max="10000" step="200" value="3000"></div>
+ <div class="ctl"><label for="den"><span>Labelling density</span><span class="v" id="denv"></span></label><input type="range" id="den" min="1" max="20" step="1" value="10"><div class="h">Labels per 100 nm of filament; ring corners scale alongside.</div></div>
+ <div class="ctl"><label for="dr"><span>Stage drift during acquisition</span><span class="v" id="drv"></span></label><input type="range" id="dr" min="0" max="100" step="5" value="0"></div>
+</div>
+</div>
+<script>
+"use strict";
+const F=2000, S=110, A=100, NP=F/A, RP=400, STAY=0.5; // field nm, PSF sd, camera pixel, render pixels, prob. to stay on
+const ids=["ph","bg","act","fr","den","dr"], E={}; ids.forEach(i=>E[i]=document.getElementById(i));
+const rd=document.getElementById("rd"), pb=document.getElementById("pb"), go=document.getElementById("go"), stopB=document.getElementById("stop");
+let seed=1; function rnd(){seed=(seed*16807)%2147483647; return (seed-1)/2147483646;}
+function gauss(){let u=0; while(u===0)u=rnd(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*rnd());}
+function poisson(l){if(l>30) return Math.max(0,Math.round(l+Math.sqrt(l)*gauss())); let L=Math.exp(-l),k=0,p=1; do{k++;p*=rnd();}while(p>L); return k-1;}
+function erf(x){const t=1/(1+0.3275911*Math.abs(x)); const y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x); return x>=0?y:-y;}
+function structure(den){seed=4; const m=[];
+  const fil=[[200,300,1850,1500],[150,1650,1800,700],[900,120,1150,1900]];
+  fil.forEach(f=>{const L=Math.hypot(f[2]-f[0],f[3]-f[1]), n=Math.round(L/100*den); for(let k=0;k<n;k++){const t=rnd(); const bend=60*Math.sin(Math.PI*t); const nx=-(f[3]-f[1])/L, ny=(f[2]-f[0])/L; m.push([f[0]+t*(f[2]-f[0])+bend*nx, f[1]+t*(f[3]-f[1])+bend*ny]);}});
+  const rings=[[450,850],[1500,450],[1450,1300],[600,1500],[350,500],[1700,1750]];
+  rings.forEach((c,ri)=>{const per=Math.max(1,Math.round(den/2.5)); for(let k=0;k<8;k++){const a=k*Math.PI/4+ri; for(let q=0;q<per;q++){ if(rnd()<0.85) m.push([c[0]+55*Math.cos(a)+3*gauss(),c[1]+55*Math.sin(a)+3*gauss()]);}}});
+  return m;}
+function sigmaLoc(N,b){return Math.sqrt((S*S+A*A/12)/N+8*Math.PI*S**4*b/(A*A*N*N));}
+const TPX=[10,9]; // boxed pixel for the time trace (on a filament crossing)
+let st=null, timer=null;
+function reset(){
+  if(timer){cancelAnimationFrame(timer); timer=null;}
+  const p={N:Math.round(10**(+E.ph.value)), b:+E.bg.value, act:+E.act.value, nF:+E.fr.value, den:+E.den.value, drift:+E.dr.value};
+  const M=structure(p.den); seed=9;
+  st={p,M,a:growth(p.nF),t0:null,sig:sigmaLoc(p.N,p.b),f:0,on:[],wf:new Float64Array(NP*NP),acc:new Float64Array(RP*RP),mer:new Float64Array(RP*RP),nev:0,nmer:0,trace:[],last:null,lastLoc:[]};
+  pb.style.width="0"; go.disabled=false; go.textContent="Measure";
+  blank("cR"); blank("cW"); blank("cS"); drawTrace();
+  rd.innerHTML=`Press <b>Measure</b> to acquire ${p.nF.toLocaleString()} frames with these settings.`;
+}
+function blank(id){const cv=document.getElementById(id), g=cv.getContext("2d"); g.fillStyle="#000"; g.fillRect(0,0,cv.width,cv.height);}
+function frame(){
+  const {p,M}=st, f=st.f;
+  // blinking: each ON molecule stays ON with probability STAY; new ones switch on
+  const keep=st.on.filter(()=>rnd()<STAY), nnew=poisson(p.act*(1-STAY)); for(let i=0;i<nnew;i++) keep.push(Math.floor(rnd()*M.length));
+  st.on=[...new Set(keep)];
+  const dx=p.drift*f/p.nF, dy=0.6*p.drift*f/p.nF;
+  const pos=st.on.map(i=>[M[i][0]+dx,M[i][1]+dy]);
+  // camera frame
+  const im=new Float64Array(NP*NP).fill(p.b);
+  pos.forEach(q=>{for(let j=0;j<NP;j++){const gy=0.5*(erf(((j+1)*A-q[1])/(Math.SQRT2*S))-erf((j*A-q[1])/(Math.SQRT2*S))); if(gy<1e-4) continue;
+    for(let i=0;i<NP;i++){const gx=0.5*(erf(((i+1)*A-q[0])/(Math.SQRT2*S))-erf((i*A-q[0])/(Math.SQRT2*S))); im[j*NP+i]+=p.N*gx*gy;}}});
+  for(let k=0;k<NP*NP;k++){im[k]=poisson(im[k]); st.wf[k]+=im[k];}
+  st.trace.push(im[TPX[1]*NP+TPX[0]]); st.last=im;
+  // localization: molecules closer than ~2.4 PSF sd are fitted as one
+  const used=new Array(pos.length).fill(false), locs=[];
+  for(let i=0;i<pos.length;i++){ if(used[i]) continue; let cx=pos[i][0],cy=pos[i][1],n=1; used[i]=true;
+    for(let j=i+1;j<pos.length;j++) if(!used[j]&&Math.hypot(pos[j][0]-pos[i][0],pos[j][1]-pos[i][1])<2.4*S){cx+=pos[j][0];cy+=pos[j][1];n++;used[j]=true;}
+    cx/=n; cy/=n; const s=st.sig*(n>1?1.4:1), L=[cx+s*gauss(),cy+s*gauss(),n>1]; locs.push(L); st.nev++;
+    const ix=Math.floor(L[0]/F*RP), iy=Math.floor(L[1]/F*RP);
+    if(ix>=0&&iy>=0&&ix<RP&&iy<RP){ if(n>1){st.mer[iy*RP+ix]++; st.nmer++;} else st.acc[iy*RP+ix]++; }}
+  st.lastLoc=locs; st.f++;
+}
+// smooth acceleration: cumulative frames follow an exponential in wall-clock time,
+// starting at about 5 frames/s and finishing in DUR seconds
+const DUR=9, START_RATE=5;
+function growth(nF){const r=START_RATE*DUR/nF; if(r>=1) return 1e-6; let lo=1e-6,hi=30; for(let i=0;i<60;i++){const m=(lo+hi)/2; (m/Math.expm1(m)>r)?lo=m:hi=m;} return (lo+hi)/2;}
+function target(t){const a=st.a, u=Math.min(1,t/DUR); return Math.floor(st.p.nF*(a<1e-3?u:Math.expm1(a*u)/Math.expm1(a)));}
+function tick(now){
+  if(st.t0===null) st.t0=now;
+  const goal=target((now-st.t0)/1000); let moved=false;
+  while(st.f<goal&&st.f<st.p.nF){frame(); moved=true;}
+  if(moved){render(); pb.style.width=(100*st.f/st.p.nF)+"%";}
+  if(st.f<st.p.nF){timer=requestAnimationFrame(tick);} else {timer=null; finish();}
+}
+function toCanvas(id,P,fn,smooth){const cv=document.getElementById(id), g=cv.getContext("2d"), im=g.createImageData(P,P);
+  for(let k=0;k<P*P;k++){const c=fn(k); im.data[4*k]=c[0]; im.data[4*k+1]=c[1]; im.data[4*k+2]=c[2]; im.data[4*k+3]=255;}
+  const t=document.createElement("canvas"); t.width=P; t.height=P; t.getContext("2d").putImageData(im,0,0);
+  g.imageSmoothingEnabled=smooth!==undefined?smooth:P>100; g.drawImage(t,0,0,cv.width,cv.height); return g;}
+function scalebar(g,cv){g.fillStyle="#fff"; const bar=500/F*cv.width; g.fillRect(cv.width-bar-10,cv.height-14,bar,4); g.font="11px sans-serif"; g.fillText("500 nm",cv.width-bar/2-24,cv.height-20);}
+const hot=v=>{v=Math.max(0,Math.min(1,v)); return [255*Math.min(1,v*2.2),255*Math.max(0,Math.min(1,v*2.2-0.75)),255*Math.max(0,v*3-2)];};
+function render(){
+  // camera frame with localizations and boxed pixel
+  const im=st.last; let mx=1; for(const v of im) mx=Math.max(mx,v);
+  let cv=document.getElementById("cR"), g=toCanvas("cR",NP,k=>{const v=255*im[k]/mx; return [v,v,v];}), sc=cv.width/F;
+  g.strokeStyle="#e05020"; g.lineWidth=1.6; st.lastLoc.forEach(L=>{const x=L[0]*sc, y=L[1]*sc; g.beginPath(); g.moveTo(x-6,y); g.lineTo(x+6,y); g.moveTo(x,y-6); g.lineTo(x,y+6); g.stroke();});
+  g.strokeStyle="#56B4E9"; g.lineWidth=1.5; g.strokeRect(TPX[0]*A*sc,TPX[1]*A*sc,A*sc,A*sc); scalebar(g,cv);
+  // widefield sum
+  let wmx=1; for(const v of st.wf) wmx=Math.max(wmx,v); const wmin=Math.min(...st.wf);
+  cv=document.getElementById("cW"); g=toCanvas("cW",NP,k=>hot((st.wf[k]-wmin)/(wmx-wmin+1e-9)),true); scalebar(g,cv);
+  // localization map
+  const P=RP, bl=a=>{const o=new Float64Array(P*P); for(let j=1;j<P-1;j++) for(let i=1;i<P-1;i++){let s=0; for(let dj=-1;dj<=1;dj++) for(let di=-1;di<=1;di++) s+=a[(j+dj)*P+i+di]*((di||dj)?0.6:1); o[j*P+i]=s;} return o;};
+  const A1=bl(st.acc), A2=bl(st.mer), tot=A1.map((v,k)=>v+A2[k]);
+  let sc2=1; {const nz=[]; for(let k=0;k<tot.length;k+=7) if(tot[k]>0) nz.push(tot[k]); nz.sort((a,b)=>a-b); if(nz.length) sc2=nz[Math.floor(0.995*(nz.length-1))];}
+  cv=document.getElementById("cS"); g=toCanvas("cS",P,k=>{const v=Math.min(1,Math.pow(tot[k]/sc2,0.8)), w=tot[k]>0?A2[k]/tot[k]:0, h=hot(v); return [h[0]*(1-w)+255*v*w, h[1]*(1-w)+140*v*w, h[2]*(1-w)+30*v*w];}); scalebar(g,cv);
+  drawTrace();
+  if(timer||st.f<st.p.nF) rd.innerHTML=`Frame <b>${st.f.toLocaleString()}</b> of ${st.p.nF.toLocaleString()} &nbsp; molecules ON in this frame <b>${st.on.length}</b> &nbsp; localizations so far <b>${st.nev.toLocaleString()}</b>`;
+}
+function drawTrace(){
+  const cv=document.getElementById("cT"), g=cv.getContext("2d"), W=cv.width, H=cv.height; g.clearRect(0,0,W,H);
+  g.fillStyle="#5b6670"; g.font="10px sans-serif"; g.fillText("photons",3,10); g.fillText("time →",W-36,H-3);
+  if(!st||!st.trace.length) return;
+  const n=Math.min(st.trace.length,400), tr=st.trace.slice(-n); let mx=1; tr.forEach(v=>mx=Math.max(mx,v));
+  g.strokeStyle="#2a4494"; g.lineWidth=1; g.beginPath(); tr.forEach((v,i)=>{const x=4+i/(399)*(W-8), y=H-12-v/mx*(H-26); i?g.lineTo(x,y):g.moveTo(x,y);}); g.stroke();
+}
+function finish(){
+  const {p,M,sig,nev,nmer}=st, nyq=2*100/p.den;
+  go.textContent="Measure again"; go.disabled=false;
+  rd.innerHTML=`Precision σ <b>${sig.toFixed(1)} nm</b> (FWHM ${(2.355*sig).toFixed(0)} nm) &nbsp; localizations <b>${nev.toLocaleString()}</b> &nbsp; from overlapping molecules <b class="${nmer/nev>0.05?'warn':''}">${(100*nmer/Math.max(1,nev)).toFixed(1)}%</b><br>`+
+   `Labels <b>${M.length}</b> &nbsp; localizations per label <b>${(nev/M.length).toFixed(1)}</b> &nbsp; Nyquist limit from label spacing <b>${nyq.toFixed(0)} nm</b> &nbsp; acquisition at 50 frames/s <b>${(p.nF/50).toFixed(0)} s</b>`;
+}
+go.addEventListener("click",()=>{reset(); go.disabled=true; go.textContent="Measuring"; timer=requestAnimationFrame(tick);});
+stopB.addEventListener("click",()=>{if(timer){cancelAnimationFrame(timer); timer=null; go.disabled=false; go.textContent="Measure again"; finish(); rd.innerHTML="Stopped early. "+rd.innerHTML;}});
+function labels(){document.getElementById("phv").textContent=Math.round(10**(+E.ph.value)); document.getElementById("bgv").textContent=E.bg.value+" photons";
+  document.getElementById("actv").textContent=E.act.value; document.getElementById("frv").textContent=E.fr.value; document.getElementById("denv").textContent=E.den.value; document.getElementById("drv").textContent=E.dr.value+" nm";}
+ids.forEach(i=>E[i].addEventListener("input",()=>{labels(); reset();}));
+labels(); reset();
+</script></body></html>

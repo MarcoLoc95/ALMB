@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Expansion explorer</title><style>:root{--ink:#1f2933;--muted:#5b6670;--line:#d7dde3;--acc:#e05020;--blue:#2a4494;--green:#0d5e22;--bg:#ffffff;--soft:#f5f7f9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wg{max-width:900px;margin:0 auto;padding:4px 6px 8px}
+.row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.pan{flex:1 1 0;min-width:200px;max-width:300px}
+.pan canvas{width:100%;height:auto;display:block;border-radius:6px;background:#000}
+.pan.light canvas{background:#fff;border:1px solid var(--line)}
+.cap{font-size:.8rem;color:var(--muted);text-align:center;margin-top:5px;line-height:1.25}
+.ctrls{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin:14px 2px 4px}
+@media(max-width:600px){.ctrls{grid-template-columns:1fr}}
+.ctl label{display:flex;justify-content:space-between;align-items:baseline;font-size:.86rem;font-weight:600;margin-bottom:3px}
+.ctl .v{font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums}
+.ctl input[type=range]{width:100%;accent-color:var(--acc)}
+.ctl select{width:100%;font-size:.86rem;padding:3px 4px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--ink)}
+.ctl .h{font-size:.75rem;color:var(--muted);margin-top:2px;line-height:1.3}
+.read{display:block;line-height:1.7;font-size:.86rem;margin:8px 2px;padding:8px 10px;background:var(--soft);border-radius:6px}
+.read b{font-variant-numeric:tabular-nums}
+.warn{color:#b3261e}
+.ok{color:var(--green)}
+details.q{font-size:.84rem;margin:8px 2px 0;border-top:1px solid var(--line);padding-top:6px}
+details.q summary{cursor:pointer;font-weight:600}
+details.q ol{margin:6px 0 0 0;padding-left:20px;line-height:1.45}
+button{font-size:.84rem;padding:4px 10px;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:pointer}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+</style></head><body><div class="wg">
+<div class="row">
+ <div class="pan"><canvas id="cT" width="260" height="260"></canvas><div class="cap">Target positions (grey) and fluorophores (green)</div></div>
+ <div class="pan"><canvas id="cI" width="260" height="260"></canvas><div class="cap">Image, rescaled to biological size</div></div>
+</div>
+<div class="read" id="rd"></div>
+<div class="ctrls">
+ <div class="ctl"><label for="X"><span>Expansion factor X</span><span class="v" id="Xv"></span></label><input type="range" id="X" min="1" max="20" step="0.5" value="4"></div>
+ <div class="ctl"><label for="mic"><span>Microscope used on the gel</span></label><select id="mic"><option value="250">widefield (250 nm)</option><option value="200" selected>confocal (200 nm)</option><option value="120">SIM (120 nm)</option><option value="50">STED (50 nm)</option></select></div>
+ <div class="ctl"><label for="lab"><span>Label</span></label><select id="lab"><option value="17.5">primary + secondary antibody (~20 nm)</option><option value="10">labelled primary antibody (~10 nm)</option><option value="4">nanobody (~4 nm)</option><option value="1">small dye (~1 nm)</option></select></div>
+ <div class="ctl"><label for="when"><span>Labelling</span></label><select id="when"><option value="pre">before expansion</option><option value="post">after expansion</option></select><div class="h">After expansion, the label is small compared with the expanded sample.</div></div>
+ <div class="ctl"><label for="an"><span>Anisotropy of the expansion</span><span class="v" id="anv"></span></label><input type="range" id="an" min="0" max="10" step="0.5" value="0"><div class="h">Expansion along x differs from y by this amount.</div></div>
+ <div class="ctl"><label for="st"><span>Sample</span></label><select id="st"><option value="npc">nuclear pore (8 subunits, 107 nm ring)</option><option value="mt">microtubule side view (25 nm wide)</option></select></div>
+</div>
+</div>
+<script>
+"use strict";
+const FOV=320, P=130; // field [nm], render pixels
+const X=document.getElementById("X"), mic=document.getElementById("mic"), lab=document.getElementById("lab"), when=document.getElementById("when"), an=document.getElementById("an"), st=document.getElementById("st"), rd=document.getElementById("rd");
+let seed=3; function rnd(){seed=(seed*16807)%2147483647; return (seed-1)/2147483646;}
+function targets(kind){const t=[];
+  if(kind==="npc"){for(let k=0;k<8;k++){const a=k*Math.PI/4+0.2; for(let m=0;m<4;m++){const r=53.5+(m<2?-3:3), da=(m%2?0.06:-0.06); t.push([r*Math.cos(a+da),r*Math.sin(a+da)]);}}}
+  else{for(let y=-150;y<=150;y+=4){t.push([-12.5,y]); t.push([12.5,y]); if(y%8===0) t.push([(rnd()-0.5)*20,y+2]);}}
+  return t;}
+// fixed random directions for label displacement (3D, projected)
+const DIR=[]; seed=11; for(let i=0;i<2000;i++){const u=2*rnd()-1, ph=2*Math.PI*rnd(), s=Math.sqrt(1-u*u), f=0.55+0.45*rnd(); DIR.push([f*s*Math.cos(ph),f*s*Math.sin(ph)]);}
+function compute(){
+  seed=5; const kind=st.value, T=targets(kind), x=+X.value, d0=+mic.value, L=+lab.value, post=when.value==="post", a=+an.value/100;
+  const Leff=post?L/x:L, dopt=d0/x;
+  const F=T.map((p,i)=>{const dd=kind==="mt"?[DIR[i][0]*Math.sign(p[0]||1)*Math.abs(DIR[i][0])/Math.max(1e-3,Math.abs(DIR[i][0])),DIR[i][1]]:DIR[i];
+    let fx=p[0]+Leff*dd[0], fy=p[1]+Leff*dd[1];
+    if(kind==="npc"){const r=Math.hypot(p[0],p[1]); fx=p[0]+Leff*(0.6*DIR[i][0]+0.5*p[0]/r*Math.abs(DIR[i][1])); fy=p[1]+Leff*(0.6*DIR[i][1]+0.5*p[1]/r*Math.abs(DIR[i][1]));}
+    else{fx=p[0]+Leff*(0.35*DIR[i][0]+0.75*Math.sign(p[0]||1)*Math.abs(DIR[i][1])); fy=p[1]+Leff*0.6*DIR[i][1];}
+    return [fx*(1+a/2), fy*(1-a/2)];});
+  return {T,F,x,d0,L,Leff,dopt,a,post,kind};
+}
+function px(v){return (v+FOV/2)/FOV;}
+function render(){
+  const r=compute(), {T,F,dopt}=r;
+  // targets panel
+  let cv=document.getElementById("cT"), g=cv.getContext("2d"), W=cv.width;
+  g.fillStyle="#000"; g.fillRect(0,0,W,W);
+  g.fillStyle="#8a8a8a"; T.forEach(p=>{g.beginPath(); g.arc(px(p[0])*W,px(-p[1])*W,2.2,0,2*Math.PI); g.fill();});
+  g.fillStyle="#3ddc6a"; F.forEach(p=>{g.beginPath(); g.arc(px(p[0])*W,px(-p[1])*W,2.2,0,2*Math.PI); g.fill();});
+  scale(g,W);
+  // image panel: sum of gaussians with FWHM dopt
+  cv=document.getElementById("cI"); g=cv.getContext("2d"); W=cv.width;
+  const im=new Float64Array(P*P), s=dopt/2.3548, pxs=FOV/P, R=Math.ceil(3*s/pxs)+1;
+  F.forEach(p=>{const cx=(p[0]+FOV/2)/pxs, cy=(-p[1]+FOV/2)/pxs; for(let j=Math.max(0,Math.floor(cy-R));j<Math.min(P,cy+R);j++) for(let i=Math.max(0,Math.floor(cx-R));i<Math.min(P,cx+R);i++){const d2=((i+0.5-cx)**2+(j+0.5-cy)**2)*pxs*pxs; im[j*P+i]+=Math.exp(-d2/(2*s*s));}});
+  let mx=0; im.forEach(v=>mx=Math.max(mx,v));
+  const id=g.createImageData(P,P); for(let k=0;k<P*P;k++){const v=Math.pow(im[k]/mx,0.9); id.data[4*k]=255*Math.min(1,v*2.2); id.data[4*k+1]=255*Math.max(0,Math.min(1,v*2.2-0.75)); id.data[4*k+2]=255*Math.max(0,v*3-2); id.data[4*k+3]=255;}
+  const t=document.createElement("canvas"); t.width=P; t.height=P; t.getContext("2d").putImageData(id,0,0); g.imageSmoothingEnabled=true; g.drawImage(t,0,0,W,W); scale(g,W);
+  const res=Math.sqrt(dopt*dopt+(2*r.Leff)**2);
+  const x=r.x;
+  rd.innerHTML=`Optical resolution in biological units <b>${dopt.toFixed(0)} nm</b> &nbsp; label displacement <b>${r.Leff.toFixed(1)} nm</b> &nbsp; effective <b>≈ ${res.toFixed(0)} nm</b><br>`+
+   `Fluorophore density <b>${(100/x**3).toPrecision(2)}%</b> of the original &nbsp; volume to image <b>${Math.round(x**3)}×</b> &nbsp; a 10 µm cell becomes <b>${(10*x).toFixed(0)} µm</b> thick`+
+   (r.a>0?` &nbsp; <span class="warn">a 100 nm distance is read as ${(100*(1+r.a/2)).toFixed(1)} nm along x and ${(100*(1-r.a/2)).toFixed(1)} nm along y</span>`:"");
+}
+function scale(g,W){g.fillStyle="#fff"; const b=50/FOV*W; g.fillRect(W-b-10,W-14,b,4); g.font="11px sans-serif"; g.fillText("50 nm",W-b/2-24,W-20);}
+function labels(){document.getElementById("Xv").textContent=(+X.value).toFixed(1)+"×"; document.getElementById("anv").textContent=(+an.value).toFixed(1)+" %";}
+[X,mic,lab,when,an,st].forEach(e=>e.addEventListener("input",()=>{labels();render();}));
+labels(); render();
+</script></body></html>

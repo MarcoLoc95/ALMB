@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>STED explorer</title><style>:root{--ink:#1f2933;--muted:#5b6670;--line:#d7dde3;--acc:#e05020;--blue:#2a4494;--green:#0d5e22;--bg:#ffffff;--soft:#f5f7f9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wg{max-width:900px;margin:0 auto;padding:4px 6px 8px}
+.row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.pan{flex:1 1 0;min-width:200px;max-width:300px}
+.pan canvas{width:100%;height:auto;display:block;border-radius:6px;background:#000}
+.pan.light canvas{background:#fff;border:1px solid var(--line)}
+.cap{font-size:.8rem;color:var(--muted);text-align:center;margin-top:5px;line-height:1.25}
+.ctrls{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin:14px 2px 4px}
+@media(max-width:600px){.ctrls{grid-template-columns:1fr}}
+.ctl label{display:flex;justify-content:space-between;align-items:baseline;font-size:.86rem;font-weight:600;margin-bottom:3px}
+.ctl .v{font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums}
+.ctl input[type=range]{width:100%;accent-color:var(--acc)}
+.ctl select{width:100%;font-size:.86rem;padding:3px 4px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--ink)}
+.ctl .h{font-size:.75rem;color:var(--muted);margin-top:2px;line-height:1.3}
+.read{display:block;line-height:1.7;font-size:.86rem;margin:8px 2px;padding:8px 10px;background:var(--soft);border-radius:6px}
+.read b{font-variant-numeric:tabular-nums}
+.warn{color:#b3261e}
+.ok{color:var(--green)}
+details.q{font-size:.84rem;margin:8px 2px 0;border-top:1px solid var(--line);padding-top:6px}
+details.q summary{cursor:pointer;font-weight:600}
+details.q ol{margin:6px 0 0 0;padding-left:20px;line-height:1.45}
+button{font-size:.84rem;padding:4px 10px;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:pointer}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+.pan.wide{max-width:380px;flex:1.4 1 0}
+.imgs{max-width:640px;margin:12px auto 0}
+.imgs canvas{width:100%;height:auto;display:block;border-radius:6px;background:#000}
+.imgs .lab{font-size:.84rem;font-weight:600;margin:6px 0 3px}
+</style></head><body><div class="wg">
+<div class="row">
+ <div class="pan"><canvas id="cM" width="240" height="240"></canvas><div class="cap">STED light at the sample. Dashed line: I = I<sub>s</sub>; inside it, molecules can still fluoresce.</div></div>
+ <div class="pan light wide"><canvas id="cP" width="380" height="240"></canvas><div class="cap">Cross-section through the focus: effective PSF = excitation × fraction still fluorescing</div></div>
+</div>
+<div class="imgs">
+ <div class="lab">Confocal</div><canvas id="cC" width="640" height="118"></canvas>
+ <div class="lab">STED</div><canvas id="cS" width="640" height="118"></canvas>
+ <div class="cap">Pairs of short lines with decreasing spacing (blue ticks: true positions), imaged with the same excitation. Each image is scaled to its own maximum.</div>
+</div>
+<div class="read" id="rd"></div>
+<div class="ctrls">
+ <div class="ctl"><label for="z"><span>STED intensity I / I<sub>s</sub></span><span class="v" id="zv"></span></label><input type="range" id="z" min="0" max="200" step="1" value="30"><div class="h">Peak intensity of the doughnut. Proportional to the STED power, and to the light dose on the sample.</div></div>
+ <div class="ctl"><label for="eps"><span>Intensity left in the doughnut center</span><span class="v" id="epsv"></span></label><input type="range" id="eps" min="0" max="5" step="0.1" value="0"><div class="h">A perfect zero is 0%. Aberrations and polarization errors fill it in.</div></div>
+ <div class="ctl"><label for="mis"><span>Doughnut misalignment</span><span class="v" id="misv"></span></label><input type="range" id="mis" min="0" max="80" step="2" value="0"><div class="h">Offset between the doughnut zero and the excitation center, along x.</div></div>
+</div>
+</div>
+<script>
+"use strict";
+const LN2=Math.log(2), DC=250, R0=DC*Math.sqrt(Math.E)/2, S=5, M=161, HALF=(M-1)/2; // PSF grid: 5 nm, +-400 nm
+const z=document.getElementById("z"), eps=document.getElementById("eps"), mis=document.getElementById("mis"), rd=document.getElementById("rd");
+let seed=1; function rnd(){seed=(seed*16807)%2147483647; return (seed-1)/2147483646;}
+function gauss(){let u=0; while(u===0)u=rnd(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*rnd());}
+function exc(x,y){return Math.exp(-4*LN2*(x*x+y*y)/(DC*DC));}
+function don(x,y,e,d){const r2=((x-d)**2+y*y)/(R0*R0); return e+(1-e)*r2*Math.exp(1-r2);}
+// test sample: pairs of vertical segments
+const SEPS=[300,180,120,80,50,30], PITCH=440, IW=Math.round(PITCH*SEPS.length/S)+40, IH=40, LEN=150;
+const PTS=[]; SEPS.forEach((s,k)=>{const cx=(k+0.5)*PITCH+100; for(const sx of [-s/2,s/2]) for(let y=-LEN/2;y<=LEN/2;y+=S) PTS.push([cx+sx,y]);});
+function psfs(){
+  const Z=+z.value, E=+eps.value/100, D=+mis.value;
+  const P=new Float64Array(M*M), X=new Float64Array(M*M), DN=new Float64Array(M*M);
+  for(let j=0;j<M;j++) for(let i=0;i<M;i++){const x=(i-HALF)*S, y=(j-HALF)*S, k=j*M+i; X[k]=exc(x,y); DN[k]=Z*don(x,y,E,D); P[k]=X[k]*Math.exp(-LN2*DN[k]);}
+  return {P,X,DN,Z,E,D};
+}
+function image(psf,photons,sd){
+  const W=IW, H=IH*2+1, im=new Float64Array(W*H);
+  for(const p of PTS){const ci=Math.round(p[0]/S), cj=Math.round(p[1]/S)+IH;
+    for(let j=0;j<M;j++){const y=cj+j-HALF; if(y<0||y>=H) continue; for(let i=0;i<M;i++){const x=ci+i-HALF; if(x<0||x>=W) continue; im[y*W+x]+=psf[j*M+i];}}}
+  seed=sd; let mx=0; for(let k=0;k<im.length;k++){const l=im[k]*photons; im[k]=Math.max(0,l+Math.sqrt(l)*gauss()); mx=Math.max(mx,im[k]);}
+  return {im,W,H,mx};
+}
+let CONF=null;
+function drawImg(id,r,cm){const cv=document.getElementById(id), g=cv.getContext("2d"), d=g.createImageData(r.W,r.H);
+  for(let k=0;k<r.W*r.H;k++){const c=cm(r.im[k]/r.mx); d.data[4*k]=c[0]; d.data[4*k+1]=c[1]; d.data[4*k+2]=c[2]; d.data[4*k+3]=255;}
+  const t=document.createElement("canvas"); t.width=r.W; t.height=r.H; t.getContext("2d").putImageData(d,0,0);
+  g.fillStyle="#000"; g.fillRect(0,0,cv.width,cv.height); const sc=cv.width/r.W, h=Math.min(r.H*sc,cv.height-20);
+  g.imageSmoothingEnabled=true; g.drawImage(t,0,0,cv.width,h);
+  g.fillStyle="#ddd"; g.font="12px sans-serif"; g.textAlign="center";
+  SEPS.forEach((s,k)=>g.fillText(s+" nm",((k+0.5)*PITCH+100)/S*sc,cv.height-5));
+  // true line positions
+  g.fillStyle="#9ad0ff"; SEPS.forEach((s,k)=>{const cx=(k+0.5)*PITCH+100; [-s/2,s/2].forEach(dx=>{const x=(cx+dx)/S*sc; g.fillRect(x-0.75,0,1.5,7);});});
+  g.textAlign="left";
+}
+const hot=v=>{v=Math.max(0,Math.min(1,v)); return [255*Math.min(1,v*2.2),255*Math.max(0,Math.min(1,v*2.2-0.75)),255*Math.max(0,v*3-2)];};
+const grn=v=>{v=Math.max(0,Math.min(1,v)); return [30*v+90*Math.max(0,v-0.7),255*Math.min(1,1.1*v),70*v+120*Math.max(0,v-0.7)];};
+function drawMap(r){
+  const cv=document.getElementById("cM"), g=cv.getContext("2d"), d=g.createImageData(M,M), SAT=50;
+  for(let k=0;k<M*M;k++){const v=Math.min(1,Math.log10(1+r.DN[k])/Math.log10(1+SAT)), b=0.35*r.X[k];
+    d.data[4*k]=255*Math.min(1,0.95*v+0.1*b); d.data[4*k+1]=255*Math.min(1,0.42*v*v+0.25*b); d.data[4*k+2]=255*Math.min(1,0.1*v+0.9*b); d.data[4*k+3]=255;}
+  const t=document.createElement("canvas"); t.width=M; t.height=M; t.getContext("2d").putImageData(d,0,0);
+  g.imageSmoothingEnabled=true; g.drawImage(t,0,0,cv.width,cv.height);
+  // contour I = Is along rays
+  if(r.Z>1){g.strokeStyle="#fff"; g.setLineDash([4,3]); g.lineWidth=1.6; g.beginPath();
+    for(let a=0;a<=360;a+=3){const th=a*Math.PI/180; let rr=0; for(let q=0;q<400;q+=0.5){const x=r.D+q*Math.cos(th), y=q*Math.sin(th); if(r.Z*don(x,y,r.E,r.D)>=1){rr=q;break;}}
+      const px=(r.D+rr*Math.cos(th))/S+HALF, py=HALF-rr*Math.sin(th)/S; const X=px/M*cv.width, Y=py/M*cv.height; a?g.lineTo(X,Y):g.moveTo(X,Y);}
+    g.closePath(); g.stroke(); g.setLineDash([]);}
+  // colour bar
+  const bw=90; for(let i=0;i<bw;i++){const v=i/(bw-1); g.fillStyle=`rgb(${255*0.95*v|0},${255*0.42*v*v|0},${255*0.1*v|0})`; g.fillRect(10+i,cv.height-18,1,6);}
+  g.fillStyle="#eee"; g.font="10px sans-serif"; g.fillText("0",8,cv.height-22); g.fillText("≥ 50 I",bw-12,cv.height-22); g.font="8px sans-serif"; g.fillText("s",bw+15,cv.height-20);
+  g.font="11px sans-serif"; const bar=200/S*cv.width/M; g.fillStyle="#fff"; g.fillRect(cv.width-bar-10,cv.height-14,bar,4); g.fillText("200 nm",cv.width-bar/2-28,cv.height-20);
+}
+function drawPlot(r){
+  const cv=document.getElementById("cP"), g=cv.getContext("2d"), W=cv.width, H=cv.height, l=34, rr=10, t=36, b=30;
+  g.clearRect(0,0,W,H); g.strokeStyle="#999"; g.lineWidth=1; g.beginPath(); g.moveTo(l,t-6); g.lineTo(l,H-b); g.lineTo(W-rr,H-b); g.stroke();
+  const X=x=>l+(x+400)/800*(W-l-rr), Y=v=>H-b-v*(H-b-t);
+  g.fillStyle="#555"; g.font="11px sans-serif"; g.textAlign="center"; [-400,-200,0,200,400].forEach(v=>g.fillText(v,X(v),H-b+14)); g.fillText("Position [nm]",(W+l)/2,H-3);
+  g.textAlign="right"; [0,0.5,1].forEach(v=>g.fillText(v,l-4,Y(v)+4)); g.textAlign="left";
+  const row=r.P.subarray(HALF*M,(HALF+1)*M), ex=r.X.subarray(HALF*M,(HALF+1)*M), sv=Array.from(r.DN.subarray(HALF*M,(HALF+1)*M),q=>Math.exp(-LN2*q));
+  const line=(arr,col,w,dash)=>{g.strokeStyle=col; g.lineWidth=w; g.setLineDash(dash); g.beginPath(); for(let i=0;i<M;i++){const x=X((i-HALF)*S), y=Y(arr[i]); i?g.lineTo(x,y):g.moveTo(x,y);} g.stroke(); g.setLineDash([]);};
+  if(r.Z>0){g.fillStyle="rgba(224,80,32,0.16)"; g.beginPath(); g.moveTo(X(-HALF*S),Y(0)); for(let i=0;i<M;i++) g.lineTo(X((i-HALF)*S),Y(sv[i])); g.lineTo(X(HALF*S),Y(0)); g.closePath(); g.fill();}
+  line(ex,"#1a47b8",1.6,[6,4]); line(row,"#0d5e22",2.4,[]); if(r.Z>0) line(sv,"#e05020",1.8,[2,3]);
+  const leg=[["excitation","#1a47b8",[6,4]],["fraction still fluorescing","#e05020",[2,3]],["effective PSF","#0d5e22",[]]];
+  let x0=l+4; leg.forEach(([n,c,ds])=>{g.strokeStyle=c; g.lineWidth=2; g.setLineDash(ds); g.beginPath(); g.moveTo(x0,12); g.lineTo(x0+20,12); g.stroke(); g.setLineDash([]); g.fillStyle="#333"; g.fillText(n,x0+24,16); x0+=30+g.measureText(n).width;});
+}
+function fwhm(arr){let mx=0,im=0; arr.forEach((v,i)=>{if(v>mx){mx=v;im=i;}}); if(mx<=1e-9) return NaN;
+  const h=mx/2; let a=im,b=im; while(a>0&&arr[a]>h)a--; while(b<arr.length-1&&arr[b]>h)b++;
+  const xa=a+(h-arr[a])/(arr[a+1]-arr[a]), xb=b-1+(arr[b-1]-h)/(arr[b-1]-arr[b]); return (xb-xa)*S;}
+function draw(){
+  const r=psfs(); drawMap(r); drawPlot(r);
+  if(!CONF) CONF=image(r.X,6,11);
+  const st=image(r.P,6,11);
+  drawImg("cC",CONF,hot); drawImg("cS",st,hot);
+  let pk=0,cx=0,sw=0; for(let j=0;j<M;j++) for(let i=0;i<M;i++){const w=r.P[j*M+i]; pk=Math.max(pk,w); cx+=w*(i-HALF)*S; sw+=w;} cx/=sw;
+  const fx=fwhm(Array.from(r.P.subarray(HALF*M,(HALF+1)*M)));
+  rd.innerHTML=`Effective PSF: FWHM <b>${isNaN(fx)?"n/a":Math.round(fx)+" nm"}</b> (formula λ/2NA√(1+I/I<sub>s</sub>) = ${Math.round(DC/Math.sqrt(1+r.Z))} nm) &nbsp; peak brightness <b>${(pk*100).toFixed(0)}%</b> of confocal`+
+   (Math.abs(cx)>2?` &nbsp; <span class="warn">center shifted by ${Math.round(cx)} nm</span>`:"")+(r.E*r.Z>1?` &nbsp; <span class="warn">even the doughnut center exceeds I<sub>s</sub></span>`:"")+
+   `<br>Brightest pixel: confocal <b>${Math.round(CONF.mx)}</b> photons, STED <b>${Math.round(st.mx)}</b> photons &nbsp; STED light dose <b>${r.Z}×</b> I<sub>s</sub>`;
+}
+function labels(){document.getElementById("zv").textContent=z.value; document.getElementById("epsv").textContent=(+eps.value).toFixed(1)+" %"; document.getElementById("misv").textContent=mis.value+" nm";}
+let tm=null; [z,eps,mis].forEach(e=>e.addEventListener("input",()=>{labels(); clearTimeout(tm); tm=setTimeout(draw,30);}));
+labels(); draw();
+</script></body></html>

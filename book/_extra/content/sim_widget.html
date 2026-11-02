@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SIM explorer</title><style>:root{--ink:#1f2933;--muted:#5b6670;--line:#d7dde3;--acc:#e05020;--blue:#2a4494;--green:#0d5e22;--bg:#ffffff;--soft:#f5f7f9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wg{max-width:900px;margin:0 auto;padding:4px 6px 8px}
+.row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.pan{flex:1 1 0;min-width:200px;max-width:300px}
+.pan canvas{width:100%;height:auto;display:block;border-radius:6px;background:#000}
+.pan.light canvas{background:#fff;border:1px solid var(--line)}
+.cap{font-size:.8rem;color:var(--muted);text-align:center;margin-top:5px;line-height:1.25}
+.ctrls{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin:14px 2px 4px}
+@media(max-width:600px){.ctrls{grid-template-columns:1fr}}
+.ctl label{display:flex;justify-content:space-between;align-items:baseline;font-size:.86rem;font-weight:600;margin-bottom:3px}
+.ctl .v{font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums}
+.ctl input[type=range]{width:100%;accent-color:var(--acc)}
+.ctl select{width:100%;font-size:.86rem;padding:3px 4px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--ink)}
+.ctl .h{font-size:.75rem;color:var(--muted);margin-top:2px;line-height:1.3}
+.read{display:block;line-height:1.7;font-size:.86rem;margin:8px 2px;padding:8px 10px;background:var(--soft);border-radius:6px}
+.read b{font-variant-numeric:tabular-nums}
+.warn{color:#b3261e}
+.ok{color:var(--green)}
+details.q{font-size:.84rem;margin:8px 2px 0;border-top:1px solid var(--line);padding-top:6px}
+details.q summary{cursor:pointer;font-weight:600}
+details.q ol{margin:6px 0 0 0;padding-left:20px;line-height:1.45}
+button{font-size:.84rem;padding:4px 10px;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:pointer}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+</style></head><body><div class="wg">
+<div class="row">
+ <div class="pan"><canvas id="cWF" width="256" height="256"></canvas><div class="cap">Widefield</div></div>
+ <div class="pan"><canvas id="cSIM" width="256" height="256"></canvas><div class="cap">SIM reconstruction</div></div>
+ <div class="pan"><canvas id="cFT" width="256" height="256"></canvas><div class="cap">Reconstructed spectrum. White: k<sub>c</sub>, orange: k<sub>c</sub>+k<sub>p</sub></div></div>
+</div>
+<div class="read" id="rd"></div>
+<div class="ctrls">
+ <div class="ctl"><label for="kp"><span>Pattern frequency k<sub>p</sub> / k<sub>c</sub></span><span class="v" id="kpv"></span></label><input type="range" id="kp" min="0.2" max="1" step="0.05" value="0.9"><div class="h">The pattern is projected through the objective, so it cannot be finer than k<sub>c</sub>.</div></div>
+ <div class="ctl"><label for="nang"><span>Number of orientations</span><span class="v" id="nangv"></span></label><input type="range" id="nang" min="1" max="5" step="1" value="3"><div class="h">Each orientation needs 3 phase-shifted raw images.</div></div>
+ <div class="ctl"><label for="noise"><span>Photons in the brightest pixel of each raw image</span><span class="v" id="noisev"></span></label><input type="range" id="noise" min="0" max="6" step="1" value="4"></div>
+ <div class="ctl"><label for="bgr"><span>Out-of-focus background</span><span class="v" id="bgrv"></span></label><input type="range" id="bgr" min="0" max="100" step="5" value="30"><div class="h">Blurred light from other planes, relative to the in-focus peak. It is not modulated by the pattern, but it adds noise.</div></div>
+ <div class="ctl"><label for="wie"><span>Wiener parameter</span><span class="v" id="wiev"></span></label><input type="range" id="wie" min="-5" max="-1" step="0.25" value="-3"><div class="h">Chosen by the user in most SIM software. Low values sharpen, but also amplify noise.</div></div>
+ <div class="ctl"><label for="err"><span>Error in the phase steps</span><span class="v" id="errv"></span></label><input type="range" id="err" min="0" max="30" step="2" value="0"><div class="h">Within each orientation the stripes are shifted twice by a third of their period (a 120° phase step), whatever the number of orientations. Here the real shifts deviate from that; the algorithm does not know.</div></div>
+</div>
+</div>
+<script>
+"use strict";
+const N=128, KC=20, NM_PX=40;           // grid, cutoff [cycles/grid], nm per pixel
+// ---------- FFT (radix-2, in place) ----------
+const LOG=Math.log2(N), rev=new Uint16Array(N);
+for(let i=0;i<N;i++){let r=0;for(let b=0;b<LOG;b++) r|=((i>>b)&1)<<(LOG-1-b); rev[i]=r;}
+const cosT=new Float64Array(N/2), sinT=new Float64Array(N/2);
+for(let i=0;i<N/2;i++){cosT[i]=Math.cos(2*Math.PI*i/N); sinT[i]=Math.sin(2*Math.PI*i/N);}
+function fft1(re,im,inv){
+  for(let i=0;i<N;i++){const j=rev[i]; if(j>i){let t=re[i];re[i]=re[j];re[j]=t;t=im[i];im[i]=im[j];im[j]=t;}}
+  for(let size=2;size<=N;size<<=1){const half=size>>1, step=N/size;
+    for(let i=0;i<N;i+=size) for(let k=0;k<half;k++){
+      const wr=cosT[k*step], wi=inv?sinT[k*step]:-sinT[k*step];
+      const a=i+k, b=a+half, xr=re[b]*wr-im[b]*wi, xi=re[b]*wi+im[b]*wr;
+      re[b]=re[a]-xr; im[b]=im[a]-xi; re[a]+=xr; im[a]+=xi;}}
+}
+const br=new Float64Array(N), bi=new Float64Array(N);
+function fft2(re,im,inv){
+  for(let y=0;y<N;y++){const o=y*N; for(let x=0;x<N;x++){br[x]=re[o+x];bi[x]=im[o+x];} fft1(br,bi,inv); for(let x=0;x<N;x++){re[o+x]=br[x];im[o+x]=bi[x];}}
+  for(let x=0;x<N;x++){for(let y=0;y<N;y++){br[y]=re[y*N+x];bi[y]=im[y*N+x];} fft1(br,bi,inv); for(let y=0;y<N;y++){re[y*N+x]=br[y];im[y*N+x]=bi[y];}}
+  if(inv){const s=1/(N*N); for(let i=0;i<N*N;i++){re[i]*=s;im[i]*=s;}}
+}
+const N2=N*N, FX=new Float64Array(N2), FY=new Float64Array(N2);
+for(let y=0;y<N;y++) for(let x=0;x<N;x++){FX[y*N+x]=x<N/2?x:x-N; FY[y*N+x]=y<N/2?y:y-N;}
+function otf(r){r=Math.abs(r); if(r>=1) return 0; return (2/Math.PI)*(Math.acos(r)-r*Math.sqrt(1-r*r));}
+function otfAt(fx,fy){return otf(Math.hypot(fx,fy)/KC);}
+const OTF=new Float64Array(N2); for(let i=0;i<N2;i++) OTF[i]=otfAt(FX[i],FY[i]);
+// ---------- deterministic RNG ----------
+let seed=1; function rnd(){seed=(seed*16807)%2147483647; return (seed-1)/2147483646;}
+function gauss(){let u=0,v=0; while(u===0)u=rnd(); v=rnd(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);}
+// ---------- samples ----------
+function splat(o,x,y,a){const s=0.65; for(let dy=-2;dy<=2;dy++) for(let dx=-2;dx<=2;dx++){const X=Math.floor(x)+dx, Y=Math.floor(y)+dy; if(X<0||Y<0||X>=N||Y>=N) continue; const d2=(X-x)**2+(Y-y)**2; o[Y*N+X]+=a*Math.exp(-d2/(2*s*s));}}
+function makeObj(){
+  const o=new Float64Array(N2); seed=7;
+  {
+    for(let f=0;f<8;f++){const a=rnd()*Math.PI, cx=20+rnd()*88, cy=20+rnd()*88, L=50+rnd()*70, b=(rnd()-0.5)*0.012;
+      for(let t=-L/2;t<=L/2;t+=0.4){const x=cx+t*Math.cos(a)-b*t*t*Math.sin(a), y=cy+t*Math.sin(a)+b*t*t*Math.cos(a); if(x>2&&y>2&&x<N-3&&y<N-3) splat(o,x,y,0.5);}}
+    for(let k=0;k<7;k++){const cx=12+rnd()*104, cy=12+rnd()*104, R=2.2+rnd()*1.2; for(let t=0;t<2*Math.PI;t+=0.15) splat(o,cx+R*Math.cos(t),cy+R*Math.sin(t),0.35);}
+    let m=0; for(let i=0;i<N2;i++) m=Math.max(m,o[i]); for(let i=0;i<N2;i++) o[i]=Math.min(1,o[i]/(0.6*m));
+  }
+  return o;
+}
+// ---------- simulation + reconstruction ----------
+const PH=[10,30,100,300,1000,3000,10000];
+const OBJ=makeObj();
+const WF=(()=>{const re=new Float64Array(N2), im=new Float64Array(N2); re.set(OBJ); fft2(re,im,false); for(let i=0;i<N2;i++){re[i]*=OTF[i]; im[i]*=OTF[i];} fft2(re,im,true); return re;})();
+let WFMAX=0; for(let i=0;i<N2;i++) WFMAX=Math.max(WFMAX,WF[i]);
+// out-of-focus haze: strongly blurred copy of the sample plus a uniform part
+const HAZE=(()=>{const re=new Float64Array(N2), im=new Float64Array(N2); re.set(OBJ); fft2(re,im,false);
+  for(let i=0;i<N2;i++){const g=Math.exp(-(FX[i]**2+FY[i]**2)/(2*3*3)); re[i]*=g; im[i]*=g;} fft2(re,im,true);
+  let m=0; for(let i=0;i<N2;i++) m=Math.max(m,re[i]); for(let i=0;i<N2;i++) re[i]=0.4+0.6*re[i]/m; return re;})();
+const READ=1.5, MOD=0.7; // read noise [photons], modulation contrast of the pattern // camera read noise [photons]
+function noisy(v,phot){const lam=Math.max(0,v)/WFMAX*phot; return (lam+Math.sqrt(lam)*gauss()+READ*gauss())*WFMAX/phot;}
+function run(){
+  const kpr=+kp.value, nA=+nang.value, phot=PH[+noise.value], er=+err.value*Math.PI/180, w=10**(+wie.value), bk=+bgr.value/100;
+  const o=OBJ; const kpi=kpr*KC; seed=99;
+  const numR=new Float64Array(N2), numI=new Float64Array(N2), den=new Float64Array(N2), wf=new Float64Array(N2);
+  const phases=[0,2*Math.PI/3,4*Math.PI/3];
+  const re=new Float64Array(N2), im=new Float64Array(N2);
+  for(let a=0;a<nA;a++){
+    const th=a*Math.PI/nA+0.17, px=kpi*Math.cos(th), py=kpi*Math.sin(th);
+    const Dr=[],Di=[];
+    const truePh=[0,phases[1]+er,phases[2]-0.6*er];
+    for(const ph of truePh){
+      for(let y=0;y<N;y++) for(let x=0;x<N;x++){const i=y*N+x; re[i]=o[i]*(1+MOD*Math.cos(2*Math.PI*(px*x+py*y)/N+ph)); im[i]=0;}
+      fft2(re,im,false); for(let i=0;i<N2;i++){re[i]*=OTF[i]; im[i]*=OTF[i];} fft2(re,im,true);
+      const r=new Float64Array(N2), ii=new Float64Array(N2);
+      for(let i=0;i<N2;i++){r[i]=noisy(re[i]+bk*WFMAX*HAZE[i],phot);}
+      fft2(r,ii,false); Dr.push(r); Di.push(ii);
+    }
+    // separation: D_k = C0 + 0.5 e^{i phk} Cp + 0.5 e^{-i phk} Cm ; with 3 equally spaced phases the inverse is a DFT
+    const C=[[new Float64Array(N2),new Float64Array(N2)],[new Float64Array(N2),new Float64Array(N2)],[new Float64Array(N2),new Float64Array(N2)]];
+    for(let i=0;i<N2;i++){
+      for(let k=0;k<3;k++){const c=Math.cos(phases[k]), s=Math.sin(phases[k]);
+        C[0][0][i]+=Dr[k][i]/3; C[0][1][i]+=Di[k][i]/3;
+        // Cp = (2/3) sum D_k e^{-i ph}
+        C[1][0][i]+=(2/3/MOD)*(Dr[k][i]*c+Di[k][i]*s); C[1][1][i]+=(2/3/MOD)*(Di[k][i]*c-Dr[k][i]*s);
+        C[2][0][i]+=(2/3/MOD)*(Dr[k][i]*c-Di[k][i]*s); C[2][1][i]+=(2/3/MOD)*(Di[k][i]*c+Dr[k][i]*s);}
+    }
+    // assumed pattern vector (with error)
+    const ax=px, ay=py;
+    // component 0
+    for(let i=0;i<N2;i++){numR[i]+=OTF[i]*C[0][0][i]; numI[i]+=OTF[i]*C[0][1][i]; den[i]+=OTF[i]*OTF[i];}
+    // shifted components
+    for(const [ci,sg] of [[1,1],[2,-1]]){
+      re.set(C[ci][0]); im.set(C[ci][1]); fft2(re,im,true);
+      for(let y=0;y<N;y++) for(let x=0;x<N;x++){const i=y*N+x, ph=-sg*2*Math.PI*(ax*x+ay*y)/N, c=Math.cos(ph), s=Math.sin(ph), r0=re[i], i0=im[i]; re[i]=r0*c-i0*s; im[i]=r0*s+i0*c;}
+      fft2(re,im,false);
+      for(let i=0;i<N2;i++){const h=otfAt(FX[i]+sg*ax,FY[i]+sg*ay); numR[i]+=h*re[i]; numI[i]+=h*im[i]; den[i]+=h*h;}
+    }
+  }
+  const kmax=KC+kpi;
+  for(let i=0;i<N2;i++){const ap=Math.pow(otf(Math.hypot(FX[i],FY[i])/(1.08*kmax)),0.5); re[i]=numR[i]/(den[i]+w)*ap; im[i]=numI[i]/(den[i]+w)*ap;}
+  const spec=new Float64Array(N2); for(let i=0;i<N2;i++) spec[i]=Math.hypot(re[i],im[i]);
+  fft2(re,im,true);
+  seed=12345; for(let i=0;i<N2;i++) wf[i]=noisy(WF[i]+bk*WFMAX*HAZE[i],phot); draw("cWF",wf,0,false); draw("cSIM",re,0,true); drawFT(spec,kmax);
+  const dwf=N/KC*NM_PX/1, dsim=dwf/(1+kpr);
+  rd.innerHTML=`Widefield limit <b>${Math.round(dwf)} nm</b> &nbsp; SIM limit <b>${Math.round(dsim)} nm</b> &nbsp; raw images <b>${3*nA}</b>`+(er>0?` &nbsp; <span class="warn">phase steps off by up to ${err.value}°</span>`:"");
+}
+function hot(v){v=Math.max(0,Math.min(1,v)); return [255*Math.min(1,v*2.2), 255*Math.max(0,Math.min(1,v*2.2-0.75)), 255*Math.max(0,v*3-2)];}
+function draw(id,d,_,clip){
+  const cv=document.getElementById(id), g=cv.getContext("2d"), img=g.createImageData(N,N);
+  let lo=1e9,hi=-1e9; const s=[...d].sort((a,b)=>a-b); lo=clip?Math.max(0,s[Math.floor(0.02*N2)]):s[0]; hi=s[Math.floor(0.998*N2)];
+  for(let i=0;i<N2;i++){const c=hot((d[i]-lo)/(hi-lo+1e-12)); img.data[4*i]=c[0]; img.data[4*i+1]=c[1]; img.data[4*i+2]=c[2]; img.data[4*i+3]=255;}
+  const t=document.createElement("canvas"); t.width=N; t.height=N; t.getContext("2d").putImageData(img,0,0);
+  g.imageSmoothingEnabled=true; g.drawImage(t,0,0,cv.width,cv.height);
+  g.fillStyle="#fff"; const bar=1000/NM_PX*cv.width/N; g.fillRect(cv.width-bar-10,cv.height-14,bar,4);
+  g.font="11px sans-serif"; g.fillText("1 µm",cv.width-bar/2-22,cv.height-20);
+}
+function drawFT(spec,kmax){
+  const cv=document.getElementById("cFT"), g=cv.getContext("2d"), img=g.createImageData(N,N);
+  let mx=0; for(let i=1;i<N2;i++) mx=Math.max(mx,spec[i]);
+  for(let y=0;y<N;y++) for(let x=0;x<N;x++){const sx=(x+N/2)%N, sy=(y+N/2)%N, v=Math.log10(1+spec[sy*N+sx]/mx*2000)/Math.log10(2001), j=4*(y*N+x);
+    img.data[j]=40+200*v; img.data[j+1]=30+150*v*v; img.data[j+2]=60+120*v; img.data[j+3]=255;}
+  const t=document.createElement("canvas"); t.width=N; t.height=N; t.getContext("2d").putImageData(img,0,0);
+  g.drawImage(t,0,0,cv.width,cv.height); const sc=cv.width/N, c=cv.width/2;
+  g.setLineDash([4,3]); g.lineWidth=1.3;
+  g.strokeStyle="#fff"; g.beginPath(); g.arc(c,c,KC*sc,0,2*Math.PI); g.stroke();
+  g.strokeStyle="#e05020"; g.beginPath(); g.arc(c,c,kmax*sc,0,2*Math.PI); g.stroke(); g.setLineDash([]);
+}
+const kp=document.getElementById("kp"), nang=document.getElementById("nang"), noise=document.getElementById("noise"), err=document.getElementById("err"), wie=document.getElementById("wie"), bgr=document.getElementById("bgr"), rd=document.getElementById("rd");
+function labels(){document.getElementById("kpv").textContent=(+kp.value).toFixed(2); document.getElementById("nangv").textContent=nang.value;
+  document.getElementById("noisev").textContent=PH[+noise.value]; document.getElementById("bgrv").textContent=bgr.value+" %"; document.getElementById("wiev").textContent=(10**(+wie.value)).toPrecision(2); document.getElementById("errv").textContent=err.value+"°";}
+let tm=null; function sched(){labels(); clearTimeout(tm); tm=setTimeout(run,60);}
+[kp,nang,noise,err,wie,bgr].forEach(e=>e.addEventListener("input",sched));
+labels(); run();
+</script></body></html>

@@ -76,7 +76,9 @@ name: chap9_exm_distortion
 align: center
 ---
 Measuring the isotropy of expansion (simulated). Left: the same filaments imaged before expansion (magenta) and after expansion, scaled back by the measured expansion factor (green); white indicates overlap. Middle: the displacement field obtained by nonrigid registration of the two images; the dashed square marks the region shown on the left. Right: the root-mean-square error of length measurements grows with the length measured, here to about 1%.
-``` Another approach is to include internal rulers: structures of well-known size and shape, such as nuclear pore complexes or centrioles, whose apparent dimensions after expansion reveal both the actual expansion factor and any anisotropy. The expansion factor itself should always be measured for each experiment rather than taken from the protocol, because it depends on the exact composition of the gel, on temperature and on the ionic strength of the water.
+``` 
+
+Another approach is to include internal rulers: structures of well-known size and shape, such as nuclear pore complexes or centrioles, whose apparent dimensions after expansion reveal both the actual expansion factor and any anisotropy. The expansion factor itself should always be measured for each experiment rather than taken from the protocol, because it depends on the exact composition of the gel, on temperature and on the ionic strength of the water.
 
 ### Label size
 

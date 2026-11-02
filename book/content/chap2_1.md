@@ -95,7 +95,7 @@ $$
 Adding the two equations and collecting terms:
 
 $$
-\frac{1}{s_o} + \frac{1}{s_i} = (n-1)\left(\frac{1}{R_1} - \frac{1}{R_2}\right) + \frac{n_2 \, d}{s_{i1}(d - s_{i1})}
+\frac{1}{s_o} + \frac{1}{s_i} = (n-1)\left(\frac{1}{R_1} - \frac{1}{R_2}\right) - \frac{n \, d}{s_{i1}(d - s_{i1})}
 $$
 
 This is the general result for a _thick_ lens. For a **thin lens** we set $d \approx 0$, and the last term vanishes. What remains is clean and powerful:
@@ -159,7 +159,7 @@ When $|M| > 1$ the image is magnified; when $|M| < 1$ it is minified. A positive
 
 ## Real and virtual images
 
-When the object is placed beyond the focal point ($s_o > f$), the three rays converge on the other side of the lens. A screen placed at $s_i$ would show a real, inverted image. This is the configuration used in every microscope objective and every camera.
+When the object is placed beyond the focal point ($s_o > f$), the rays converge on the other side of the lens. A screen placed at $s_i$ would show a real, inverted image. This is the configuration used in every microscope objective and every camera.
 
 When the object is placed _inside_ the focal point ($s_o < f$), the rays diverge after the lens and never actually meet. However, if you extend them backward (as dashed lines), they appear to originate from a point on the same side as the object. This is a **virtual image**: you can see it by looking through the lens (as with a magnifying glass), but you cannot project it onto a screen. Virtual images are upright and magnified, which is precisely why a magnifying glass works the way it does.
 

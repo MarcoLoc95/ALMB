@@ -1,5 +1,5 @@
 (chap7_2)=
-# 7.2 - Reading a schematic
+# Reading a schematic
 
 Open almost any methods paper in microscopy and you will find, usually as Figure 1, a line drawing full of ellipses, rectangles and diagonal bars, labelled with a dense fog of acronyms. It may looks mysterious, but it doesn't have to be. A schematic is a story with a fixed plot: light is generated, it travels to the sample, it comes back, and it is measured. Your job is to simply follow it.
 

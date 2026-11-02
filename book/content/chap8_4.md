@@ -1,5 +1,5 @@
 (chap8_4)=
-# 8.4 - Label-free techniques
+# Label-free techniques
 
 Almost everything in this book has depended on a label. Chapters 4 and 7 spent a great deal of effort on making fluorophores brighter, more specific and more photostable, and all of it exists because the molecules we care about are, optically speaking, nearly invisible.
 

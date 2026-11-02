@@ -45,7 +45,7 @@ The main steps of expansion microscopy. Proteins or labels in a fixed cell are e
 3. **Homogenization.** A cell is full of stiff components (membranes, cytoskeleton, chromatin) that would resist swelling or tear apart unevenly. In the original protocol, a protease (proteinase K) digests most proteins into fragments, while the anchored pieces carrying the labels stay attached to the gel. Later variants, such as U-ExM (ultrastructure expansion microscopy), replace digestion with denaturation by heat and detergent, which unfolds the proteins but keeps them in the gel.
 4. **Expansion.** The gel is washed in water, sometimes in several rounds, and swells to its final size.
 
-Labels can be introduced before gelation, or, when proteins are denatured instead of digested, after expansion. Some protocols, like the one in the lecture slides for parasites, even expand, shrink the gel back in buffer to stain it, and expand again. Each choice has consequences for the final image, as we will see shortly.
+Labels can be introduced before gelation, or, when proteins are denatured instead of digested, after expansion. Some protocols even expand, shrink the gel back in buffer to stain it, and expand again. Each choice has consequences for the final image, as we will see shortly.
 
 ## What expansion buys: an example
 

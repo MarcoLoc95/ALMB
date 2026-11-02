@@ -22,8 +22,7 @@ align: center
 Photo of the nimrud lens in the British Museum. Copyright: Geni, CC BY-SA 4.0, via Wikimedia Commons
 ```
 
-
-The ancient Greeks turned optics into philosophy. Around 450 BCE, Empedocles of Acragas proposed his "simulacra theory" of vision: all objects, he argued, continuously emit tiny copies of themselves that travel through the air and enter the eye, where they interact with an "inner fire" emanating from the observer. The theory was wrong, of course, but it contained a genuinely important idea: the recognition that vision requires _something_ to travel between object and observer.
+The ancient Greeks turned optics into philosophy. Around 450 BCE, Empedocles of Acragas proposed that the eye holds an "inner fire" that shines outward like a lantern, and that we see when this fire meets streams of particles flowing from objects. A few decades later the atomists Leucippus and Democritus offered a different picture: every object continuously sheds thin films of atoms that preserve its shape, the _eidola_, which travel through the air and enter the eye. Centuries later the Roman poet Lucretius called them _simulacra_. Both theories were wrong, of course, but they shared a genuinely important idea: vision requires _something_ to travel between object and observer.
 
 Meanwhile, around 400 BCE and halfway across the world, the Chinese philosopher Mo Zi and his followers were taking a more experimental approach. In the *Mohist Canon*, they documented observations on the camera obscura, on how shadows form, and on the principle that light travels in straight lines. They noted, for example, that light from the top of an object passing through a pinhole appears at the bottom of the projected image, and vice versa. This geometric analysis of light propagation anticipated European developments by nearly two thousand years.
 
@@ -72,7 +71,7 @@ align: center
 A model of the microscope created by Antonie van Leeuwenhoek. The microscope used a glass bead as a magnifier, giving a much greater magnification than other types of lenses available at the time. Copyright: Mark Cartwright, CC BY-NC-SA, via Science Museum, London
 ```
 
-Through these instruments, van Leeuwenhoek became the first human to observe an entirely new realm of life. In 1676, examining water from a nearby lake, he described tiny creatures swimming and rotating with purposeful motion, which he called "animalcules" (little animals). He was looking at bacteria, protists and other microorganisms, millions of times smaller than any creature known at the time. Over the following decades, he went on to discover spermatozoa, red blood cells, the striations in muscle tissue, and bacteria from his own mouth. For nearly fifty years, he communicated his findings to the Royal Society of London in hundreds of letters written in Dutch, accompanied by his own meticulous drawings. Van Leeuwenhoek proved that life existed at scales far beyond what anyone had imagined.
+Through these instruments, van Leeuwenhoek became the first human to observe an entirely new realm of life. In 1674, examining water from a nearby lake, he described tiny creatures swimming and rotating with purposeful motion, which he called "animalcules" (little animals). He was looking at bacteria, protists and other microorganisms, millions of times smaller than any creature known at the time. Over the following decades, he went on to discover spermatozoa, red blood cells, the striations in muscle tissue, and bacteria from his own mouth. For nearly fifty years, he communicated his findings to the Royal Society of London in hundreds of letters written in Dutch, accompanied by his own meticulous drawings. Van Leeuwenhoek proved that life existed at scales far beyond what anyone had imagined.
 
 ### The nature of light debated
 
@@ -144,7 +143,7 @@ The solution came from a different approach entirely. In the 1930s, the Dutch ph
 
 ### Confocal microscopy and optical sectioning
 
-In 1957, **Marvin Minsky**, a young Harvard professor who would later become one of the founders of artificial intelligence, patented the principle of the confocal microscope. The problem he addressed was fundamental: in conventional microscopy, when you look at a thick sample, light coming from above and below the focal plane creates a haze that obscures the structures you are interested in.
+In 1957, **Marvin Minsky**, a junior fellow at Harvard who would later become one of the founders of artificial intelligence, patented the principle of the confocal microscope. The problem he addressed was fundamental: in conventional microscopy, when you look at a thick sample, light coming from above and below the focal plane creates a haze that obscures the structures you are interested in.
 
 Minsky's solution was elegant: illuminate only a single point in the sample and place a pinhole aperture in front of the detector, positioned such that only light originating from the focal plane can pass through. Out-of-focus light, arriving from different angles, is blocked. This "confocal" arrangement (the illumination and detection are focused on the same point) enables **optical sectioning**: the ability to image thin slices through a thick specimen and reject everything above and below.
 
@@ -178,7 +177,7 @@ These techniques were revolutionary because they combined the molecular specific
 
 The timeline culminates with cryo-electron microscopy (cryo-EM). The technique, pioneered in the 1970s, involves freezing biological samples so rapidly (plunging them into liquid ethane at -180°C) that water forms vitreous ice rather than damaging crystals. This preserves structures in their native, hydrated state. By imaging these frozen specimens with electron beams and computationally combining thousands of images to average out noise, researchers can reconstruct three-dimensional structures at near-atomic resolution, without the need for crystallization.
 
-Over the decades that followed, cryo-EM underwent what is often called a "resolution revolution", driven by better electron detectors, more powerful computers and improved reconstruction algorithms. By the 2010s, the technique routinely achieved atomic resolution, allowing researchers to determine the structure of viruses and protein complexes atom by atom. Jacques Dubochet, Joachim Frank and Richard Henderson received the 2017 Nobel Prize in Chemistry for developing this capability.
+Over the decades that followed, cryo-EM underwent what is often called a "resolution revolution", driven by better electron detectors, more powerful computers and improved reconstruction algorithms. By the 2010s, the technique routinely achieved near-atomic resolution, allowing researchers to determine the structure of viruses and protein complexes atom by atom. Jacques Dubochet, Joachim Frank and Richard Henderson received the 2017 Nobel Prize in Chemistry for developing this capability.
 
 ```{figure} ../figures/nuclearpore.jpg
 ---
@@ -195,6 +194,6 @@ Modern microscopy is no longer about a single instrument; it is about combining 
 
 Artificial intelligence is becoming an integral part of the field: denoising images, accelerating data acquisition, predicting structures from limited data, and tracking thousands of molecules simultaneously. Expansion microscopy takes an entirely different approach, physically swelling specimens with hydrogels so that structures originally too close to resolve become separated in space.
 
-The frontier is shifting toward _in vivo_ molecular imaging, quantum microscopy using entangled photons, and holographic techniques that reconstruct 3D volumes from single exposures. The diffraction limit that Abbe identified in 1874 keeps falling to new tricks, and computational methods continue to extract information that seemed permanently lost.
+The frontier is shifting toward _in vivo_ molecular imaging, quantum microscopy using entangled photons, and holographic techniques that reconstruct 3D volumes from single exposures. The diffraction limit that Abbe identified in 1873 keeps falling to new tricks, and computational methods continue to extract information that seemed permanently lost.
 
 The ancient quest to see the invisible continues, now limited less by the physics of light than by our ingenuity in asking what to look for.

@@ -60,11 +60,11 @@ At any given screen position, only one wavelength is in perfect focus. The other
 ```{tip}
 **Worked example: axial chromatic aberration**
 
-A biconvex lens made of N-BK7 glass has a focal length $f = 100$ mm at 550 nm (green). Using the Cauchy equation with $A = 1.505$ and $B = 4220$ nm$^2$, the refractive indices at two common fluorescence wavelengths are $n(488\text{ nm}) \approx 1.522$ and $n(640\text{ nm}) \approx 1.515$.
+A biconvex lens made of N-BK7 glass has a focal length $f = 100$ mm at 550 nm (green). Using the Cauchy equation with $A = 1.505$ and $B = 4220$ nm$^2$, the refractive indices at two common fluorescence wavelengths are $n(488\text{ nm}) \approx 1.523$ and $n(640\text{ nm}) \approx 1.515$.
 
-From the lensmaker equation, the focal lengths scale as $f(\lambda) = f_0 \cdot \frac{n_0 - 1}{n(\lambda) - 1}$, giving $f(488) \approx 98.7$ mm and $f(640) \approx 100.7$ mm.
+From the lensmaker equation, the focal lengths scale as $f(\lambda) = f_0 \cdot \frac{n_0 - 1}{n(\lambda) - 1}$, giving $f(488) \approx 99.3$ mm and $f(640) \approx 100.7$ mm.
 
-The axial chromatic aberration between the two channels is therefore $\Delta f \approx 2.0$ mm: if you focus on GFP (488 nm excitation), your red channel (640 nm) is out of focus by 2 mm.
+The axial chromatic aberration between the two channels is therefore $\Delta f \approx 1.4$ mm: if you focus excitation on GFP (488 nm), your red channel (640 nm) is out of focus by 2 mm.
 ```
 
 ## Lateral chromatic aberration
@@ -85,11 +85,11 @@ Lateral chromatic aberration. Because the red and blue images have different mag
 
 Consider the same lens ($f = 100$ mm at 550 nm) imaging a fluorescently labelled cell at distance $s_o = 200$ mm. 
 
-From the thin lens equation, $s_i(488) = 1/(1/98.7 - 1/200) \approx 194.7$ mm and $s_i(640) = 1/(1/100.7 - 1/200) \approx 202.8$ mm.
+From the thin lens equation, $s_i(488) = 1/(1/99.3 - 1/200) \approx 197.1$ mm and $s_i(640) = 1/(1/100.7 - 1/200) \approx 202.9$ mm.
 
-The lateral magnification for each channel is $M = -s_i / s_o$, so $M(488) \approx -0.974$ and $M(640) \approx -1.014$.
+The lateral magnification for each channel is $M = -s_i / s_o$, so $M(488) \approx -0.986$ and $M(640) \approx -1.014$.
 
-A structure 10 $\mu$m wide in the sample appears as 9.74 $\mu$m in the blue channel and 10.14 $\mu$m in the red channel: a difference of 0.40 $\mu$m, or about 4% of the feature size. In a colocalization experiment this shift would be enough to make two co-located proteins appear spatially separated, leading to a false-negative result.
+A structure 10 $\mu$m wide in the sample appears as 9.86 $\mu$m in the blue channel and 10.14 $\mu$m in the red channel: a difference of 0.28 $\mu$m, or about 3% of the feature size. In a colocalization experiment this shift would be enough to make two co-located proteins appear spatially separated, leading to a false-negative result.
 ```
 
 ## Correcting chromatic aberration: achromatic doublets
@@ -159,7 +159,7 @@ For many applications the secondary spectrum is negligible. But when high color 
 
 An **apochromat** uses three or more lens elements to bring _three_ wavelengths to a common focus. The secondary spectrum is dramatically reduced across the visible range (_{numref}`Fig. {number} <chap2_secondary_spectrum>`_). Apochromatic objectives are the workhorses of modern fluorescence microscopy, where multiple fluorophores emitting at different wavelengths must be imaged with high precision.
 
-A **superachromat** takes this one step further, correcting for four wavelengths and producing an even flatter focal-shift curve. The price is complexity: superachromatic objectives may contain six or more individual lens elements, each made of a carefully selected glass type. The materials themselves (such as fluorite, CaF$_2$) can be expensive, which is why these objectives carry premium price tags.
+A **superachromat** takes this one step further, correcting for four wavelengths and producing an even flatter focal-shift curve. The price is complexity: superachromatic objectives may contain ten or more individual lens elements, each made of a carefully selected glass type. The materials themselves (such as fluorite, CaF$_2$) can be expensive, which is why these objectives carry premium price tags.
 
 Between the achromat and the apochromat there is an intermediate class called **fluorite** (or semi-apochromat) objectives, which correct for two to three wavelengths and offer a practical middle ground in terms of both performance and cost.
 

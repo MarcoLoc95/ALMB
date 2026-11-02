@@ -1,5 +1,5 @@
 (chap7_1)=
-# 7.1 - Building blocks of a microscope
+# Building blocks of a microscope
 
 An imaging system, stripped to its essentials, does three things. It makes light, it does something to that light on the way to and from the sample, and it counts the light that comes back. Every component on an optical table belongs to one of those three jobs, or else it exists to hold the others still.
 

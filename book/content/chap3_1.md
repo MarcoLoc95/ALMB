@@ -42,7 +42,7 @@ In older microscope designs (and many educational microscopes still in use), the
 The magnification of the objective in a **finite system** is simply the ratio of the image distance to the object distance:
 
 $$
-M_{\text{obj}} = \frac{s_i}{s_o}
+M_{\text{obj}} = -\frac{s_i}{s_o}
 $$
 
 where $s_i$ is measured from the back principal plane of the objective to the intermediate image, and $s_o$ from the front principal plane to the specimen.

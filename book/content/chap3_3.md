@@ -91,7 +91,7 @@ The two sets of conjugate planes in a microscope using Köhler illumination. A s
 ```
 
 ```{tip}
-Understanding conjugate planes is the key to understanding _every_ contrast technique in microscopy. Phase contrast works by placing a phase plate in an aperture conjugate plane (the back focal plane of the objective). Darkfield works by blocking the zeroth order in an aperture conjugate plane. Fluorescence filter cubes are inserted in the infinity space precisely because it is an aperture conjugate region. Once you internalize the conjugate-plane picture, the design logic of every microscopy technique becomes transparent.
+Understanding conjugate planes is the key to understanding _every_ contrast technique in microscopy. Phase contrast works by placing a phase plate in an aperture conjugate plane (the back focal plane of the objective). Darkfield works by blocking the zeroth order in an aperture conjugate plane. Once you internalize the conjugate-plane picture, the design logic of every microscopy technique becomes transparent.
 ```
 
 ### The role of the diaphragms

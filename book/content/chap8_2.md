@@ -1,5 +1,5 @@
 (chap8_2)=
-# 8.2 - Molecular techniques
+# Molecular techniques
 
 The three techniques in this section are performed on ordinary fluorescence microscopes, and none of them is primarily about making an image. They answer questions that an image cannot: how fast is this molecule moving, what fraction of it is stuck to something, and is it touching that other molecule. Two of them, FCS and FRAP, measure motion. The third, FRET, measures proximity. All three return a number with units, and a number with units is a different kind of scientific object from a picture.
 

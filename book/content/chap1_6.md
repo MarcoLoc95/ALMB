@@ -4,7 +4,7 @@ Before moving on, here is some vocabulary that cuts across all three description
 
 - **Monochromatic** vs. **polychromatic**: light of a single wavelength vs. a mixture of wavelengths. Lasers are nearly monochromatic; white light is polychromatic.
 - **Polarized** vs. **unpolarized**: a fixed oscillation direction vs. a random mixture. Lasers are typically linearly polarized; sunlight is unpolarized.
-- **Coherent** vs. **incoherent**: waves with a fixed phase relationship vs. random phases. Laser light is coherent; a light bulb is incoherent. Coherence matters for interference: only coherent light produces stable interference patterns.
+- **Coherent** vs. **incoherent**: waves with a fixed phase relationship vs. random phases. Laser light is coherent; a light bulb is incoherent.
 - **Collimated** vs. **divergent**: rays traveling in parallel vs. spreading out. A laser beam is well collimated; a point source emits divergent light.
 
 ```{figure} ../figures/light_properties.png

@@ -183,7 +183,7 @@ A common mistake in the lab: using an oil-immersion objective on a live cell sam
 
 So far we have discussed lateral ($x$-$y$) resolution. What about the $z$-direction, along the optical axis?
 
-As mentioned earlier, the PSF is elongated along $z$. The natural measure of axial resolution is the distance from the focus to the first axial minimum of the PSF. The exact scalar-diffraction result is:
+The PSF is elongated along $z$. The natural measure of axial resolution is the distance from the focus to the first axial minimum of the PSF. The exact scalar-diffraction result is:
 
 $$
 d_z = \frac{\lambda}{n\,(1 - \cos\theta)}

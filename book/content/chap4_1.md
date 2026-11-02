@@ -113,7 +113,7 @@ $$\tau = \frac{1}{\Gamma_r + \Gamma_{nr}}$$
 
 It is an average over a stochastic process. If $\tau = 1$ ns, most photons appear within a nanosecond or two, a few stragglers come out after three, and rarely one escapes after half a nanosecond. We will return to lifetime later in the course, because measuring it gives a way to distinguish fluorophores that share the same color.
 
-The **quantum yield** $\Phi$ (written $Y$ on the lecture slides, and sometimes $Q$ elsewhere) is the fraction of excited molecules that decay by emitting a photon:
+The **quantum yield** $\Phi$ (sometimes written as $Y$ or $Q$) is the fraction of excited molecules that decay by emitting a photon:
 
 $$\Phi = \frac{\Gamma_r}{\Gamma_r + \Gamma_{nr}} = \Gamma_r\,\tau$$
 

@@ -1,5 +1,5 @@
 (chap8_1)=
-# 8.1 - Lattice light-sheet microscopy
+# Lattice light-sheet microscopy
 
 Chapter 5.3 left us with a problem and a promise. The problem: a Gaussian light sheet can be thin or long, but not both, because its usable length grows only with the square of its thickness. The promise: Bessel beams break that trade-off, at the price of side lobes that excite fluorophores away from the focal plane, and a periodic arrangement of Bessel beams can make those side lobes cancel. That arrangement is the _lattice_, and this section is about how it works and what it has made possible.
 

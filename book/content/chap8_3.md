@@ -1,5 +1,5 @@
 (chap8_3)=
-# 8.3 - Lifetime imaging
+# Lifetime imaging
 
 Every fluorescence image so far in this book measures the same thing: how many photons arrived. Brightness is the observable, and contrast is built from differences in brightness. This section is about replacing that observable with a better one.
 

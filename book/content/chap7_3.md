@@ -1,5 +1,5 @@
 (chap7_3)=
-# 7.3 - From function to design
+# From function to design
 
 Reading a schematic is reverse engineering. You are reconstructing somebody else's reasoning from the traces it left. This section runs the arrow forwards: you have a biological question, and you need an instrument.
 

@@ -1,4 +1,4 @@
-# Sub-nanometer imaging: MINFLUX and MINSTED
+# Sub-nanometer imaging
 
 STED and single-molecule localization approach the diffraction problem from opposite directions. STED uses a pattern of light with a zero to decide _where_ molecules may emit, and needs no algorithm, but pays with a high light dose. SMLM lets molecules switch on at random and decides _when_ they emit, then uses many photons per molecule to locate it. In 2017 the group of Stefan Hell combined the two ideas into a technique called **MINFLUX**, for MINimal emission FLUXes, which localizes single molecules with a precision of one to a few nanometers using only a few hundred photons. It has been called a microscope that reaches the size of molecules, and it pushes fluorescence microscopy to the point where the label, not the light, becomes the limit.
 

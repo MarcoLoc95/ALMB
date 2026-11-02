@@ -1,4 +1,4 @@
-# Localization microscopy: PALM, STORM and PAINT
+# Localization microscopy
 
 The diffraction limit tells us how close two point sources can be before their images merge. It says nothing about how precisely we can determine the position of a _single_ point source. If we know that a blurry spot on the camera comes from one molecule, and only one, we can find its center far more precisely than the width of the spot. This observation is the foundation of a whole family of techniques collectively called **single-molecule localization microscopy** (SMLM). The best known members are PALM, STORM and PAINT. They differ in how they make molecules light up one at a time, but they share everything else.
 

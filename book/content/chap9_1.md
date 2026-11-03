@@ -94,7 +94,7 @@ width: 60%
 name: chap9_ex_sim_actin
 align: center
 ---
-Actin filaments in a fixed mouse embryonic fibroblast stained with phalloidin-TRITC, imaged in widefield and with SIM. Individual filaments and bundles that merge into a haze in the widefield image are resolved after reconstruction. Source: [reference to be added].
+Actin filaments in a fixed mouse embryonic fibroblast stained with phalloidin-TRITC, imaged in widefield and with SIM. Individual filaments and bundles that merge into a haze in the widefield image are resolved after reconstruction. Source: Rego and Shao (2015), via Methods in Molecular Biology.
 ```
 
 % TODO: verify source and add reference
@@ -104,7 +104,7 @@ width: 100%
 name: chap9_ex_sim_widefield
 align: center
 ---
-Widefield (top-left of the dashed line) and SIM (bottom-right) images of multicolor-labelled cells. Source: [reference to be added].
+Widefield (top-left of the dashed line) and SIM (bottom-right) images of multicolor-labelled cells. Source: Chen et al. (2023), CC BY, via Light: Science & Applications.
 ```
 
 ## Exploring SIM

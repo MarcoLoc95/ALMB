@@ -58,7 +58,7 @@ width: 100%
 name: chap9_ex_exm_synapses
 align: center
 ---
-Expansion microscopy of mouse brain tissue labelled for the presynaptic protein Bassoon and the postsynaptic protein Homer1, imaged on a conventional confocal microscope. After expansion the two sides of individual synapses are resolved. Source: [reference to be added].
+Expansion microscopy of mouse brain tissue labelled for the presynaptic protein Bassoon and the postsynaptic protein Homer1, imaged on a conventional confocal microscope. After expansion the two sides of individual synapses are resolved. Gallagher and Zhao (2021), via Neurobiology of Disease.
 ```
 
 ## The fine print

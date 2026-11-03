@@ -74,7 +74,7 @@ width: 90%
 name: chap9_ex_palm_adhesions
 align: center
 ---
-Two-color PALM of actin (green) and paxillin (red) in focal adhesions. The enlarged region (right) shows the two proteins organized in distinct but interleaved nanoscale structures. Source: [reference to be added].
+Two-color PALM of actin (green) and paxillin (red) in focal adhesions. The enlarged region (right) shows the two proteins organized in distinct but interleaved nanoscale structures. Source: ZEISS Microscopy Online Campus.
 ```
 
 ## STORM: switching off with chemistry
@@ -113,7 +113,7 @@ width: 90%
 name: chap9_ex_storm_clathrin
 align: center
 ---
-Two-color STORM of clathrin (red) and microtubules (green). In the conventional image (left) clathrin-coated pits appear as blobs; in the STORM images they are resolved as rings, the projections of hollow spherical cages. Source: [reference to be added].
+Two-color STORM of clathrin (red) and microtubules (green). In the conventional image (left) clathrin-coated pits appear as blobs; in the STORM images they are resolved as rings, the projections of hollow spherical cages. Source: Bates et al. (2007), via Science.
 ```
 
 % TODO: verify source and add reference
@@ -123,7 +123,7 @@ width: 60%
 name: chap9_ex_storm_axon
 align: center
 ---
-3D STORM images of βII-spectrin, βIV-spectrin and adducin in axons, color-coded by height. All three proteins follow a periodic pattern along the axon. Source: [reference to be added].
+3D STORM images of βII-spectrin, βIV-spectrin and adducin in axons, color-coded by height. All three proteins follow a periodic pattern along the axon. Source: Xu et al. (2013), via Science.
 ```
 
 The price of STORM is its buffer. The reducing agents, the absence of oxygen and the intense illumination are harmful to living cells, so STORM is used almost exclusively on fixed samples.
@@ -145,7 +145,7 @@ width: 80%
 name: chap9_ex_paint_cells
 align: center
 ---
-DNA-PAINT images of cells acquired at different depths above the coverslip. The sketch at the top indicates the position of the detection volume. Source: [reference to be added].
+DNA-PAINT images of cells acquired at different depths above the coverslip. The sketch at the top indicates the position of the detection volume. Source: Schueder et al. (2017), CC BY, via Nature Communications.
 ```
 
 ## From localizations to an image

@@ -80,7 +80,7 @@ width: 100%
 name: chap9_ex_sted_confocal
 align: center
 ---
-Confocal (left) and STED (right) images of cytoskeletal filaments in a cell. Source: [reference to be added].
+Confocal (left) and STED (right) images of cytoskeletal filaments in a cell. Source: Leica Microsystems.
 ```
 
 Because STED is a purely optical technique working with ordinary fluorophores, including fluorescent proteins, it can be applied to living samples, and even to living animals. In a famous experiment, dendritic spines of neurons expressing a yellow fluorescent protein were imaged through a cranial window in the brain of an anesthetized mouse (_{numref}`Fig. {number} <chap9_ex_sted_invivo>`_). The spine necks, which are thinner than 100 nm, were resolved with a width of about 67 nm, and changes in spine shape were followed over tens of minutes.
@@ -92,7 +92,7 @@ width: 100%
 name: chap9_ex_sted_invivo
 align: center
 ---
-STED imaging in the cortex of a living mouse. Dendrites and spines of neurons expressing a yellow fluorescent protein are imaged through a cranial window; time-lapse images show the spines changing shape, and a line profile across a spine neck gives a width of 67 nm. Source: [reference to be added].
+STED imaging in the cortex of a living mouse. Dendrites and spines of neurons expressing a yellow fluorescent protein are imaged through a cranial window; time-lapse images show the spines changing shape, and a line profile across a spine neck gives a width of 67 nm. Source: Berning et al. (2012), via Science.
 ```
 
 Since STED scans a point across the sample like a confocal, its speed is similar to confocal microscopy, and in fact usually slower, because the pixels must be smaller to sample the finer resolution (remember the Nyquist criterion). On small fields of view, however, frame rates of tens of images per second have been reached, enough to follow the movement of synaptic vesicles.

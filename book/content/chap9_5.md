@@ -78,7 +78,7 @@ width: 100%
 name: chap9_ex_minflux_npc
 align: center
 ---
-Nuclear pore complexes imaged by transmission electron microscopy (left) and by MINFLUX (right). In the MINFLUX image, labelled nucleoporins appear as clusters arranged in rings with eightfold symmetry. Source: [reference to be added].
+Nuclear pore complexes imaged by transmission electron microscopy (left) and by MINFLUX (right). In the MINFLUX image, labelled nucleoporins appear as clusters arranged in rings with eightfold symmetry. Source: Abberior.
 ```
 
 Perhaps even more striking is what MINFLUX does in time. Because only a few photons are needed per localization, a single molecule can be localized thousands of times per second, and the pattern can follow it as it moves, keeping it close to the zero. In 2023, two groups used this to track the motor protein kinesin-1 walking along microtubules, including in living cells, resolving its 16 nm steps and the substeps between them with millisecond time resolution (_{numref}`Fig. {number} <chap9_ex_minflux_kinesin>`_). Optical tweezers had measured such steps before, but only by attaching the motor to a large bead; MINFLUX observed the protein with a single small fluorophore.
@@ -90,7 +90,7 @@ width: 90%
 name: chap9_ex_minflux_kinesin
 align: center
 ---
-Tracking kinesin with MINFLUX. The molecule is followed by repeatedly placing the probing pattern around its latest position (left); its trajectory along the microtubule shows discrete 16 nm steps over a fraction of a second (right). Source: [reference to be added].
+Tracking kinesin with MINFLUX. The molecule is followed by repeatedly placing the probing pattern around its latest position (left); its trajectory along the microtubule shows discrete 16 nm steps over a fraction of a second (right). Source: Deguchi et al. (2023), via Science.
 ```
 
 ## The limits of minimal fluxes
@@ -138,7 +138,7 @@ width: 70%
 name: chap9_ex_minsted
 align: center
 ---
-The same structure imaged with confocal microscopy, STED and MINSTED. Source: [reference to be added].
+The same structure imaged with confocal microscopy, STED and MINSTED. Source: Michael Weber (Max Planck Institute for Biophysical Chemistry).
 ```
 
 ## Strengths and limitations

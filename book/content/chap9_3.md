@@ -35,7 +35,7 @@ $$
 d_{STED} \approx \frac{\lambda}{2\,\mathrm{NA}\sqrt{1 + I/I_s}} = \frac{d_{Abbe}}{\sqrt{1 + I/I_s}}
 $$
 
-where $I$ is the maximum intensity of the doughnut. Without the STED beam ($I = 0$) we recover Abbe's limit. As the STED intensity grows, the resolution improves without bound, at least on paper. In practice, with $I/I_s$ between 10 and 100, STED reaches 20-70 nm in biological samples, an improvement of five to ten times over confocal microscopy (_{numref}`Fig. {number} <chap9_sted_power>`_).
+where $I$ is the maximum intensity of the doughnut. Without the STED beam ($I = 0$) we recover Abbe's limit. As the STED intensity grows, the resolution improves without bound, at least on paper. In practice, with $I/I_s$ between 10 and 100, STED reaches 20-50 nm in biological samples, an improvement of five to ten times over confocal microscopy (_{numref}`Fig. {number} <chap9_sted_power>`_).
 
 ```{figure} ../figures/chap9_sted_power.gif
 ---

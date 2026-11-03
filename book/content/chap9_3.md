@@ -102,7 +102,7 @@ Since STED scans a point across the sample like a confocal, its speed is similar
 The widget below lets you change the STED intensity and introduce the two most common imperfections of a real system: some light left in the center of the doughnut, and a misalignment between the doughnut and the excitation spot. The map shows the STED light in units of $I_s$, the plot shows how the effective PSF is built, and the images below compare a confocal and a STED microscope on pairs of lines with decreasing spacing.
 
 :::{raw} html
-<iframe src="../content/sted_widget.html" width="100%" height="600px" frameborder="0" style="border: none;"></iframe>
+<iframe src="../content/sted_widget.html" width="100%" height="630px" frameborder="0" style="border: none;"></iframe>
 :::
 
 ## Where are the problems?

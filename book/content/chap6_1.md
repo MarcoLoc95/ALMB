@@ -215,10 +215,6 @@ Fine details land far from the axis, coarse details close to it. With $\lambda$ 
 Computed intensity in the back focal plane of a lens with $f$ = 100 mm at $\lambda$ = 0.5 µm, for three gratings with a 50% duty cycle. (a, b) The period sets where the orders land, $u = \lambda f/p$, so the finer grating in (a) spreads its spectrum 2.5 times farther than the coarser one in (b). The weak peaks in (b) at ±3 and ±5 mm are the third and fifth orders; even orders vanish for a 50% duty cycle. (c) The same period as (a) over a three times wider area: the orders stay in place but become three times narrower.
 ```
 
-```{tip}
-**Why not trace the rays from the edges of the object?** It is tempting to estimate the size of the pattern by drawing the rays from the two edges of the object through the center of the lens and seeing where they hit the back focal plane. That construction gives a "magnification" of one, but it measures the wrong thing: it tells you the angle the object subtends, not where its diffracted light goes. A point of the back focal plane is not the image of any point of the object; it collects one direction from all of them. Two gratings of the same width but different period would get the same answer from this construction, while {numref}`fourier_lens_scale` shows that their spectra are very different.
-```
-
 ### Where to put the object
 
 The front focal plane is the textbook position, but the object does not have to sit exactly there ({numref}`fourier_lens_positions`).

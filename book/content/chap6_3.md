@@ -25,7 +25,7 @@ There is a simple and extremely useful rule for reading these maps. The **center
 
 Take the transform of a photograph, erase everything outside a small disk around the center, and transform back. Out comes the same picture, softened. The outlines are still there, the fine texture has gone. Now do the opposite and erase the middle instead. The uniform areas collapse to a flat grey, the overall brightness vanishes, and what is left behind is a map of edges. Nothing was added to the image in either case. We only chose which gratings to keep.
 
-Those two experiments have names, and between them they cover most of what filtering does to a picture. A **low-pass** filter keeps the central disk and throws away the rest, which smooths the image and, since noise lives mostly out at high frequencies, removes a good deal of it. The bill is paid in genuine fine detail, which lived out there too. A Gaussian blur is a low-pass filter with a soft edge, nothing more. A **high-pass** filter blocks the center instead. It sharpens edges, but its real use in the lab is more mundane: uneven illumination, a haze of out-of-focus fluorescence, a gradient left by a badly seated filter, all vary slowly across the field and therefore lives at the very lowest frequencies, and a high-pass strips it out without touching the structures you actually care about.
+Those two experiments have names, and between them they cover most of what filtering does to a picture. A **low-pass** filter keeps the central disk and throws away the rest, which smooths the image and, since noise lives mostly out at high frequencies, removes a good deal of it. The bill is paid in genuine fine detail, which lived out there too. A Gaussian blur is a low-pass filter with a soft edge, nothing more. A **high-pass** filter blocks the center instead. It sharpens edges, but its real use in the lab is more mundane: uneven illumination, a haze of out-of-focus fluorescence, a gradient left by a badly seated filter, all vary slowly across the field and therefore live at the very lowest frequencies, and a high-pass strips it out without touching the structures you actually care about.
 
 A **band-pass** filter keeps a ring, so it selects a size. Anything much coarser than the chosen scale goes out with the background, anything much finer goes out with the noise, and what survives is whatever sits in between. Most spot detectors work this way. A **directional** filter keeps a wedge, so it selects an orientation. Here it pays to remember where the spots of a grating sit: along the direction in which the brightness varies, which is across the stripes and not along them. A wedge therefore removes the structures that run orthogonally to it and keeps the others.
 
@@ -43,7 +43,7 @@ The reverse trick is just as common. Put a pinhole at the focus of a beam expand
 
 ### Noise in the Fourier space
 
-Everything we have done so far assumed a clean image, but real measurements are acually always affected by noise. In fluorescence microscopy the dominant contribution is _shot noise_: light arrives as discrete photons, and the number counted in a pixel during the exposure follows a Poisson distribution. Shot noise fluctuates from pixel to pixel even when the sample is perfectly uniform. On top of it sits the _read noise_ of the detector. What matters for us is a property both share: the fluctuation in one pixel is independent of the fluctuation in its neighbours.
+Everything we have done so far assumed a clean image, but real measurements are actually always affected by noise. In fluorescence microscopy the dominant contribution is _shot noise_: light arrives as discrete photons, and the number counted in a pixel during the exposure follows a Poisson distribution. Shot noise fluctuates from pixel to pixel even when the sample is perfectly uniform. On top of it sits the _read noise_ of the detector. What matters for us is a property both share: the fluctuation in one pixel is independent of the fluctuation in its neighbours.
 
 Transforming noise produces only another random field of noise, with, on average, the same power at every spatial frequency. This is what is meant when we refer to this as **white noise** (just like the color white, containing all the visible frequencies). The transform of noise is noise ({numref}`Fig. {number} <noise_fourier>`), spread evenly over the entire spectrum.
 
@@ -108,7 +108,7 @@ $$
 k_c = \frac{2\,\text{NA}}{\lambda}.
 $$
 
-The reciprocal of that cut-off, $1/k_c = \lambda/2\text{NA}$, is the Abbe limit we met in the previous section. The diffraction limit, the Airy disk and the cut-off of a low-pass filter are three descriptions of the same phenomenon.
+The reciprocal of that cut-off, $1/k_c = \lambda/2\text{NA}$, is the Abbe limit we met in the previous chapters. The diffraction limit, the Airy disk and the cut-off of a low-pass filter are three descriptions of the same phenomenon.
 
 ### Deconvolution
 

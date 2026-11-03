@@ -18,7 +18,7 @@ Sunlight passes through the blue glass of a church window, which acts as an exci
 
 ### He was a photon, she was a molecule, could I make it any more obvious?
 
-Recall from {ref}`Chapter 1 <chap1>` that light sometimes behaves as a stream of photons, each carrying a packet of energy set by its wavelength: short wavelength means high energy, long wavelength means low energy. In a single atom, electrons sit in shells, and a photon with the right energy can kick an electron from a stable inner shell up to a higher, less stable one. After a short wait the electron drops back down and a photon comes out. That is just absorption followed by spontaneous emission.
+Recall from {ref}`Chapter 1 <chap1>` that light sometimes behaves as a stream of photons, each carrying a packet of energy set by its wavelength: short wavelength means high energy, long wavelength means low energy. In a single atom, electrons sit in shells, and a photon with the right energy can kick a valence electron from a stable shell up to a higher, less stable one. After a short wait the electron drops back down and a photon comes out. That is just absorption followed by spontaneous emission.
 
 Molecules are richer. Instead of clean atomic shells we have to deal with molecular orbitals, most importantly the highest one that is normally filled, and the lowest one that is normally empty. We call the stable, filled configuration the **ground state**. Think of it as the sofa at the end of a long day: the molecule will always tend to settle there. When a photon of the right energy is absorbed, a valence electron is promoted to an **excited state**, and the molecule now holds extra energy it must eventually shed. There are many ways to shed it, and the map of all of them is called the Jablonski diagram.
 
@@ -47,7 +47,7 @@ If the ground state is the sofa, the bottom of $S_1$ is a chair the molecule per
 
 There is one more path on the diagram, and it has consequences far beyond its size. You do not need quantum mechanics for this course, but the names are worth decoding. Electrons carry a property called spin, which we can picture as a tiny arrow pointing up or down. In the ground state the relevant pair of electrons is paired, one up and one down, a configuration with a single possible arrangement: a **singlet** state, hence $S_0$. Excitation usually keeps the spins as they were, so the molecule lands in an excited singlet, $S_1$. Spin is a conserved quantity, so flipping it is not something light does easily, which is exactly why the singlet route dominates.
 
-Occasionally, though, an electron does flip its spin. Now the two spins are parallel, and quantum mechanics allows three such arrangements rather than one: a **triplet** state, $T_1$, drawn slightly below $S_1$ because flipping the spin costs a little energy. The molecule can decay from $T_1$ back to $S_0$ by emitting a photon, and that is **phosphorescence**. Because the return again requires an awkward spin flip, it is slow, ranging from microseconds to seconds or even minutes. This is why glow-in-the-dark stars keep shining after you switch off the light, whereas fluorescence stops the instant the excitation does.
+Occasionally, though, an electron does flip its spin. Now the two spins are parallel, and quantum mechanics allows three such arrangements rather than one: a **triplet** state. This triplet state $T_1$ is drawn slightly below $S_1$ because with parallel spins the two electrons tend to stay farther apart, so they repel each other less and the energy is lower (Hund's rule). The molecule can decay from $T_1$ back to $S_0$ by emitting a photon, and that is **phosphorescence**. Because the return again requires an awkward spin flip, it is slow, ranging from microseconds to seconds or even minutes. This is why glow-in-the-dark stars keep shining after you switch off the light, whereas fluorescence stops the instant the excitation does.
 
 ```{tip}
 The timescale ladder is worth committing to memory because it explains so much downstream. Absorption: femtoseconds. Vibrational relaxation: picoseconds. Fluorescence: nanoseconds. Phosphorescence: microseconds to seconds. Each step is roughly a thousand to a million times slower than the one before.
@@ -111,7 +111,7 @@ The **lifetime** $\tau$ [ns] is the average time the molecule spends in $S_1$ be
 
 $$\tau = \frac{1}{\Gamma_r + \Gamma_{nr}}$$
 
-It is an average over a stochastic process. If $\tau = 1$ ns, most photons appear within a nanosecond or two, a few stragglers come out after three, and rarely one escapes after half a nanosecond. We will return to lifetime later in the course, because measuring it gives a way to distinguish fluorophores that share the same color.
+This is an average over a stochastic process. If $\tau = 1$ ns, about 61% of photons arrive after 0.5 ns, 37% after 1 ns and 5% after 3 ns. We will return to lifetime later in the course, because measuring it gives a way to distinguish fluorophores of the same color.
 
 The **quantum yield** $\Phi$ (sometimes written as $Y$ or $Q$) is the fraction of excited molecules that decay by emitting a photon:
 
@@ -144,13 +144,12 @@ align: center
 Origin of autofluorescence in biological samples. Endogenous fluorophores, including NADH/NADPH, aromatic amino acids in proteins, flavins, lipofuscin, and porphyrins, absorb light at different excitation wavelengths and emit broad fluorescence spectra. Because these emission spectra overlap, autofluorescence can reduce image contrast and interfere with the detection of fluorescent labels.
 ```
 
-Together with the autofluorescence discussed earlier, excitation bleedthrough is one of the two main sources of background in a fluorescence image.
-
 ## Photobleaching and phototoxicity
 
 The triplet state we met earlier is a quiet troublemaker. It is chemically reactive, and a molecule that lingers there can react with nearby oxygen, which cells always have, to produce **reactive oxygen species (ROS)**: singlet oxygen, superoxide, hydrogen peroxide, and similar aggressive radicals. When those species attack the fluorophore itself, they break or modify it: a double bond becomes a single bond, a group is cleaved, and the molecule simply stops fluorescing. This irreversible destruction is **photobleaching**, and there is no coming back from it.
 
-It might seem that the triplet route is so rare it should not matter. For many fluorophores the transition from $S_1$ down to $S_0$ is about a billion times more probable than the crossing from $S_1$ into the triplet. But a fluorophore is cycled through excitation an enormous number of times per second, so even a one-in-a-billion detour adds up. Under ordinary illumination, a few milliwatts of excitation, a typical organic fluorophore survives only on the order of seconds before it bleaches.
+It might seem that the triplet route is so rare it should not matter. 
+In a good fluorophore, the return from $S_1$ to $S_0$ wins most of the time: only a small fraction of excitations, typically between 0.1% and a few percent, ends up in the triplet state. But a molecule is excited millions of times per second, so this happens often, and the triplet lives for microseconds to milliseconds, long enough to react with oxygen and other molecules. On average a dye survives roughly $10^5$ to $10^7$ excitation cycles before one of these reactions destroys it for good.
 
 ```{figure} ../figures/chap4_photobleaching.png
 ---
@@ -163,7 +162,7 @@ Fluorescence intensity decaying over time as a population of fluorophores photob
 
 This is the trap that makes the "just use a more powerful laser" instinct fail (_{numref}`Fig. %s <photobleaching>`_). More excitation power does buy more signal, but it also accelerates bleaching, because every extra excitation cycle is another chance to wander into the triplet state. Turn the power down to bleach more slowly and your signal drops, which is especially painful if the fluorophore was already dim. Balancing photons collected against photons survived is one of the recurring tensions in fluorescence imaging.
 
-There is a second cost. If the ROS escape the immediate neighborhood of the fluorophore and diffuse into the cell, they damage the living sample itself, causing apoptosis, membrane disruption, mitochondrial stress, DNA damage, and disrupted signaling. Damage to the sample caused by light in this way is called **phototoxicity**. Roughly speaking, photobleaching is the fluorophore breaking, while phototoxicity is the cell paying the price. Genetically encoded proteins like GFP tend to bleach because their delicate chromophore is the casualty, whereas small, robust organic dyes often survive while their ROS go on to harm the surrounding cell.
+There is a second cost. If the ROS escape the immediate neighborhood of the fluorophore and diffuse into the cell, they damage the living sample itself, causing apoptosis, membrane disruption, mitochondrial stress, DNA damage, and disrupted signaling. Damage to the sample caused by light in this way is called **phototoxicity**. Roughly speaking, photobleaching is the fluorophore breaking, while phototoxicity is the cell paying the price.
 
 A molecule sitting in the triplet state is, for the moment, not fluorescing. The same is true of certain radical or chemically reduced configurations. We call these non-emitting configurations **dark states**. For now, just note that they exist and that they switch a fluorophore temporarily off. Far from being a mere nuisance, the ability to push molecules into and out of dark states is the foundation of one of the most successful super-resolution methods we will discuss in {ref}`Chapter 9 <chap9>`.
 

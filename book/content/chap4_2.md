@@ -4,7 +4,7 @@ A **fluorophore** is any molecule that emits fluorescence. That is the only thin
 
 ## Organic dyes
 
-Organic dyes are small synthetic molecules, and their fluorescence comes from **aromatic rings**, the flat hexagonal carbon structures with alternating single and double bonds. The amino acid tryptophan contains one, which is part of why proteins fluoresce faintly on their own. The bonds are not really fixed as alternating single and double; the electrons are spread out over the whole ring in what chemists call _resonance_, and all the equivalent structures coexist at once. That delocalization gives the ring its stability and the sharp, well-defined molecular orbitals that produce clean fluorescence.
+Organic dyes are small synthetic molecules, and their fluorescence comes from **aromatic rings**, the flat hexagonal carbon structures with alternating single and double bonds. The amino acid tryptophan contains an indole (two fused rings), which is part of why many proteins fluoresce faintly on their own. The bonds are not really fixed as alternating single and double; the electrons are spread out over the whole ring in what chemists call _resonance_, and all the equivalent structures coexist at once. That delocalization gives the ring its stability and the sharp, well-defined molecular orbitals that produce clean fluorescence.
 
 ```{figure} ../figures/chap4_organicdyes.png
 ---
@@ -61,7 +61,7 @@ align: center
 From left to right: EGFP, Citrine and mCherry beta-barrel structures and, below, the respective chromophores responsible for fluorescence. Source: [PDB](https://www.rcsb.org/)
 ```
 
-The defining advantage is that the cell makes the label, which buys you two things. The labeling is genetic rather than chemical: co-express the fluorescent protein with a protein that goes to your target of interest, and wherever that target ends up, the fluorescence follows. This tends to be more reliable than immunofluorescence, which stacks antibody upon antibody. And because the cell keeps producing the protein, fluorescence is replenished over time and across cell divisions, though slowly, on the scale of the cell's own protein turnover. Like all organic fluorophores, fluorescent proteins eventually photobleach.
+The defining advantage is that the cell makes the label, which buys you two things. The labeling is genetic rather than chemical: fuse the fluorescent protein with a protein that goes to your target of interest, and wherever that target ends up, the fluorescence follows. This tends to be more reliable than immunofluorescence, which stacks antibody upon antibody. And because the cell keeps producing the protein, fluorescence is replenished over time and across cell divisions, though slowly, on the scale of the cell's own protein turnover. Like all organic fluorophores, fluorescent proteins eventually photobleach.
 
 ```{figure} ../figures/chap4_genencoded_examples.png
 ---
@@ -75,6 +75,14 @@ Genetically encoded fluorescent labels in the nematode *C. elegans*. Panels illu
 ```{tip}
 With well over a thousand fluorescent proteins now characterized, choosing one by hand is hopeless. The community-curated database [**FPbase**](https://www.fpbase.org/) lets you filter by exactly the parameters from the previous section: excitation and emission spectra, Stokes shift, brightness, quantum yield, and photostability. This is the natural place to start when you need a protein with a particular set of properties.
 ```
+
+### Self-labelling tags: the best of both worlds
+
+The two families do not have to compete. Most organic dyes end up in fixed samples because the antibodies that carry them to their target cannot cross the membrane of a living cell. Self-labelling tags remove that obstacle.
+
+You fuse your protein of interest to a small enzyme, such as the HaloTag (an engineered bacterial dehalogenase) or the SNAP-tag (an engineered human DNA-repair enzyme), exactly as you would with a fluorescent protein. You then add a cell-permeable dye carrying the tag's ligand, a chloroalkane for HaloTag or a benzylguanine for SNAP-tag. The dye diffuses into the cell, finds the tag and binds to it covalently, so your protein carries a bright, photostable organic dye inside a living cell.
+
+Dyes developed for this purpose, such as silicon rhodamine (SiR) and the Janelia Fluor family, often emit in the red and far-red, where autofluorescence is low, and many are fluorogenic: they only become bright once bound, so unbound dye adds little background. The price is an extra labelling step and a tag about the size of a fluorescent protein. In return you can change colour without re-cloning, label at a chosen moment for pulse-chase experiments, and use the same construct for live imaging, single-molecule tracking and the super-resolution methods of Chapter 9.
 
 ## Quantum dots
 
@@ -91,7 +99,7 @@ align: center
 CdSe nanocrystal quantum dot TEM image and corresponding 3D model. This type of structure forces quantum confinement, which modulates the energy bands of the semiconductor to a neat potential well with a defined gap. Source: Efros and Brus, ACS Nano 2021, 15, 4, 6192-6210. DOI: [10.1021/acsnano.1c01399](https://pubs.acs.org/doi/full/10.1021/acsnano.1c01399)
 ```
 
-The fluorescing core is usually surrounded by several extra layers: surface ligands, a polymer coating such as PEG that acts as a spacer, and a targeting ligand on the outside. The spacer is not optional. If you bring the core too close to other molecules and energy leaks away non-radiatively, a FRET-like quenching, so the polymer holds everything at a safe distance. In size, quantum dots sit between the two organic families: bigger than a dye, smaller than a protein.
+The fluorescing core is usually surrounded by several extra layers: surface ligands, a polymer coating such as PEG that acts as a spacer, and a targeting ligand on the outside. The spacer is not optional. If you bring the core too close to other molecules and energy leaks away non-radiatively, a FRET-like quenching, so the polymer holds everything at a safe distance. The core alone is only a few nanometers across, but with all these layers a finished quantum dot measures 10 to 30 nm. That makes it the largest of the three families: several times bigger than a fluorescent protein such as GFP (about 2.4 by 4.2 nm), and more than ten times bigger than a dye.
 
 ```{figure} ../figures/chap4_qdot_spectra.gif
 ---
@@ -102,7 +110,7 @@ align: center
 Size-tunable emission of colloidal CdSe quantum dots. Only the dot diameter changes, yet the emission peak marches from the blue toward the red as the dot grows. This is quantum confinement in action: in a crystal only a few nanometers across, the electron and hole are boxed into a space smaller than they would naturally occupy, which widens the energy gap. A smaller box means a larger gap and shorter-wavelength emission, a larger box a smaller gap and longer-wavelength emission, so a single material can be tuned across the whole visible spectrum by size alone. Notice too how narrow and symmetric each peak is, unlike the red-tailed emission of organic dyes and fluorescent proteins.
 ```
 
-Quantum dots bring a striking list of advantages. They are very bright, with quantum yields near one, and because they have no troublesome triplet states they are extraordinarily photostable: you essentially have to physically destroy the particle to stop it glowing, so for practical purposes they barely photobleach at all. Furthermore, they are highly tunable through size, and their emission peaks are narrow and symmetric, much sharper than the broad, tailing peaks of organic fluorophores. That sharpness is most suitable for **multiplexing**, imaging many colors at once, because narrow peaks can be cleanly separated by filters where broad ones would bleed into each other. A single excitation wavelength can excite dots of many colors simultaneously, and four, five, or six channels become realistic. In practice they have been used to label membranes, intracellular targets, and a range of cell types including neurons and glia.
+Quantum dots bring a striking list of advantages. They are very bright, with quantum yields typically between 0.3 and 0.9, and because they have no troublesome triplet states they are extraordinarily photostable: you essentially have to physically destroy the particle to stop it glowing, so for practical purposes they barely photobleach at all. Furthermore, they are highly tunable through size, and their emission peaks are narrow and symmetric, much sharper than the broad, tailing peaks of organic fluorophores. That sharpness is most suitable for **multiplexing**, imaging many colors at once, because narrow peaks can be cleanly separated by filters where broad ones would bleed into each other. A single excitation wavelength can excite dots of many colors simultaneously, and four, five, or six channels become realistic. In practice they have been used to label membranes, intracellular targets, and a range of cell types including neurons and glia.
 
 ```{figure} ../figures/chap4_qd_examples.png
 ---
@@ -113,7 +121,7 @@ align: center
 Quantum dot-based immunofluorescence labeling. (a) Her2 receptors on human SK-BR-3 breast cancer cells labeled with QD535-IgG (green). (b) Cell nuclei labeled with QD630-streptavidin (red). (c) Simultaneous labeling of microtubules (green, QD535) and nuclei (red, QD630). (d) Dual labeling of Her2 receptors (green, QD535) and nuclei (red, QD630). Scale bars: 10 μm (a); 50 μm (b-d). Adapted from Wu et al. (2003), DOI: [10.1038/nbt764](https://doi.org/10.1038/nbt764)
 ```
 
-The drawback is again toxicity, and here it is twofold. There is the familiar ROS pathway, and on top of it the risk that the particle releases its cadmium, and the cadmium ion is severely toxic to cells, worse even than calcium. Protective shells around the CdSe core reduce both the oxygen exposure and the leakage, but the warning stands: with quantum dots you must always check the toxicity of the specific particle for your application. One further quirk worth knowing is that individual quantum dots tend to **blink**, switching on and off intermittently rather than glowing steadily, a behavior that is a nuisance for some measurements but, like dark states, can also be exploited.
+The drawback is again toxicity, and here it is twofold. There is the familiar ROS pathway, and on top of it the risk that the particle releases its cadmium, and the cadmium ion is severely toxic to cells. Protective shells around the CdSe core reduce both the oxygen exposure and the leakage, but the warning stands: with quantum dots you must always check the toxicity of the specific particle for your application. One further quirk worth knowing is that individual quantum dots tend to **blink**, switching on and off intermittently rather than glowing steadily, a behavior that is a nuisance for some measurements but, like dark states, can also be exploited.
 
 ## Choosing a fluorophore
 
@@ -121,12 +129,12 @@ There is no single best fluorophore, only the best one for a given experiment. T
 
 | Property | Organic dyes | Fluorescent proteins | Quantum dots |
 |---|---|---|---|
-| Size | Smallest (a few atoms) | Large (a whole protein) | Intermediate (a few nm) |
+| Size | Smallest (about 1 nm) | Medium (about 3 to 4 nm) | Largest (10 to 30 nm with coating) |
 | Origin | Synthetic chemistry | Made by the cell | Synthetic nanocrystal |
 | Brightness | High | Moderate to high | Very high |
 | Photostability | Moderate | Lower (bleaches) | Excellent (barely bleaches) |
 | Emission width | Broad | Broad | Narrow (great for multiplexing) |
-| Labeling | Immunofluorescence (antibody) | Genetic, co-expression | Surface ligand on coating |
+| Labeling | Immunofluorescence (antibody) | Genetic fusion | Surface ligand on coating |
 | Main drawback | Toxicity over time | Bleaching, larger label | Toxicity (ROS and cadmium) |
 | Best suited for | Fixed samples, bright structural imaging | Live cells, specific genetic targeting | Long imaging, many-color multiplexing |
 

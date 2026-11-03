@@ -67,12 +67,12 @@ The field of view over which a Gaussian light sheet stays thin, as a function of
 **Worked example.** At 488 nm in water ($n$ = 1.33):
 
 - A 2 µm sheet ($w_0$ = 1 µm) stays thin over only 17 µm. Good enough for a single cell.
-- A 5 µm sheet ($w_0$ = 2.5 µm) stays thin over 107 µm, which covers a zebrafish embryo.
+- A 5 µm sheet ($w_0$ = 2.5 µm) stays thin over 107 µm, which covers an organoid.
 
 You cannot have both. If you need a thin sheet across a wide field, the standard answer is to scan the waist across the field and stitch, or to accept a thicker sheet at the edges.
 ```
 
-With a moderate-NA detection objective the the axial detection point spread function is 1 to 2 µm, and typical sheets are thicker than that. In most practical light-sheet microscopes, the sectioning is set by the illumination and is several micrometres. Light-sheet microscopy wins decisively on speed, gentleness and depth, but it does not generally beat a good confocal on section thickness.
+With a moderate-NA detection objective the axial detection point spread function is 1 to 2 µm, and typical sheets are thicker than that. In most practical light-sheet microscopes, the sectioning is set by the illumination and is several micrometres. Light-sheet microscopy wins decisively on speed, gentleness and depth, but it does not generally beat a good confocal on section thickness.
 
 ## Bessel beams, lattices, and stripes
 

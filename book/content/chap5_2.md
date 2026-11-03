@@ -23,7 +23,7 @@ $$
 \theta_c = \arcsin\!\left(\frac{n_2}{n_1}\right)
 $$
 
-It is worth seeing why the failure is total rather than gradual. Rearranging Snell's law gives $\sin\theta_t = (n_1/n_2)\sin\theta_i$, and for $\theta_i > \theta_c$ the right-hand side exceeds one. There is no angle whose sine is greater than one, so there is no transmitted ray. Not a weak one: none. All of the energy is reflected back into the dense medium. This is **total internal reflection**, and you have seen it many times without naming it. It is what guides light along an optical fibre. It is why the sea near the horizon turns into a sheet of white glare, the sun reflecting off a surface you are viewing at a very shallow angle. And it is why, from underwater, the surface above you stops being a window and becomes a mirror once you look far enough from the vertical.
+It is worth seeing why the failure is total rather than gradual. Rearranging Snell's law gives $\sin\theta_t = (n_1/n_2)\sin\theta_i$, and for $\theta_i > \theta_c$ the right-hand side exceeds one. There is no angle whose sine is greater than one, so there is no transmitted ray. Not a weak one: none. All of the energy is reflected back into the dense medium. This is **total internal reflection**, and you have seen it many times without naming it. It is what guides light along an optical fibre. It is why, from underwater, the surface above you stops being a window and becomes a mirror once you look far enough from the vertical.
 
 ### Simulation: crossing the critical angle
 

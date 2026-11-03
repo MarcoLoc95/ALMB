@@ -1,7 +1,7 @@
 (chap7_2)=
 # Reading a schematic
 
-Open almost any methods paper in microscopy and you will find, usually as Figure 1, a line drawing full of ellipses, rectangles and diagonal bars, labelled with a dense fog of acronyms. It may looks mysterious, but it doesn't have to be. A schematic is a story with a fixed plot: light is generated, it travels to the sample, it comes back, and it is measured. Your job is to simply follow it.
+Open almost any methods paper in microscopy and you will find, usually as Figure 1, a line drawing full of ellipses, rectangles and diagonal bars, labelled with a dense fog of acronyms. It may look mysterious, but it doesn't have to be. A schematic is a story with a fixed plot: light is generated, it travels to the sample, it comes back, and it is measured. Your job is to simply follow it.
 
 This section gives you a procedure and then applies it to real published instruments. The procedure is not the only one possible, and experienced people stop using it consciously, but it works every time and it is what you should fall back on when a figure looks impenetrably complicated.
 
@@ -13,7 +13,7 @@ This section gives you a procedure and then applies it to real published instrum
 
 **3. Find the detector or detectors.** A camera is typically drawn as a rectangle, a PMT as a cylinder with a cable. Again, more than one detector tells you something: either two colours recorded simultaneously, or multiple possible measurement modes.
 
-**4. Follow the optical path from source to detector, through the sample.** Despite some hardcore physicists argue that ray optics is a mere simplification of wave optics, for all practical purposes light travels in straight lines until something bends it. Trace the beam. If the figure is drawn well, the beam will have a distinctive color and run through the whole setup.
+**4. Follow the optical path from source to detector, through the sample.** Although some physicists argue that ray optics is a mere simplification of wave optics, for all practical purposes light travels in straight lines until something bends it. Trace the beam. If the figure is drawn well, the beam will have a distinctive color and run through the whole setup.
 
 **5. Identify each component you cross, and ask what it is for.** Here you need to apply what you learnt from the previous section. Every component you cross has been chosen for a specific purpose.
 
@@ -52,7 +52,7 @@ Verdict: a fluorescence light-sheet microscope illuminating a single static plan
 
 The sheet is now made in time rather than in space. The beam stays a focused point, and the scanning mirror sweeps it rapidly across the field during a single camera exposure. Averaged over the exposure, the sample sees a sheet. The f-theta lens is the scan lens: it keeps the focused spot on a flat plane and makes its position proportional to the mirror angle, so the sweep is uniform.
 
-Why go to this trouble? Because a static sheet made by a cylindrical lens is illuminated coherently across its whole width, so scattering objects in the sample produce interference stripes across the field. A scanned sheet illuminates one point at a time, and the striping largely disappears. You also gain control: the sheet height, and therefore the trade-off between field of view and sheet thickness, becomes a software parameter rather than a choice of lens.
+Why go to this trouble? A cylindrical lens spreads the Gaussian profile of the laser across the width of the sheet, so the sheet is brightest in the middle and dims towards the edges of the field. To keep it reasonably uniform you have to use only its central part, which throws away most of the laser power. A scanned beam paints every line of the field with the same intensity, so the illumination is uniform and almost all of the light is used. You also gain control: the height of the sheet becomes a software parameter, set by the range of the mirror sweep rather than by a choice of lens, and the laser can be switched on and off during the sweep to write patterns into the sheet. The thickness of the sheet, and the distance over which it stays thin, are still set by the numerical aperture of the focused beam, exactly as in Chapter 5. The price is a moving part that must be synchronised with the camera, and a higher peak intensity at each point of the sample. Neither design removes the stripes cast by absorbing or scattering structures in the sample; that takes pivoting the sheet or illuminating from both sides.
 
 ```{tip}
 This pair of panels is a perfect illustration of the general principle that a schematic encodes a set of decisions. Both instruments produce a light sheet. One does it with a passive optic and no moving parts; the other with an active component, extra electronics and extra alignment. Knowing which one you are looking at tells you what compromises the authors were willing to make.

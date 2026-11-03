@@ -7,7 +7,7 @@ We will not repeat the axicon picture of Chapter 5.3. Instead we will look at th
 
 ## Thinking in the pupil
 
-Recall from Chapter 6.3 that the field in the back focal plane of a lens and the field at its focus are a Fourier pair. Read in the forward direction, this gives a very physical rule: _every point in the pupil becomes a plane wave at the focus_, travelling at an angle $\theta$ set by how far that point is from the centre. Light near the centre of the pupil becomes waves travelling almost along the axis; light near the edge becomes the steepest waves the objective can deliver, with $n\sin\theta$ equal to the numerical aperture.
+Recall from Chapter 6.1 that the field in the back focal plane of a lens and the field at its focus are a Fourier pair. Read in the forward direction, this gives a very physical rule: _every point in the pupil becomes a plane wave at the focus_, travelling at an angle $\theta$ set by how far that point is from the centre. Light near the centre of the pupil becomes waves travelling almost along the axis; light near the edge becomes the steepest waves the objective can deliver, with $n\sin\theta$ equal to the numerical aperture.
 
 A focused spot, a Gaussian sheet, a Bessel beam and a lattice are then simply four different ways of lighting the pupil:
 
@@ -37,7 +37,7 @@ Third, and this is the uncomfortable part, the side lobes are not a separate def
 ```{tip}
 **Worked example: predicting the length of a beam from its pupil.**
 
-A plane wave at angle $\theta$ to the axis has an axial wavevector $k_y = (2\pi n/\lambda_0)\cos\theta$. Two waves at the extreme angles of the annulus drift a full cycle out of step over a distance
+A plane wave at angle $\theta$ to the axis has an axial wavevector $k_z = (2\pi n/\lambda_0)\cos\theta$. Two waves at the extreme angles of the annulus drift a full cycle out of step over a distance
 
 $$ L \approx \frac{\lambda_0}{n\,(\cos\theta_{\min} - \cos\theta_{\max})}, \qquad n\sin\theta = \mathrm{NA}. $$
 

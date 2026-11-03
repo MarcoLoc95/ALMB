@@ -22,9 +22,9 @@ Emission spectra of the four families of light source on a common axis, with the
 
 ### Thermal lamps
 
-Heat something and it glows. At a few hundred degrees the glow is red, at a few thousand it is white with a blue cast. This is not an artefact of perception alone: hot bodies radiate a broad, smooth spectrum whose peak shifts to shorter wavelengths as the temperature rises, and the physics of it is the _black body radiation_ problem that so stubbornly resisted classical explanation that it eventually forced Planck to quantise energy, as we saw in {ref}`Chapter 1 <chap1_4>`.
+Heat something and it glows. At a few hundred degrees the glow is red, at a few thousand it is white with a blue cast. This is not an artefact of perception alone: hot bodies radiate a broad, smooth spectrum whose peak shifts to shorter wavelengths as the temperature rises, and the physics of it is the _black body radiation_ problem that so stubbornly resisted classical explanation that it eventually forced Planck to quantise energy.
 
-The practical version is the **tungsten-halogen lamp**. A tungsten filament sits inside a small quartz envelope filled with an inert gas and a trace of a halogen, usually iodine or bromine. Run a current through it and the filament reaches roughly 3000 K, hot enough that the peak of its emission sits around 900 nm, with the visible spectrum riding on the rising shoulder of the curve.
+The practical version is the **tungsten-halogen lamp**. A tungsten filament sits inside a small quartz envelope filled with an inert gas and a trace of a halogen, usually iodine or bromine. Run a current through it and the filament reaches roughly 3000 K, hot enough that the peak of its emission sits near 1 $\mu$m, with the visible spectrum riding on the rising shoulder of the curve.
 
 Any hot filament slowly evaporates, blackening the envelope and thinning itself until it breaks. The halogen fixes this with an elegant chemical trick: evaporated tungsten reacts with the halogen to form a volatile halide, which circulates until it reaches the filament, where the temperature is high enough to break it apart again and redeposit the metal. The filament recycles itself, and lifetimes of a couple of thousand hours are routine.
 
@@ -129,7 +129,7 @@ align: center
 Output power against time for a continuous wave and a pulsed laser delivering the same average power. The pulsed laser concentrates the same energy into a tiny fraction of the time, so its peak power is enormously higher. The inset shows the corresponding consequence in the spectral domain: short pulses are necessarily broadband.
 ```
 
-This matters because some processes depend not on how many photons arrive per second but on how many arrive at once. Two-photon absorption, which we will meet properly in {ref}`Chapter 8 <chap8>`, requires a molecule to absorb two photons within roughly a femtosecond of each other. The probability of that happening scales with the square of the instantaneous intensity, so squeezing your photons into short pulses buys you an enormous advantage without cooking the sample with average power.
+This matters because some processes depend not on how many photons arrive per second but on how many arrive at once. Two-photon absorption, which we met already in {ref}`Chapter 5.4 <chap5_4>`, requires a molecule to absorb two photons within roughly a femtosecond of each other. The probability of that happening scales with the square of the instantaneous intensity, so squeezing your photons into short pulses buys you an enormous advantage without cooking the sample with average power.
 
 ```{tip}
 **Worked example: peak power of a femtosecond laser.**
@@ -144,7 +144,7 @@ Peak power during the pulse:
 
 $$P_{\text{peak}} = \frac{E_{\text{pulse}}}{\tau} = \frac{10 \times 10^{-9} \ \text{J}}{100 \times 10^{-15} \ \text{s}} = 10^{5} \ \text{W} = 100 \ \text{kW}$$
 
-The duty cycle is $\tau f_{\text{rep}} = 10^{-5}$, so the laser is off 99.999% of the time. The sample experiences 1 W of heating but 100 kW of instantaneous intensity. That is the entire trick of multiphoton microscopy.
+The duty cycle is $\tau f_{\text{rep}} = 10^{-5}$, so the laser is off 99.999% of the time. The sample experiences 100 mW of heating but 10 kW of peak power. That is the entire trick of multiphoton microscopy.
 ```
 
 There is a price. Pulse duration and spectral width are Fourier conjugates, exactly as position and spatial frequency were in {ref}`Chapter 6 <chap6_1>`. A pulse cannot be shorter than the inverse of its bandwidth, and for a Gaussian pulse the relation is $\Delta \nu \, \Delta t \geq 0.441$. A 100 fs pulse at 800 nm therefore carries at least about 10 nm of bandwidth. Ultrashort pulses are broadband pulses, which is occasionally useful and occasionally a nuisance.

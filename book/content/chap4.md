@@ -14,7 +14,7 @@ width: 100%
 name: chap4_fluorescence_wrapper
 align: center
 ---
-No book on light microscopy is complete until it contains a pretty picture of fluorescent cells. So here is a collage of beautiful samples, fluorescently labelled. Credits (left to right, top to bottom): super-resolution image of a neuron from deep in the brain (Ilaria Testa, via Biohub on Facebook/Instagram); confocal image of a Macrocystis V-type gametophyte (Siobhan Braybrook, on X); confocal image of astrocytes in a culture of rat retinal cells (Sandra Correia, from the 2018 EMBL Photoclub calendar, CC BY-SA 3.0); confocal image of Bovine Pulmonary Artery Endothelial cells undergoing mitosis (Caleb Foster, from Dreamstime.com).
+No book on light microscopy is complete without a pretty picture of fluorescent cells, so here is a collage of beautiful fluorescently labelled samples from the Utrecht bioimaging competition. Credits (left to right, top to bottom): "Blooming neurons at dawn", hippocampal neurons, by Raphael Collot (PMC), winner 2024; mouse intestinal organoid by Merel van Luyk (UU); "The Visitor", mouse intestinal organoid with mis-oriented cell divisions, by Alessandro Corsini (Hubrecht), second prize 2023; "Neuronal sunflowers", motor neurons derived from human iPSCs, by Svetlana Pasteuning-Vuhman, winner 2019. Brightness and contrast adjusted for the composition.
 ```
 
 At the end of this chapter you should be able to:

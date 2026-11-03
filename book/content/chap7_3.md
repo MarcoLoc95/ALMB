@@ -25,7 +25,7 @@ And how many labels? Each additional colour costs you a laser line or an LED, a 
 
 ### Label to source and filters
 
-Once the fluorophore is fixed, its excitation spectrum fixes the wavelength you need, and the rest follows. An LED engine is cheap, stable and adequate for most fluorescent proteins in a widefield system. A laser is required whenever you need to focus into a diffraction-limited spot (any scanning technique), whenever you need coherence (interference-based methods), or whenever you simply need more power than a lamp can deliver. A pulsed laser is required for multiphoton excitation, and for nothing else in this course.
+Once the fluorophore is fixed, its excitation spectrum fixes the wavelength you need, and the rest follows. An LED engine is cheap, stable and adequate for most fluorescent proteins in a widefield system. A laser is required whenever you need to focus into a diffraction-limited spot (any scanning technique), whenever you need coherence (interference-based methods), or whenever you simply need more power than a lamp can deliver. A pulsed laser is required for multiphoton excitation, FLIM and CARS, and it is sometimes used in STED systems.
 
 The filter set follows mechanically from the fluorophore: an excitation band inside the absorption peak, a dichroic edge in the Stokes gap, and an emission band over the emission peak. Buy them as a matched cube unless you have a specific reason not to.
 

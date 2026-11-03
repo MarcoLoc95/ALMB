@@ -210,13 +210,19 @@ $$
 E(k_x,k_y) \propto \int_{0}^{2\pi}\int_{0}^{\frac{d}{2}} e^{-ir(k_x \cos\theta + k_y \sin\theta)} r drd\theta
 $$
 
-To the disappointment of the reader, this integral does not have a simple closed-form expression in terms of elementary functions, mainly due to the nesting of the cosine and sine inside the complex exponential. The solution involves what is called the **Bessel function** of the first kind of order one $J_1$:
+To the disappointment of the reader, this integral does not have a simple closed-form expression in terms of elementary functions, mainly due to the nesting of the cosine and sine inside the complex exponential. The solution involves what is called the **Bessel function** of the first kind of order one $J_1$. Written in terms of the radial spatial frequency $k_r=\sqrt{k_x^2+k_y^2}$, the intensity is
+
+$$
+I(k_r) \propto \frac{J_1\bigg(k_r\frac{d}{2}\bigg)^2}{k_r^2}
+$$
+
+As in the 1D case, $k_r = k\sin\alpha \approx k\,q/D$, where $k=\frac{2\pi}{\lambda}$ is the wave number and $q$ is the radial distance from the optical axis in the observation plane, so that
 
 $$
 I(q) \propto \frac{D^2}{d^2}\cdot\frac{J_1\bigg(k\frac{d}{2 D}q\bigg)^2}{k^2 \cdot q^2}
 $$
 
-where $k=\sqrt{k_x^2+k_y^2}=\frac{2\pi}{\lambda}$ is the wave number and $q$ is the radial distance from the optical axis in the observation plane. This pattern is called the **Airy disk**, after Sir George Biddell Airy.  
+This pattern is called the **Airy disk**, after Sir George Biddell Airy.
 
 Making the wavelength explicit:
 
@@ -349,7 +355,7 @@ The imaging of a point source leads to the formation of an Airy disk on the scre
 
 Therefore, using an objective, or more in general an imaging system, to measure a point source will always lead to a diffraction-limited spot. You can think that is due to the impossibility of fully reconstructing the source profile, as we lose a large part of the spherical waves, even those travelling in the opposite direction compared to the imaging pathway.
 
-Since tube lenses are much bigger in size than any objective lens, the main limiting factor in the resolution is the numerical aperture of the _objective_ lens $NA_{\text{obj}}$. 
+The resolution is set by the widest angle of light collected from the specimen, that is, by the numerical aperture of the _objective_ lens $NA_{\text{obj}}$. The tube lens only needs to be large enough to accept the whole parallel beam leaving the objective, which in a well-designed microscope it is, so it does not limit the resolution.
 
 Rayleigh's criterion for resolution
 ---

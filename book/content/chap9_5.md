@@ -58,7 +58,7 @@ MINFLUX therefore works **iteratively** (_{numref}`Fig. {number} <chap9_minflux_
 
 ```{figure} ../figures/chap9_minflux_iterative.gif
 ---
-width: 55%
+width: 100%
 name: chap9_minflux_iterative
 align: center
 ---

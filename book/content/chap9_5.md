@@ -120,13 +120,13 @@ MINSTED, introduced by Michael Weber, Stefan Hell and colleagues in 2021, applie
 
 In MINSTED, this E-PSF is moved on a circle of radius $R$ around the current estimate of the position of a single active molecule. The molecule emits most strongly when the E-PSF passes closest to it. Each time a photon is detected, the estimated position is moved a small step toward the point where the E-PSF was at that moment. Photon by photon, the center of the circle converges onto the molecule; meanwhile the STED power is increased and the circle shrunk, so that the E-PSF becomes smaller and its edge steeper (_{numref}`Fig. {number} <chap9_minsted>`_, right). The localization precision scales with the size of the E-PSF divided by $\sqrt{N}$, the analogue of $L/\sqrt{N}$ in MINFLUX.
 
-```{figure} ../figures/chap9_minsted.png
+```{figure} ../figures/chap9_minsted.gif
 ---
 width: 100%
 name: chap9_minsted
 align: center
 ---
-MINSTED. Left: a STED doughnut shrinks the excitation spot to a small effective PSF (E-PSF). Right: simulated localization. The E-PSF (green) circles around the estimated position (dashed and dotted circles at the start and end); each detected photon moves the estimate a small step, and the trajectory (blue) converges onto the molecule (star) while the circle and the E-PSF shrink.
+MINSTED (simulated). Left: a STED doughnut shrinks the excitation spot to a small effective PSF (E-PSF), which becomes narrower as the STED power is increased during the localization. Right: the E-PSF (green disk) circles around the current estimate (blue cross). Each detected photon (orange) moves the estimate a small step toward where the E-PSF was at that moment, so the estimate converges onto the molecule (star) while the circle and the E-PSF shrink.
 ```
 
 Using STED to define the probing spot brings an advantage: the doughnut also switches off any other molecule or background fluorescence around the spot, so MINSTED is less sensitive to background than MINFLUX. Because the STED beam is red-shifted and is not absorbed by the dye in its ground state, the light dose seen by the molecule remains moderate. MINSTED has reached localization precisions of about one nanometer, and later reports pushed it into the Ångström range on fixed samples (_{numref}`Fig. {number} <chap9_ex_minsted>`_).
@@ -134,7 +134,7 @@ Using STED to define the probing spot brings an advantage: the doughnut also swi
 % TODO: verify source and add reference
 ```{figure} ../figures/chap9_ex_minsted.png
 ---
-width: 70%
+width: 100%
 name: chap9_ex_minsted
 align: center
 ---

@@ -25,25 +25,29 @@ details.q ol{margin:6px 0 0 0;padding-left:20px;line-height:1.45}
 button{font-size:.84rem;padding:4px 10px;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:pointer}
 input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 
-.pan.wide{max-width:380px;flex:1.4 1 0}
-.imgs{max-width:640px;margin:12px auto 0}
+.pan.sm{max-width:200px;min-width:150px}
+.pan.wide{max-width:380px;flex:1.9 1 0}
+.imgs{max-width:640px;margin:8px auto 0}
 .imgs canvas{width:100%;height:auto;display:block;border-radius:6px;background:#000}
-.imgs .lab{font-size:.84rem;font-weight:600;margin:6px 0 3px}
+.ctrls.three{grid-template-columns:repeat(3,1fr);gap:6px 18px;margin-top:8px}
+@media(max-width:600px){.ctrls.three{grid-template-columns:1fr}}
+.read{margin:6px 2px;padding:6px 10px;font-size:.82rem;line-height:1.55}
+.cap{margin-top:3px}
 </style></head><body><div class="wg">
 <div class="row">
- <div class="pan"><canvas id="cM" width="240" height="240"></canvas><div class="cap">STED light at the sample. Dashed line: I = I<sub>s</sub>; inside it, molecules can still fluoresce.</div></div>
- <div class="pan light wide"><canvas id="cP" width="380" height="240"></canvas><div class="cap">Cross-section through the focus: effective PSF = excitation × fraction still fluorescing</div></div>
+ <div class="pan sm"><canvas id="cM" width="200" height="200"></canvas><div class="cap">STED light; dashed: I = I<sub>s</sub></div></div>
+ <div class="pan light wide"><canvas id="cP" width="380" height="200"></canvas><div class="cap">Effective PSF = excitation × fraction still fluorescing</div></div>
 </div>
 <div class="imgs">
- <div class="lab">Confocal</div><canvas id="cC" width="640" height="118"></canvas>
- <div class="lab">STED</div><canvas id="cS" width="640" height="118"></canvas>
- <div class="cap">Pairs of short lines with decreasing spacing (blue ticks: true positions), imaged with the same excitation. Each image is scaled to its own maximum.</div>
+ <canvas id="cC" width="640" height="92"></canvas>
+ <canvas id="cS" width="640" height="92" style="margin-top:4px"></canvas>
+ <div class="cap">Line pairs at decreasing spacing (blue ticks: true positions). Each image is scaled to its own maximum.</div>
 </div>
 <div class="read" id="rd"></div>
-<div class="ctrls">
- <div class="ctl"><label for="z"><span>STED intensity I / I<sub>s</sub></span><span class="v" id="zv"></span></label><input type="range" id="z" min="0" max="200" step="1" value="30"><div class="h">Peak intensity of the doughnut. Proportional to the STED power, and to the light dose on the sample.</div></div>
- <div class="ctl"><label for="eps"><span>Intensity left in the doughnut center</span><span class="v" id="epsv"></span></label><input type="range" id="eps" min="0" max="5" step="0.1" value="0"><div class="h">A perfect zero is 0%. Aberrations and polarization errors fill it in.</div></div>
- <div class="ctl"><label for="mis"><span>Doughnut misalignment</span><span class="v" id="misv"></span></label><input type="range" id="mis" min="0" max="80" step="2" value="0"><div class="h">Offset between the doughnut zero and the excitation center, along x.</div></div>
+<div class="ctrls three">
+ <div class="ctl"><label for="z"><span>STED intensity I / I<sub>s</sub></span><span class="v" id="zv"></span></label><input type="range" id="z" min="0" max="200" step="1" value="30"><div class="h">Proportional to STED power and light dose.</div></div>
+ <div class="ctl"><label for="eps"><span>Light left in the center</span><span class="v" id="epsv"></span></label><input type="range" id="eps" min="0" max="5" step="0.1" value="0"><div class="h">0% is a perfect zero.</div></div>
+ <div class="ctl"><label for="mis"><span>Doughnut misalignment</span><span class="v" id="misv"></span></label><input type="range" id="mis" min="0" max="80" step="2" value="0"><div class="h">Offset of the zero along x.</div></div>
 </div>
 </div>
 <script>
@@ -55,7 +59,7 @@ function gauss(){let u=0; while(u===0)u=rnd(); return Math.sqrt(-2*Math.log(u))*
 function exc(x,y){return Math.exp(-4*LN2*(x*x+y*y)/(DC*DC));}
 function don(x,y,e,d){const r2=((x-d)**2+y*y)/(R0*R0); return e+(1-e)*r2*Math.exp(1-r2);}
 // test sample: pairs of vertical segments
-const SEPS=[300,180,120,80,50,30], PITCH=440, IW=Math.round(PITCH*SEPS.length/S)+40, IH=40, LEN=150;
+const SEPS=[300,180,120,80,50,30], PITCH=440, IW=Math.round(PITCH*SEPS.length/S)+40, IH=30, LEN=150;
 const PTS=[]; SEPS.forEach((s,k)=>{const cx=(k+0.5)*PITCH+100; for(const sx of [-s/2,s/2]) for(let y=-LEN/2;y<=LEN/2;y+=S) PTS.push([cx+sx,y]);});
 function psfs(){
   const Z=+z.value, E=+eps.value/100, D=+mis.value;
@@ -71,13 +75,14 @@ function image(psf,photons,sd){
   return {im,W,H,mx};
 }
 let CONF=null;
-function drawImg(id,r,cm){const cv=document.getElementById(id), g=cv.getContext("2d"), d=g.createImageData(r.W,r.H);
+function drawImg(id,r,cm,label){const cv=document.getElementById(id), g=cv.getContext("2d"), d=g.createImageData(r.W,r.H);
   for(let k=0;k<r.W*r.H;k++){const c=cm(r.im[k]/r.mx); d.data[4*k]=c[0]; d.data[4*k+1]=c[1]; d.data[4*k+2]=c[2]; d.data[4*k+3]=255;}
   const t=document.createElement("canvas"); t.width=r.W; t.height=r.H; t.getContext("2d").putImageData(d,0,0);
   g.fillStyle="#000"; g.fillRect(0,0,cv.width,cv.height); const sc=cv.width/r.W, h=Math.min(r.H*sc,cv.height-20);
   g.imageSmoothingEnabled=true; g.drawImage(t,0,0,cv.width,h);
   g.fillStyle="#ddd"; g.font="12px sans-serif"; g.textAlign="center";
   SEPS.forEach((s,k)=>g.fillText(s+" nm",((k+0.5)*PITCH+100)/S*sc,cv.height-5));
+  g.fillStyle="#fff"; g.font="bold 12px sans-serif"; g.textAlign="left"; g.fillText(label,8,22);
   // true line positions
   g.fillStyle="#9ad0ff"; SEPS.forEach((s,k)=>{const cx=(k+0.5)*PITCH+100; [-s/2,s/2].forEach(dx=>{const x=(cx+dx)/S*sc; g.fillRect(x-0.75,0,1.5,7);});});
   g.textAlign="left";
@@ -120,7 +125,7 @@ function draw(){
   const r=psfs(); drawMap(r); drawPlot(r);
   if(!CONF) CONF=image(r.X,6,11);
   const st=image(r.P,6,11);
-  drawImg("cC",CONF,hot); drawImg("cS",st,hot);
+  drawImg("cC",CONF,hot,"Confocal"); drawImg("cS",st,hot,"STED");
   let pk=0,cx=0,sw=0; for(let j=0;j<M;j++) for(let i=0;i<M;i++){const w=r.P[j*M+i]; pk=Math.max(pk,w); cx+=w*(i-HALF)*S; sw+=w;} cx/=sw;
   const fx=fwhm(Array.from(r.P.subarray(HALF*M,(HALF+1)*M)));
   rd.innerHTML=`Effective PSF: FWHM <b>${isNaN(fx)?"n/a":Math.round(fx)+" nm"}</b> (formula λ/2NA√(1+I/I<sub>s</sub>) = ${Math.round(DC/Math.sqrt(1+r.Z))} nm) &nbsp; peak brightness <b>${(pk*100).toFixed(0)}%</b> of confocal`+

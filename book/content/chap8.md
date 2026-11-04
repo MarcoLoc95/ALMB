@@ -10,13 +10,13 @@ This chapter asks different questions. Not only where a molecule is, but how fas
 - **What is the environment around a fluorophore?** Section 8.3 replaces the brightness of a fluorophore with its lifetime, which turns out to be a far more trustworthy observable.
 - **What can the sample tell us without any label?** Section 8.4 uses the same pulsed lasers as multiphoton microscopy to generate contrast from collagen, membranes and chemical bonds directly.
 
-```{figure} ../figures/chap8_collage.png
+```{figure} ../figures/chap8_collage.gif
 ---
-width: 90%
+width: 100%
 name: chap8_collage
 align: center
 ---
-A gallery of what the techniques in this chapter can do. A neutrophil-like cell crawling through a collagen matrix, recorded with lattice light-sheet microscopy; a fluorescence lifetime map of a zebrafish embryo expressing a voltage sensor; second-harmonic generation from collagen; third-harmonic generation outlining every cell of a zebrafish embryo; and engineered cartilage imaged with SHG and CARS together, with collagen in cyan and lipid deposits in orange. The last three required no label of any kind.
+Four techniques from this chapter at work. Credits (left to right, top to bottom): a dividing *C. elegans* embryo imaged in 3D by lattice light-sheet microscopy, with DNA in green and mostly cell membranes in red ([Chen et al. 2014](https://doi.org/10.1126/science.1257998); video courtesy Betzig lab, HHMI/Science, GIF by Joss Fong/Vox); full-spectrum CARS image of tissue ([Vernuccio et al. 2023](https://doi.org/10.1021/acs.jpcb.3c01443), J. Phys. Chem. B); FRAP in a filament of the cyanobacterium *Anabaena*, where a bleached cell recovers as the dye diffuses in from its neighbours (Jan Bornikoel and Iris Maldener, [University of Tübingen](https://uni-tuebingen.de/de/103364)); live 3D FRET-FLIM of a patient-derived organoid expressing an ERK biosensor, where higher FRET efficiency means higher ERK activity ([Leica Microsystems](https://www.nature.com/articles/d42473-019-00261-x)). Brightness, contrast and playback speeds adjusted for the composition.
 ```
 
 ## Advanced, but still diffraction limited

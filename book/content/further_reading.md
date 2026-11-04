@@ -2,6 +2,12 @@
 
 This chapter collects the sources behind each chapter of the book and the resources we recommend for going deeper. Within each chapter, the entry highlighted in green is the best next step for most readers; the others go deeper or cover specific techniques. Entries marked *(free)* can be read or watched without a subscription.
 
+```{image} ../figures/photon_reading_light.gif
+:alt: A cute photon with reading glasses reading a book
+:width: 320px
+:align: center
+```
+
 ## Textbooks
 
 ```{container} start-here

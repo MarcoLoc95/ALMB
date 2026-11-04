@@ -1,18 +1,22 @@
-/* Green "start here" blocks in Further reading (```{container} start-here```) */
-.start-here {
+/* Green "start here" blocks in Further reading (```{container} start-here```).
+   The directive also adds Bootstrap's "container" class, whose padding and
+   margins override simple rules, hence the more specific selector and !important. */
+div.start-here.docutils.container {
   background: #eef7ee;
   border-left: 4px solid #4caf50;
   border-radius: 6px;
-  padding: 0.75rem 1rem;
-  margin: 0.75rem 0 1rem;
+  padding: 0.8rem 1.25rem !important;
+  margin: 0.75rem 0 1.25rem 0 !important;
+  max-width: none !important;
+  width: auto !important;
 }
 
-.start-here > p:last-child {
+div.start-here.docutils.container > p:last-child {
   margin-bottom: 0;
 }
 
 /* Dark mode of the book theme */
-html[data-theme="dark"] .start-here {
+html[data-theme="dark"] div.start-here.docutils.container {
   background: rgba(102, 187, 106, 0.14);
   border-left-color: #66bb6a;
 }

@@ -57,6 +57,6 @@ parts:
         - file: content/chap9_3.md
         - file: content/chap9_4.md
         - file: content/chap9_5.md
-    - caption: Resources
-      chapters:
-       - file: content/further_reading.md
+  - caption: Resources
+    chapters:
+    - file: content/further_reading.md

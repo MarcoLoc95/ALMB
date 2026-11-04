@@ -16,4 +16,5 @@ Text and original figures are licensed under CC BY 4.0. Figures reproduced from 
 ```{image} figures/intro_animation_light.gif
 :alt: Light focused by a lens onto a fluorescent molecule that emits green fluorescence
 :width: 100%
+:class: no-scaled-link
 ```

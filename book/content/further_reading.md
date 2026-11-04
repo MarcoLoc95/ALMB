@@ -6,6 +6,7 @@ This chapter collects the sources behind each chapter of the book and the resour
 :alt: A cute photon with reading glasses reading a book
 :width: 320px
 :align: center
+:class: no-scaled-link
 ```
 
 ## Textbooks

@@ -1,0 +1,18 @@
+/* Green "start here" blocks in Further reading (```{container} start-here```) */
+.start-here {
+  background: #eef7ee;
+  border-left: 4px solid #4caf50;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.start-here > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Dark mode of the book theme */
+html[data-theme="dark"] .start-here {
+  background: rgba(102, 187, 106, 0.14);
+  border-left-color: #66bb6a;
+}
